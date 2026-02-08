@@ -5,7 +5,7 @@
 | Lecture | Notes | Date Updated |
 |---|---|---|
 | [Lecture 01 - Build DeepSeek from Scratch: Series Introduction](https://www.youtube.com/watch?v=QWNxQIq0hMo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=1)|  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| |
-| [Lecture 02]()|  [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md)| |
+| [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=2)|  [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md)| |
 | [Lecture 03]()|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md)| |
 | [Lecture 04]()|  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md)| |
 | [Lecture 05]()|  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md)| |

@@ -8,7 +8,9 @@
 | [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=2)|  [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md)| |
 | [Lecture 03 - LLM Architecture in 1 hour - Journey of token through the LLM Architecture](https://www.youtube.com/watch?v=rkEYwH4UGa4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md)| |
 | [Lecture 04 - The Attention Mechanism 1 hour explanation](https://www.youtube.com/watch?v=K45ze9Yd5UE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md)| |
-| [Lecture 05]()|  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md)| |
+| [Lecture 05 - The Attention Mechanism 1 hour explanation](https://www.youtube.com/watch?v=K45ze9Yd5UE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md)| |
+
+
 | [Lecture 06]()|  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md)| |
 | [Lecture 07]()|  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md)| |
 | [Lecture 08]()|  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md)| |

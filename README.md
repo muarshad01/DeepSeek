@@ -15,6 +15,7 @@
 | [Lecture 06 - Causal Attention Explained: Don't Peek into the Future!](https://www.youtube.com/watch?v=c6Kkj6iLeBg&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md)| |
 | [Lecture 07 - Multi-Head Attention Visually Explained](https://www.youtube.com/watch?v=qbN4ulK-bZA&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md)| |
 | [Lecture 08 - Multi-Head Attention Handwritten from Scratch](https://www.youtube.com/watch?v=rvsEW-EsD-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md)| |
+|---|---|---|
 | [Lecture 09 - Key Value Cache from Scratch: The good side and the bad side](https://www.youtube.com/watch?v=IDwTiS4_bKo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md)| |
 | [Lecture 10 - Multi-Query Attention Explained - Dealing with KV Cache Memory Issues Part 1](https://www.youtube.com/watch?v=Z6B51Odtn-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md)| |
 | [Lecture 11 - Understand Grouped Query Attention (GQA) - The final frontier before latent attention](https://www.youtube.com/watch?v=kx3rETIxo4Q&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md)| |

@@ -27,11 +27,13 @@
 | [Lecture 16 - Rotary Positional Encodings - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md)| |
 |---|---|---|
 | [Lecture 17 - How DeepSeek exactly implemented Latent Attention - MLA + RoPE](https://www.youtube.com/watch?v=m1x8vA_Tscc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md)| |
+|---|---|---|
 | [Lecture 18 - Mixture of Experts (MoE) Introduction](https://www.youtube.com/watch?v=v7U21meXd6Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md)| |
 | [Lecture 19 - Mixture of Experts Hands on Demonstration - Visual Explanation](https://www.youtube.com/watch?v=yw6fpYPJ7PI&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes19](https://github.com/muarshad01/LLM/blob/main/Notes/lecture19_notes.md)| |
 | [Lecture 20 - Mixture of Experts Balancing Techniques - Auxiliary Loss - Load Balancing - Capacity Factor](https://www.youtube.com/watch?v=nRadcspta_8&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes20](https://github.com/muarshad01/LLM/blob/main/Notes/lecture20_notes.md)| |
 | [Lecture 21 - How DeepSeek rewrote Mixture of Experts (MoE)?](https://www.youtube.com/watch?v=KnSIZ83iPKs&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes21](https://github.com/muarshad01/LLM/blob/main/Notes/lecture21_notes.md)| |
 | [Lecture 22 - Code Mixture of Experts (MoE) from Scratch in Python](https://www.youtube.com/watch?v=W7ktPe1HfZs&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes22](https://github.com/muarshad01/LLM/blob/main/Notes/lecture22_notes.md)| |
+|---|---|---|
 | [Lecture 23 - Multi-Token Prediction Introduction](https://www.youtube.com/watch?v=tMtHAAg0UT4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes23](https://github.com/muarshad01/LLM/blob/main/Notes/lecture23_notes.md)| |
 | [Lecture 24 - How DeepSeek rewrote Multi-Token Prediction (MTP)?](https://www.youtube.com/watch?v=4GmwJLvwaXE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes24](https://github.com/muarshad01/LLM/blob/main/Notes/lecture24_notes.md)| |
 | [Lecture 25 - Multi Token Prediction (MTP) Coded from Scratch](https://www.youtube.com/watch?v=lyHe8_JHoVI&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes25](https://github.com/muarshad01/LLM/blob/main/Notes/lecture25_notes.md)| |

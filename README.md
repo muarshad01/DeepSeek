@@ -1,5 +1,5 @@
 ## DeepSeek
-1. [Build DeepSeek from Scratch](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)
+* [Build DeepSeek from Scratch by Vizura](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)
 
 
 | Lecture | Notes | Date Updated |

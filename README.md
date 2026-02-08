@@ -1,7 +1,6 @@
 ## Build DeepSeek from Scratch
 * [Book - Build a DeepSeek Model (From Scratch) Raj Abhijit Dandekar et al. (June 2026)](https://www.amazon.com/Build-DeepSeek-Scratch-Abhijit-Dandekar/dp/163343432X/ref=sr_1_1?crid=2LUC6MVW83U8S&dib=eyJ2IjoiMSJ9.eQJGSpzHuCjoIweVeAcJ_PtXrSaFbaF7k9s0AIXyp990jsrxFUCNXde2CiflJn3hRT0_2b2hdDEDZX9baXwEBkLufGK4la0nPH0t3EkMX1N4qWwjomsjvoaQhOwFcfgqmPqJDcVrOuJCMufK38RUzfv7MRfglJDi1gmO3HHyKivZ3t12X72NymF01IOBExUgh83lAGeNDx6LHqZoRuYJlg.yR9YP39UT5uUbBXQmGCI4ixXqiA1lxFD5RHDuwIv1uU&dib_tag=se&keywords=deepseek+from+scratch&qid=1768319033&sprefix=deepseek+from+s%2Caps%2C106&sr=8-1)
 * [ALL Video Lectures](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)
-* []()
 
 *** 
 

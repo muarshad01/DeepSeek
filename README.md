@@ -18,7 +18,7 @@
 | [Lecture 12 - Multi-Head Latent Attention From Scratch - One of the major DeepSeek innovation](https://www.youtube.com/watch?v=NlDQUj1olXM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
 | [Lecture 13 - Multi-Head Latent Attention Coded from Scratch in Python](https://www.youtube.com/watch?v=mIaWmJVrMpc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md)| |
 | [Lecture 14 - Integer and Binary Positional Encodings - Journey towards Rotary Positional Encodings (RoPE)](https://www.youtube.com/watch?v=rP0CoTxe5gU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes14](https://github.com/muarshad01/LLM/blob/main/Notes/lecture14_notes.md)| |
-| [Lecture 15 - All about Sinusoidal Positional Encodings | What’s with the weird sin-cos formula?](https://www.youtube.com/watch?v=bQCQ7VO-TWU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md)| |
+| [Lecture 15 - All about Sinusoidal Positional Encodings - What’s with the weird sin-cos formula?](https://www.youtube.com/watch?v=bQCQ7VO-TWU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes15](https://github.com/muarshad01/LLM/blob/main/Notes/lecture15_notes.md)| |
 | [Lecture 16]()|  [Notes16](https://github.com/muarshad01/LLM/blob/main/Notes/lecture16_notes.md)| |
 | [Lecture 17]()|  [Notes17](https://github.com/muarshad01/LLM/blob/main/Notes/lecture17_notes.md)| |
 | [Lecture 18]()|  [Notes18](https://github.com/muarshad01/LLM/blob/main/Notes/lecture18_notes.md)| |

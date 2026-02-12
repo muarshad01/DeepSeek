@@ -2,14 +2,16 @@
 
 
 
-#### Part-1: Innovative Architecture
+***
 
+#### Part-1: Innovative Architecture
 * Multi-head Latent Attention (MLA)
 * Mixture of Experts (MoE)
 * Multi-token Prediction (MTP)
 * Quantization
 * Rotary Positional Encoding (RoPE)
 
+***
 
 #### Multi-head Latent Attention (MLA)
 We need to understand the following concepts to truly understand MLA:
@@ -17,121 +19,10 @@ We need to understand the following concepts to truly understand MLA:
 * Self-Attention
 * Multi-head Attention
 * Key Value (KV) Cache
-* 
 
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
-0:20
-how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below
-2:03
-hello everyone and welcome to this lecture in the build deep seek from
-2:09
-scratch Series in the previous lecture we learned about the four phases in which
-2:17
-we are going to divide the lecture series the first phase is going to be the Innovative architecture behind deep
-2:26
-seek so that's phase number one right over here phase number two is the
-2:31
-training methodology itself the rise of reinforcement learning and how they
-2:37
-relied on RL to teach complex reasoning to the model using rule-based reward
-2:43
-systems that's phase number two phase number three is GPU
-2:48
-optimization tricks so how they used nvidia's parallel thread execution PTX
-2:55
-or Cuda let's say and phase number four is their model EOS e system itself so
-3:01
-they did not stop at just building a huge 671 billion parameter model but
-3:07
-that large model was essentially distilled down into a much smaller model
-3:13
-whose size was around uh 1.5 billion parameters so that's essentially phase
-3:20
-number four um we are going to go through phase number one to phase number two phase
-3:27
-number three and phase number four and in this lecture today we are going to
-3:32
-start with phase number one which is essentially the Innovative architecture behind deep
-3:39
-seek and what makes it so efficient the two major aspects of their architecture
-3:47
-which contribute to the Deep seek efficiency is essentially something called multi-head latent attention
-3:54
-MLA which makes the attention mechanism itself more efficient and second is the
-4:00
-mixture of experts which means that although the number of parameters is 671
-4:06
-billion all of those parameters are not active at the same time only about 37
-4:11
-billion parameters are so essentially parts of the parameters are turned off
-4:17
-and parts are turned on like light bulbs going on and off and that makes the
-4:24
-model extremely efficient in its computations parameters which are not needed are turned off
-4:30
-when they are needed they are suddenly turned on and then they start working right then we have multi token
-4:36
-prediction quantization and rotary positional encodings as well which we are going to learn
-4:42
-about so the first thing which I want to teach you is multi-head latent
-4:48
-attention and then I was thinking about how to exactly teach this concept right because the concept itself is pretty
-4:56
-Advanced so if you search about multihead uh if you search about multi-head latent
-5:03
-attention you'll get certain blog posts which talk about this so they do talk
-5:08
-about essentially uh what multihead attention is and if you scroll down here below
-5:16
-you'll see that it's just one page of this blog article and they start out
-5:21
-with multiquery attention grouped query attention and they go to Rotary positional encoding and then there is a
-5:28
-very small section on multihead latent attention which is impossible for a person to understand if if they are just
-5:36
-starting out to explore what deep sick is and so I don't want to follow that approach of just going through a simple
-5:43
-lecture and explaining MLA by assuming that you know the prerequisite
-5:49
-knowledge instead as I mentioned to you at the start of the series itself I want
-5:54
-to make this lecture series very deep so the way I'm going to explain multi-head latent attention is through a four-part
-6:02
+***
+
+
 process first we are going to understand the architecture of llms itself and
 6:08
 that's going to be the main purpose of today's lecture I believe that without having an intuition of the llm
@@ -1165,5 +1056,6 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 

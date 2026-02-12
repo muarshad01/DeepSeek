@@ -64,93 +64,14 @@ A true friend accepts you
 The dog chased another dog
 ```
 
+* __Phase-5__: Add token embedding to positional embedding.
+  * Input embedding = Token embedding + Positional embedding
+
+* __Phase-6__: Now, you're finally ready to onboard the train to the Transformer block.
+
+
 ***
 
-needs to be done for every token it essentially has to go through a huge number of tests and then in Step number
-35:46
-five what we do is that we add the result of your token embeddings plus the positional embeddings so you don't have
-35:52
-to carry these two results separately anymore you merge both of them so the token embedding which is now 768
-35:59
-dimensional vector and the position embedding which is now 768 dimensional Vector is added together and that is
-36:07
-what is called as input embedding so this is the input embedding
-36:12
-for the token which is frint that's a 768 dimensional Vector we'll have similar input
-36:18
-embeddings for all the other tokens or all the other words but here I showing to you the input embedding for the token
-36:24
-which is sprinted that's the result of the token embedding plus the positional embedding so now you don't have to carry
-36:30
-these two results separately you just carry one result that's now the
-36:36
-768 dimensional Vector which is associated with u as a token that is the most important
-36:43
-distinguishing Factor you carry with you in the rest of the journey now think of
-36:48
-the journey right you are first isolated you are given the badge you're given the first test of token embedding second
-36:54
-test of token embedding finally after going through all of this steps you now
-36:59
-have one thing to distinguish you and that's the input embedding so you can
-37:04
-think of this as your uniform now this is a uniform which is specially created for you and you wear
-37:10
-that uniform as a token every friend or every token along
-37:16
-with you every other word along with you will wear a separate uniform why will they wear a separate uniform because
-37:23
-their meanings would be different so they would answer these questions differently their position positions would be different so they would answer
-37:29
-these questions separately so the uniform for every token will be
-37:34
-different and until this stage what we have done until now these five steps
-37:39
-which we saw are essentially what is happening in the input block or the
-37:45
-input layer so that's the first part which we have studied until now uh and
-37:50
-now I think these three steps which have been mentioned here will be very easy for you to understand the first is the
-37:56
-tokenization the second is the token embedding the third is the positional embedding that's exactly what we saw
-38:03
-right and then the token embedding and the positional embedding are added together to give something which is called as the input
-38:09
-embedding that's all which happens and remember the tokenized text here we saw
-38:16
-the token ID assignment through the vocabulary or through the book of token
-38:21
-IDs so that's the input embedding after every token goes through the input block
-38:28
-which is Phase part number one over here they have a uniform which distinguishes them from the other tokens all right so
-38:35
-that's the first part which is the input then once you have an uniform only then
-38:41
-you are ready to go to the next part which is the processor so as a token you have a
-38:47
-uniform now and now you're ready to unboard the train to the Transformer block so it's similar to Harry Potter
-38:54
-let's say where you can go to the school only if you have let's say a certain uniform you you belong to a certain
-39:00
-house let's say Gryffindor or Raven Club Slytherin Etc so every word or every
-39:07
-token now has a uniform and now you're are finally ready to onboard the train to the Transformer block so here you see
-39:14
-these five will be sitting together in the Transformer block a true friend accepts you and whenever I show uniform
-39:21
-right now you should think that the uniform means a 768 dimensional Vector every token now so the trans for the
-39:28
-Transformer block it does not understand words it does not even understand the meanings of words all currently all it
-39:36
-essentially knows is that every token is a 7608 dimensional Vector some magical
-39:42
-things will happen in the Transformer block so that the meanings between different tokens will be understood very clearly and the model itself will learn
-39:49
-about the language so the Transformer block essentially is where all the magic
-39:55
-happens the second processor part is where really everything is happening
-40:01
-this this part over here this processor part is really where all the magic happens and how so you might be thinking
 40:09
 that how do llms work so well um they they almost interact with me as a
 40:14
@@ -545,6 +466,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

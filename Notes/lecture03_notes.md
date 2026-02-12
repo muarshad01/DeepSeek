@@ -89,118 +89,6 @@ The dog chased another dog
 ***
 
 
-here there is one step of normalization here which is called as the final layer
-50:11
-normalization so that step of normalization is mentioned over
-50:16
-here so every 768 dimensional Vector again goes through this stage of
-50:22
-normalization and then we have one last layer which is very important so remember now that we have reached the
-50:28
-last layer we have uh a true so this is
-50:33
-a true friend needs you and each of these is a
-50:39
-760 a dimensional Vector right now we have to somehow convert the
-50:45
-768 Dimensions into our vocabulary size which is 50,000 because now we have to
-50:50
-predict the next token so then every token is essentially passed through a
-50:55
-neural network whose size is 50,000 or size is uh 768 multiplied
-51:04
-50,000 so that when these vectors are multiplied with this we result into
-51:10
-50,000 dimensional vectors for each token so now the uh size for each token
-51:16
-is that a true friend needs
-51:22
-you right the size for each token now is going to be 50 ,000 after it passes
-51:27
-through the output layer this layer is also called as the output projection
-51:33
-layer and after every token goes through the output projection layer it has a dimension equal to the vocabulary size
-51:40
-so remember our vocabulary size is equal to 50,000 so this 50,000 is coming from the
-51:46
-vocabulary size and I'm just going to explain why do we need its Dimensions to be equal to the vocabulary size and the
-51:52
-final last step is choosing the next token right so now once we have reached the last step what do we have we have
-51:59
-five tokens a true friend accepts you and for each of these we have a 50,000 dimensional Vector now what we are going
-52:06
-to do is that we are going to look at these 50,000 Dimensions we are going to look at that index which has the highest
-52:12
-value or the highest probability then we are going to find that index over here and then we are going to look for its
-52:19
-corresponding token that's it so if the index here is so for the
-52:24
-first uh uh the so a true friend accepts you right
-52:30
-there are multiple input output tasks here when a is the input true should be the output when a true is the input
-52:36
-friend should be the output when a true friend is the input accept should be the output when a true friend accepts is the
-52:43
-input you is the output when a true friend accepts you is the input something else will be the output which
-52:48
-is for so a true friend accepts you if you look at this sentence and you have to
-52:54
-predict the next token it's not not just one next token prediction tasks there are multiple input output tasks within
-53:01
-this same sentence what are these input output prediction tasks when a is the input true should be the output Etc and
-53:08
-only the final thing here is relevant for us which is the next token
-53:14
-prediction initially we'll of course not get good tokens right but we'll have the loss
-53:20
-function which is based on the actual values so this is the actual next token which I want but the predicted ones
-53:27
-initially will be completely far off and that's when back propagation comes into
-53:32
-the picture when all the parameters which are there they are actually optimized we'll come to that in a moment
-53:38
-but for now just let me explain the final step again we have every token and
-53:44
-now every token is associated with a different uniform let's say whose dimensions are
-53:50
-50,000 why do we have Dimensions 50,000 because we have to predict the next token for every word which is is over
-53:56
-here so for o we have to predict the next token so we look at that index which is the highest or that token
-54:03
-ID which has the highest probability here we go to the book of the words or book of token IDs and then we reverse
-54:11
-map the word which is corresponding to that token ID so if this token ID here is let's say 555 or this token ID is
-54:19
-5,000 I go to the word here which is 5,000 and I ideally want true over here
-54:26
-but initially when things are not train maybe have four so the actual prediction
-54:31
-might be four similarly I'll get the actual predictions for True maybe the highest
-54:37
-token ID is here friend here and then I'll get the highest token ID here and
-54:44
-that's how I'll predict the next token for each of these and then I'll find the loss term between the actual value and
-54:50
-the predicted value that's how the entire architecture of the llm is structured so now if if
-54:56
-you go to the output layer which is my final layer here you see we have two things
-55:01
-which are changed to each other right we have the final layer normalization layer which is connected to the output layer
-55:08
-and then we have the Matrix for next token prediction this logits Matrix is this this logits Matrix is this this one
-55:16
-which I showed to you right now and we use that to make the next token prediction so now you might be thinking
-55:23
-that what are all the parameters which are optimized here so right from the start itself these token embedding
-55:29
-values which are there we do not know them a prior so let me Mark the parameters which are trained by a star
-55:36
-
-
-
-***
-
-
 these we do not know a priority so these are trained positional embedding assign assignment we do not know a prior so
 55:42
 these are trained then uh every single aspect of the Transformer block has some
@@ -308,5 +196,6 @@ manner as possible but still there might be some challenges across the way so pl
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
 
 ***
+
 
 

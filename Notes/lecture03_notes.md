@@ -1,4 +1,7 @@
 
+
+* [Invideo AI - Video Generator | No Editing Skills Needed](https://invideo.io/?utm_source=google&utm_medium=cpc&utm_campaign=Top16_Search_Brand_Exact_EN&adset_name=InVideo&keyword=invideo&network=g&device=c&utm_term=invideo&utm_content=InVideo&matchtype=e&placement=g&campaign_id=18035330768&adset_id=140632017072&ad_id=616240030555&gad_source=1&gad_campaignid=18035330768&gbraid=0AAAAACqfi_CasH_dati6efWraWC4sWV3x&gclid=Cj0KCQiA7rDMBhCjARIsAGDBuECUPsCNxYndLvG9dbQcl3duZVnCdxZL4bu-YboI7x4VTCTYt6KBjfcaAvMFEALw_wcB)
+
 0:05
 learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
 0:12
@@ -1145,3 +1148,4 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+

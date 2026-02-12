@@ -42,95 +42,20 @@ We need to understand the following concepts to truly understand MLA:
 
 ***
 
+```
+A true friend accepts you
+```
 
-these layers in the llm architecture itself and ultimately we predict the next
-20:54
-token so that's how I'm going to explain this whole lecture to you in a story format I'm going to explain this lecture
-21:01
-to you as if you are the token now imagine you are the token you're surrounded by a bunch of words and
-21:07
-suddenly you are thrown to the llm architecture let's understand the life cycle of a single token so that's how
-21:13
-the next part of this lecture is going to be all right so let's embark on this
-21:20
-journey together in which we will understand how the life of a token
-21:25
-essentially looks like so the the title which I given to this section is the
-21:30
-Journey of a token through the llm architecture so what I first did is I
-21:36
-went to chat GPT and I asked it to write a short paragraph on friends right so I took some random sentence from this
-21:42
-which is a true friend accepts you let's say we are looking at this
-21:48
-sentence um a true friend accepts you which is a sequence of five words let's say that's my input sequence at the
-21:55
-moment and we have to predict the next token given this input
-22:00
-sequence and I'm going to specifically focus on the word friend and I'm going
-22:06
-to think from the perspective of friend now put yourself in the shoes of this
-22:11
-word or this token uh first of all this token so I'm
-22:17
-going to interchangeably use token and word although they are not the same for
-22:22
-the sake of Simplicity I'm just going to say one token is equal to one word so put yourself in the shoes of this token
-22:29
-now what do you see you see that there are these other tokens around me right there is a true accepts you there are
-22:36
-these four other tokens which I'm used to hang out with just like friends hang out together I'm used to having these as
-22:44
-my neighbors and my friends a true except send you these are the four
-22:49
-neighbors of this token which we have chosen that is friend now suddenly what happens in the
-22:56
-first step is that the first step in the llm architecture is that that's the step
-23:01
-of isolation So currently we are looking at this phase right which is the input
-23:07
-phase right um the first step which happens in the input phase is the isolation phase
-23:14
-so what happens is that the word is detached from its neighbors the word is
-23:19
-isolated from its neighbors so imagine like a group of friends and every person is isolated from their neighbors so this
-23:27
-word is isolated and we look at it in isolation that's phase number one phase
-23:33
-number two is essentially called as token ID assignment which means that
-23:38
-imagine now every word is isolated and we want to put a badge or a stamp on
-23:44
-every word or every token similar to how let's say if you are getting enrolled in a camp or
-23:50
-enrolled in military or any other group activity you are given ID that's your role number or in school all of us have
-23:58
-role number numbers right it's similar to that so every token is isolated and then it's assigned a separate token ID
-24:05
-the way the token ID is assigned it's I'm calling it getting your
-24:10
-badge the way the token ID is assigned is a very interesting process we have a
-24:16
-book of token ID so you can think of this like a encyclopedia or a book of
-24:22
-token IDs in this book basically all the possible tokens are listed all the
-24:27
-possible to tokens are all the possible words and then there is a number which is associated with every
-24:34
-word u in this book there are not just words there can be characters or there can be even subwords so this book
-24:41
-consists of characters like a b up to zed it even consists of subwords such as
-24:47
-maybe C can be a uh word in this vocabulary then it may consist of
-24:53
-subwords like uh isation that can be a sub word
-24:59
-and then it also consists of words like let's say token can be um a full word in
-25:05
-this vocabulary enter can be a full word in this vocabulary begin can be a full
-25:10
-word in this vocabulary so you can think of this book of token IDs as consisting
-25:16
+* Phase-1: Isolation
+  * The word is isolated from its neighbors
+* Phase-2: Token ID assignment
+  * Book of Token IDs
+  * Words
+  * Sub-words
+  * Characters  
+
+***
+
 of characters words and subwords so let me write this down here that's going to
 25:21
 be very important this book of token ID is essentially consists of
@@ -804,6 +729,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -22,89 +22,14 @@ We need to understand the following concepts to truly understand MLA:
 
 ***
 
+| Model | Parameters |
+|---|---|
+| GPT-3   | 175 Billion|
+| GPT-4   | 1 Trillion |
+| GPT-4.5 | 5-10 Trillion |
 
-process first we are going to understand the architecture of llms itself and
-6:08
-that's going to be the main purpose of today's lecture I believe that without having an intuition of the llm
-6:15
-architecture it's impossible to understand latent attention then we are going to
-6:21
-understand why there was a need for self attention and what is the self attention
-6:27
-mechanism itself once we understand self attention we are going to understand how self attention
-6:35
-was transformed into multi-head attention and what does it mean to have multiple attention heads that's the
-6:42
-third aspect over here and then the fourth aspect is essentially key value
-6:47
-cache so then we are going to understand okay multi-head attention works and it
-6:53
-really works very well but then what can we start doing to improve the efficiency
-7:00
-of multi-head attention to make it computationally faster to make sure that the number of parameters which you are
-7:08
-storing in the memory is reduced and that's when key value cache comes into the picture only when you truly
-7:16
-understand key value cache then you will slowly start to understand multi-head latent attention so after KV cache then
-7:23
-we are going to understand MLA but I'm going to devote a lot of
-7:29
-time to develop your foundations in these first four Concepts before we go
-7:35
-ahead to MLA itself many of these blog posts which I mentioned right now they assume that you
-7:41
-already familiar with this so in the build deep seek from scratch series we had 43 lectures
-7:48
-explaining you everything about these different aspects the in this lecture series I'm not going to go as deep so
-7:54
-for example today I'm going to have just one lecture on the llm architecture but in the build llm from scratch there were
-8:01
-three to four lectures right so my aim is that I want to
-8:07
-explain this knowledge to you but also I want to make sure that beginners who have started watching this series they
-8:14
-also feel connected with the series so the challenge for me was to come up with a new set of lecture notes specifically
-8:22
-for this series because I'm trying to explain a concept in a in 1 hour but also so I want to
-8:30
-make sure that I don't lose out beginners in the process so I've made a whole series of
-8:36
-new notes for explaining these different concepts all right so I hope everyone
-8:43
-has understood the flow of how we are going to understand multihead latent attention today our main aim is to
-8:51
-understand the architecture of llms so after today's lecture all of you
-8:56
-should have a mental map or a visual Road map of what happens with a word or
-9:02
-a token when it goes into an llm first of all let me explain what
-9:07
-does it mean architecture of an llm right so if you pass in some certain a
-9:13
-sentence or a sequence of words we have seen that when a sequence
-9:18
-of words is passed into an llm what the llm essentially does is that it predicts
-9:23
-the next word or it predicts the next token rather so an llm or a large Lang
-9:29
-anguage model can be thought of as the next token prediction engine right so it can be thought of as the
-9:37
-next token prediction
-9:43
-engine and just like an engine so let's say if I go and search engine car and uh
-9:51
-if I copy this right now copy image or let me copy a good image right now if I
-9:57
-copy this image right now and if I paste it over here right this is an
-10:04
-engine so if we are calling it the next token prediction engine we need to know
-10:10
-how does this engine actually work how does this engine actually
-10:18
-work in the previous lecture we have learned some things about the engine
-10:23
-what have we learned the first thing which we have learned about this engine is that it has a huge number of parameters so to give you an example
-10:31
+***
+
 gpt3 has around 175 billion parameters whereas uh GPT 4 although it's not been
 10:39
 released yet they probably have around a trillion parameters GPT 4.5 which was
@@ -1056,6 +981,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -46,116 +46,19 @@ We need to understand the following concepts to truly understand MLA:
 A true friend accepts you
 ```
 
-* Phase-1: Isolation
+* __Phase-1__: Isolation
   * The word is isolated from its neighbors
-* Phase-2: Token ID assignment
-  * Book of Token IDs
-  * Words
-  * Sub-words
-  * Characters  
+* __Phase-2__: Token ID assignment
+  * Book of Token IDs (Vocabulary)
+    * Words
+    * Sub-words
+    * Characters
+  * Byte Pair Encoding (BPE) 
+* __Phase-3__: Token embedding assignment
 
 ***
 
-of characters words and subwords so let me write this down here that's going to
-25:21
-be very important this book of token ID is essentially consists of
-25:28
-it consists of characters it consists of words and it also consists of
-25:35
-subwords so as a result essentially we make sure that every token or every word
-25:42
-which is isolated it finds certain badge there is no token or no word which is
-25:48
-isolated which won't find any badge readers who are familiar with the
-25:53
-concept of bite pair encoding remember that to create this book book of token
-25:59
-ID itself there is a certain scheme which is called as a bite pair encoding
-26:04
-scheme this is a subword tokenization scheme and to create this book of token
-26:11
-ID we use this scheme so gpt2 for example relied on the bite pair encoding
-26:16
-mechanism to create its
-26:24
-vocabulary this vocabulary is this book of token IDs is also called
-26:30
-as the vocabulary and then it changes from one large language model to another
-26:35
-so let's say gpt2 has a vocabulary of 50,000 GPT 4 might have a vocabulary
-26:40
-Which is higher maybe 100,000 right so based on the LM which we are using the
-26:45
-token ID which is assigned to let's say this friend might change so I am using a
-26:51
-large language model here right now which has a vocabulary size of 50,000 which means that there are 50,000 tokens
-26:58
-which might be a combination of characters words and subwords all right then what I'm going to do is that
-27:06
-I'm am going to essentially look at this vocabulary and I'm going to find where the friend comes into the picture
-27:14
-and I'm going to find the token ID associated with it right so for the word friend the token ID which is associated
-27:21
-now is 20112 so I'm going to note that down uh
-27:27
-so that's the badge or that's the role number which is now assigned to this token so the role number assigned to the
-27:34
-Token friend is now 20112 similarly all the other tokens or
-27:39
-all the other wordss will get a similar badge that's the first step or rather that's phase number two which is token
-27:45
-ID assignment so now imagine that this token friend which was isolated from its
-27:51
-neighbors it has now been given a badge or a stamp which is 20112 that's phase number two I did not
-27:59
-go into the details of how this book of token ID was created because if you want
-28:04
-more details on this there's a separate lecture on creating this vocabulary itself for every large language model
-28:11
-and it's called bite pair encoding from scratch it's present in the lecture series build llm from
-28:17
-scratch but for now stay with me imagine you are this token friend you have been
-28:23
-isolated and now you have been given a badge or you have been given a role number
-28:28
-then you essentially come to phase number three in Phase number three something interesting essentially
-28:35
-happens in Phase number three the you until now you just had one number
-28:40
-associated with you right but now you are going to have a huge Vector of numbers which are going to be associated
-28:46
-with you and this is called as token embedding assignment one way to think of this is
-28:52
-that let's say we have an entrance examination which has 7
-28:58
-168 questions and each question essentially tests a certain feature of you so now we are looking at the word
-29:05
-friend right each question will test are you a noun are you a gender are you a verb are you a sport are you an emotion
-29:13
-Etc we actually don't know what these features or what these questions are but I'm just trying to explain you so that
-29:20
-explain to you so that you get an intuition of what token embedding is so imagine there are 768 questions like
-29:27
-this which are asked to every token which we have isolated and then based on the answers
-29:33
-we get to understand something about that token whether it's a noun whether it's a sport whether it's a adjective
-29:42
-whether it's something which appears always at the end of a sentence whether it's something related to gender whether
-29:48
-it's something related to monarchy like kings princess Queens
-29:54
-Etc so here we are actually getting to know about the meaning of the token
-29:59
-itself in the token ID assignment we did not get to know anything about the meaning but in phase three in token
-30:07
-embedding because we ask a big list of questions we get to know something about the meaning and based on the answers
-30:13
-which are given there is a result so every token so now this friend
-30:19
-right it will have some values for each of these questions maybe the values are .1 2.1.3 Etc and if we are assuming that
-30:29
-there are 768 questions this will now be a vector of 768
-30:36
+
 values one thing which I want to point out here is that this number of questions here 768 that vary from one
 30:43
 large language model to another large language model so now if you go and and see let's see for gpt2
@@ -729,6 +632,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -24,7 +24,8 @@ We need to understand the following concepts to truly understand MLA:
 
 | Model | Parameters |
 |---|---|
-| GPT-3   | 175 Billion|
+| GPT-2   | 1.5 Billion |
+| GPT-3   | 175 Billion |
 | GPT-4   | 1 Trillion |
 | GPT-4.5 | 5-10 Trillion |
 
@@ -87,3 +88,4 @@ The dog chased another dog
 * __Phase-10__:
 
 ***
+

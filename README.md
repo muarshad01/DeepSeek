@@ -24,7 +24,7 @@
 |---|---|---|
 | [Lecture 14 - Integer and Binary Positional Encodings - Journey towards Rotary Positional Encodings (RoPE)](https://www.youtube.com/watch?v=rP0CoTxe5gU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes14](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture14_notes.md)| |
 | [Lecture 15 - All about Sinusoidal Positional Encodings - What’s with the weird sin-cos formula?](https://www.youtube.com/watch?v=bQCQ7VO-TWU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes15](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture15_notes.md)| |
-| [Lecture 16 - Rotary Positional Encodings - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture16_notes.md)| |
+| [Lecture 16 - Rotary Positional Encodings (RoPE) - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture16_notes.md)| |
 |---|---|---|
 | [Lecture 17 - How DeepSeek exactly implemented Latent Attention - MLA + RoPE](https://www.youtube.com/watch?v=m1x8vA_Tscc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes17](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture17_notes.md)| |
 |---|---|---|

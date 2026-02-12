@@ -175,6 +175,10 @@ connections and they just make sure that the gradient has alternative routes to 
 45:43
 chained Manner and if the one gradient is small once it's multiplied together the gradient will become zero right or
 45:51
+
+
+***
+
 if the gradient is large and if it's multiplied together it will blow up so it can lead to Vanishing gradient
 45:57
 problem where the learning will stop or it can lead to the exploding gradient problem where the learning will be very
@@ -255,6 +259,12 @@ have been changed right and then they go through now we go to
 49:59
 the output layer there is one step of normalization here so if you see over
 50:06
+
+
+
+***
+
+
 here there is one step of normalization here which is called as the final layer
 50:11
 normalization so that step of normalization is mentioned over
@@ -361,6 +371,12 @@ that what are all the parameters which are optimized here so right from the star
 55:29
 values which are there we do not know them a prior so let me Mark the parameters which are trained by a star
 55:36
+
+
+
+***
+
+
 these we do not know a priority so these are trained positional embedding assign assignment we do not know a prior so
 55:42
 these are trained then uh every single aspect of the Transformer block has some
@@ -467,12 +483,4 @@ manner as possible but still there might be some challenges across the way so pl
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
 
-
-
-
-
-
-
-
-
-
+***

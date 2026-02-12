@@ -6,18 +6,18 @@
 
 | Lecture | Notes | Date Updated |
 |---|---|---|
-| [Lecture 01 - Build DeepSeek from Scratch: Series Introduction](https://www.youtube.com/watch?v=QWNxQIq0hMo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes01](https://github.com/muarshad01/LLM/blob/main/Notes/lecture01_notes.md)| |
-| [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes02](https://github.com/muarshad01/LLM/blob/main/Notes/lecture02_notes.md)| |
+| [Lecture 01 - Build DeepSeek from Scratch: Series Introduction](https://www.youtube.com/watch?v=QWNxQIq0hMo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes01](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture01_notes.md)| |
+| [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes02](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture02_notes.md)| |
 |---|---|---|
-| [Lecture 03 - LLM Architecture in 1 hour - Journey of token through the LLM Architecture](https://www.youtube.com/watch?v=rkEYwH4UGa4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes03](https://github.com/muarshad01/LLM/blob/main/Notes/lecture03_notes.md)| |
-| [Lecture 04 - The Attention Mechanism 1 hour explanation](https://www.youtube.com/watch?v=K45ze9Yd5UE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes04](https://github.com/muarshad01/LLM/blob/main/Notes/lecture04_notes.md)| |
-| [Lecture 05 - Self Attention Mechanism - Handwritten from scratch](https://www.youtube.com/watch?v=s8mskq-nzec&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=5)|  [Notes05](https://github.com/muarshad01/LLM/blob/main/Notes/lecture05_notes.md)| |
-| [Lecture 06 - Causal Attention Explained: Don't Peek into the Future!](https://www.youtube.com/watch?v=c6Kkj6iLeBg&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes06](https://github.com/muarshad01/LLM/blob/main/Notes/lecture06_notes.md)| |
-| [Lecture 07 - Multi-Head Attention Visually Explained](https://www.youtube.com/watch?v=qbN4ulK-bZA&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes07](https://github.com/muarshad01/LLM/blob/main/Notes/lecture07_notes.md)| |
-| [Lecture 08 - Multi-Head Attention Handwritten from Scratch](https://www.youtube.com/watch?v=rvsEW-EsD-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes08](https://github.com/muarshad01/LLM/blob/main/Notes/lecture08_notes.md)| |
+| [Lecture 03 - LLM Architecture in 1 hour - Journey of token through the LLM Architecture](https://www.youtube.com/watch?v=rkEYwH4UGa4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes03](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture03_notes.md)| |
+| [Lecture 04 - The Attention Mechanism 1 hour explanation](https://www.youtube.com/watch?v=K45ze9Yd5UE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes04](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture04_notes.md)| |
+| [Lecture 05 - Self Attention Mechanism - Handwritten from scratch](https://www.youtube.com/watch?v=s8mskq-nzec&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=5)|  [Notes05](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture05_notes.md)| |
+| [Lecture 06 - Causal Attention Explained: Don't Peek into the Future!](https://www.youtube.com/watch?v=c6Kkj6iLeBg&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes06](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture06_notes.md)| |
+| [Lecture 07 - Multi-Head Attention Visually Explained](https://www.youtube.com/watch?v=qbN4ulK-bZA&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes07](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture07_notes.md)| |
+| [Lecture 08 - Multi-Head Attention Handwritten from Scratch](https://www.youtube.com/watch?v=rvsEW-EsD-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes08](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture08_notes.md)| |
 |---|---|---|
-| [Lecture 09 - Key Value Cache from Scratch: The good side and the bad side](https://www.youtube.com/watch?v=IDwTiS4_bKo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes09](https://github.com/muarshad01/LLM/blob/main/Notes/lecture09_notes.md)| |
-| [Lecture 10 - Multi-Query Attention Explained - Dealing with KV Cache Memory Issues Part 1](https://www.youtube.com/watch?v=Z6B51Odtn-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes10](https://github.com/muarshad01/LLM/blob/main/Notes/lecture10_notes.md)| |
+| [Lecture 09 - Key Value Cache from Scratch: The good side and the bad side](https://www.youtube.com/watch?v=IDwTiS4_bKo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes09](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture09_notes.md)| |
+| [Lecture 10 - Multi-Query Attention Explained - Dealing with KV Cache Memory Issues Part 1](https://www.youtube.com/watch?v=Z6B51Odtn-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes10](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture10_notes.md)| |
 | [Lecture 11 - Understand Grouped Query Attention (GQA) - The final frontier before latent attention](https://www.youtube.com/watch?v=kx3rETIxo4Q&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes11](https://github.com/muarshad01/LLM/blob/main/Notes/lecture11_notes.md)| |
 | [Lecture 12 - Multi-Head Latent Attention From Scratch - One of the major DeepSeek innovation](https://www.youtube.com/watch?v=NlDQUj1olXM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes12](https://github.com/muarshad01/LLM/blob/main/Notes/lecture12_notes.md)| |
 | [Lecture 13 - Multi-Head Latent Attention Coded from Scratch in Python](https://www.youtube.com/watch?v=mIaWmJVrMpc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes13](https://github.com/muarshad01/LLM/blob/main/Notes/lecture13_notes.md)| |

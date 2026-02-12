@@ -1,7 +1,5 @@
 * [Invideo AI - Video Generator | No Editing Skills Needed](https://invideo.io/?utm_source=google&utm_medium=cpc&utm_campaign=Top16_Search_Brand_Exact_EN&adset_name=InVideo&keyword=invideo&network=g&device=c&utm_term=invideo&utm_content=InVideo&matchtype=e&placement=g&campaign_id=18035330768&adset_id=140632017072&ad_id=616240030555&gad_source=1&gad_campaignid=18035330768&gbraid=0AAAAACqfi_CasH_dati6efWraWC4sWV3x&gclid=Cj0KCQiA7rDMBhCjARIsAGDBuECUPsCNxYndLvG9dbQcl3duZVnCdxZL4bu-YboI7x4VTCTYt6KBjfcaAvMFEALw_wcB)
 
-
-
 ***
 
 #### Part-1: Innovative Architecture
@@ -32,196 +30,19 @@ We need to understand the following concepts to truly understand MLA:
 
 ***
 
-gpt3 has around 175 billion parameters whereas uh GPT 4 although it's not been
-10:39
-released yet they probably have around a trillion parameters GPT 4.5 which was
-10:45
-just released 2 to three days back maybe have 5 trillion or 10 trillion parameters that's not yet released but
-10:51
-we know that this engine has a huge number of parameters which are acting together and if you search engine car
-10:59
-working right you'll see that there is this piston cylinder mechanism here
-11:05
-right and uh the Piston cylinder mechanism essentially works and then that's how the engine
-11:11
-operates similarly we need to make sure that we understand how do these
-11:17
-parameters actually work where are these parameters can we open the engine of the
-11:22
-large language model and try to see what happens inside that engine essentially
-11:29
-given a sequence of words so similarly to a car right when a fuel is injected
-11:35
-into this engine what essentially happens with that fuel and how is that converted into the motion of the car
-11:42
-similarly when a sequence of words is passed to this engine what's
-11:47
-underneath the llm which causes us to predict the next word so think of the sequence of words
-11:55
-as a fuel and think of the llm of course as the engine and the next word as the
-12:00
-motion of the car let's say so here we want to open the engine right and to
-12:06
-truly understand how the engine actually works we need to understand the architecture of the
-12:11
-engine which means that we need to understand what are the different components inside that engine how these
-12:19
-components are actually connected to each other then what exactly happens
-12:25
-with the fuel or the sequence of words when it is being passed through this
-12:32
-architecture that's what we essentially want to understand in today's lecture so you can think of today's lecture as
-12:39
-going to your car opening the engine and trying to Peak inside the engine and
-12:44
-trying to really understand how do you work uh one way to also think about this
-12:52
-is that all of us have worked with chat GPT now right and if we ask something like
-12:59
-uh give me an essay give me a short essay on
-13:06
-friendship right and we see that GPT essentially predicts one token at a
-13:12
-time how does this actually work what's the architecture which is giving me this
-13:17
-one token at a time prediction that's what we are going to find out today okay
-13:23
-I'm going to try to keep this lecture as beginner friendly as possible so you'll see that there's a whole story which
-13:28
-I've constructed to explain how the llm architecture works I don't think this
-13:33
-has ever been done before so it's also a bit of an experiment for me to explain this to you in a story kind of a format
-13:41
-but I hope through this explanation you'll understand really how the llm architecture is
-13:47
-working okay so here's the schematic of what happens when you take a look at
-13:54
-the engine what happens when you open the Black Box what lies within the black Black Box itself and when you open the
-14:01
-black box you'll see that there are a huge number of things which pop out it's
-14:07
-not simple at all uh if you think of the 175 billion parameters the 175 billion
-14:13
-parameters are scattered across multiple places of this black box in other words
-14:19
-the llm architecture is quite complex um and why do you think it might
-14:25
-be complex well because in making the next token prediction the llm is
-14:31
-actually learning language itself right I strongly think that language learning
-14:37
-is a byproduct of the next token prediction task and to learn the language you cannot have an engine which
-14:44
-is small or you cannot have an engine which is not complex enough so that's
-14:49
-why our engine is quite complex we have a huge number of blocks or layers which
-14:54
-are linked together today we are going to try to understand this architecture so if you just take a look at this
-15:01
-schematic you'll see that broadly this schematic is divided into three parts there is this the there is this part
-15:08
-number one over here part number one then there is the part number two which I marked by saying
-15:15
-that it's something which is called as a Transformer block which let me Mark like this and
-15:22
-then there is a part number three which is basically the part which is the output part so yours
-15:28
-where the next token is actually predicted so the architecture of the llm
-15:34
-can be thought of in three parts the first part can be thought of as the input the second part can be thought of
-15:41
-as the processor and the third part essentially can be thought of as the output right in
-15:48
-the input part we have the sentence let's say if you have the sentence any sentence let's say the next day is
-15:55
-bright there are a number of things which happen with that sentence and with every token or every
-16:02
-word in that sentence before we pass it to the
-16:07
-processor and the things which happen to the sentence are first of all we do something which is called as
-16:14
-tokenization um secondly we do token embedding and third we do something called as positional embedding after
-16:21
-these three steps are done the input is essentially passed to the processor which is also called as Transformer
-16:28
-block within the Transformer block there are six different things the normalization layer multi-head attention
-16:35
-layer Dropout second normalization layer feed forward neural network another
-16:40
-layer of Dropout these two plus signs here are what are called as skip connections or shortcut
-16:48
-connections finally when we come out of the processor or the Transformer block we have the output and here we have
-16:55
-another layer normalization layer and the final layer for the next toen prediction okay so all of what I said
-17:02
-right now if you are learning this for the first time you might be thinking what is going on here and all of this
-17:08
-seems too complex let's break it down further and that's exactly what I'm
-17:14
-going to do right now but keep or keep close eye or attention on this part
-17:20
-which I marked as purple because the first Innovation which I'm going to explain later which is the multi-head
-17:26
-latent attention or MLA here is to do with this aspect which is
-17:32
-titled as multi-ad attention so out of the entire architecture there are two major places where deep seek has
-17:39
-contributed in making their Innovations the first is this called as multi-head attention that block and the second is
-17:46
-the feed forward neural network so let me actually rub this a bit right
-17:54
-now so the MLA or the multi-ad attention is an in inovation which happened in
-18:00
-this part of the architecture so I'm going to call this MLA and the mixture
-18:05
-of experts Innovation that actually happened in this part of the architecture Moe so again if you don't
-18:12
-understand the architecture itself you will not be able to appreciate where the innovation has happened but it's like
-18:18
-imagine opening an engine right and you have opened the Deep seek engine right now and the Deep seek engine is that of
-18:25
-a car which has performed very well and you want to understand why has it performed very well you open the engine
-18:30
-you see all these parts and now I'm telling you there are two parts in this engine which were augmented to improve
-18:36
-the performance but all right coming back to the engine itself how do the input processor and
-18:44
-the output actually work and now my challenge for this lecture was that I wanted to create one lecture in which I
-18:51
-explain all of this to you I explain the input I explain the processor and I explain the output and I wanted to
-18:57
-explain it in a e easy to understand manner so that you get an intuitive feel for the architecture itself so the way I
-19:05
-thought of doing this was that I thought from the perspective of
-19:11
-the fuel so if you are a fuel let's say and if you go to the car engine what
-19:17
-happens with you do you go to the engine first then are you rotated because of the Pistons and then some kind of a
-19:24
-power or energy is produced if I understand the life of the fuel I'll
-19:30
-effectively understand how the engine works right similarly today I want to
-19:35
-show you the life cycle of a single word and what happens to a single word
-19:43
-when it essentially goes through the llm architecture think about it this way right when we when we put this sentence
-19:51
-give me a short essay on friendship or let's say if we are going to complete the next sentence and the sentence which
-19:58
-I'm going to take is let's say the next day is bright the
-20:05
-next day is bright it goes into the llm
-20:14
-engine and then the next token is predicted let's say the next token is and the next day is bright and what I
-20:21
-want to show you is we are going to focus on just one token and we are going to see what happens to this token as it
-20:28
-goes through every single step of this llm architecture and by looking at from
-20:34
-the perspective of the token so I want you to now imagine that you are that token you are that token and I will now
-20:41
-take you through what happens to the Token as it goes through several of
-20:47
+* [ChatGPT](https://chatgpt.com/)
+
+#### Transformer Block
+1. Layer Norm 1
+2. Multi-head Attion --> MLA
+3. Dropout
+4. Layer Norm 2
+5. Feed Forward NN --> MoE
+6. Dropout
+
+***
+
+
 these layers in the llm architecture itself and ultimately we predict the next
 20:54
 token so that's how I'm going to explain this whole lecture to you in a story format I'm going to explain this lecture
@@ -983,6 +804,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

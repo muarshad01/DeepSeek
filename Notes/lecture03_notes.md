@@ -72,110 +72,14 @@ The dog chased another dog
 
 ***
 
-40:09
-that how do llms work so well um they they almost interact with me as a
-40:14
-interact with me as a human although they predict the next token they seem to have learned something about language
-40:20
-itself they summarize tasks they are good at grammar checking they draft emails for me uh they do complex coding
-40:27
-for me all that is because of what is happening in the Transformer block so now every token essentially
-40:35
-goes on a journey through the to the Transformer block itself okay now to think of the
-40:42
-Transformer block we need to understand that the Transformer block is like a train with a huge number of different
-40:49
-components right so first we are going to look at the components of the Transformer block train itself and I'm
-40:55
-not going to go through all the compon components in detail I'm just going to briefly explain to you what each
-41:00
-component of the Transformer block does so now imagine that these five
-41:06
-passengers have been assigned a compartment right and all of them are now input embedding 768 Dimensions they
-41:13
-have to go through 1 2 3 4 5 six steps within one Transformer block what are
-41:20
-these six steps so you can think if you think of a transformer block as a train these six steps can be thought of as six
-41:26
-compartment ments which are connected together so once you join the train you have to go with your neighbors and you
-41:33
-have to go through all these six steps the first step is essentially layer normalization which means that the 768
-41:40
-dimensional vectors so let me now just focus on friend the 768 dimensional
-41:45
-Vector for friend is normalized which means its mean and standard deviation are adjusted so that mean becomes zero
-41:51
-and standard deviation becomes one that step is easy then we come to multi head
-41:57
-attention so here you see I have marked this with a different color because this is truly The Innovation which Powers the
-42:05
-Transformer Block in multi-head attention we essentially learn if we look at one token how much attention
-42:11
-should be given to other tokens so if you look at friend how much attention should be given to a true accepts and U
-42:21
-so multi-ad attention essentially encodes something about the context if you look at one token you suddenly make
-42:27
-a map of how important are all the other tokens and if you think about it that helps a lot in understanding things
-42:34
-about the language in understanding context of a sentence itself or understanding context of a paragraph So
-42:41
-if I say something like uh I am from Pune India I
-42:49
-speak so here here if you have to complete the next sentence you need to know that you need to pay more attention
-42:56
-to Pune and India because that is where I from right so you need and not pay too
-43:02
-much attention to the first three tokens maybe so that is why attention mechanism is important to understand the context
-43:09
-of a sentence and to predict the next token we are going to learn about the attention mechanism uh in a lot more
-43:16
-detail in the next lecture but remember that that's the second compartment of the Transformer block the third
-43:23
-compartment of the Transformer block is the Dropout layer uh if you have learned about neural networks Dropout is
-43:29
-essentially if there are 100 parameters and Dropout factor is 05 you randomly turn 50 of them zero why because what if
-43:38
-some parameters are lazy and they're not learning anything at all suddenly if the other parameters are
-43:46
-now dropped out which means they're set to zero these parameters have no option but to learn something on their own so
-43:53
-Dropout is a mechanism to get lazy parameters back into action it improves the generalization performance and it
-44:00
-prevents overfitting so there are two layers of Dropout if you see there is one layer of Dropout here and then there
-44:06
-is one layer of Dropout again uh after the Dropout layer we have a skip connection or a shortcut
-44:12
-connection U shortcut connections just help the gradient to flow through an alternate path and they make sure that
-44:19
-we don't have the vanishing gradient problem then so after we go through
-44:24
-normalization then multi-ad attention drop up after that we have another normalization layer which does the same
-44:32
-function as the first one then we have a feed forward neural network this is again a very important
-44:38
-component of the Transformer block itself this feed forward neural network if you think about it so there are 768
-44:46
-Dimensions right in friend which is my token right now the feed forward neural
-44:51
-network essentially takes it into a much higher dimensional space which is 4 * 760
-44:58
-and then it compresses it back into a 768 dimensional space so this expansion contraction make
-45:05
-sure that we are exploring more richer spaces we are exploring spaces which have more dimensions and more parameters
-45:11
-so that just makes sure that the Lang our language models have enough parameters to capture additional
-45:18
-complexity this speed forward neural network is where the mixture of experts innovation has actually happened for
-45:24
-deep seek finally we have another another Dropout layer and then we have another
-45:30
-skip connection or a shortcut connection remember these plus signs wherever they are there they resemble skip or shortcut
-45:36
-connections and they just make sure that the gradient has alternative routes to flow because if the gradient flows in a
-45:43
-chained Manner and if the one gradient is small once it's multiplied together the gradient will become zero right or
-45:51
-
+* __Phase-7__: Different compartments of a Transformer block
+1. Layer Norm 1
+2. Multi-head Attion --> MLA
+3. Dropout (Improves generalization performance; prevents over-fitting)
+4. Skip connection or shortcut connnection (help gradient to flow through an alternate path; vanishing gradient problem)
+5. Layer Norm 2
+6. Feed Forward NN (Expansion / Contraction) --> MoE
+7. Dropout
 
 ***
 
@@ -484,3 +388,4 @@ manner as possible but still there might be some challenges across the way so pl
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
 
 ***
+

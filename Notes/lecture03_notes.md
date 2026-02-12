@@ -69,7 +69,6 @@ The dog chased another dog
 
 * __Phase-6__: Now, you're finally ready to onboard the train to the Transformer block.
 
-
 ***
 
 * __Phase-7__: Different compartments of a Transformer block
@@ -83,88 +82,9 @@ The dog chased another dog
 
 ***
 
-if the gradient is large and if it's multiplied together it will blow up so it can lead to Vanishing gradient
-45:57
-problem where the learning will stop or it can lead to the exploding gradient problem where the learning will be very
-46:05
-unstable uh so this is how these these five tokens have to go through these
-46:11
-different steps every token has to go through normalization multi-ad attention Dropout skip connection normalization
-46:18
-again feed forward neural network again Dropout layer again and then one more skip connection so that's the
-46:25
-Transformer block and if you see this schematic which we saw at the beginning
-46:30
-of the lecture you'll see that the same thing has been mentioned over here every layer has to every token has to go
-46:36
-through a layer normalization uh attention Dropout then skip connection again a layer
-46:43
-normalization of feed forward neural network Dropout and a skip connection so that's the journey which
-46:49
-has to be followed through a token this seems like such a tedious journey to follow right uh I have first of all I
-46:56
-have to go through all these five steps to get my uniform and then on top of that after that I have to go through
-47:02
-every block every Transformer block and go through these steps but there is one more additional layer of complexity that
-47:10
-just like this one Transformer block one large language model has multiple Transformer blocks right so if I say
-47:19
-gpt2 how many Transformer blocks does
-47:24
-gpt2 have so if you take a look at gpt2 itself
-47:30
-gpt2 small has 12 Transformer blocks gpt2 medium has 24 gpt2 large has 36
-47:36
-Transformer blocks and gpt2 Xcel has 48 Transformer blocks so even if we look at
-47:41
-the small one right now each Transformer block has all of these steps so now
-47:47
-every token has to essentially do all of these steps 12 times uh so that so
-47:54
-that's why these if you think of one Transformer block as one part of the train there are 12 such Transformer
-48:00
-blocks which are linked together and one token has to essentially go through all of these 12
-48:06
-Transformer blocks so the journey is extremely more tedious so here I have
-48:11
-mapped it out right these are 12 Transformer blocks which essentially every token has to go through uh so the
-48:18
-token friend there right it has to go through the first Transformer block it has to go through
-48:24
-the second it has to go through the third see similarly it has to go through all of these 12 Transformer blocks so
-48:30
-number 12 over here there is a very tedious train journey which every tokon has to essentially follow getting a
-48:37
-uniform is a struggle we have to go through five steps going through the processor is an even more struggle
-48:43
-because you have to go through all of these 12 steps again um so this is what is actually
-48:50
-happening in the processor which is the part number two which we have just seen in the processor what happens is that
-48:57
-so here I have shown one Transformer block rate you can think of this multiplied by 12 if we are using GPT
-49:02
-small if we are using the largest gpt2 then it's 48 Transformer blocks and
-49:08
-modern gpts might have 96 or even more Transformer blocks so every token has to
-49:13
-now go through all of these and remember that the dimensions of a token are usually maintained even when it comes
-49:20
-out of the Transformer so let's say the input right the input uniform which we saw was 768 dimension here if you
-49:28
-remember it was a 768 dimensional Vector right here 768 after going through all
-49:34
-of these Transformer blocks after going through the 12 Transformer blocks it comes out of these 12 Transformer blocks
-49:41
-by retaining its Dimensions so it still has 768 Dimensions so now a true friend
-49:47
-accepts you have come out of the Transformer block and all of them still have 768 Dimensions naturally the values
-49:54
-have been changed right and then they go through now we go to
-49:59
-the output layer there is one step of normalization here so if you see over
-50:06
+* __Phase-9__: Normalization layer
 
-
+* __Phase-10__:
 
 ***
 
@@ -388,4 +308,5 @@ manner as possible but still there might be some challenges across the way so pl
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
 
 ***
+
 

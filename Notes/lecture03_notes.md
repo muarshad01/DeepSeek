@@ -22,6 +22,8 @@ We need to understand the following concepts to truly understand MLA:
 
 ***
 
+#### Architecture of LLM
+
 | Model | Parameters |
 |---|---|
 | GPT-3   | 175 Billion|
@@ -981,6 +983,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

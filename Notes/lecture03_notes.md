@@ -1,4 +1,4 @@
-* [Invideo AI - Video Generator | No Editing Skills Needed](https://invideo.io/?utm_source=google&utm_medium=cpc&utm_campaign=Top16_Search_Brand_Exact_EN&adset_name=InVideo&keyword=invideo&network=g&device=c&utm_term=invideo&utm_content=InVideo&matchtype=e&placement=g&campaign_id=18035330768&adset_id=140632017072&ad_id=616240030555&gad_source=1&gad_campaignid=18035330768&gbraid=0AAAAACqfi_CasH_dati6efWraWC4sWV3x&gclid=Cj0KCQiA7rDMBhCjARIsAGDBuECUPsCNxYndLvG9dbQcl3duZVnCdxZL4bu-YboI7x4VTCTYt6KBjfcaAvMFEALw_wcB)
+#### [Invideo AI - Video Generator | No Editing Skills Needed](https://invideo.io/?utm_source=google&utm_medium=cpc&utm_campaign=Top16_Search_Brand_Exact_EN&adset_name=InVideo&keyword=invideo&network=g&device=c&utm_term=invideo&utm_content=InVideo&matchtype=e&placement=g&campaign_id=18035330768&adset_id=140632017072&ad_id=616240030555&gad_source=1&gad_campaignid=18035330768&gbraid=0AAAAACqfi_CasH_dati6efWraWC4sWV3x&gclid=Cj0KCQiA7rDMBhCjARIsAGDBuECUPsCNxYndLvG9dbQcl3duZVnCdxZL4bu-YboI7x4VTCTYt6KBjfcaAvMFEALw_wcB)
 
 ***
 
@@ -58,101 +58,14 @@ A true friend accepts you
 
 ***
 
+* __Phase-4__: Positional embedding assignment (Your position among neighbors matter!)
 
-values one thing which I want to point out here is that this number of questions here 768 that vary from one
-30:43
-large language model to another large language model so now if you go and and see let's see for gpt2
-30:50
-gpt2 token embedding Dimension so if you search gpt2 token
-30:57
-embedding Dimension we'll see that it's 768 right uh but here also gp22 small
-31:02
-had 768 but the largest gpt2 had 1600 Dimensions so this number of questions
-31:09
-768 actually varies from one large language model to another so here what we are going to do
-31:16
-is that we are going to assume that the number of questions is 768 for gpt2 but
-31:21
-remember that if the token goes to different llms it might be asked different questions so now imagine you
-31:28
-are a token you have been given a badge or a role number and suddenly you are asked this huge set of 768 questions you
-31:35
-respond then your answers are collected in one 768 dimensional
-31:40
-Vector that is called as the token embedding Vector so now along with the badge you also carry your result with
-31:47
-you so you have a badge with you and you have this result of 768 values with you
-31:52
-that's what has happened to you until this stage right that's the stage of token embedding the difference again between
-31:59
-token ID is that token ID does not carry any notion about semantics whereas token
-32:04
-embedding in token embedding assignment we care a lot about the meaning of the word itself the reason token embedding is
-32:11
-done is that to create llms you ultimately need to extract meaning right you're teaching something about the
-32:17
-language to the model so this is a very crucial step these set of questions or these uh set of features which are
-32:26
-collected about every single token so until now every token has a badge and every token has 768 value result sheet
-32:35
-which they take along with them then one more thing which also matters is your position among your
-32:41
-neighbors so here if you see a true friend accepts you so friend comes in
-32:47
-the middle of the sentence right it comes at position number three over here so a comes at position number one
-32:55
-true comes at position two friend comes at position number three accepts comes at position number four and youu comes
-33:02
-at position number five so the friend is coming at position number three and that position also
-33:08
-matters why does the position matter because if you say the
-33:15
-dog the dog chased another dog okay if you take a look at this
-33:23
-sentence you need to somehow be aware that this dog is basically different than this second dog so if you just take
-33:30
-the meanings of the words right as in Phase number three we just took the meanings so the token embedding for this
-33:37
-dog and this dog will be the same but actually there there are two separate dogs and we need to teach the model
-33:43
-related to that so the only way to distinguish between this dog and this dog is to know that this comes at
-33:49
-position number two and this comes at position number five so as a result it's important to also have some knowledge
-33:57
-about the position so similar to the 768 questions which we
-34:02
-asked 768 questions will again be asked with respect to the position so remember
-34:08
-that although this number varies across different models if you fix a particular
-34:14
-language model the number of questions which are asked in token embedding and
-34:19
-the number of questions which are asked in the positional embeddings are the same so if we are looking at gpt2 small
-34:26
-right now as the model there were 768 questions asked in token embedding
-34:31
-similarly 768 questions will be asked in positional embedding and what might these positions
-34:39
-or what might these questions be they might be something like are you at the beginning or are you around the middle
-34:44
-of the sequence or do you encode long range dependencies Etc actually no one
-34:50
-knows what these questions might be but I thought this the simplest way to explain about positional embeddings and
-34:57
-token embeddings so now in Phase number three every token had a token embedding which
-35:03
-is associated with them that's a 768 dimensional vector and when you come to phase number four based on the position
-35:09
-you are asked these 768 questions right so you will also have a 768 dimensional position embedding which is associated
-35:16
-with you so now imagine what all a token is subjected to a token first has a
-35:22
-stamp um or a badge of token ID then it has the token embedding result those are
-35:28
-the questions which it needs to answer that's the first test then the token goes to another test which is positional
-35:33
-embedding and then it again has this 768 values it's a lot of processing which
-35:39
+```
+The dog chased another dog
+```
+
+***
+
 needs to be done for every token it essentially has to go through a huge number of tests and then in Step number
 35:46
 five what we do is that we add the result of your token embeddings plus the positional embeddings so you don't have
@@ -632,6 +545,7 @@ with me this series can get a bit difficult I'm trying to distill the concepts i
 manner as possible but still there might be some challenges across the way so please make note so that you strengthen
 1:00:58
 your Concepts thank you everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -56,8 +56,6 @@ A true friend accepts you
   * Byte Pair Encoding (BPE) 
 * __Phase-3__: Token embedding assignment
 
-***
-
 * __Phase-4__: Positional embedding assignment (Your position among neighbors matter!)
 
 ```
@@ -81,6 +79,8 @@ The dog chased another dog
 7. Dropout
 
 ***
+
+* __Phase-8__: Going through multiple Transformer block
 
 * __Phase-9__: Normalization layer
 

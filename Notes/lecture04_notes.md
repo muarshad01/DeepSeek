@@ -11,100 +11,13 @@
 
 ***
 
-5:24
-are a token first you get assigned a token ID that's your badge then you get
-5:30
-assigned a token embedding Vector then you get assigned a position embedding Vector the token and the position
-5:36
-embedding are added together and that's the input embedding which is your uniform now similarly whoever are your
-5:44
-neighbors they also have their uniform or the input embedding and all of you together on board the train to the
-5:50
-Transformer each Transformer block has multiple components such as the normalization multi-head attention
-5:57
-Dropout skip connection again a normalization layer a feed forward neural network and a Dropout layer
-6:04
-followed by another skip connection this is just one Transformer block there are multiple Transformer blocks like this it
-6:11
-can be 12 24 96 Etc so as a token with your uniform which is your input
-6:17
-embedding you have to go through all of these Transformer blocks and then when you come out you have a layer of
-6:24
-normalization and finally you have an output layer in which if you are a 7 68
-6:29
-dimensional Vector you are mapped or up projected into a 50,000 dimensional
-6:35
-Vector why 50,000 because that's the vocabulary size and that essentially
-6:40
-helps us to choose the next token that's the whole life cycle of a token as it
-6:45
-goes through the llm architecture right in today's lecture we are going to focus on one single aspect of this entire
-6:54
-architecture and that's this multi-head attention I want you to appreciate where this multi-ad attention comes into the
-7:00
-picture so out of all of these steps which the token goes through the
-7:06
-multi-ad attention comes in the Transformer block and within the Transformer block also it comes after
-7:12
-the normalization layer in this particular case so today we are going to understand
-7:20
-uh multi-ad attention but to do that first we will understand what is attention itself and what is the need
-7:28
-for the attention mechanism why why do we start talking about this term attention why has it got so much
-7:34
-popularity in recent in recent times so our today's goal is to motivate the
-7:41
-concept of self attention we are not going to see the mathematics of self attention mechanism today today the
-7:48
-whole goal is to try to understand why we need attention in the first place and
-7:53
-why it has been such a game Cher for large language models just think about
-7:59
-this right out of all of these steps which token goes through the most important step lies within the
-8:05
-Transformer block lies within one step of the Transformer block and that's the attention that's why I marked it with a
-8:12
-different color here this block of the train essentially
-8:17
-gives all the properties which have made llm so good at understanding language so
-8:25
-to truly understand how attention works I have created this separate lecture for
-8:30
-you in which we'll try to motivate the need for an attention
-8:36
-mechanism before understanding why we needed attention and how it has changed the field first let us Deep dive a bit
-8:43
-into the field of generative AI itself so let's rewind and go back to history a
-8:49
-bit I believe it is essential to appreciate um the attention mechanism in
-8:55
-1960s there was this Elisa chatbot you can think of this
-9:02
-I would not call it a large language model I would call it a chat bot it was the first natural language
-9:09
-processing chatbot which was meant to be a therapist so if you ask please tell me what's been bothering you I can say that
-9:16
-I am having a hard time learning
-9:26
-AI can you help me you believe it is normal to be having a
-9:31
-hard time learning a so see it's like not very helpful but remember that it's
-9:37
-1960s so at that time this was considered to be a revolution so here
-9:42
-you can see the original program was described by Joseph wisen bomb in
-9:47
-1966 compare this to chat GPT right now where we say
-9:53
-that I want to learn about AI can you
-10:00
-help me and let me switch the model to GPT 40 so that I get a quicker response and
-10:07
-
-
-
+* [ChatGPT](https://chatgpt.com/)
+  * I want to learn about AI. Can you help me?
 
 ***
+
+* 10:00
+
 
 then here you'll see that I am immediately presented with a list of actionable items which I can start
 10:14
@@ -1121,6 +1034,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

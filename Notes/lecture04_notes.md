@@ -1,110 +1,15 @@
-my name is Dr Raj dander I graduated with a PhD in machine
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inid AI all of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below [Music]
-2:03
-hello everyone and welcome to the next lecture in the build deep seek from
-2:09
-scratch Series today we are going to learn about
-2:14
-a very important concept and that is the need for an attention
-2:20
-mechanism first let me quickly summarize what all we have covered so far in this
-2:26
-lecture series and then let's come to the topic of discussion
-2:31
-today so two lectures back in the lecture called Deep seek Basics we
-2:36
-looked at the four phases of the deep seek architecture or
-2:42
-rather the four phases through which we are going to cover this lecture series the first phase is the Innovations in
-2:49
-the Deep seek architecture the second phase is the training methodology the
-2:54
-third phase is the GPU optimization tricks and the fourth phase is the model
-3:00
-ecosystem in the previous lecture which was titled llm architecture we started
-3:06
-looking at Phase One in particular our main goal is that in the next two
-3:11
-lectures or two to three lectures we have to start understanding about the multihead latent attention which is the
-3:18
-first major innovation in the Deep seek architecture however to understand mlaa
-3:24
-or multi-head latent attention we cannot directly start looking at that concept
-3:30
-we need to slowly work our way towards it so first we looked at the
-3:35
-architecture of the llm itself we saw that the architecture of the llms looked
-3:41
-something like this we had three sections first we had the input section
-3:47
-then we had the processor and then we had the output section each section
-3:54
-essentially had different building blocks so we saw that to really understand how the if you think of the
-4:01
-llm as the engine right and to truly understand how the engine works we
-4:06
-really need to open the engine and try to see what lies
-4:11
-underneath and how does essentially llms learn to predict the next token or the
-4:16
-next word if you think of this analogy as similar to the motion of a car we see
-4:23
-that if you put fuel in the car the car essentially moves right so something
-4:28
-happens in the engine and and the car moves similarly for llm the fuel is the
-4:33
-sequence of Words which you feed in as an input to the engine which is the llm
-4:39
-and the output is the next word prediction or the next token prediction
-4:45
-and that's why we also called llms as next token prediction
-4:50
-engine now this engine has huge number of parameters gpt3 has 175 billion GPT 4
-4:57
-probably has around 1 trillion and GPT 4.5 which was released recently probably
-5:03
-has around 5 to 10 trillion so to truly understand how this engine works we opened the black box and we looked at
-5:09
-these three aspects but I did not directly explain these three aspects to you I told you that what if you put
-5:17
-yourself in the shoes of a token or a word and you imagine yourself going through the different phases so if you
+#### The need for attention mechanism
+
+* Here is how the field of Generative AI has evolved
+| Model | Year|
+|---|---|
+| RNN | 1980 |
+| LSTM | 1997 |
+| Attention | 2014 |
+
+
+***
+
 5:24
 are a token first you get assigned a token ID that's your badge then you get
 5:30
@@ -1209,3 +1114,4 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+

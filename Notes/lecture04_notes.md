@@ -42,7 +42,7 @@
 * [Neural Machine Translation by Jointly Learning to Align and Translate - 2014](https://arxiv.org/abs/1409.0473)
   * The is "Bahdanau" Attention Mechanism.
 * [Attention Is All You Need - 2017](https://arxiv.org/abs/1706.03762)
-* RNN architecture is NOT required for building DNN 
+  * RNN architecture is NOT required for building DNN 
 
 
 * that is what I'm getting at at the moment now the first paper which really
@@ -764,6 +764,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

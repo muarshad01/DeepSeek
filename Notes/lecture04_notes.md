@@ -23,6 +23,9 @@
 
 ***
 
+* 15:00
+
+
 pass it to the second then I decode the second token and then I decode the token this is how language to language
 16:02
 translation Works in Long in recurrent neural networks lstms are a bit
@@ -932,6 +935,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

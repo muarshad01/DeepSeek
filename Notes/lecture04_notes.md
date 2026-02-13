@@ -31,19 +31,20 @@
 * 20:00
 
 * we need to selectively access parts of the input sequence during decoding.
-* Context Window
+* __Context Window__
 
 ***
 
 * 25:00
 
-need to selectively pay attention to the part of the sequence and then find that part let's say which has the spelling
-25:54
-mistake for example right so this is the main purpose of why we need attention while
-26:02
-decoding we can quantify how much atten importance or attention needs to be
-26:08
-given to each input token that is what I'm getting at at the moment now the first paper which really
+* while decoding, we can quantify how much  importance (attention) needs to be given to each input token.
+
+* [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+* [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+ * The is "Bahdanau" Attention Mechanism.
+
+
+* that is what I'm getting at at the moment now the first paper which really
 26:15
 implemented this was not the attention is all you need so if you see this paper
 26:22
@@ -762,6 +763,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

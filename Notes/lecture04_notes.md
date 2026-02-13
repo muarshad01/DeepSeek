@@ -100,6 +100,12 @@ that I want to learn about AI can you
 10:00
 help me and let me switch the model to GPT 40 so that I get a quicker response and
 10:07
+
+
+
+
+***
+
 then here you'll see that I am immediately presented with a list of actionable items which I can start
 10:14
 implementing to learn about AI So within a span of 64 years we have come a long
@@ -1115,5 +1121,6 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 

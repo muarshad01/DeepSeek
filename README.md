@@ -45,3 +45,11 @@
 | [Lecture 30 - Book Launch with Manning: Build DeepSeek from Scratch](https://www.youtube.com/watch?v=mjMmedGfUsQ&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=30)|  [Notes30](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture30_notes.md)| |
 
 ***
+
+#### Papers
+
+* [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+* [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+ * The is "Bahdanau" Attention Mechanism.
+
+ *** 

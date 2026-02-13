@@ -8,7 +8,6 @@
 | LSTM | 1997 |
 | Attention | 2014 |
 
-
 ***
 
 * [ChatGPT](https://chatgpt.com/)
@@ -35,6 +34,8 @@
 * Context Window
 
 ***
+
+* 25:00
 
 need to selectively pay attention to the part of the sequence and then find that part let's say which has the spelling
 25:54
@@ -761,6 +762,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -18,113 +18,11 @@
 
 * 10:00
 
+* NN can't deal with memory.
+* Context
 
-then here you'll see that I am immediately presented with a list of actionable items which I can start
-10:14
-implementing to learn about AI So within a span of 64 years we have come a long
-10:21
-way in the field of uh natural language processing and understanding language
-10:28
-itself so let's let see what happened between 1960s to 2020s right so 1960s is
-10:35
-where the Eliza chatbot came out then in 1980s and 1997 there were these two
-10:40
-major fundamental building blocks of the field of generative AI or language
-10:46
-modeling and you can think of those as recurrent neural networks which came out in 1980s and long short-term memory
-10:53
-networks which essentially came out in 1997 both of these built on top of the
-10:59
-neural network boom which happened in the 1970s so people discovered that neural
-11:05
-networks can do a bunch of awesome things but the real issue which neural networks have is that neural networks
-11:16
-essentially neural networks can't deal with
-11:24
-memory and that's the biggest issue with neural networks why do you have to deal with
-11:30
-memory because imagine that if you're predicting the next word right or if you are generating some new text you would
-11:36
-want to know what has come at the start of a paragraph just having a small memory does not help context is very
-11:43
-important and this word will come up a lot in today's lecture context context
-11:48
-essentially means that if there is a huge paragraph being uh being given to the model and we want the model to do
-11:56
-some task or just answer some question just look looking at the sentence the word or the sentences which come
-12:03
-immediately does not help we need to have a a context in mind of what was being told at the beginning of the
-12:09
-paragraph itself right so if I say that let's say uh I am from Pune India
-12:18
-okay and then after that let's say I write a huge bunch of different things I
-12:23
-write a huge bunch of sentences um and then finally I ask what
-12:29
-language do I
-12:37
-speak now to generate a response based on this question which has been asked
-12:42
-all these things in the middle are not very important but I need to have a context of what came at the beginning of
-12:48
-this paragraph because that's what will help me really answer this question that's why you need to have
-12:54
-memory and neural networks had no provision to encode memory really but recurrent neural networks and long
-13:01
-short-term networks solve that problem um let me quickly show you how they solve that
-13:07
-problem so uh people typically used RNN or lstms initially for sequence to
-13:13
-sequence modeling or what is called as um sequence to sequence translation
-13:19
-tasks so simple sequence to sequence translation tasks can be just language
-13:24
-translation if you want to take a bunch of words right and if you want to translate those from from one language
-13:29
-to another language you can use a recurrent neural network uh so recurrent neural network has a bunch of hidden
-13:36
-States like this h0 H1 H2 H3 let's say these are the input words I will eat
-13:42
-right and I want to translate it to French which translates to Jo man which has been written over here the
-13:50
-way I can use a recurrent neural network to do this translation is that I have an encoder block and I have a decoder block
-13:58
-both these encoder and decoder blocks have something called as hidden states which you can think of as vectors or
-14:04
-matrices so here's the hidden State H1 hidden State H2 hidden State H3 of the
-14:10
-encoder and then we have the hidden State S1 hidden State S2 and the hidden State S3 of the decoder let's visualize
-14:18
-what happens in the encoder Block in the encoder block you first give one the first uh word of the input sentence
-14:25
-which is i that's get that gets converted to the first hidden State H1 then you give the second word now keep
-14:32
-in mind to get the second hidden State H2 you use the second input but you also
-14:37
-use the previous hidden State that's how memory is captured in recurrent neural networks the previous
-14:44
-hidden state is used to compute the current hidden State similarly when you come to eat that's the input X3 but to
-14:52
-compute H3 which is the final hidden State you use the previous hidden state which is H2 and H2 encoded H1 or H2 had
-15:00
-the knowledge of H1 so H3 now has the knowledge of H1 as well as H2 H3 has the
-15:06
-knowledge of the past it retains memory so H3 can be thought of as that one
-15:11
-vector maybe it's like a 500 or a thousand dimensional Vector which essentially contains all the information
-15:18
-of what the input essentially means and this is the only higher dimensional
-15:23
-Vector which is passed to the decoder the decoder then takes a look at this vector and then every hidden state of
-15:30
-the decoder starts decoding it so the decoder imagine you are the decoder
-15:35
-right and it's the relay race uh so let's think of it as a relay race the battern is at with H1 it passes
-15:42
-it to H2 the H2 passes it to H3 now H3 has the batter which passes it to the decoder now I'm the first hidden state
-15:49
-of the decoder I have the batter I decode the first token which is J then I
-15:54
+***
+
 pass it to the second then I decode the second token and then I decode the token this is how language to language
 16:02
 translation Works in Long in recurrent neural networks lstms are a bit
@@ -1034,6 +932,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

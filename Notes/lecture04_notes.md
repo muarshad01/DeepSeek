@@ -25,83 +25,14 @@
 
 * 15:00
 
+* Context bottleneck in RNN is not good for retaining long-range context.
 
-pass it to the second then I decode the second token and then I decode the token this is how language to language
-16:02
-translation Works in Long in recurrent neural networks lstms are a bit
-16:07
-different to predict the current hidden State based on the previous hidden State they also maintain something called as a
-16:13
-cell state so lstms have a provision for taking into account long memories as
-16:19
-well as short memories so that's essentially to increase the context window they deal with but the
-16:26
-architecture fundamentally Remains the Same it just that the the mathematics beneath is a lot more complicated for
-16:32
-lstms now do you see a problem with this take take a look at this example
-16:40
-which we had for discussing about context right what is the problem with recur neural networks when let's say you
-16:46
-have big paragraphs to deal with let's say you you have a big paragraph and you want to translate that entire paragraph
-16:53
-what is the problem with recurrent neural networks in doing that
-16:59
-so let's take a simple example so that I can explain that problem to you a bit better imagine that you have this
-17:06
-paragraph okay I have constructed this randomly from chat GPT I want you to do the following I
-17:12
-want you to first read this paragraph once maybe take 30 seconds or 1 minute or more to read this paragraph Just Once
-17:19
-then close your eyes and then translate it into any language you want you can translate it into Hindi Spanish French
-17:27
-German whatever language you speak other than English so close your eyes and
-17:32
-translate it into another language where you able to do this it's
-17:40
-impossible right because when you close your eyes you essentially probably remember some summary of what you have
-17:45
-read you don't remember exactly each and every word but to translate we have to
-17:51
-look at each and every word and translate it individually right that's the exact same problem which is
-17:56
-happening with recurrent neural networks why because we are relying on only one
-18:01
-hidden state or one vector to capture all the context of what has happened in the past so it's like closing your eyes
-18:09
-and then trying to remember the entire paragraph there is so much pressure on this one hidden state or this Vector to
-18:16
-recollect all the memory that if it's a huge paragraph how can you compress all
-18:22
-of that information in a 500 dimensional vector or a thousand dimensional Vector
-18:27
-naturally some information is going to get lost and remember the decoder does not
-18:33
-take input from the first hidden State or the second hidden state it only takes the final hidden State as the input
-18:40
-that's where the main issue arises the context which goes from the encoder to the decoder is only from the final
-18:46
-hidden state that is why this is called as the context bottleneck problem the final hidden state is like
-18:53
-you when you closed your eyes and when you tried to memorize the entire paragraph it's impossible to do that you
-19:00
-cannot put so much pressure on one vector so context bottleneck in
-19:07
-recurrent neural networks is really not good for retaining a long range context and this serves as a great pathway for
-19:15
-understanding why attention comes into the picture so now if you look at the recurrent neural network let me rub some
-19:21
-things over here or erase some things what do you think is the ideal solution to this problem if let's say this is the
-19:29
-problem uh which we are encountering right all the context cannot be captured in one single Vector uh what is the
-19:37
-solution to this problem well the solution seems to be that let's say when we are decoding when
-19:44
-when I'm decoding this uh let's say when I'm decoding from the first hidden state
-19:49
-of the decoder instead of having access to just the final hidden State what if I
-19:54
-have access to all the hidden states of the encoder and all the inputs
-20:01
+***
+
+* 20:00
+
+
+
 also so if during decoding I have access to all of the inputs and then I can make
 20:08
 predictions such that okay if I'm decoding the first token I should give more importance to
@@ -935,6 +866,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

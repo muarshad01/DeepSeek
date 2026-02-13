@@ -31,116 +31,11 @@
 
 * 20:00
 
+* we need to selectively access parts of the input sequence during decoding.
+* Context Window
 
+***
 
-also so if during decoding I have access to all of the inputs and then I can make
-20:08
-predictions such that okay if I'm decoding the first token I should give more importance to
-20:14
-the first hidden State and I should not give importance to the second hidden State and I should not give importance
-20:20
-to the third hidden State what if I could create a mechanism which
-20:26
-can understand the Rel relative importance which needs to be given to different tokens this is the most
-20:33
-important part of this lecture so please try to focus our here the main thing
-20:38
-which can solve the context bottleneck problem is that when I'm decoding what if I develop a
-20:45
-mechanism which can try to quantify how much importance I should give to every
-20:51
-hidden state so while the first decoding is taking place let's say I give 80%
-20:57
-importance to the first hidden State 10% importance to the second inter state and 10% importance to the third inter state
-21:04
-if I have this information along with me then the context bottleneck problem is solved right because even if the
-21:10
-paragraph is long if I can attend to all the tokens in that paragraph I can essentially also give importance to
-21:17
-something which has come in the past so let's say if this is the sentence and I'm predicting something
-21:23
-here in the attention mechanism I can just try to see how much attention to give to the first token the second uh
-21:31
-the second token third and the entire paragraph and then I can say that I need to give maximum attention to these
-21:37
-tokens over here so you see I'm already starting to use
-21:43
-the word attention over here you can think of it as relative importance to
-21:48
-individual tokens in the paragraph So the ideal solution is that
-21:55
-we need to selectively access parts of the sequence during decoding so when you
-22:01
-are decoding let's say I want to make certain predictions so that if I'm decoding from the if I'm decoding the
-22:07
-first token right uh this alpha 1 one is the relative importance given to the
-22:13
-first hidden State Alpha 2 one is the relative importance given to the second hidden State Alpha 31 is the relative
-22:20
-importance which is given to the third hidden state so I want to be able to make predictions such that Alpha 1 one
-22:26
-is 100% Alpha 2 2 1 is z and Alpha 31 is zero something like that but you see
-22:32
-here instead of just relying on H3 I'm now relying on all of my previous hidden
-22:38
-States and not just that I'm quantifying how much I should rely on each of the
-22:43
-previous hidden States so again this is important we need to selectively access parts of the
-22:49
-input sequence during decoding and I want to explain this to you with this
-22:54
-example again let's say I take a screenshot here okay um and then I put it over
-23:01
-here let's try to understand what the statement actually means so if I ask you
-23:07
-to translate this paragraph How would you actually do it you would probably start um you would actually probably
-23:14
-start with let's say this right let's say you start with this that how much words you can look at at one point let's
-23:21
-say that's your context window you cannot look at more words than this at one point then what your mind will do is
-23:28
-that for your mind the rest of what comes in the paragraph is irrelevant right so you will mask out all of that
-23:35
-in your mind you will mask out all of that it's not relevant so what you will do is that all of these other things are
-23:43
-not important to you now you just want to look at the current
-23:49
-context and you want to selectively hide out every other thing right so what your
-23:54
-mind does is that your mind pays attention this is very important your mind is paying attention to this part of
-24:02
-the paragraph and then it's starting to translate only this part of the paragraph and after this is translated
-24:09
-then your mind will move to the next maybe next five words uh after this is translated your
-24:16
-mind will move to the next five words and then you will go to the next five words Etc so you see what you're doing
-24:22
-here at a particular time your mind is making a decision that I want to pay the maximum attention to these token
-24:30
-when you're looking at the first uh first context window and then your mind
-24:36
-is also making uh certain quantitative judgments that don't pay any attention to the rest
-24:43
-of the tokens at all don't pay any attention to these so
-24:49
-that's what is actually meant by selectively access parts of the input sequence during decoding right
-24:57
-selectively accessing parts of the input sequence that's the most important sentence to understand the attention
-25:03
-mechanism it means that only pay attention to that part of the input
-25:09
-sequence which is important at that
-25:15
-moment and this seems like an intuitive thing to do right but it's actually the
-25:22
-most important thing which helped language models to become better so imagine that uh
-25:29
-you want to find a spelling mistake in a piece of paragraph right what do you do
-25:36
-you want to find out where the spelling mistake is you go through the paragraph step by step so you pay attention at one
-25:41
-then you pay attention to the next Etc this is what llms also need to do they
-25:48
 need to selectively pay attention to the part of the sequence and then find that part let's say which has the spelling
 25:54
 mistake for example right so this is the main purpose of why we need attention while
@@ -866,6 +761,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

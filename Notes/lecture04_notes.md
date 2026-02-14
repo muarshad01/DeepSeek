@@ -3,7 +3,7 @@
 * Here is how the field of Generative AI has evolved
 
 | Model | Year | (Encoder, Decoder) |
-|---|---|
+|---|---|---|
 | RNN | 1980 |
 | LSTM | 1997 |
 | Attention + RNN | 2014 |
@@ -698,6 +698,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

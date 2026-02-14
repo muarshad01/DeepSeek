@@ -59,109 +59,11 @@
 
 ***
 
-35:13
-should I pay to all the other tokens in the sentence that's the most important thing
-35:20
-to understand over here if you look at one uh token essentially or one word
-35:29
-then how important are the neighboring words to that particular token why is
-35:36
-this knowledge uh can you try to think why this knowledge is important for us
-35:43
-why do we need to encode the knowledge of the tokens which essentially
-35:50
-surround uh a given token the reason this knowledge is
-35:56
-important to us is because because when you are predicting the next token you essentially need information about the
-36:03
-context of a sequence you need information about how different words
-36:08
-relate to each other so again taking the same example right let's say if I say
-36:14
-that I am from Pune
-36:19
-India I speak let's say this is the sentence right if you look at
-36:25
-speak I need to know that I when I look at speak the maximum
-36:30
-attention needs to be paid to Pune and India maybe all the other words are not as relevant because my dialect what I
-36:39
-speak is very heavily influenced with the region which I come from so when you look at a cloud of
-36:46
-words and if your Transformer architecture or if your llm engine has
-36:53
-information about how one word relates to other words which are surrounding it
-36:59
-and how much importance needs to be paid to the different word surrounding it then it just becomes very very easy to
-37:06
-predict the next token right if you look at uh one if you
-37:11
-look at one token so that's the reason why um the self attention mechanism
-37:19
-becomes very important if self attention mechanism was not there you would have lost this contextual information about
-37:26
-how other tokens relate to a given token which we have chosen and I hope now you
-37:31
-understand why it is called self attention in this case when we are looking at sequence to sequence language
-37:36
-translation the attention is between sequences but self attention is when we
-37:42
-look at one sentence itself and we look at tokens within the sentence and we essentially see how these tokens
-37:48
-are relating to each other right okay so
-37:54
-let's take the same example again the next day is bright so the next day is bright and remember that when these
-38:00
-tokens go to the Transformer architecture they are now vectors as you have seen before they have this uniform
-38:07
-now remember every token has a uniform which was a 768 dimensional Vector here
-38:12
-that's the input embedding right so whenever I'm showing these these blocks here it essentially means a vector so
-38:19
-the next day is bright these are all vectors now for a Transformer it does
-38:24
-not understand words it does not understand sentences also all it knows is that every token is a vector so the
-38:31
-is a vector which I'm calling X1 next is a vector which I'm calling X2 day is a vector which I'm calling X3 is is a
-38:39
-vector which I'm calling X4 bright is a vector which I'm calling X5 right and now if I'm looking at a specific word
-38:46
-let's say next as I showed over here I want to see if I look at this word next
-38:52
-how much attention should I give to all the other tokens and this this attention is given
-38:58
-by Alpha 21 or I'm calling it a symbol Alpha 21 why 21 because next is the
-39:04
-second token and I'm wanting to find the attention score between the second token and the first token that's Alpha 21 this
-39:11
-will be Alpha 22 this will be Alpha 23 here will be Alpha 24 and here will be
-39:16
-Alpha 25 I essentially want to find out all the attention scores if I'm looking
-39:21
-at particular token so this is called as a query the token which I'm focusing on
-39:26
-right now that's called as the query query token and uh I want to find out if
-39:31
-I'm looking at the query how much attention should I give to all the other uh tokens these are also called as Keys
-39:40
-sometimes in the common nomenclature right uh so ultimately what I want to do
-39:47
-I want to take this information let's say I get these attention scores I want to somehow take all of this information
-39:53
-and transform this Vector from an input embedding Vector to a context vector
-39:58
-now here is very important distinction which I want to make currently next is a input embedding Vector right so it
-40:04
-contains token embedding plus positional embedding but context Vector is something very different so if this is
-40:11
-the input embedding Vector for next um and if I plot the context Vector
-40:18
-in the same space here so this is the context embedding Vector for next the
-40:23
-context Vector is actually much richer than the token embedding vector why because the token embedding vector or
-
+* 35:00
 
 ***
+
+* 40:00
 
 
 40:30
@@ -618,6 +520,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

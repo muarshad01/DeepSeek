@@ -167,6 +167,12 @@ mechanism so that I can capture these complexities and I don't know what that
 mechanism would be so then we use the trick which researchers have used for a long period of time now if you don't
 50:02
 know what the underlying relationship between things is you just replace it with a neural network or a bunch of
+
+
+
+***
+
+
 50:08
 trainable weight metries and let back propagation figure it out and that's
 50:14
@@ -443,6 +449,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

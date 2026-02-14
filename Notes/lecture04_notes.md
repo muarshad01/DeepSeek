@@ -95,6 +95,3 @@ The dog chased the ball, but it couldn't catch it.
 * Insted of directly using embeddings, we transform each embedding through trained matrices.
 
 *** 
-
-***
-

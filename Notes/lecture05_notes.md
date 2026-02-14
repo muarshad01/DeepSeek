@@ -1,6 +1,6 @@
 
 
-* $$\text{Attention}(Q,K,V)=Y=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
+* $$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 
 
 #### Softmax
@@ -12,4 +12,5 @@
 * $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 ***
+
 

@@ -89,113 +89,15 @@ The dog chased the ball, but it couldn't catch it.
 
 ***
 
+* 50:00
 
-50:08
-trainable weight metries and let back propagation figure it out and that's
-50:14
-exactly what happened in the field of attention also researchers essentially could not figure out what that mechanism
-50:21
-can be so and that's where the field of machine learning deviates or deep learning Ates from physics right in
-50:28
-physics if you were stuck with this problem you would have spent 6 months one year trying to develop a law for the
-50:34
-underlying mechanism to capture complexities or underlying mechanism to capture the context but in the field of
-50:41
-deep learning you don't do that you say that I'll replace it with a bunch of matrices and I'll train these
-50:48
-matrices through back propagation so that's what researchers did right so they
-50:54
-invented new matrices which are let's say called as the query Matrix and the key Matrix what it means is that instead
-51:01
-of just looking at the input embedding representations What If I multiply every
-51:07
-input embedding with a matrix so if my query here is it right my query is it
-51:15
-I'll multiply it with something which is called as the query Matrix this can be a high dimensional
-51:21
-Matrix um for dog so dog and ball are the keys right
-51:27
-uh because keys are essentially if you have the query keys are essentially all the other tokens which you're looking
-51:33
-for so that's dog and ball so you you multiply both of them with a keys Matrix
-51:38
-now see the advantage here is that if a DOT product cannot get the contextual relationship you are hoping that these
-51:45
-WQ and WK you are not assuming these Matrix as anything you are just you will
-51:50
-initialize them randomly and then you will train them through back propagation
-51:56
-it's the same deep learning trick which researchers now have used for a very long time if you cannot figure out the
-52:02
-relationship yourself you take a step back and you let neural network do its job instead of restraining the neural
-52:09
-network by imposing some laws let it figure it out itself so you see the advantage is now we have multiple uh
-52:16
-trainable factors in our control so if WQ is let's say
-52:21
-3x3 and WK is 3x3 right um so dog ball
-52:26
-and it these are my keys and if these are the embeddings for these which we saw here also the input
-52:34
-embeddings which we saw and now I multiply these input embeddings with the query I multiply
-52:41
-this these I multiply these two with the keys so I will multiply so it will be
-52:47
-3x3 multiplied 3x 1 so this will be a 3x1 and this will also be a
-52:55
-3x1 so then the keys become .92 and 0.1 And1 1.8 And1 you see these values
-53:03
-changed because I multiplied them with the keys Matrix and the query is
-53:09
-it so it will be multiplied with the queries Matrix so that the query for it
-53:15
-will become 0.5.1 and. 5 1.0
-53:21
-And1 uh and so now if you plot this in Vector space this is the query Vector
-53:27
-this is the keys for ball and this is the keys for dog so now we have we are going from the input embedding space to
-53:35
-a different space which we get after multiplying with the queries and the key Matrix and now I will compute the
-53:41
-attention scores between these vectors not the original vectors so now if you compute the attention score between it
-53:47
-and the ball you'll see that it's 56 it and the it and the ball
-53:53
-is96 and if you compute the attention SC score between it and the dog that is 56
-53:59
-so here you see the attention score between it and ball is96 Which is higher
-54:06
-than the attention score between it and dog which is lower so these are clearly distinct
-54:12
-attention scores so adding these trainable matrices has actually helped
-54:17
-us why has it helped us because it has given a number of parameters to tune so
-54:22
-that we can encode some complex relationships between tokens so if you take a simple dot product the attention
-54:29
-scores will be identical but if you take if you have the query key Matrix we have
-54:35
-not yet seen the value Matrix we'll see that in the next class but essentially if you just have trainable
-54:41
-matrices then you can have attention scores which are different because now you suddenly have more parameters to
-54:47
-work with so if you got confused in this part let me repeat it once more um we started
-54:54
-this section by thinking that if you have an input embedding Vector right what can you do to the input embedding
-55:00
-Vector to get the context Vector so to get the context Vector we essentially need Alphas after you get the alphas
-55:08
-then you just have to multiply them with the um input embedding
-55:13
-vectors uh and then you will get the context Vector but then the question is that how do you get the alphas between
-55:21
-one uh input embedding vector and another input embedding Vector how do you get the attention scores the
-55:27
-simplest way is probably taking a DOT product but we saw that let's say if this is the sentence right and if it is
-55:34
-my query and if I I want to find the attention score between it this it dog
-55:40
-and ball I will take a DOT product between it and the ball first which comes out to be0 51 and I will take a
+#### Option-2
+* Insted of directly using embeddings, we transform each embedding through trained matrices.
+
+***
+
+* 55:00
+
 55:47
 DOT product between it and the dog which comes out to be again 51 so the attention scores comes out to
 55:54
@@ -366,6 +268,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

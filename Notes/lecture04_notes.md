@@ -73,6 +73,10 @@
 
 * 45:00
 
+* $$\\{x^{1}, x^{2}, x^{3}, x^{4}, x^{5}\\}$$
+
+* $$z^{2}= \alpha_{21} \times x^{1} + \alpha_{22} \times x^{2} + \alpha_{23} \times x^{3} +
+\alpha_{24} \times x^{4} + \alpha_{25} \times x^{5}$$
 
 
 45:08
@@ -449,6 +453,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

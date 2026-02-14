@@ -159,6 +159,11 @@ the input embedding Vector for next um and if I plot the context Vector
 in the same space here so this is the context embedding Vector for next the
 40:23
 context Vector is actually much richer than the token embedding vector why because the token embedding vector or
+
+
+***
+
+
 40:30
 the input embedding Vector contains no information of the neighboring words but now my context Vector consists of
 40:37
@@ -613,6 +618,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -42,83 +42,13 @@
 * [Neural Machine Translation by Jointly Learning to Align and Translate - 2014](https://arxiv.org/abs/1409.0473)
   * The is "Bahdanau" Attention Mechanism.
 * [Attention Is All You Need - 2017](https://arxiv.org/abs/1706.03762)
-  * RNN architecture is NOT required for building DNN 
+  * RNN architecture is NOT required for building DNN (they have context problem)
 
 
-* that is what I'm getting at at the moment now the first paper which really
-26:15
-implemented this was not the attention is all you need so if you see this paper
-26:22
-this paper has around 1 Point 170,000 citations right
-26:29
-huge number of citations so many people actually believe that the um many people
-26:35
-believe that the attention mechanism was first introduced in this
-26:42
-paper but the first paper which actually introduced the attention mechanism is
-26:48
-this bhano attention mechanism so if you search bhano attention and uh you click on this
-26:55
-you'll see that this is the first paper which actually implemented the attention mechanism for translation tasks this
-27:01
-paper I think came out in 2014 and this was published at iclr in 2015 their main purpose was they
-27:09
-essentially implemented this architecture in which we can selectively decide how much attention to pay to each
-27:16
-hidden state so that's what's called a A1 A2 A3 that's the attention score and
-27:21
-based on that you can do the translation tasks and uh they essentially proved
-27:27
-that we can do sequence to sequence translation in a much better manner if we use the attention
-27:35
-mechanism um so just keep this particular paper in mind so here you can see that on the on this year we have the
-27:43
-English sentences and on the y- axis we have the French translation and the
-27:48
-diagonals are essentially showing the English word paying the most attention to the translated French word and what's
-27:56
-cool thing about this is that the order is not the same so the agreement on the
-28:01
-European economic area right European economic area that's English but the way
-28:06
-it translates to French is economic European right so it translates to area
-28:12
-economic European so it's not direct work toward translation and still the
-28:18
-attention mechanism essentially figures out that see this is the maximum uh this is brightest right which
-28:24
-means the European year in French corresponds to the Eur European year in English although they both don't occur
-28:31
-at the same position so the European in English occurs at position number five and the European in French occurs at
-28:38
-position number seven so all the max all the brightest areas are not on the
-28:43
-diagonal there are some which are of the diagonal itself U and even that is captured by
-28:50
-the attention mechanism so the coolest thing about this plot is that this off diagonal elements because translation
-28:56
-does not always happen word by word right there are some words which come before in some languages which are which
-29:02
-come after in some other languages based on how nouns verbs Etc are arranged so that's the cool thing about this paper
-29:08
-this was the first one where the attention mechanism was used for translation task um and
-29:16
-then attention is all you need paper is where the Transformer block was introduced and the attention mechanism
-29:23
-was integrated within the Transformer block that's the main uh advantage or
-29:28
-that's the main unique point of this paper attention is all you need right so what happened is that RNN
-29:36
-and lstms are quite good for language translation but they have this context botanic problem uh so researchers
-29:43
-figured out that RNN architectures are not really needed for building deep neural network so 2014 is where the
-29:51
-badano attention mechanism was introduced where they had the RNN so they retained the RNN plus they had the
-29:58
-attention mechanism so essentially in bhano attention you can think of the encoder
-30:03
-decoder Block in a similar manner but just they added this attention mechanism
-30:09
+***
+
+* 30:00
+
 uh 3 years later which means in 2017 researchers essentially figured out
 30:14
 that RNN architectures are not even needed for building deep neural networks for
@@ -764,6 +694,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

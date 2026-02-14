@@ -65,100 +65,14 @@
 
 * 40:00
 
+* __Context Vector__
 
-40:30
-the input embedding Vector contains no information of the neighboring words but now my context Vector consists of
-40:37
-information of my neighbors also that information is now baked into my input
-40:43
-embedding so if you have an input embedding if you have the input embedding Vector which is the uniform
-40:50
-which I talked about right and if you augment this input embedding vectors with context about the neighbors
-41:00
-we'll see how this augmentation is done but essentially this leads to something which is called as the context
-41:08
-Vector so the whole goal of the attention mechanism or the self attention mechanism is to convert all
-41:15
-the input embedding vectors to context vectors so all of these uniforms so we
-41:21
-saw U these uniforms right all tokens have a 768 dimensional uniform where
-41:27
-when they come out of the normalization layer and when we go to the multi-ad attention layer what comes in the
-41:33
-attention layer is an input embedding Vector what comes out of the attention layer is a context Vector so something
-41:40
-much richer comes out after we exit the attention block and that's why I marked
-41:45
-it with a different color the reason it's richer is because now it encodes information of other tokens also so it
-41:52
-retains context so context Vector is an enriched
-41:58
-embedding Vector it combines information from all the other input
-42:04
-elements so in self in self attention context vectors play a very crucial role
-42:11
-their purpose is to create enrich representations of each element in an input sequence by incorporating
-42:17
-information from all the other elements in that sequence uh so this is again keep this
-42:23
-thing in mind that input embedding vectors only contain information about that that that word or that token it
-42:31
-might encode information about the meaning of that word and its position but it has no clue of the neighbors
-42:37
-context Vector has clue about the neighbors uh because neighbors are so important right when you look at a
-42:43
-sentence when you look at a paragraph individual tokens don't mean anything it's only how they relate with the
-42:50
-neighbors that essentially produces the context of that paragraph um and why is this needed in
-42:56
-llm it's needed to understand the relationship and relevance of words in a sentence to each other actually this is
-43:04
-that fundamental thing which has made llm so so much better so if you look at
-43:09
-this advancements in history right Elisa RNN alist El until your attention was
-43:15
-not there 2014 I believe is a very critical point that was 10 years back when the attention mechanism was
-43:21
-introduced and then people started thinking that oh instead of looking at words in isolation what if I take a step
-43:27
-back and try to see how different words essentially relate to each other so then we are exploiting the maximum richness
-43:35
-from text because just like images are made up of patterns of pixels text or
-43:41
-paragraphs only make sense if you take a look at all the words together and how
-43:47
-they relate to each other so now the question is that okay you have an input embedding Vector uh
-43:54
-let's say for next how do you convert it into a context Vector so you have an
-44:00
-input embedding Vector how do you go from the input embedding Vector to the context
-44:05
-vector and I want you to think about this from the first principles pause this video for a moment and think about
-44:12
-this right you have the input embedding vector and let's say you have these attention scores how will you modify the input
-44:19
-embedding Vector so that somehow these attention scores are taken into account
-44:24
-and you have a context vector so you can pause here for a moment first
-44:32
-you can try to also think about how these attention scores themselves are computed
-44:38
-um okay so the simplest thing to do is that let's say if you have
-44:44
-uh uh this Vector right and if you have all the other vectors why don't we take
-44:49
-a simple dot product so you have the input embedding Vector for next you have the input embedding Vector for the just
-44:57
-just take a DOT product between these two that will give you Alpha 2 one just take a DOT product between next and next
-45:03
-that will give you Alpha 22 uh then take a DOT product between next and day that
-
-
-
-
-
+* Context vector is an enriched embedding vector. It combines informatin from all other input elements.
 
 ***
+
+* 45:00
+
 
 
 45:08
@@ -529,6 +443,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

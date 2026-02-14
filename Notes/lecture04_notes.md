@@ -152,6 +152,15 @@ a simple dot product so you have the input embedding Vector for next you have th
 just take a DOT product between these two that will give you Alpha 2 one just take a DOT product between next and next
 45:03
 that will give you Alpha 22 uh then take a DOT product between next and day that
+
+
+
+
+
+
+***
+
+
 45:08
 will give you Alpha 2 three then take a DOT product between next and is that will give you Alpha 24 and next take a
 45:16
@@ -520,6 +529,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

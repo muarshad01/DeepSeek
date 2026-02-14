@@ -6,8 +6,9 @@
 |---|---|
 | RNN | 1980 |
 | LSTM | 1997 |
-| Attention | 2014 |
-
+| Attention + RNN | 2014 |
+| Attention + Transformer | 2017 |
+| Attention + GPT | 2018 |
 ***
 
 * [ChatGPT](https://chatgpt.com/)
@@ -41,8 +42,10 @@
 
 * [Neural Machine Translation by Jointly Learning to Align and Translate - 2014](https://arxiv.org/abs/1409.0473)
   * The is "Bahdanau" Attention Mechanism.
+  * RNN + Attention Mechanism
 * [Attention Is All You Need - 2017](https://arxiv.org/abs/1706.03762)
   * RNN architecture is NOT required for building DNN (they have context problem)
+  * Transformer Architecture
 
 
 ***
@@ -694,6 +697,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

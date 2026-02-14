@@ -79,100 +79,13 @@
 \alpha_{24} \times x^{4} + \alpha_{25} \times x^{5}$$
 
 
-45:08
-will give you Alpha 2 three then take a DOT product between next and is that will give you Alpha 24 and next take a
-45:16
-DOT product between next and bright that will give you Alpha 25 and once you have all these Alphas
-45:22
-you can simply do alpha 21 * X1 plus Alpha 2 2 * X2 + Alpha 2 3 *
-45:31
-X3 + Alpha 2 4 * X4 plus Alpha 25 *
-45:40
-X5 and why do we take a DOT product here essentially the reason you might think
-45:46
-of a DOT product is that a DOT product essentially encapsulates information about whether vectors are similar or
-45:52
-closer to each other or not right if you have one vector here V1 and if if you have another Vector here V2 the dot
-45:59
-product between them will be higher than let's say V1 and V3 so if two vectors are similar their
-46:06
-dot products will be higher and that's exactly what you wanted to quantify with the attention mechanism you might think
-46:12
-that I want to quantify whether two vectors are similar right so if next and the are more similar of course they
-46:18
-should have a higher attention score so this calculation seems to make sense to me I just calculate the dot products and
-46:25
-then I just scale the different vectors with their dot products and add it up so
-46:31
-whatever the sum would be that would be the context Vector now for next and similarly I can find context
-46:38
-vectors for all the other tokens as well what's wrong with this
-46:44
-approach why will this approach not work or why can't we just take simple dot
-46:51
-products to find the attention scores again you can pause here for a moment M and try to think of the context
-46:59
-which we are trying to encode um I want you to think from first
-47:05
-principles here I'm going to reveal the answer very soon all right so the main answer is
-47:11
-that let's say you consider this sentence the dog chased the ball but it couldn't catch it right the dog chased
-47:18
-the ball but it couldn't catch it and let's say I have the input embedding Vector for dog as this input
-47:25
-embedding Vector for ball as this and input embedding Vector for it as this okay and if it is my query Vector right
-47:32
-now um how did you decide to compute the attention score between a query vector
-47:38
-and other vectors you decided to take a DOT product right this is exactly what I'm going to do if it is my query Vector
-47:44
-to get the attention score between it and dog let me simply take a DOT product between it and dog and if I take a DOT
-47:51
-product it's 51 if I take a simple dot product between it and ball that is is
-47:56
-also 51 you see the problem here both the attention scores are completely
-48:02
-identical but that's not what I wanted when when you say but it couldn't catch
-48:07
-it it actually means the ball right the dog chased the ball but it couldn't catch it so the second it means the ball
-48:16
-not the dog so when I'm looking at it I need to pay more attention to ball not
-48:21
-the dog let let me write this with a
-48:27
-different ink so that this is clear I need to pay a lot more attention to ball
-48:33
-when I'm looking at it and not really the dog but that's not that's not what is
-48:39
-happening here if you take a simple dot product there is no provision for me to encode the information that ball should
-48:46
-be given more priority than dog both dog and ball should not be having the same
-48:52
-attention score when we say it this is actually this example is a
-48:57
-brilliant demonstration of why we should selectively attend to different tokens the dog chased the ball but it couldn't
-49:03
-catch it the first it is the first dog so if this was the query token it would
-49:08
-have attended more to dog but now this is the query token so it should attend more to ball I don't want both to have
-49:16
-the same attention score so simple dot product cannot distinguish between subtle contextual relationships here it
-49:23
-doesn't consider the context of Chase couldn't catch or linguistic Nuance such as the fact that catch is more likely to
-49:30
-refer to a moving object which is the ball so the main issue is that simple do
-49:36
-product only measures semantic similarity but it cannot deal with
-49:41
-contextual issues and many sentences might have contextual complexity like this right um and I need to encode a
-49:49
-mechanism so that I can capture these complexities and I don't know what that
-49:55
-mechanism would be so then we use the trick which researchers have used for a long period of time now if you don't
-50:02
-know what the underlying relationship between things is you just replace it with a neural network or a bunch of
+* What's wrong with this approach?
 
+```
+The dog chased the ball, but it couldn't catch it.
+```
 
+* Simple dot product only measures basic semantic similarity, which isn't sufficient to resolve more nuanced contextual ambiguities.
 
 ***
 
@@ -453,6 +366,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

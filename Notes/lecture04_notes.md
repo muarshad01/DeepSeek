@@ -8,8 +8,9 @@
 | LSTM | 1997 |
 | Attention + RNN | 2014 |
 | Attention + Transformer | 2017 | (Encoder, Decoder)| 
+| BERT | 2018 | (Encoder, ---)|
 | Attention + GPT | 2018 | (--, Decoder)
-| BERT | ??? | (Encoder, ---)|
+
 ***
 
 * [ChatGPT](https://chatgpt.com/)
@@ -53,97 +54,11 @@
 
 * 30:00
 
-uh 3 years later which means in 2017 researchers essentially figured out
-30:14
-that RNN architectures are not even needed for building deep neural networks for
-30:20
-NLP um and they propos the Transformer architecture so think about the field
-30:26
-which evolved in this way right 1980s was RNN 1997 was
-30:36
-lsdm actually 1966 was Eliza let me write this also then 2014 was where the
-30:44
-attention mechanism was introduced but that was still attached to RNN the encoder decoder architecture of RNN 2017
-30:52
-is when researchers figured out that rnns are not needed for natural language
-30:58
-processing task so RNN were scrapped out and then essentially the attention mechanism remained but it was coupled
-31:04
-with the Transformer block that's the main difference between
-31:10
-the 2014 paper and the 2017 paper in the 2014 paper the RNN block was still there
-31:16
-but that was then removed and then that was replaced with the Transformer block or the Transformer architecture in 2017
-31:24
-and then it led to this whole architecture right we now have the Transformer block and within that we
-31:30
-have the attention right so this is the GPT architecture this is not the architecture in the original Transformer
-31:37
-paper the original Transformer paper had an encoder as well as the decoder whereas this architecture which I'm
-31:43
-showing you right now only as a decoder don't get confused by this at the moment the main purpose of this today's lecture
-31:49
-is for you to understand why attention needed to be introduced in the
-31:55
-historical perspective of natural language processing and the main reason is that the one
-32:00
-sentence you need to keep in mind is that we need to selectively access parts of the input sequence during decoding
-32:07
-and first attention was introduced in RNN itself then researchers figured out that
-32:13
-okay let me get rid of the RNN still let me try to merge the attention mechanism
-32:20
-somewhere and that's when they merged it with the Transformer block over here that was in 2017 then in 2018 is when
-32:29
-uh the GPT architecture came out so then it's the attention plus GPT so GPT is
-32:35
-based on this original Transformer architecture but instead of having the encoder and the decoder block it only
-32:40
-has the decoder block as you see over here and it retains the attention mechanism over here so the thing which
-32:48
-we talked about why attention mechanism is needed it manifests itself over here in this part of the llm
-32:55
-architecture now we are going to start looking at at uh if you take a look at next token
-33:01
-prediction tasks what is self attention really and uh what are context vectors
-33:09
-and what is the main purpose of the attention mechanism so let's uh what is the main purpose of the self attention
-33:15
-mechanism for next token prediction so let's start learning about that now now
-33:21
-that we have understood about the attention mechanism and the history of the attention mechanism let's try to
-33:27
-look at at this term self attention what does self attention actually mean so
-33:32
-self attention means that it's a mechanism which allows every position in the input sequence to attend to all the
-33:39
-positions in the same sequence what this means is that let's say if I have a sentence right um if I have a sentence
-33:46
-such as the next day is
-33:55
-bright self attention essentially means that until now if you looked at the RNN
-34:00
-we saw the attention which needs to be given from the decoder to the encoder right so if the first decoded word is a
-34:07
-French word uh we are basically looking between two different sequences so the
-34:14
-English sequence is this let's say the English sequence is this I will eat and the French sequence is
-34:24
-this uh this is the French sequence and we are looking at if you are doing the first decoding how much attention should
-34:31
-you give to the English sequence so here the attention is between sequences it is
-34:37
-not within the same sequence self attention is on the other hand when you're predicting the next token which
-34:43
-is typically done for the llm since llms predict the next token right they're not
-34:49
-specifically trained for translation tasks to predict the next token you essentially don't have different
-34:55
-languages you just have a bunch of data right so instead of having attention
-35:02
-between two sequences what you do is that you just take the same sentence and let's say if you take a look at
-35:08
-next you try to find out if you look at one token or one word how much attention
+#### Self Attention
+* Mechanism which allows each position in the input sequence to attend to all positions in same sequence.
+
+***
+
 35:13
 should I pay to all the other tokens in the sentence that's the most important thing
 35:20
@@ -698,6 +613,7 @@ MLA this series is going to be a bit deep but I'm trying to make the lectures as
 out anything this is for serious Learners so please make notes as you are watching this series and it will be
 1:04:47
 incredibly useful for you thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

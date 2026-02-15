@@ -64,88 +64,8 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 * Attention Score
 * Attentin Weight (are normalized)
 
-Dimension grows the variance increases a lot and the dot products before soft Max
-35:58
-become either very large or it becomes very small because the variance is large
-36:04
-and that makes the attention weights unstable and so the training procedure also becomes unstable when we divide by
-36:10
-square root of D it scales down the variance of this do product and brings it equal to
-36:15
-one and that stabilizes the expected outcomes the attention weights become more stable and they become more
-36:21
-predictable I have actually explained this using the code below so here what we'll do is that we'll take thousand
-36:29
-trials okay and in each trial we'll generate a so first we'll do a five
-36:34
-dimensional query and the key vector and then we'll do 100 dimensional query and
-36:40
-the key Vector right so let's say the dimension is equal to five we'll generate queries and key vectors of
-36:46
-Dimension five and we'll do that thousand times we'll compute the dot product
-36:51
-between the query and the key for each trial um and then in one case we'll
-36:56
-divide by the square root of the dimension and in the other case we'll just take the dot product like that
-37:03
-without without doing the scaling and we'll collect all the results of the Thousand trials and then we'll find the
-37:09
-variance we'll find the variance before scaling and we'll find the variance after scaling so remember we are taking
-37:15
-th000 query vectors th000 key vectors we are taking the dot product and in one case we are scaling it in one case we
-37:21
-are not scaling it and then we are finding the variance before scaling and after scaling so if you run this you see
-37:27
-that for the dimension of five variance before scaling is equal to five for the
-37:34
-dimension of 100 variance before scaling is actually 100 so the variance actually
-37:39
-directly grows with Dimension uh the variance is directly proportional to the dimension if you see
-37:45
-but after scaling the good thing is which happens is after you scale with
-37:51
-the square root of uh the dimension the variance almost becomes equal to one
-37:57
-that that's very cool right so now here it's clearly proved that if you divide the product if you divide the dot
-38:03
-product of the queries and the keys with the square root of the keys Dimension
-38:09
-then uh what you ultimately get is that um after scaling whether the dimension
-38:16
-is five or whether the dimension is 100 the variance of the product is constrained this means that the queries
-38:22
-multipli multiplied by Keys transpose the values won't blow up to very high values or very low values the variance
-38:28
-will remain equal to one that will lead to very stable training procedure so that's why what we do is
-38:36
-that in Step number three the attention scores are scaled by square root of the
-38:42
-keyys dimension which means that we take the attention scores and we divide by square root of Key's Dimension Key's
-38:48
-Dimension essentially is every key Vector what's the dimension of it in this case it's equal to four right so we
-38:54
-divide by square root of 4 and then we apply soft Max so after this division is done uh after this
-39:02
-division is done by square root of uh the keys Dimension we apply soft Max
-39:07
-essentially we apply this function and when we apply the soft Max attention
-39:12
-scores are converted into what is called as attention weights so that's the key difference here between attention scores
-39:19
-and attention weights attention scores are not normalized and attention weights
-39:25
-are normalized so if you look at every row over here you will see that every row essentially sums up to one and now
-39:32
-we can make the quantitative statements or the qualitative statements which I was mentioning right this second row
-39:37
-corresponds to next so now I can say that we can pay 10% attention between
-39:43
-next and the we can pay 50% attention between next and next we can pay 20%
-39:49
-attention to next and day we can pay 20% attention to next and is and we can pay
-39:55
-10 sorry 10% attention to next is and we can pay 10% attention to next and bright
-40:00
+***
+
 so that is how I can make qualitative statements now because all the elements of each row essentially sum up to
 40:07
 one that's the difference between attention weights and attention scores attention weights are normalized they
@@ -408,6 +328,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

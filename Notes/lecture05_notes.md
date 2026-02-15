@@ -8,16 +8,6 @@
 $$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 
 
-#### Softmax
-
-$$\\{x_1, x_2, x_3, x_4, x_5, x_6\\}$$
-
-$$\bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\bigg\\}$$
-
-$$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
-
-***
-
 * 5:00
 
 #### Self Attention with Trainable Weights
@@ -53,98 +43,19 @@ The next day is bright
 
 * 25:00
 
-chart I can see how much attention needs to be paid to each token whereas if you see these values right now um let's
-25:12
-see um yeah if you see these values right now for the second row that is the
-25:17
-attention score for next you'll see that these values don't really sum up to one
-25:22
-which means that I cannot make statements like give 10% attention to the first token 18 % attention to Second
-25:29
-token it will not work like that the rows the values in the rows here do not sum up to one and that is the main
-25:36
-problem so the next step which is Step number three is to make sure that the attention scores are converted into
-25:43
-something which is called as attention weights and to go from attention scores
-25:49
-to attention weights we are going to apply the soft Max operation soft Max essentially means that let's say we take
-25:55
-a look at this row um
-26:00
-and let me write it down in column format right now so then in column format this will become .1
-26:07
-1.8 6.1 and .1 what I want to do is I want to somehow convert all of these
-26:14
-values so that they lie between 0o to one and they also sum up to one so the
-26:19
-softmax operation essentially what it does is that if this is X1 X2 X3 X4 and X5 soft Max what it does it
-26:30
-replaces X1 with e to X1 divided by summation it replaces X2 with e to X2
-26:36
-divided by summation it replaces X3 with e to X3 ided summation e to X4 ided
-26:43
-summation and E to X5 / summation uh now what exactly is
-26:51
-summation summation is just e to X1 + e to X2 + e to X3 plus e to X4 + e to
-27:01
-X5 now if you take a look at all of these five values you'll see that if you
-27:06
-add them the numerator will be e to X1 plus e to X2 plus e to X3 plus e to X4
-27:11
-plus e to X5 that is equal to summation which is the denominator so all of these
-27:17
-will definitely add up to one and they will lie between 0 to one soft Max also
-27:22
-has the additional important property that it gives a lot of weightage to very high values and very low weightage to
-27:29
-very low values this makes the classification very easy um so essentially that's the
-27:36
-softmax operation which we are going to implement but the main problem here is that I told you right softmax gives very
-27:43
-high attention to values which are very high and it does not pay that much attention to values which are very low
-27:50
-and that's a big problem for us so let's say if the attention let's say if this if the atten
-27:58
-ion scores are something like this
-28:04
-okay uh now you see this value is very high right if you apply softmax to this
-28:10
-the way softmax will work is that it will put .95 or something to this value
-28:15
-and make sure that all the other values are actually very low and if these are our attention
-28:23
-weights that's not very good for us because then we'll pay a lot of attention to one key and will not pay
-28:30
-attention to all the other keys at all so that's why there is a scaling which needs to be performed before we
-28:36
-apply the soft Max before we apply the soft Max we need to make sure that all of these values are divided by some
-28:43
-value and only then we will apply the soft Max so now let me talk about that
-28:48
-part a bit um let's go to this
-28:56
-part yeah so here I want to first of all explain um the issues with softmax right
-29:03
-so what I'm doing is that let's say these are my um
-29:09
-attention score values and then I apply softmax to these values right U so we can see that
-29:17
-softmax for all of these values is almost equally equally similar in terms of range that's good for us but now what
-29:24
-I want to do is that I want to multiply all of these values with eight and then let us apply soft Max so if all of these
-29:31
-values are multiplied by 8 which means that some values will be very large and some values will not be that will not be
-29:38
-that high right so if if I multiply all of these values by eight and then I apply softmax you will see
-29:45
-that softmax places a lot of importance on this value which is 08 and it gives
-29:50
-negligible importance to some other values see that is what happens when the
-29:56
-values are very large before applying soft Max and that is what I've have mentioned
-30:02
-over here the soft Max function is sensitive to the magnitude of its inputs
-30:07
+#### Softmax
+
+$$\\{x_1, x_2, x_3, x_4, x_5, x_6\\}$$
+
+$$\bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\bigg\\}$$
+
+$$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
+
+
+* Softmax gives more attention to higher values and less attention to lower values.
+
+***
+
 when the inputs are very large the differences between exponential values of each input become much much more
 30:13
 pronounced and this causes softmax output to become peaky what peaky output means is that it gives a lot of
@@ -592,6 +503,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

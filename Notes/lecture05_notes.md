@@ -47,7 +47,7 @@ The next day is bright
 
 * 20:00
 
-* $$\text{Attention ~Score} = Q X K^{T}$$
+* $$\text{Attention ~Score} = Q \times K^{T}$$
 
 ***
 
@@ -592,6 +592,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

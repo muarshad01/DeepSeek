@@ -59,102 +59,6 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 ***
 
-when the inputs are very large the differences between exponential values of each input become much much more
-30:13
-pronounced and this causes softmax output to become peaky what peaky output means is that it gives a lot of
-30:19
-importance to some values and very low importance to others so in attention
-30:25
-mechanism this is not very good because because it if it's a sharp soft Max distribution then the model becomes very
-30:32
-confident in one particular key so now you see the model becomes very confident
-30:38
-in this key and it will give very low confidence to the other keys that leads
-30:43
-to very unstable training when we look at the Transformer architecture later and we do not want that so that is why
-30:50
-we need to scale um that is why we need to scale this
-30:56
-this this vector before we apply soft Max so the value with which this Vector
-31:02
-is actually scaled is square root of the keys Dimension right so the keys Dimension here is uh in this case it's
-31:10
-5x4 right so the output Dimension is equal to 5 so it scaled by square the
-31:16
-output Dimension is equal to four sorry so it scaled by square root of 4 and now you must be thinking that why
-31:23
-is it scaled by square root of 4 why just why don't we just scale it with the key Dimension or Dimension raised to two
-31:31
-or something like that why only square root of the keys Dimension what's so special about the square
-31:37
-root so the main idea here is that uh the reason we scale with the square root
-31:44
-of the keys Dimension is because of a concept of variance so if you um if you
-31:51
-take if let's say this is my queries this is my queries Vector which is a six dimensional vector
-31:58
-and this is my keys transpose which is a six dimensional Vector this is my keys transpose okay
-32:06
-and if I multiply these vectors I'll get some values right but remember in the multiplication what is happening is that
-32:12
-each value is getting multiplied and then summed
-32:17
-up now what usually happens is that
-32:23
-if there are two random vectors right if there are two random ROM vectors whose
-32:29
-dimensions are six and if I sample 100 such random vectors so I'm going to do
-32:36
-something like this I I take 100 vectors of the
-32:43
-queries and I take 100 vectors of the keys
-32:48
-transpose and then what I do is that I collect the values of queries multiplied by key keys transpose for all of these
-32:55
-100 what happens is that the variance of
-33:01
-this product so now I can take these 100 values and I can compute their variance
-33:06
-right how the distribution is the variance of this product actually
-33:14
-scales with the keys Dimension so as has been mentioned here um the variance of
-33:20
-this product scales by the square root of the keys Dimension actually um scales with square root of
-33:28
-the keys Dimension which means that as the keys Dimensions goes on increasing a
-33:33
-lot or rather as the dimensions of keys transpose here let's say if that increases the variance of this product
-33:40
-increases a lot which means that since the queries and the keys transpose are initialized randomly these are random
-33:46
-vectors right their product can be usely varying from some very high values to
-33:51
-some very low values and we want to avoid that as much as possible we want to make sure that this product variance
-33:58
-is equal to one so that the product does not Wily oscillate the queries and the
-34:03
-keys are defined randomly at the start right and the dimensions can be very high so if the dimension is very high
-34:11
-and if the variance actually scales with the square root of this Dimension then that's not very good for us because it
-34:17
-will also make the learning unstable and to illustrate this concept further I want to explain it to you with the case
-34:25
-of dice right so if you're rolling one dice let's say um and it just has one to
-34:30
-six numbers right the average of this is let's say 3.5 and the variance is relatively small that is let's say 2.9
-34:38
-there are predictable outcomes but now what I do is that I roll uh I roll the
-34:44
-dice and then I sum the output of 100 I roll and sum 100 dice basically so if
-34:51
-you roll a dice 100 times and you'll sum the output what happens here is that if
-34:56
-summation is involved the mean is around 350 but the variance grow significantly to around
-35:03
-290 so the output becomes unpredictable and the dot product
-35:09
-without normalization so if we if we just take the queries multiplied by the keys transpose and if we do not divide
-35:15
 it by the square root of the keys Dimension we'll see that increasing the
 35:21
 number of Dimensions is like rolling more Dice and summing the results why because dot product essentially is where
@@ -515,6 +419,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

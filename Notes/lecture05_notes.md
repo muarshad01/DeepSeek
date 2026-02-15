@@ -162,6 +162,10 @@ summing the number of results each Dimension contributes some variance and as th
 35:47
 accumulates um and so here I'm trying to say that as the query and the keys
 35:53
+
+
+***
+
 Dimension grows the variance increases a lot and the dot products before soft Max
 35:58
 become either very large or it becomes very small because the variance is large
@@ -262,6 +266,11 @@ because they are normalized in the last step what we do is that remember until n
 40:53
 at all in the last step these values vectors come in into the picture where
 40:59
+
+
+***
+
+
 uh what we do is that the attention weight Matrix which is a 5x5 Matrix it simply multiplied with the values Vector
 41:06
 so the values Vector is 5x4 right and that gives us the context Vector the context Vector has five rows
@@ -501,6 +510,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

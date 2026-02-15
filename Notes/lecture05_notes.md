@@ -30,200 +30,25 @@ The next day is bright
 * Input Embedding = Token Embedding + Positional Embedding
 
 ####  Example
-* Words = 5 with Emdebbing dimenesion = 8
+* Words = 5
+* d_input = Input Emdebbing dimenesion = 8
 * (5 X 8)
 
+#### Trainable Weight Metrices
+* Query  = W_q = (8,4) = (d_input, d_output)
+* Keys   = W_k = (8,4)
+* Values = W_v = (8,4)
+
+* For W_q, W_k, and W_v usually d_input = d_output
+
+* We want to tranform input embeddings into different space, so that, our expressivity increses and we can capture undering complexitites which cann't be done through a simple dot product. 
 
 ***
 
+* 20:00
 
-token embedding plus position embedding which is called as the input embedding so this input embedding is
-10:13
-actually what I have shown over here right so for the the input embedding is
-10:19
-an eight dimensional Vector for next the input embedding is an eight dimensional Vector for day the
-10:26
-input embedding is an eight dimensional Vector for is the input embedding is an eight dimensional vector and for bright
-10:32
-the input embedding is an eight dimensional Vector now I'm going to show you how
-10:38
-these input embedding vectors are transformed into context vectors but I
-10:44
-hope you understand why we need to transform them into context vectors right because as such right now if I
-10:49
-look at any of these embedding vectors for example day it carries no information about how much importance
-10:55
-needs to be given to next or the or is or bright that information is completely lost I want to integrate that
-11:03
-information and that's why I want to convert the input embedding vectors into context
-11:09
-vectors all right so there are three trainable weight matrices which we are going to introduce the first trainable
-11:15
-weight Matrix is called as the query weight Matrix which is denoted by WQ this is the query weight Matrix the
-11:22
-second trainable weight Matrix is the keys weight Matrix which is denoted by WK and the third trainable weight Matrix
-11:30
-is the values weight Matrix which is denoted by WV right now so now it shouldn't come as a
-11:38
-surprise to you that where are these matrices coming from remember these matrices are coming because we want to
-11:45
-transform the input embeddings into a different space so that our expressivity
-11:51
-increases and we can capture underlying complexities which cannot be done through a simple dot product remember
-11:58
-all of these training enable weight matrices which I mentioned here the values here I do not know these values
-12:03
-at the start they are initialized randomly the hope is that when we back propagate through the entire llm
-12:09
-architecture these values update themselves so whenever I show these
-12:14
-matrices I do not fix them at the start I just initialize them randomly now let's pay careful attention
-12:21
-to dimensions a bit the input so this Matrix right here is called as the input
-12:26
-embedding Matrix this is called as the input embedding
-12:32
-Matrix and take a look at the dimensions of this Matrix this Matrix has essentially five rows why does it have
-12:38
-five rows because I have five tokens the next day is bright so it has five rows and it has eight columns why does it
-12:45
-have eight columns because the input embedding dimension for every word I have chosen it to be eight over here you
-12:52
-can choose it to be any Dimension but Ive just chosen it to be eight for the sake of
-12:57
-Simplicity now this this is the dimensions of the input embedding Matrix
-13:03
-now let's take a look at the dimensions of the query the key and the value weight Matrix right U if you take a
-13:09
-closer look you'll see that the number of rows of these matrices have to be same as the number of columns of the
-13:15
-input embedding Matrix so the number of rows so WQ w k and WV the if you think
-13:23
-of them as rows and columns the dimensions the number of rows of WQ WK and WV have have to be equal to the
-13:30
-input embedding Dimension that's fixed because we are going to be taking the
-13:36
-multiplication so that's going to be eight in this case but the number of columns can
-13:42
-essentially be anything right so now when gpt2 gpt3 Etc their architecture is
-13:48
-coded out the number of columns here this is also called as the output Dimension so this is called as the
-13:55
-output Dimension whereas here we also call it the input Dimension or D
-14:00
-in now the output Dimension can be different as well as same with respect to the input Dimension and for gpt2 gpt3
-14:07
-ETC It's usually the same so if it's the same I'll have D out also equal to 8 but
-14:13
-here for the sake of Simplicity I have just chosen D out to be equal to 4 but remember that this value is
-14:20
-generally taken to be similar to the D in which is the input Dimension uh but here I want to show you
-14:28
-that it can really be anything because the product can still happen even if the column value is different right so then
-14:35
-my query weight Matrix my keys weight Matrix and my values weight Matrix all are matrices whose dimensions are 8x4
-14:43
-the first step which I will do is I will multiply my input embedding Matrix with the query Matrix and this will give me
-14:50
-query vectors so take a look at the dimensions a 5x8 Matrix multiplied by an 8x4 Matrix
-14:57
-5x 8 multip by 8x4 this will result in a 5x4 matrix right so these are my query
-15:04
-vectors that's a 5x4 matrix these are my key vectors these are that's also a 5x4
-15:10
-matrix and these are my value vectors that's also a 5x4 matrix the way to interpret this is that every row here
-15:17
-corresponds to the Token so the first row is the first token the second is the second token next third is day fourth is
-15:26
-is and the fifth is bright but now remember that from eight Dimensions we
-15:31
-have gone to a four dimensional output space so the space in which we are operating is now different after this
-15:37
-point we no longer look at the input embedding vectors all we look at is the query vectors the key vectors and the
-15:44
-values vectors this is what I was trying to motivate you at the start of the lecture
-15:50
-that if we directly deal with input embedding vectors and take the dot product it's limited right it does not
-15:56
-work that's why we project them into different spaces and this trick has been
-16:02
-done in deep learning in many different fields right if if a um linear classifier is not working on
-16:11
-a data you augment it with features you project it into a higher dimensional space if uh handwritten features for
-16:19
-computer vision are not working you use a convolutional neural network which
-16:24
-discovers features on its own in a higher dimensional space so taking
-16:29
-stuff from the input Dimension and putting it into a different dimension is what we have been doing in deep learning
-16:35
-for a long time and this is exactly what we are doing here it just that the names
-16:40
-are a bit fancier the query key and the value and at the end of this lecture I'll I'll tell you why these names come
-16:46
-into picture but for now just remember that the query vectors is 5x4 Matrix the
-16:51
-keys is 5x4 and the value is 5x4 the way to interpret it is that every row
-16:56
-belongs to one token the next day is bright for the query key and even the values and the number of columns is
-17:04
-equal to the output Dimension which is four in this case so I hope all of you are with me until this point where we
-17:11
-have the queries vectors the keys and the values right so here I have just taken some values some actual numerical
-17:18
-values where the inputs is 5 by 8 input embedding Matrix I multiplied it with
-17:24
-the query weight Matrix the key and the value which are 8x4 and here I get the queries Matrix which is 5x4 the keys the
-17:32
-keys U the query vectors here which is 5x4 the key vectors 5x4 and the value
-17:37
-vectors which are 5x4 so here the left hand side is the visual without any
-17:43
-numerical values and the right hand side is Ive just plugged in some numerical values here so that you have a visual
-17:49
-representation as well as the mathematical representation side by side next so this was step number one
-17:57
-where we get the query vectors the Keys vectors and the value vectors and now we'll operate in the Q KV space instead
-18:04
-of the input uh embedding space qkv is query key
-18:09
-value so let's go next the next step is basically we have to find the attention scores and this is basically taking a
-18:16
-DOT product right so I have my query now my query vectors which is 5x4 and I have
-18:22
-the keys keys Matrix now which is also 5x4 so if I have to take a DOT product
-18:28
-between the query vectors and the key vectors I cannot directly multiply these matrices because the number of columns
-18:35
-in the first and the number of rows in the second won't alive so I'll have to take a transpose so I'll have to take a
-18:40
-transpose of the keys Matrix so the query Vector stay 5x4 which was what was
-18:46
-here but now here I have the keys transpose which is a 4x5
-18:52
-right um so now the way this works is that you multiply 5x4 Matrix with a 4x5
-18:59
-and then you get an attention scores Matrix which is a 5x5 Matrix now this is
-19:06
-a very important step because here we actually find out how much one query relates to the other uh tokens basically
-19:14
-so now let me say the next day is bright right and let me
-19:22
-focus on the second row here which is the next and let's say I want to find out the attention scores between next
-19:29
-and the other tokens right so let's say I want to find out how much next relates to the next day is
-19:39
-bright I want to find out the attention scores here so I want to find out what's
-19:44
-the attention score between next and the what's the attention score between next and next what's the attention score
-19:50
-between next and day what's the attention score between next and is and what's the attention score between next
-19:55
-and bright so to get the attention score between let's say next and the we'll take the query for this query Vector for
-20:02
-next which is this row and multiply it with the keys transpose of the which is
-20:08
-the first column over here so the First Column over here is the so when I multiply the row the row
+
+
 20:16
 of the next with the column of the I'll get the attention score between next and the so let me call it Alpha 2 1 so this
 20:25
@@ -850,6 +675,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

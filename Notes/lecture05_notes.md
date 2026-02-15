@@ -68,112 +68,11 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 * 40:00
 
-
-so that is how I can make qualitative statements now because all the elements of each row essentially sum up to
-40:07
-one that's the difference between attention weights and attention scores attention weights are normalized they
-40:13
-sum up to one whereas attention scores are not normalized and now what we'll do is that
-40:19
-we'll come to step number four in this step we actually compute the context vectors from the attention weights let's
-40:27
-see how that is done so until now we have the attention weights that's again a 5x5 Matrix and
-40:34
-when you see this Matrix again try to visualize what every row represents so the second row here represents if next
-40:40
-is the query how much attention should I give to the next day is bright and all of these values will now sum up to one
-40:47
-because they are normalized in the last step what we do is that remember until now we have not used the values vectors
-40:53
-at all in the last step these values vectors come in into the picture where
-40:59
-
-
 ***
 
+* 45:00
 
-uh what we do is that the attention weight Matrix which is a 5x5 Matrix it simply multiplied with the values Vector
-41:06
-so the values Vector is 5x4 right and that gives us the context Vector the context Vector has five rows
-41:13
-and it has four columns the first row corresponds to the second row corresponds to
-41:19
-next U third row corresponds to day is and bright the next day is
-41:26
-bright and and now you can see that initially we started with input embedding vectors for the next day is
-41:32
-bright and after all these Steps step number one step number two step number three and step number four we have got
-41:38
-the context vectors for each of these tokens now now remember these context vectors are much more richer than the
-41:45
-input embedding Vector predominantly because their calculation involves the attention
-41:51
-weights uh so I just shown this calculation here mathematically the attention weights it's a 5x5 Matrix
-41:57
-which has been shown over here the values is a 5x4 matrix and so the context Vector Matrix is a 5x4 matrix so
-42:05
-for example the second row corresponds to the context Vector of next the last row over here corresponds
-42:12
-to the context Vector for bright so every context Vector is a four dimensional
-42:18
-Vector so here I just want to have a small section on the intuition behind the context Vector calculation so the
-42:25
-way the context Vector is actually Cal relateded is as follows right let's say if we want to find the context Vector
-42:31
-for next we have found the attention weights right between next and all the
-42:36
-other tokens so we have found that when you have next we should pay 10% attention to the we should pay 50%
-42:44
-attention to next we should pay 20% attention to day we should pay 10%
-42:50
-attention to is and we should pay 10% attention to Bright we have understood
-42:56
-this based on these attention weight values uh sorry these are tension weights and we have the value Vector so
-43:02
-you can think of the value Vector essentially as an input embedding Vector itself but it's transformed to a higher
-43:08
-Dimension or different dimensional space so now if we want to find the context
-43:13
-Vector for next what we essentially do is that uh we know that next gives 10%
-43:20
-attention to the so the so this is the uh Vector values vector for the so we'll
-43:28
-scale this Vector with 10% or we'll multiply this with 0.1 then we know that uh 0.5 which is
-43:37
-50% attention to next so I have written these attention weights here 0.1.5 21.1
-43:44
-so we give 0.1 importance to the first row which is the we give 0. five importance to the second row which is
-43:50
-next we give 20% importance to the third row which is day so we multiply the
-43:56
-third row with point 2 we multiply the fourth row with 0.1 and we multiply the
-44:02
-fifth row with 0.1 and all of these multiplications are then added together so we scale the
-44:10
-first Vector with 01 we scale the second Vector with 0. 5 we scale the third
-44:15
-Vector with Point 2 we scale the fourth Vector with point1 and we scale the fifth Vector with 01 and then add all
-44:21
-the scaled vectors together this is how we get the ultimate context vector
-44:26
-essenti after all this addition that's how we get the context Vector for next and to
-44:33
-represent it visually it looks something like this the next day is bright if you see the blue vectors they are the input
-44:39
-embedding vectors to get the context Vector we scale each vector by the amount of importance it needs to be paid
-44:45
-so the right that's 10% importance so we scale it with 0.1 next is 50% importance
-44:52
-so we scale it with 0.5 day is 20% importance so we scale it with 2 is is
-44:58
-10% importance so we scale it with 01 and bright is 10% importance we scale it with 0.1 all of the scaled vectors are
-45:05
-shown by this green and then all these green vectors are added together and that gives me the context Vector for
-45:12
-next so in this one figure you can see how the context Vector differs from the input embedding Vector right the input
-45:19
-embedding Vector for next only contains information about the meaning of that token but the context Vector for next
-45:25
+
 now contains information of all these attention weights also and all this
 45:31
 weight weighted some um ultimately gives the context Vector so this is how the
@@ -331,6 +230,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

@@ -22,98 +22,21 @@ $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 #### Self Attention with Trainable Weights
 
-we cannot encode the complex relationship in the attention mechanism so why not we leave it to weight
-5:17
-matrices which can be trained so this is exactly what is done instead of directly having the input
-5:24
-embeddings what we essentially do is that instead of taking the dot product between the input embeddings we project
-5:31
-the input embeddings into different spaces into different Vector spaces so for example if we looking at a
-5:37
-particular query we will multiply it by the query weight Matrix uh and that will be the query
-5:44
-Vector so for example in this example which we just saw the dog chased the
-5:49
-ball but it could not catch it if the second it is a query instead of directly
-5:55
-taking the input embedding Vector for this it we multiply it with the trainable query weight Matrix so that it
-6:02
-becomes a query vector and the other words with whom we want to see how this
-6:09
-it relates to or how much attention we need to pay to other tokens they are called as
-6:15
-keys and even these vectors we don't take directly as input embedding vectors
-6:20
-we multiply them with something which is called as the keys weight Matrix right and then we get the key
-6:27
-vectors for dog and the B and then what we do is that instead of
-6:33
-earlier what we did is we had the input embedding for it we had the input
-6:38
-embedding for dog and we had the input embedding for let's say Ball but now
-6:44
-what we do is we project this into the query Vector so now we have a query Vector for it which looks like this we
-6:51
-have a key Vector for ball and we have a key Vector for dog and now we take the dot product between the queries and the
-6:58
-keys that's how we get how much attention needs to be paid to each key for a particular
-7:04
-query so for this query it how much attention should we pay to ball you just
-7:10
-take the dot product between the query vector and the key Vector for ball if the query is it how much attention needs
-7:17
-to be paid to the word dog we just take the dot product between it Vector
-7:22
-between the query Vector for it and the key Vector for dog right um so in in the previous lecture I
-7:30
-just wanted to introduce to you that instead of just taking a simple dot product we have to work with trainable
-7:36
-weight matrices and today we'll learn more about these three trainable weight matrices which is the queries keys and
-7:43
-values if I introduce these queries keys and values to you directly you would have been confused regarding why do we
-7:50
-need these trainable weight matrices in the first place it seems a bit odd but remember that as humans we have the
-7:56
-limitation that we cannot come up with the attention mechanism formula there is no
-8:02
-formula like physics so we offload the difficult thing to a neural network or
-8:08
-to trainable weight matrices and we realize that when you offload it to
-8:13
-matrices or we project the input embeddings to higher or different dimensions
-8:19
-through weight matrices we are able to get good answers right so we just call
-8:25
-these matrices as query key and value because they just make more more sense to use in common literature but actually
-8:33
-we are kind of doing a lazy trick here right since we cannot figure out the physics ourselves we think that let me
-8:41
-have some weight matrices which I'll initialize randomly at the start and then I hope that after training is
-8:47
-completed I will learn something uh regarding the attention which needs to
-8:53
-be paid to different tokens and that's exactly what happens so today we are actually going
-8:59
-going to see the stepbystep procedure of how we go from input embedding Vector to
-9:06
-the context vectors so we are going to see a step by-step procedure for let's say if you have certain input embedding
-9:14
-vectors how exactly we do we take these input embedding vectors and how do we
-9:19
-convert these input embedding vectors into context vectors so let's begin our journey right
-9:26
-now my main aim today is to show you some visuals and intersperse it with bit of a code so that you can visualize the
-9:34
-calculation process entirely yourself right so let's get started I'm going to
-9:39
-look at this sequence the next day is bright okay and remember now before
-9:47
-going to the Transformer architecture or before going to the attention mechanism these are just input embeddings which
-9:53
-are token embeddings plus position embeddings so remember our previous lecture where we saw that essentially
-10:00
-before going to the Transformer architecture every token gets a uniform and that uniform is the summation of the
-10:06
+
+```
+The next day is bright
+```
+
+* Input Embedding = Token Embedding + Positional Embedding
+
+####  Example
+* Words = 5 with Emdebbing dimenesion = 8
+* (5 X 8)
+
+
+***
+
+
 token embedding plus position embedding which is called as the input embedding so this input embedding is
 10:13
 actually what I have shown over here right so for the the input embedding is
@@ -927,6 +850,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

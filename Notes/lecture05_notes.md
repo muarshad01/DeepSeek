@@ -66,6 +66,9 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 ***
 
+* 40:00
+
+
 so that is how I can make qualitative statements now because all the elements of each row essentially sum up to
 40:07
 one that's the difference between attention weights and attention scores attention weights are normalized they
@@ -328,6 +331,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

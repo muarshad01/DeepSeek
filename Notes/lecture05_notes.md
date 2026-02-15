@@ -18,106 +18,9 @@ $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 ***
 
+* 5:00
 
 
-hine
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
-0:20
-how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below [Music]
-2:03
-hello everyone and uh welcome to this lecture in the build deep seek from
-2:09
-scratch Series today we have a very important topic to cover and that is
-2:15
-understanding self attention with drainable weights so first let's do a quick recap
-2:22
-of what our plan is and what we have been doing so far so the main aim of
-2:28
-this lecture series is to EXP explain how deep seek was built and uh the
-2:34
-Innovations which power deep seek we have divided this Innovation into four phases the phase one is with respect to
-2:42
-the architecture phase two is with respect to training methodology phase three is with is with respect to the GPU
-2:49
-optimization tricks which deep seek has implemented and phase four is with
-2:54
-respect to their model ecosystem itself we have been looking at phase phase one for the past two lectures and
-3:02
-we have been building up towards understanding the multi-head latent attention mechanism so our plan for
-3:08
-understanding the multi-head latent attention is that we are going to do this sequentially we looked at the
-3:15
-architecture of llms and in the previous lecture we looked at the need for why um
-3:23
-attention needed to be introduced and in today's lecture our main goal is to see how the attention
-3:31
-weights the attention scores are calculated so let me just take you
-3:36
-quickly through the previous lecture in the previous lecture we saw that the main aim of the um self attention
-3:44
-mechanism is to is to take in input embedding vectors and convert them into
-3:49
-something known as context vectors remember that context vectors are much
-3:54
-richer than input embeddings input embedding vectors encode information
-4:00
-about the meaning of a word and the position in the sequence but it contains
-4:06
-no information about how that word relates to other words in the
-4:11
-sequence context Vector on the other hand contains that information context Vector contains information of the
-4:18
-meaning of the word its position and also how it relates to the other tokens
-4:23
-in the sequence so to get the context Vector from the input embedding vector we saw
-4:30
-that intuitively the first thing we can do is take a DOT product but that does not work very well because the dot
-4:36
-product is inherently limited and uh if there is a sentence such as the dog
-4:42
-chased the ball but it could not catch it and if this it is my query I need my
-4:48
-attention mechanism to differentiate that this it actually relates to the ball and not the dog so if we just use a
-4:55
-simple dot product it does not um it cannot capture this distinction so what
-5:02
-do we do we introduce some trainable weight matrices the role of this trainable weight matris is that uh okay
-5:10
 we cannot encode the complex relationship in the attention mechanism so why not we leave it to weight
 5:17
 matrices which can be trained so this is exactly what is done instead of directly having the input
@@ -1023,6 +926,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

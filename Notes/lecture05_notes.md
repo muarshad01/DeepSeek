@@ -72,99 +72,8 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 * 45:00
 
+***
 
-now contains information of all these attention weights also and all this
-45:31
-weight weighted some um ultimately gives the context Vector so this is how the
-45:37
-attention scores are added together to get the context Vector itself and this
-45:43
-is how the context Vector differs from the input embedding Vector now through this same visual you can try to see how
-45:49
-to get the context Vector for all the other tokens also if you have to get the context Vector for bright you just take
-45:56
-a look at the attention scores you multiply the first row with 0.1 you multiply the second row with 0.05 you
-46:03
-multiply the third row with 0.1 you multiply the fourth row with 0 25 and
-46:08
-you multiply the fifth row with 0.5 and then you add all these together so that will give you the context Vector for
-46:15
-bright which is essentially this this last row over here that's how you get the context Vector from the attention
-46:21
-weight Matrix and the value Matrix and to understand the visualization behind the context vector calculation look at
-46:28
-this diagram in this one diagram you can see how the attention weights are used as scaling factors and then the weighted
-46:35
-sum is essentially taken to convert US to take us from the input embedding space to the context Vector
-46:41
-space so this is the step number four which is essentially uh getting the context Vector Matrix and then that's it
-46:48
-in Step number five I have just sumarize this below we have the input embedding Matrix um we have the input embedding
-46:56
-Matrix and then we have the self attention layer so where whenever you see the self attention layer right now
-47:02
-it means all of these steps which have been implemented over here step number one is multiplication with the WQ WK and
-47:08
-WV to get the query vectors the keys vectors and value vectors step number two is multiplying the queries with the
-47:15
-keys transpose to get the attention scores step number three is scaling the
-47:20
-attention scores with square root of the keys Dimension and applying the soft Max to get the attention weights step number
-47:26
-number four is multiplying the attention weights with the values Matrix to get the context Vector Matrix that's it all
-47:33
-these four steps essentially are involved in the self attention module which ultimately takes the input
-47:38
-embedding Matrix and converts it into a context Vector Matrix that's it that's
-47:44
-the whole process which is going on in the attention mechanism or in the self attention mechanism and this process
-47:50
-Powers the Transformer block which is at the core of while language models work so well so
-47:57
-now if you take a look at our lecture where we had seen the different components of the Transformer block this
-48:04
-multi-head attention is where all the magic happens right we have the input embedding vectors as an input and the
-48:09
-context vectors as output and now you know how the context vectors are calculated from the input embedding
-48:17
-vectors why this is why is this called multihead attention we'll see that in the next lecture but for now I hope you
-48:24
-have understood the mechanism behind the self attention uh behind self
-48:29
-attention and I have just written a small code over here to demonstrate this to you so let's call this a self
-48:36
-attention class so we initialize the query query weight Matrix the key weight Matrix and the value we Matrix initially
-48:43
-we initialize them randomly and we set bias equal to false because we just have to multiply the input embedding Matrix
-48:50
-with these um and then in the forward pass what we do is we get the keys vectors the query vectors and the value
-48:57
-vectors by multiplying the input embedding Matrix with the trainable key Matrix trainable query Matrix and
-49:03
-trainable value Matrix that's essentially uh step number one which we looked
-49:09
-at then we come to step number two where we get the attention scores by multiplying the queries with the keys
-49:15
-transpose right then we come to step number three in Step number three we
-49:20
-essentially first divide by the square root of keys Dimension and then we apply soft Max and then then finally we come
-49:27
-to step number four which is multiplying the attention weights with the value Matrix to get the context Vector Matrix
-49:34
-that's it so I could have directly explained to you this code because it just 10 to 11 lines of code but to
-49:41
-understand these Matrix multiplications it's very important for us to write it down on a whiteboard so that we can
-49:46
-visualize the dimensions so this is how the context uh Vector weight Matrix is calculated you
-49:52
-can run this block I'll share this code also and then you can take it any input so here I'm taking an input your journey
-49:59
-starts with one step and the input DN is equal to 3 over here the input embedding
-50:05
-Dimension and I'm assuming the output embedding Dimension equal to two and let me just run this so here we can see that
-50:11
-the input embedding D input embedding Matrix is ultimately converted into the context Vector Matrix when we pass it
-50:18
 through this self attention class that's it is it's as simple as that to retain the dimensions of what we
 50:25
 had in the learn code what we can actually do is that we can make sure the input is eight Dimensions so uh let's
@@ -230,6 +139,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

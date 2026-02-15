@@ -15,5 +15,1010 @@ $$\text{sum} = e^{x_2} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 
 
+hine
+0:05
+learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
+0:12
+get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
+0:20
+how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
+0:28
+principle and philosophy to that of us let me show you how so here's the
+0:33
+website of invido AI with a small engineering team they have built an
+0:38
+incredible product in which you can create high quality AI videos from just
+0:43
+text prompts so as you can see here I've mentioned a text prompt create a hyper
+0:49
+realistic video commercial of a premium luxury watch and make it cinematic with
+0:54
+that I click on generate a video within some time I'm presented with this Incredible video which is
+1:02
+highly realistic what fascinates me about this video is its attention to detail look at
+1:08
+this the quality and the texture it's just incredible and all of this has been created from a single text
+1:15
+prompt That's The Power of nido's product the backbone behind the awesome
+1:20
+video which you just saw is invido ai's video creation pipeline in which they
+1:26
+are rethinking video generation and editing from the first princip principles to experiment and Tinker with
+1:32
+foundational models they have one of the largest clusters of h100s and h20s in
+1:37
+India and are also experimenting with b200s invido AI is the fastest growing
+1:44
+AI startup in India building for the world and that's why I resonate with them so much the good news is that they
+1:51
+have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
+1:57
+below [Music]
+2:03
+hello everyone and uh welcome to this lecture in the build deep seek from
+2:09
+scratch Series today we have a very important topic to cover and that is
+2:15
+understanding self attention with drainable weights so first let's do a quick recap
+2:22
+of what our plan is and what we have been doing so far so the main aim of
+2:28
+this lecture series is to EXP explain how deep seek was built and uh the
+2:34
+Innovations which power deep seek we have divided this Innovation into four phases the phase one is with respect to
+2:42
+the architecture phase two is with respect to training methodology phase three is with is with respect to the GPU
+2:49
+optimization tricks which deep seek has implemented and phase four is with
+2:54
+respect to their model ecosystem itself we have been looking at phase phase one for the past two lectures and
+3:02
+we have been building up towards understanding the multi-head latent attention mechanism so our plan for
+3:08
+understanding the multi-head latent attention is that we are going to do this sequentially we looked at the
+3:15
+architecture of llms and in the previous lecture we looked at the need for why um
+3:23
+attention needed to be introduced and in today's lecture our main goal is to see how the attention
+3:31
+weights the attention scores are calculated so let me just take you
+3:36
+quickly through the previous lecture in the previous lecture we saw that the main aim of the um self attention
+3:44
+mechanism is to is to take in input embedding vectors and convert them into
+3:49
+something known as context vectors remember that context vectors are much
+3:54
+richer than input embeddings input embedding vectors encode information
+4:00
+about the meaning of a word and the position in the sequence but it contains
+4:06
+no information about how that word relates to other words in the
+4:11
+sequence context Vector on the other hand contains that information context Vector contains information of the
+4:18
+meaning of the word its position and also how it relates to the other tokens
+4:23
+in the sequence so to get the context Vector from the input embedding vector we saw
+4:30
+that intuitively the first thing we can do is take a DOT product but that does not work very well because the dot
+4:36
+product is inherently limited and uh if there is a sentence such as the dog
+4:42
+chased the ball but it could not catch it and if this it is my query I need my
+4:48
+attention mechanism to differentiate that this it actually relates to the ball and not the dog so if we just use a
+4:55
+simple dot product it does not um it cannot capture this distinction so what
+5:02
+do we do we introduce some trainable weight matrices the role of this trainable weight matris is that uh okay
+5:10
+we cannot encode the complex relationship in the attention mechanism so why not we leave it to weight
+5:17
+matrices which can be trained so this is exactly what is done instead of directly having the input
+5:24
+embeddings what we essentially do is that instead of taking the dot product between the input embeddings we project
+5:31
+the input embeddings into different spaces into different Vector spaces so for example if we looking at a
+5:37
+particular query we will multiply it by the query weight Matrix uh and that will be the query
+5:44
+Vector so for example in this example which we just saw the dog chased the
+5:49
+ball but it could not catch it if the second it is a query instead of directly
+5:55
+taking the input embedding Vector for this it we multiply it with the trainable query weight Matrix so that it
+6:02
+becomes a query vector and the other words with whom we want to see how this
+6:09
+it relates to or how much attention we need to pay to other tokens they are called as
+6:15
+keys and even these vectors we don't take directly as input embedding vectors
+6:20
+we multiply them with something which is called as the keys weight Matrix right and then we get the key
+6:27
+vectors for dog and the B and then what we do is that instead of
+6:33
+earlier what we did is we had the input embedding for it we had the input
+6:38
+embedding for dog and we had the input embedding for let's say Ball but now
+6:44
+what we do is we project this into the query Vector so now we have a query Vector for it which looks like this we
+6:51
+have a key Vector for ball and we have a key Vector for dog and now we take the dot product between the queries and the
+6:58
+keys that's how we get how much attention needs to be paid to each key for a particular
+7:04
+query so for this query it how much attention should we pay to ball you just
+7:10
+take the dot product between the query vector and the key Vector for ball if the query is it how much attention needs
+7:17
+to be paid to the word dog we just take the dot product between it Vector
+7:22
+between the query Vector for it and the key Vector for dog right um so in in the previous lecture I
+7:30
+just wanted to introduce to you that instead of just taking a simple dot product we have to work with trainable
+7:36
+weight matrices and today we'll learn more about these three trainable weight matrices which is the queries keys and
+7:43
+values if I introduce these queries keys and values to you directly you would have been confused regarding why do we
+7:50
+need these trainable weight matrices in the first place it seems a bit odd but remember that as humans we have the
+7:56
+limitation that we cannot come up with the attention mechanism formula there is no
+8:02
+formula like physics so we offload the difficult thing to a neural network or
+8:08
+to trainable weight matrices and we realize that when you offload it to
+8:13
+matrices or we project the input embeddings to higher or different dimensions
+8:19
+through weight matrices we are able to get good answers right so we just call
+8:25
+these matrices as query key and value because they just make more more sense to use in common literature but actually
+8:33
+we are kind of doing a lazy trick here right since we cannot figure out the physics ourselves we think that let me
+8:41
+have some weight matrices which I'll initialize randomly at the start and then I hope that after training is
+8:47
+completed I will learn something uh regarding the attention which needs to
+8:53
+be paid to different tokens and that's exactly what happens so today we are actually going
+8:59
+going to see the stepbystep procedure of how we go from input embedding Vector to
+9:06
+the context vectors so we are going to see a step by-step procedure for let's say if you have certain input embedding
+9:14
+vectors how exactly we do we take these input embedding vectors and how do we
+9:19
+convert these input embedding vectors into context vectors so let's begin our journey right
+9:26
+now my main aim today is to show you some visuals and intersperse it with bit of a code so that you can visualize the
+9:34
+calculation process entirely yourself right so let's get started I'm going to
+9:39
+look at this sequence the next day is bright okay and remember now before
+9:47
+going to the Transformer architecture or before going to the attention mechanism these are just input embeddings which
+9:53
+are token embeddings plus position embeddings so remember our previous lecture where we saw that essentially
+10:00
+before going to the Transformer architecture every token gets a uniform and that uniform is the summation of the
+10:06
+token embedding plus position embedding which is called as the input embedding so this input embedding is
+10:13
+actually what I have shown over here right so for the the input embedding is
+10:19
+an eight dimensional Vector for next the input embedding is an eight dimensional Vector for day the
+10:26
+input embedding is an eight dimensional Vector for is the input embedding is an eight dimensional vector and for bright
+10:32
+the input embedding is an eight dimensional Vector now I'm going to show you how
+10:38
+these input embedding vectors are transformed into context vectors but I
+10:44
+hope you understand why we need to transform them into context vectors right because as such right now if I
+10:49
+look at any of these embedding vectors for example day it carries no information about how much importance
+10:55
+needs to be given to next or the or is or bright that information is completely lost I want to integrate that
+11:03
+information and that's why I want to convert the input embedding vectors into context
+11:09
+vectors all right so there are three trainable weight matrices which we are going to introduce the first trainable
+11:15
+weight Matrix is called as the query weight Matrix which is denoted by WQ this is the query weight Matrix the
+11:22
+second trainable weight Matrix is the keys weight Matrix which is denoted by WK and the third trainable weight Matrix
+11:30
+is the values weight Matrix which is denoted by WV right now so now it shouldn't come as a
+11:38
+surprise to you that where are these matrices coming from remember these matrices are coming because we want to
+11:45
+transform the input embeddings into a different space so that our expressivity
+11:51
+increases and we can capture underlying complexities which cannot be done through a simple dot product remember
+11:58
+all of these training enable weight matrices which I mentioned here the values here I do not know these values
+12:03
+at the start they are initialized randomly the hope is that when we back propagate through the entire llm
+12:09
+architecture these values update themselves so whenever I show these
+12:14
+matrices I do not fix them at the start I just initialize them randomly now let's pay careful attention
+12:21
+to dimensions a bit the input so this Matrix right here is called as the input
+12:26
+embedding Matrix this is called as the input embedding
+12:32
+Matrix and take a look at the dimensions of this Matrix this Matrix has essentially five rows why does it have
+12:38
+five rows because I have five tokens the next day is bright so it has five rows and it has eight columns why does it
+12:45
+have eight columns because the input embedding dimension for every word I have chosen it to be eight over here you
+12:52
+can choose it to be any Dimension but Ive just chosen it to be eight for the sake of
+12:57
+Simplicity now this this is the dimensions of the input embedding Matrix
+13:03
+now let's take a look at the dimensions of the query the key and the value weight Matrix right U if you take a
+13:09
+closer look you'll see that the number of rows of these matrices have to be same as the number of columns of the
+13:15
+input embedding Matrix so the number of rows so WQ w k and WV the if you think
+13:23
+of them as rows and columns the dimensions the number of rows of WQ WK and WV have have to be equal to the
+13:30
+input embedding Dimension that's fixed because we are going to be taking the
+13:36
+multiplication so that's going to be eight in this case but the number of columns can
+13:42
+essentially be anything right so now when gpt2 gpt3 Etc their architecture is
+13:48
+coded out the number of columns here this is also called as the output Dimension so this is called as the
+13:55
+output Dimension whereas here we also call it the input Dimension or D
+14:00
+in now the output Dimension can be different as well as same with respect to the input Dimension and for gpt2 gpt3
+14:07
+ETC It's usually the same so if it's the same I'll have D out also equal to 8 but
+14:13
+here for the sake of Simplicity I have just chosen D out to be equal to 4 but remember that this value is
+14:20
+generally taken to be similar to the D in which is the input Dimension uh but here I want to show you
+14:28
+that it can really be anything because the product can still happen even if the column value is different right so then
+14:35
+my query weight Matrix my keys weight Matrix and my values weight Matrix all are matrices whose dimensions are 8x4
+14:43
+the first step which I will do is I will multiply my input embedding Matrix with the query Matrix and this will give me
+14:50
+query vectors so take a look at the dimensions a 5x8 Matrix multiplied by an 8x4 Matrix
+14:57
+5x 8 multip by 8x4 this will result in a 5x4 matrix right so these are my query
+15:04
+vectors that's a 5x4 matrix these are my key vectors these are that's also a 5x4
+15:10
+matrix and these are my value vectors that's also a 5x4 matrix the way to interpret this is that every row here
+15:17
+corresponds to the Token so the first row is the first token the second is the second token next third is day fourth is
+15:26
+is and the fifth is bright but now remember that from eight Dimensions we
+15:31
+have gone to a four dimensional output space so the space in which we are operating is now different after this
+15:37
+point we no longer look at the input embedding vectors all we look at is the query vectors the key vectors and the
+15:44
+values vectors this is what I was trying to motivate you at the start of the lecture
+15:50
+that if we directly deal with input embedding vectors and take the dot product it's limited right it does not
+15:56
+work that's why we project them into different spaces and this trick has been
+16:02
+done in deep learning in many different fields right if if a um linear classifier is not working on
+16:11
+a data you augment it with features you project it into a higher dimensional space if uh handwritten features for
+16:19
+computer vision are not working you use a convolutional neural network which
+16:24
+discovers features on its own in a higher dimensional space so taking
+16:29
+stuff from the input Dimension and putting it into a different dimension is what we have been doing in deep learning
+16:35
+for a long time and this is exactly what we are doing here it just that the names
+16:40
+are a bit fancier the query key and the value and at the end of this lecture I'll I'll tell you why these names come
+16:46
+into picture but for now just remember that the query vectors is 5x4 Matrix the
+16:51
+keys is 5x4 and the value is 5x4 the way to interpret it is that every row
+16:56
+belongs to one token the next day is bright for the query key and even the values and the number of columns is
+17:04
+equal to the output Dimension which is four in this case so I hope all of you are with me until this point where we
+17:11
+have the queries vectors the keys and the values right so here I have just taken some values some actual numerical
+17:18
+values where the inputs is 5 by 8 input embedding Matrix I multiplied it with
+17:24
+the query weight Matrix the key and the value which are 8x4 and here I get the queries Matrix which is 5x4 the keys the
+17:32
+keys U the query vectors here which is 5x4 the key vectors 5x4 and the value
+17:37
+vectors which are 5x4 so here the left hand side is the visual without any
+17:43
+numerical values and the right hand side is Ive just plugged in some numerical values here so that you have a visual
+17:49
+representation as well as the mathematical representation side by side next so this was step number one
+17:57
+where we get the query vectors the Keys vectors and the value vectors and now we'll operate in the Q KV space instead
+18:04
+of the input uh embedding space qkv is query key
+18:09
+value so let's go next the next step is basically we have to find the attention scores and this is basically taking a
+18:16
+DOT product right so I have my query now my query vectors which is 5x4 and I have
+18:22
+the keys keys Matrix now which is also 5x4 so if I have to take a DOT product
+18:28
+between the query vectors and the key vectors I cannot directly multiply these matrices because the number of columns
+18:35
+in the first and the number of rows in the second won't alive so I'll have to take a transpose so I'll have to take a
+18:40
+transpose of the keys Matrix so the query Vector stay 5x4 which was what was
+18:46
+here but now here I have the keys transpose which is a 4x5
+18:52
+right um so now the way this works is that you multiply 5x4 Matrix with a 4x5
+18:59
+and then you get an attention scores Matrix which is a 5x5 Matrix now this is
+19:06
+a very important step because here we actually find out how much one query relates to the other uh tokens basically
+19:14
+so now let me say the next day is bright right and let me
+19:22
+focus on the second row here which is the next and let's say I want to find out the attention scores between next
+19:29
+and the other tokens right so let's say I want to find out how much next relates to the next day is
+19:39
+bright I want to find out the attention scores here so I want to find out what's
+19:44
+the attention score between next and the what's the attention score between next and next what's the attention score
+19:50
+between next and day what's the attention score between next and is and what's the attention score between next
+19:55
+and bright so to get the attention score between let's say next and the we'll take the query for this query Vector for
+20:02
+next which is this row and multiply it with the keys transpose of the which is
+20:08
+the first column over here so the First Column over here is the so when I multiply the row the row
+20:16
+of the next with the column of the I'll get the attention score between next and the so let me call it Alpha 2 1 so this
+20:25
+value over here so let's look at the second row over here which corresponds to the atten scores for next this first
+20:30
+value over here is Alpha 2 1 now which is the dot product between this next row vector and the column Vector for the now
+20:38
+if I want to find the attention score between next and next I take a DOT product between this row again and the
+20:45
+second column which is next and this dot product will give me Alpha 22 which is the second value over
+20:52
+here if I want to find the so that's Alpha 22 if I want to find the attention
+20:57
+score between next and day I take a DOT product between this row again this remains fixed and the third row here
+21:04
+which is now corresponding to day and then that will give me the third value here which is Alpha
+21:11
+23 if I want to find the attention score between next and is so here this is Alpha 23 next and is will be Alpha 24 so
+21:19
+that's the dot product between this next row and the fourth column over here so that will give me Alpha 24 which is over
+21:26
+here and then if I to find the attention score between next and bright that's
+21:32
+essentially Alpha 25 and that's the dot product between the second row next and
+21:37
+the last column which is bright and this dot product will essentially give me Alpha 25 so now this
+21:45
+entire second row represents the attention score between next and all the other Keys which is the next day is
+21:51
+bright similarly now if you see the fifth Row the fifth row represents the attention between bright
+21:59
+and all the other tokens the next day is bright that's the way to interpret this attention score Matrix every row of the
+22:06
+attention score Matrix denotes the attention between that query which corresponds to do that
+22:13
+row and all the other keys so if you look at the fourth row for example it
+22:18
+denotes the attention score between the fourth query which is is and all the other tokens which is the
+22:25
+next day is bright so to get this this row you fix the query row and then you
+22:31
+multiply it with all the columns in the keys transpose and that's how you get each value in the
+22:37
+row so every time you think of the attention scores Matrix try to visualize how to interpret every single row of
+22:44
+that Matrix and that's when you will truly understand or you'll never forget how the attention scores Matrix is
+22:50
+calculated so if the queries looks like this which is 5x4 and the keys transpose
+22:56
+is 4X 5 so here again I'm showing the mathematical calculations when you multiply the queries with the keys
+23:02
+transpose you will get attention scores Matrix which looks something like this so now if you look at the second row the
+23:08
+second row is essentially if next is the query uh point one corresponds to the
+23:14
+attention between next and the 1.8 is the attention between next and next 6 is
+23:20
+the attention between next and the point one is the attention between next and is and point one is the attention between
+23:27
+next and bright so that's the way you want to interpret the attention scores Matrix
+23:34
+right okay now what there is one problem with this attention scores Matrix and
+23:41
+that problem is that when I'm looking at let's say next I want to make statements
+23:47
+such as when I'm looking at next as the query give 50% attention to the give 20%
+23:53
+attention to next give 10% attention to day give 10% attention to is and give 0%
+23:59
+attention to Bright Etc so I want to make interpretable statements like this
+24:04
+so let me repeat what I mean when I look at next I want to make statements like give 10% attention to let's say the give
+24:11
+20% attention to next give 20% attention to day give 30% give 30% attention to is
+24:21
+and give 20% attention to Bright so I want to make statements like
+24:28
+this so that now when I look at these values I can immediately say that the maximum attention between all of this is
+24:33
+given to uh next and is next and is so essentially what I
+24:41
+want to do is that I want all of these values to sum up to 100% in terms of probability I want all
+24:49
+of these probabilities to sum up to one so that I can just look at this pie chart right I can just look at this pie
+24:56
+chart the next day is bright and based on this pie
+25:03
+chart I can see how much attention needs to be paid to each token whereas if you see these values right now um let's
+25:12
+see um yeah if you see these values right now for the second row that is the
+25:17
+attention score for next you'll see that these values don't really sum up to one
+25:22
+which means that I cannot make statements like give 10% attention to the first token 18 % attention to Second
+25:29
+token it will not work like that the rows the values in the rows here do not sum up to one and that is the main
+25:36
+problem so the next step which is Step number three is to make sure that the attention scores are converted into
+25:43
+something which is called as attention weights and to go from attention scores
+25:49
+to attention weights we are going to apply the soft Max operation soft Max essentially means that let's say we take
+25:55
+a look at this row um
+26:00
+and let me write it down in column format right now so then in column format this will become .1
+26:07
+1.8 6.1 and .1 what I want to do is I want to somehow convert all of these
+26:14
+values so that they lie between 0o to one and they also sum up to one so the
+26:19
+softmax operation essentially what it does is that if this is X1 X2 X3 X4 and X5 soft Max what it does it
+26:30
+replaces X1 with e to X1 divided by summation it replaces X2 with e to X2
+26:36
+divided by summation it replaces X3 with e to X3 ided summation e to X4 ided
+26:43
+summation and E to X5 / summation uh now what exactly is
+26:51
+summation summation is just e to X1 + e to X2 + e to X3 plus e to X4 + e to
+27:01
+X5 now if you take a look at all of these five values you'll see that if you
+27:06
+add them the numerator will be e to X1 plus e to X2 plus e to X3 plus e to X4
+27:11
+plus e to X5 that is equal to summation which is the denominator so all of these
+27:17
+will definitely add up to one and they will lie between 0 to one soft Max also
+27:22
+has the additional important property that it gives a lot of weightage to very high values and very low weightage to
+27:29
+very low values this makes the classification very easy um so essentially that's the
+27:36
+softmax operation which we are going to implement but the main problem here is that I told you right softmax gives very
+27:43
+high attention to values which are very high and it does not pay that much attention to values which are very low
+27:50
+and that's a big problem for us so let's say if the attention let's say if this if the atten
+27:58
+ion scores are something like this
+28:04
+okay uh now you see this value is very high right if you apply softmax to this
+28:10
+the way softmax will work is that it will put .95 or something to this value
+28:15
+and make sure that all the other values are actually very low and if these are our attention
+28:23
+weights that's not very good for us because then we'll pay a lot of attention to one key and will not pay
+28:30
+attention to all the other keys at all so that's why there is a scaling which needs to be performed before we
+28:36
+apply the soft Max before we apply the soft Max we need to make sure that all of these values are divided by some
+28:43
+value and only then we will apply the soft Max so now let me talk about that
+28:48
+part a bit um let's go to this
+28:56
+part yeah so here I want to first of all explain um the issues with softmax right
+29:03
+so what I'm doing is that let's say these are my um
+29:09
+attention score values and then I apply softmax to these values right U so we can see that
+29:17
+softmax for all of these values is almost equally equally similar in terms of range that's good for us but now what
+29:24
+I want to do is that I want to multiply all of these values with eight and then let us apply soft Max so if all of these
+29:31
+values are multiplied by 8 which means that some values will be very large and some values will not be that will not be
+29:38
+that high right so if if I multiply all of these values by eight and then I apply softmax you will see
+29:45
+that softmax places a lot of importance on this value which is 08 and it gives
+29:50
+negligible importance to some other values see that is what happens when the
+29:56
+values are very large before applying soft Max and that is what I've have mentioned
+30:02
+over here the soft Max function is sensitive to the magnitude of its inputs
+30:07
+when the inputs are very large the differences between exponential values of each input become much much more
+30:13
+pronounced and this causes softmax output to become peaky what peaky output means is that it gives a lot of
+30:19
+importance to some values and very low importance to others so in attention
+30:25
+mechanism this is not very good because because it if it's a sharp soft Max distribution then the model becomes very
+30:32
+confident in one particular key so now you see the model becomes very confident
+30:38
+in this key and it will give very low confidence to the other keys that leads
+30:43
+to very unstable training when we look at the Transformer architecture later and we do not want that so that is why
+30:50
+we need to scale um that is why we need to scale this
+30:56
+this this vector before we apply soft Max so the value with which this Vector
+31:02
+is actually scaled is square root of the keys Dimension right so the keys Dimension here is uh in this case it's
+31:10
+5x4 right so the output Dimension is equal to 5 so it scaled by square the
+31:16
+output Dimension is equal to four sorry so it scaled by square root of 4 and now you must be thinking that why
+31:23
+is it scaled by square root of 4 why just why don't we just scale it with the key Dimension or Dimension raised to two
+31:31
+or something like that why only square root of the keys Dimension what's so special about the square
+31:37
+root so the main idea here is that uh the reason we scale with the square root
+31:44
+of the keys Dimension is because of a concept of variance so if you um if you
+31:51
+take if let's say this is my queries this is my queries Vector which is a six dimensional vector
+31:58
+and this is my keys transpose which is a six dimensional Vector this is my keys transpose okay
+32:06
+and if I multiply these vectors I'll get some values right but remember in the multiplication what is happening is that
+32:12
+each value is getting multiplied and then summed
+32:17
+up now what usually happens is that
+32:23
+if there are two random vectors right if there are two random ROM vectors whose
+32:29
+dimensions are six and if I sample 100 such random vectors so I'm going to do
+32:36
+something like this I I take 100 vectors of the
+32:43
+queries and I take 100 vectors of the keys
+32:48
+transpose and then what I do is that I collect the values of queries multiplied by key keys transpose for all of these
+32:55
+100 what happens is that the variance of
+33:01
+this product so now I can take these 100 values and I can compute their variance
+33:06
+right how the distribution is the variance of this product actually
+33:14
+scales with the keys Dimension so as has been mentioned here um the variance of
+33:20
+this product scales by the square root of the keys Dimension actually um scales with square root of
+33:28
+the keys Dimension which means that as the keys Dimensions goes on increasing a
+33:33
+lot or rather as the dimensions of keys transpose here let's say if that increases the variance of this product
+33:40
+increases a lot which means that since the queries and the keys transpose are initialized randomly these are random
+33:46
+vectors right their product can be usely varying from some very high values to
+33:51
+some very low values and we want to avoid that as much as possible we want to make sure that this product variance
+33:58
+is equal to one so that the product does not Wily oscillate the queries and the
+34:03
+keys are defined randomly at the start right and the dimensions can be very high so if the dimension is very high
+34:11
+and if the variance actually scales with the square root of this Dimension then that's not very good for us because it
+34:17
+will also make the learning unstable and to illustrate this concept further I want to explain it to you with the case
+34:25
+of dice right so if you're rolling one dice let's say um and it just has one to
+34:30
+six numbers right the average of this is let's say 3.5 and the variance is relatively small that is let's say 2.9
+34:38
+there are predictable outcomes but now what I do is that I roll uh I roll the
+34:44
+dice and then I sum the output of 100 I roll and sum 100 dice basically so if
+34:51
+you roll a dice 100 times and you'll sum the output what happens here is that if
+34:56
+summation is involved the mean is around 350 but the variance grow significantly to around
+35:03
+290 so the output becomes unpredictable and the dot product
+35:09
+without normalization so if we if we just take the queries multiplied by the keys transpose and if we do not divide
+35:15
+it by the square root of the keys Dimension we'll see that increasing the
+35:21
+number of Dimensions is like rolling more Dice and summing the results why because dot product essentially is where
+35:28
+we sum up the product right where we sum up if the dimension is 100 we sum up 100 entries of the queries multiplied by
+35:34
+Keys transpose so increasing the number of Dimensions is like rolling more Dice and
+35:40
+summing the number of results each Dimension contributes some variance and as the dimension grows variance
+35:47
+accumulates um and so here I'm trying to say that as the query and the keys
+35:53
+Dimension grows the variance increases a lot and the dot products before soft Max
+35:58
+become either very large or it becomes very small because the variance is large
+36:04
+and that makes the attention weights unstable and so the training procedure also becomes unstable when we divide by
+36:10
+square root of D it scales down the variance of this do product and brings it equal to
+36:15
+one and that stabilizes the expected outcomes the attention weights become more stable and they become more
+36:21
+predictable I have actually explained this using the code below so here what we'll do is that we'll take thousand
+36:29
+trials okay and in each trial we'll generate a so first we'll do a five
+36:34
+dimensional query and the key vector and then we'll do 100 dimensional query and
+36:40
+the key Vector right so let's say the dimension is equal to five we'll generate queries and key vectors of
+36:46
+Dimension five and we'll do that thousand times we'll compute the dot product
+36:51
+between the query and the key for each trial um and then in one case we'll
+36:56
+divide by the square root of the dimension and in the other case we'll just take the dot product like that
+37:03
+without without doing the scaling and we'll collect all the results of the Thousand trials and then we'll find the
+37:09
+variance we'll find the variance before scaling and we'll find the variance after scaling so remember we are taking
+37:15
+th000 query vectors th000 key vectors we are taking the dot product and in one case we are scaling it in one case we
+37:21
+are not scaling it and then we are finding the variance before scaling and after scaling so if you run this you see
+37:27
+that for the dimension of five variance before scaling is equal to five for the
+37:34
+dimension of 100 variance before scaling is actually 100 so the variance actually
+37:39
+directly grows with Dimension uh the variance is directly proportional to the dimension if you see
+37:45
+but after scaling the good thing is which happens is after you scale with
+37:51
+the square root of uh the dimension the variance almost becomes equal to one
+37:57
+that that's very cool right so now here it's clearly proved that if you divide the product if you divide the dot
+38:03
+product of the queries and the keys with the square root of the keys Dimension
+38:09
+then uh what you ultimately get is that um after scaling whether the dimension
+38:16
+is five or whether the dimension is 100 the variance of the product is constrained this means that the queries
+38:22
+multipli multiplied by Keys transpose the values won't blow up to very high values or very low values the variance
+38:28
+will remain equal to one that will lead to very stable training procedure so that's why what we do is
+38:36
+that in Step number three the attention scores are scaled by square root of the
+38:42
+keyys dimension which means that we take the attention scores and we divide by square root of Key's Dimension Key's
+38:48
+Dimension essentially is every key Vector what's the dimension of it in this case it's equal to four right so we
+38:54
+divide by square root of 4 and then we apply soft Max so after this division is done uh after this
+39:02
+division is done by square root of uh the keys Dimension we apply soft Max
+39:07
+essentially we apply this function and when we apply the soft Max attention
+39:12
+scores are converted into what is called as attention weights so that's the key difference here between attention scores
+39:19
+and attention weights attention scores are not normalized and attention weights
+39:25
+are normalized so if you look at every row over here you will see that every row essentially sums up to one and now
+39:32
+we can make the quantitative statements or the qualitative statements which I was mentioning right this second row
+39:37
+corresponds to next so now I can say that we can pay 10% attention between
+39:43
+next and the we can pay 50% attention between next and next we can pay 20%
+39:49
+attention to next and day we can pay 20% attention to next and is and we can pay
+39:55
+10 sorry 10% attention to next is and we can pay 10% attention to next and bright
+40:00
+so that is how I can make qualitative statements now because all the elements of each row essentially sum up to
+40:07
+one that's the difference between attention weights and attention scores attention weights are normalized they
+40:13
+sum up to one whereas attention scores are not normalized and now what we'll do is that
+40:19
+we'll come to step number four in this step we actually compute the context vectors from the attention weights let's
+40:27
+see how that is done so until now we have the attention weights that's again a 5x5 Matrix and
+40:34
+when you see this Matrix again try to visualize what every row represents so the second row here represents if next
+40:40
+is the query how much attention should I give to the next day is bright and all of these values will now sum up to one
+40:47
+because they are normalized in the last step what we do is that remember until now we have not used the values vectors
+40:53
+at all in the last step these values vectors come in into the picture where
+40:59
+uh what we do is that the attention weight Matrix which is a 5x5 Matrix it simply multiplied with the values Vector
+41:06
+so the values Vector is 5x4 right and that gives us the context Vector the context Vector has five rows
+41:13
+and it has four columns the first row corresponds to the second row corresponds to
+41:19
+next U third row corresponds to day is and bright the next day is
+41:26
+bright and and now you can see that initially we started with input embedding vectors for the next day is
+41:32
+bright and after all these Steps step number one step number two step number three and step number four we have got
+41:38
+the context vectors for each of these tokens now now remember these context vectors are much more richer than the
+41:45
+input embedding Vector predominantly because their calculation involves the attention
+41:51
+weights uh so I just shown this calculation here mathematically the attention weights it's a 5x5 Matrix
+41:57
+which has been shown over here the values is a 5x4 matrix and so the context Vector Matrix is a 5x4 matrix so
+42:05
+for example the second row corresponds to the context Vector of next the last row over here corresponds
+42:12
+to the context Vector for bright so every context Vector is a four dimensional
+42:18
+Vector so here I just want to have a small section on the intuition behind the context Vector calculation so the
+42:25
+way the context Vector is actually Cal relateded is as follows right let's say if we want to find the context Vector
+42:31
+for next we have found the attention weights right between next and all the
+42:36
+other tokens so we have found that when you have next we should pay 10% attention to the we should pay 50%
+42:44
+attention to next we should pay 20% attention to day we should pay 10%
+42:50
+attention to is and we should pay 10% attention to Bright we have understood
+42:56
+this based on these attention weight values uh sorry these are tension weights and we have the value Vector so
+43:02
+you can think of the value Vector essentially as an input embedding Vector itself but it's transformed to a higher
+43:08
+Dimension or different dimensional space so now if we want to find the context
+43:13
+Vector for next what we essentially do is that uh we know that next gives 10%
+43:20
+attention to the so the so this is the uh Vector values vector for the so we'll
+43:28
+scale this Vector with 10% or we'll multiply this with 0.1 then we know that uh 0.5 which is
+43:37
+50% attention to next so I have written these attention weights here 0.1.5 21.1
+43:44
+so we give 0.1 importance to the first row which is the we give 0. five importance to the second row which is
+43:50
+next we give 20% importance to the third row which is day so we multiply the
+43:56
+third row with point 2 we multiply the fourth row with 0.1 and we multiply the
+44:02
+fifth row with 0.1 and all of these multiplications are then added together so we scale the
+44:10
+first Vector with 01 we scale the second Vector with 0. 5 we scale the third
+44:15
+Vector with Point 2 we scale the fourth Vector with point1 and we scale the fifth Vector with 01 and then add all
+44:21
+the scaled vectors together this is how we get the ultimate context vector
+44:26
+essenti after all this addition that's how we get the context Vector for next and to
+44:33
+represent it visually it looks something like this the next day is bright if you see the blue vectors they are the input
+44:39
+embedding vectors to get the context Vector we scale each vector by the amount of importance it needs to be paid
+44:45
+so the right that's 10% importance so we scale it with 0.1 next is 50% importance
+44:52
+so we scale it with 0.5 day is 20% importance so we scale it with 2 is is
+44:58
+10% importance so we scale it with 01 and bright is 10% importance we scale it with 0.1 all of the scaled vectors are
+45:05
+shown by this green and then all these green vectors are added together and that gives me the context Vector for
+45:12
+next so in this one figure you can see how the context Vector differs from the input embedding Vector right the input
+45:19
+embedding Vector for next only contains information about the meaning of that token but the context Vector for next
+45:25
+now contains information of all these attention weights also and all this
+45:31
+weight weighted some um ultimately gives the context Vector so this is how the
+45:37
+attention scores are added together to get the context Vector itself and this
+45:43
+is how the context Vector differs from the input embedding Vector now through this same visual you can try to see how
+45:49
+to get the context Vector for all the other tokens also if you have to get the context Vector for bright you just take
+45:56
+a look at the attention scores you multiply the first row with 0.1 you multiply the second row with 0.05 you
+46:03
+multiply the third row with 0.1 you multiply the fourth row with 0 25 and
+46:08
+you multiply the fifth row with 0.5 and then you add all these together so that will give you the context Vector for
+46:15
+bright which is essentially this this last row over here that's how you get the context Vector from the attention
+46:21
+weight Matrix and the value Matrix and to understand the visualization behind the context vector calculation look at
+46:28
+this diagram in this one diagram you can see how the attention weights are used as scaling factors and then the weighted
+46:35
+sum is essentially taken to convert US to take us from the input embedding space to the context Vector
+46:41
+space so this is the step number four which is essentially uh getting the context Vector Matrix and then that's it
+46:48
+in Step number five I have just sumarize this below we have the input embedding Matrix um we have the input embedding
+46:56
+Matrix and then we have the self attention layer so where whenever you see the self attention layer right now
+47:02
+it means all of these steps which have been implemented over here step number one is multiplication with the WQ WK and
+47:08
+WV to get the query vectors the keys vectors and value vectors step number two is multiplying the queries with the
+47:15
+keys transpose to get the attention scores step number three is scaling the
+47:20
+attention scores with square root of the keys Dimension and applying the soft Max to get the attention weights step number
+47:26
+number four is multiplying the attention weights with the values Matrix to get the context Vector Matrix that's it all
+47:33
+these four steps essentially are involved in the self attention module which ultimately takes the input
+47:38
+embedding Matrix and converts it into a context Vector Matrix that's it that's
+47:44
+the whole process which is going on in the attention mechanism or in the self attention mechanism and this process
+47:50
+Powers the Transformer block which is at the core of while language models work so well so
+47:57
+now if you take a look at our lecture where we had seen the different components of the Transformer block this
+48:04
+multi-head attention is where all the magic happens right we have the input embedding vectors as an input and the
+48:09
+context vectors as output and now you know how the context vectors are calculated from the input embedding
+48:17
+vectors why this is why is this called multihead attention we'll see that in the next lecture but for now I hope you
+48:24
+have understood the mechanism behind the self attention uh behind self
+48:29
+attention and I have just written a small code over here to demonstrate this to you so let's call this a self
+48:36
+attention class so we initialize the query query weight Matrix the key weight Matrix and the value we Matrix initially
+48:43
+we initialize them randomly and we set bias equal to false because we just have to multiply the input embedding Matrix
+48:50
+with these um and then in the forward pass what we do is we get the keys vectors the query vectors and the value
+48:57
+vectors by multiplying the input embedding Matrix with the trainable key Matrix trainable query Matrix and
+49:03
+trainable value Matrix that's essentially uh step number one which we looked
+49:09
+at then we come to step number two where we get the attention scores by multiplying the queries with the keys
+49:15
+transpose right then we come to step number three in Step number three we
+49:20
+essentially first divide by the square root of keys Dimension and then we apply soft Max and then then finally we come
+49:27
+to step number four which is multiplying the attention weights with the value Matrix to get the context Vector Matrix
+49:34
+that's it so I could have directly explained to you this code because it just 10 to 11 lines of code but to
+49:41
+understand these Matrix multiplications it's very important for us to write it down on a whiteboard so that we can
+49:46
+visualize the dimensions so this is how the context uh Vector weight Matrix is calculated you
+49:52
+can run this block I'll share this code also and then you can take it any input so here I'm taking an input your journey
+49:59
+starts with one step and the input DN is equal to 3 over here the input embedding
+50:05
+Dimension and I'm assuming the output embedding Dimension equal to two and let me just run this so here we can see that
+50:11
+the input embedding D input embedding Matrix is ultimately converted into the context Vector Matrix when we pass it
+50:18
+through this self attention class that's it is it's as simple as that to retain the dimensions of what we
+50:25
+had in the learn code what we can actually do is that we can make sure the input is eight Dimensions so uh let's
+50:33
+let's take it let's make the code similar to what we had here so the next day is bright right let's say this is
+50:41
+the next day
+50:48
+is the next day is bright and let's say so now this is not
+50:55
+needed
+51:04
+okay and now we in the code or in the Whiteboard we have seen that there is eight dimensions for every
+51:11
+every Vector so let me just copy paste it to make eight dimensions and then add
+51:17
+some random values here um and let me just add this the the same thing here for the sake of
+51:24
+Simplicity now so I'm making everything 8 Dimensions here so that it matches what we had on the Whiteboard okay and D
+51:31
+in is now equal to 8 but my D out which I taken over here was equal to four so
+51:37
+I'll just take D out equal to 4 and then let me run this block so here you see it runs almost immediately and then I have
+51:44
+the context Vector Matrix let's check the dimensions the dimensions here of the context Vector Matrix is that we
+51:51
+have five rows essentially and four columns this is exactly what we had seen over here the context vector or the
+51:58
+context weight context Vector Matrix is five rows and four columns that's
+52:03
+exactly what we have implemented in the code right now in the next class what we'll see is that we'll Implement
+52:09
+something which is called as causal attention in the causal attention we will hide out the future attention
+52:15
+weights which are not uh which are not needed or which are not available to the current token so that uh we only look at
+52:23
+the past tokens before predicting the next value so that's called causal attention we'll see that in the next
+52:29
+lecture and then we'll move to multi-head attention I know that these lectures are a bit long and uh I'm
+52:35
+repeating some elements with respect to attention Transformer blocks causal attention context vectors Etc but I
+52:42
+believe it's extremely crucial for us to understand this if we don't understand this the learning of multi-ad latent
+52:50
+attention will not be very strong I want all of us to be on the same page when we start the multi-head latent attention
+52:56
+part so all of you really need to understand the nuts and bols of self attention and multi-head attention and
+53:03
+that's why I'm making this lectures in so much more detail I'll share the code files with you and uh I hope that as you
+53:11
+are going through these lectures you also make notes so write this down on a piece of paper make sure that you
+53:17
+familiarize yourself with the calculations later we'll go to multi-head attention and later we go to
+53:23
+multi-ad latent attention so remember that it's a m step Journey it's not easy this not going to be a 30 minute course
+53:30
+it's going to be a course of 35 to 40 videos and it will be a very very detailed course I intend to make it like
+53:37
+a university lecture right so I could have directly started with latent attention but that would be very
+53:44
+difficult I think to directly understand and uh I want to make these lectures as
+53:49
+useful for an audience which is seeing this series for the first time also so I
+53:54
+hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
+
 
 

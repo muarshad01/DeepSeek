@@ -47,95 +47,12 @@ The next day is bright
 
 * 20:00
 
+* $$\text{Attention ~Score} = Q X K^{T}$$
 
+***
 
-20:16
-of the next with the column of the I'll get the attention score between next and the so let me call it Alpha 2 1 so this
-20:25
-value over here so let's look at the second row over here which corresponds to the atten scores for next this first
-20:30
-value over here is Alpha 2 1 now which is the dot product between this next row vector and the column Vector for the now
-20:38
-if I want to find the attention score between next and next I take a DOT product between this row again and the
-20:45
-second column which is next and this dot product will give me Alpha 22 which is the second value over
-20:52
-here if I want to find the so that's Alpha 22 if I want to find the attention
-20:57
-score between next and day I take a DOT product between this row again this remains fixed and the third row here
-21:04
-which is now corresponding to day and then that will give me the third value here which is Alpha
-21:11
-23 if I want to find the attention score between next and is so here this is Alpha 23 next and is will be Alpha 24 so
-21:19
-that's the dot product between this next row and the fourth column over here so that will give me Alpha 24 which is over
-21:26
-here and then if I to find the attention score between next and bright that's
-21:32
-essentially Alpha 25 and that's the dot product between the second row next and
-21:37
-the last column which is bright and this dot product will essentially give me Alpha 25 so now this
-21:45
-entire second row represents the attention score between next and all the other Keys which is the next day is
-21:51
-bright similarly now if you see the fifth Row the fifth row represents the attention between bright
-21:59
-and all the other tokens the next day is bright that's the way to interpret this attention score Matrix every row of the
-22:06
-attention score Matrix denotes the attention between that query which corresponds to do that
-22:13
-row and all the other keys so if you look at the fourth row for example it
-22:18
-denotes the attention score between the fourth query which is is and all the other tokens which is the
-22:25
-next day is bright so to get this this row you fix the query row and then you
-22:31
-multiply it with all the columns in the keys transpose and that's how you get each value in the
-22:37
-row so every time you think of the attention scores Matrix try to visualize how to interpret every single row of
-22:44
-that Matrix and that's when you will truly understand or you'll never forget how the attention scores Matrix is
-22:50
-calculated so if the queries looks like this which is 5x4 and the keys transpose
-22:56
-is 4X 5 so here again I'm showing the mathematical calculations when you multiply the queries with the keys
-23:02
-transpose you will get attention scores Matrix which looks something like this so now if you look at the second row the
-23:08
-second row is essentially if next is the query uh point one corresponds to the
-23:14
-attention between next and the 1.8 is the attention between next and next 6 is
-23:20
-the attention between next and the point one is the attention between next and is and point one is the attention between
-23:27
-next and bright so that's the way you want to interpret the attention scores Matrix
-23:34
-right okay now what there is one problem with this attention scores Matrix and
-23:41
-that problem is that when I'm looking at let's say next I want to make statements
-23:47
-such as when I'm looking at next as the query give 50% attention to the give 20%
-23:53
-attention to next give 10% attention to day give 10% attention to is and give 0%
-23:59
-attention to Bright Etc so I want to make interpretable statements like this
-24:04
-so let me repeat what I mean when I look at next I want to make statements like give 10% attention to let's say the give
-24:11
-20% attention to next give 20% attention to day give 30% give 30% attention to is
-24:21
-and give 20% attention to Bright so I want to make statements like
-24:28
-this so that now when I look at these values I can immediately say that the maximum attention between all of this is
-24:33
-given to uh next and is next and is so essentially what I
-24:41
-want to do is that I want all of these values to sum up to 100% in terms of probability I want all
-24:49
-of these probabilities to sum up to one so that I can just look at this pie chart right I can just look at this pie
-24:56
-chart the next day is bright and based on this pie
-25:03
+* 25:00
+
 chart I can see how much attention needs to be paid to each token whereas if you see these values right now um let's
 25:12
 see um yeah if you see these values right now for the second row that is the
@@ -675,6 +592,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

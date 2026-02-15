@@ -59,21 +59,8 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 ***
 
-it by the square root of the keys Dimension we'll see that increasing the
-35:21
-number of Dimensions is like rolling more Dice and summing the results why because dot product essentially is where
-35:28
-we sum up the product right where we sum up if the dimension is 100 we sum up 100 entries of the queries multiplied by
-35:34
-Keys transpose so increasing the number of Dimensions is like rolling more Dice and
-35:40
-summing the number of results each Dimension contributes some variance and as the dimension grows variance
-35:47
-accumulates um and so here I'm trying to say that as the query and the keys
-35:53
+* 35:00
 
-
-***
 
 Dimension grows the variance increases a lot and the dot products before soft Max
 35:58
@@ -419,6 +406,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

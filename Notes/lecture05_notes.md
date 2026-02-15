@@ -61,6 +61,8 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 * 35:00
 
+* Attention Score
+* Attentin Weight (are normalized)
 
 Dimension grows the variance increases a lot and the dot products before soft Max
 35:58
@@ -406,6 +408,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

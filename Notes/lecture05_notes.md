@@ -7,11 +7,9 @@
 
 $$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 
-
-* 5:00
+***
 
 #### Self Attention with Trainable Weights
-
 
 ```
 The next day is bright
@@ -503,6 +501,7 @@ difficult I think to directly understand and uh I want to make these lectures as
 useful for an audience which is seeing this series for the first time also so I
 53:54
 hope you are enjoying this series and I look forward to seeing you in the next lecture thank you
+
 
 
 

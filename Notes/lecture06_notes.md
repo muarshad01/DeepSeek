@@ -1,109 +1,8 @@
-veryone my name is Dr Raj dander I graduated with a PhD in machine
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
-0:20
-how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below [Music]
-2:03
-hello everyone and welcome to this lecture in the build deep seek from
-2:08
-scratch Series today we are going to proceed ahead in our journey of understanding
-2:16
-the attention mechanism and briefly speaking here's our plan eventually we
-2:22
-know that we want to understand multi-head latent attention which is one of the key components of the deep seek
-2:28
-architecture but to do that we need to proceed in a stepbystep manner so initially we
-2:35
-started out with understanding self attention we finished this in the previous lecture so if you remember in
-2:41
-the previous lecture we saw exactly the stepbystep procedure of how the self attention mechanism operated we started
-2:49
-with the query key and value trainable weight matrices we multiplied the input embedding Matrix with these and got the
-2:56
-query key and the value vectors then we multiplied the query Matrix with the
-3:01
-keys transpose to get the attention scores we then scaled the attention scores with the square root of keys
-3:08
-Dimension applied soft Max and we got the attention weights and finally we
-3:13
-multiplied the attention weights with the values Matrix and we got the context Vector Matrix the way to interpret the context
-3:21
-Vector Matrix is that essentially every row of the context Vector Matrix
-3:27
-corresponds to the context Vector for that particular ular token so if you see the input embedding Matrix every row
-3:33
-corresponds to the input embedding Vector for the next day is bright in this example similarly in the context
-3:41
-Vector Matrix the first row corresponds to the context Vector for the the second row corresponds to the context Vector
-3:47
-for next Etc so the whole aim of self attention is to take the input embedding
-3:53
-vector and convert it into a context vector and why does it do that because the context Vector is much more richer
-4:00
-than the input embedding Vector the input embedding Vector just contains information about the semantics of the
-4:06
-word but it does not contain any information about how that word is
-4:11
-related to all the other words around it on the other hand the context Vector
-4:17
-contains information of not just the semantics but it contains information of
-4:22
-how much importance needs to be paid to all the other words or tokens surrounding it and that's what makes the
-4:29
-context vector Vector much more richer in representation than the input embedding Vector so today what we are
-4:35
-going to do is we are going to look at something which is called as causal attention we have already looked at self
-4:41
-attention and the next step along our journey to ultimately understand multi-head latent attention is causal
-4:48
-attention as the name suggest causal implies that um so one thing causes
-4:54
-another right so we only need to look at those things which are responsible for
-5:00
-producing the next token and I'll clarify what this means but causal attention is a central building block of
-5:08
-understanding uh multi-head attention and then eventually understanding key value cach and then ultimately
-5:14
-understanding multi-head latent attention so let's begin our journey of understanding causal attention before we
-5:20
-get started with the lecture I want to just take a quick uh uh I want to explain a quick
-5:27
-summary of how EX exactly the next token prediction is done so that I can explain
-5:33
+#### Causal attention
+* Causal attention, also known as a masked attention is a special form of self attention.
+
+***
+
 or set the context for causal attention in a much better manner so let's say we have the Harry Potter's first book right
 5:41
 and that's a part of the data set which we are using to pre-train the large language model and uh so for the sake of
@@ -999,4 +898,5 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 

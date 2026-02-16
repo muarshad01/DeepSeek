@@ -87,6 +87,9 @@ your journey starts with with one
 15:01
 step and then here my keys are your
 15:08
+
+***
+
 journey um starts with one step right and basically
 15:16
 this 6x6 Matrix indicates that I have values for every single entry here
@@ -179,6 +182,15 @@ because we for one token we even found the attention score between that token an
 20:03
 point and so the value Vector which we ultimately uh so the context Vector is a
 20:08
+
+
+
+
+***
+
+
+
+
 multiplication of the values vector and the attention scores Matrix right so the context Vector for every token
 20:15
 essentially had information about the future and that's not a that's not what
@@ -806,6 +818,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -3,6 +3,10 @@
 
 ***
 
+* 5:00
+
+
+
 or set the context for causal attention in a much better manner so let's say we have the Harry Potter's first book right
 5:41
 and that's a part of the data set which we are using to pre-train the large language model and uh so for the sake of
@@ -898,5 +902,6 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 

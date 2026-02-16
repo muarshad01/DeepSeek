@@ -5,106 +5,10 @@
 
 * 5:00
 
+***
 
+* 10:00
 
-or set the context for causal attention in a much better manner so let's say we have the Harry Potter's first book right
-5:41
-and that's a part of the data set which we are using to pre-train the large language model and uh so for the sake of
-5:48
-Simplicity let me just take a screenshot of the first page over here and let me
-5:53
-uh bring the screenshot onto my mirror board so I have brought the screenshot
-5:59
-of of this first page over here and now let me show you how the input and the
-6:05
-target pairs are actually constructed to be fed to the Transformer architecture
-6:11
-so here's how that's done first we determine something called as the context size so if the context size is
-6:17
-equal to four we create um a sequence of four tokens so this is my first input and then I also
-6:25
-determine something called as a stride which means how much I have to skip before I create the next input so this
-6:31
-is my first input this is my second input this is my third input so
-6:36
-similarly what I'll do is that I will divide the entire data set into chunks of four words or four tokens right and
-6:44
-then based on my batch size I will have um a matrix which is created so that's
-6:51
-let's see the input batch one so if the batch size is equal to six
-6:57
-or if the batch size is equal to 8 then the first batch we'll have let's say the
-7:03
-token ID is corresponding to Mr and Mrs Dudley that's the first row so let's say this is 1 15 18 22 the second row will
-7:12
-be the token ID is corresponding to these four tokens so that will be something like 3 4 5 6 similarly I will
-7:19
-have eight rows like this because the batch size is equal to eight right and why do I have four
-7:26
-columns the reason I have four columns is because the context X size is equal to 4 so that's how the input batch is
-7:33
-created uh so this is my first input batch the way the output is created is that every input is essentially shifted
-7:40
-to the right hand side by one so this is my first output this is my second output
-7:46
-this is my third output Etc so once you get the input batch getting the output batch is very easy
-7:53
-you just shift the input to the right hand side by one so this will be something like 15 18 22 3 Etc so that's
-8:02
-my output batch one now if you look at the
-8:08
-first uh if you look at the first row here and the first row here that's my
-8:13
-first input output prediction pair so for example let's see it's so the input
-8:20
-will be Mr and Mrs
-8:27
-dley that's the so this corresponds to 1 15 18 and 22 and then the output is the
-8:35
-input shifted to the right by 1 so then this will be and
-8:41
-Mrs dley off that's the output now if you see
-8:49
-within this one pair of inputs and outputs there are actually Four prediction tasks the first prediction
-8:56
-tasks is when Mr is the input and is the output the second prediction task is
-9:04
-when Mr and and is the input Mrs is the output the third prediction task is when
-9:10
-Mr and Mrs is the input then dley is the output and the fourth prediction task is
-9:17
-when Mr and Mrs dley is the input then off is the output so if you
-9:24
-see every row here although it looks like we have four tokens right so so
-9:29
-there might be just one prediction task which is predicting the next token but that's not the case if the input is Mrs
-9:36
-Mr and Mrs dley and the output is and Mrs dley off if the context size is four
-9:42
-there are four input and Target prediction tasks or input output prediction tasks which I've written over
-9:48
-here right now the thing which I want you to focus is that when whenever you have you're
-9:54
-predicting certain output so for example when misses is the output which is to be predicted
-9:59
-the input is Mr and and when dle is the output which is to be predicted the input is Mr and mes so let's take a look
-10:07
-at the data set now and let me clean this further to explain this point to you so what I'm trying to say is that
-10:15
-when dle is the output let's say if dley is the output the input is always the
-10:20
-tokens which only come before dley similarly you take any output you
-10:27
-take misss as the output if misss is the output if mrss is the output the input
-10:33
-is Mr and end if you see the input is Mr and end so for every output so wherever
-10:40
-you go in this um so let's say if you go in this you let's say this is the input
-10:47
-and then the output is shifted to the right by one now within this there are
-10:52
-four input output prediction tasks right if you see was was the output you'll see that misss and dley was the input
-10:59
 if thin is the output then was dle Mrs is the input Etc So based on the context
 11:08
 size Wherever Whenever you have an output the first conclusion from today's lecture is that the input is only the
@@ -902,6 +806,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

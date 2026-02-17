@@ -23,8 +23,9 @@
 
 * 25:00
 
-* Attention score -> softmax -> attention weights -> Add 0's above diagonal -> masked attention score -> normalize rows -> masked attention weights
-  
+* __Approach-1__: Attention score -> softmax -> attention weights -> Add 0's above diagonal -> masked attention score -> normalize rows -> masked attention weights
+* __Approach-1__: Exponents...
+
 ***
 
 * 35:00
@@ -34,3 +35,4 @@
 * This prevents overfitting and improves generalization performance.
 
 ***
+

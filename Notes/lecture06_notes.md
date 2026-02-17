@@ -9,86 +9,15 @@
 
 * 10:00
 
-if thin is the output then was dle Mrs is the input Etc So based on the context
-11:08
-size Wherever Whenever you have an output the first conclusion from today's lecture is that the input is only the
-11:15
-tokens which come before the output right so essentially what I mean
-11:21
-to say is that if you have uh if you have the input
-11:26
-as oops if you have the input as let's say Mr and if you have the input as Mr
-11:33
-and and to predict the next token which is Ms you do not have access to all the
-11:39
-future tokens which come after misses and this seems like a trivial point but that is the whole premise of causal
-11:46
-attention the whole premise of causal attention is that to predict the output we only have access to the tokens before
-11:53
-the output so we cannot cheat and we cannot look into the future so the
-11:59
-simplest way to explain causal attention is that you cannot cheat we cannot cheat
-12:04
-and we cannot we cannot look into the
-12:12
-future the reason I explained the beginning of this lecture with this Harry Potter example is so that you feel
-12:18
-interested in this topic and then you don't forget what causal attention is essentially what causal attention is
-12:24
-simply is that for every output the input is only the tokens which come
-12:30
-before it so you check any input and output pair in in the in these four
-12:36
-input output pairs which I have the for every output the input input is only
-12:41
-those words or tokens which come before the output okay and now let's start
-12:47
-understanding causal attention in a more formal manner right so causal attention
-12:52
-is also sometimes known as mased attention and it's a special form of self attention right it re restricts the
-12:59
-model to only consider previous and the current inputs in a sequence when processing in any given token this is
-13:06
-what we saw to predict any output it restricts the model to only consider
-13:11
-previous and the current inputs in the sequence this is in contrast to the self attention mechanism which allows access
-13:17
-to the entire input sequence at once and let us see this in action actually so if
-13:24
-you remember what we did with the queries keis and the value vectors we had an input and the input had tokens
-13:33
-such as let's say your journey starts with one step and here I have shown that every token is a three-dimensional
-13:39
-Vector we will multiply this with the trainable query Matrix trainable Keys
-13:45
-Matrix and trainable values Matrix and ultimately we'll have the queries the keys and the values now let's see how we
-13:51
-compute the attention score right the attention score is the multiplication of
-13:56
-queries multiplied by the keys transpose so let's look at this attention scores
-14:01
-in more detail so if I have my queries
-14:07
-Vector um if I have my queries Vector to be
-14:15
-6x2 and if I have my keys Vector to be let's say
-14:22
-6x2 to get the attention score what what I actually do is I do queries multiplied
-14:28
-by Keys trans suppos right so it will be a 6
-14:33
-6x2 it will be a 6x2 multiplied by it will be a 2x6 so this will ultimately result in a
-14:40
-6x6 vector or a 6x6 Matrix and the tokens which I'm looking
-14:47
-at for now are your journey starts with one step right so let's see
-14:53
-your journey starts with with one
-15:01
-step and then here my keys are your
-15:08
+* Causal attention, also known as a masked attention is a special form of self attention.
+* It restricts the model to only consider previous and current inputs in a sequence, when processing any given token.
+* This in contrast to self attention mechanism, which allows access to the entire input sequence at once.
+* When computing attention scores, the casual attention mechanism ensures that the model 
 
 ***
+
+* 15:00
+
 
 journey um starts with one step right and basically
 15:16
@@ -818,6 +747,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

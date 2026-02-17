@@ -45,96 +45,9 @@
 
 * 45:00
 
+***
 
 
-manually ensure that these tensors are on the same device as our model parameters which might avoid device
-45:35
-mismatch errors you don't need this right now per se but if it's there it's just a better
-45:42
-practice but remember these three dimensions are the ones which will show up throughout so B comma number of
-45:48
-tokens comma D in so every input has actually three dimensions which we saw over here the batch size the number of
-45:56
-tokens and input Dimensions that is very important to notice all right so now this caal
-46:02
-attention class is implemented so let's just test it out I'm going to assume D in equal to 3 and D out equal to 2 this
-46:10
-is the same uh input output Dimensions which we saw in this example if you
-46:17
-see um yeah just take a look at these Dimensions over here um let me scroll
-46:25
-over here yeah so the input Dimension is equal to 3 which is mentioned over here the input Dimension is equal to 3 but
-46:32
-you will see the output Dimension is equal to 2 so the queries keys and the values trainable weight Matrix uh
-46:39
-project every input Vector into a twood dimension output space as I mentioned in
-46:44
-the previous lecture in GPT and in modern llms the input and output dimensions are kept the same but here
-46:51
-let's just assume this for the sake of this example so then all we have to do
-46:56
-is that we have to define the uh batch and here remember the batch
-47:02
-is 2A 6A 3 and here if you
-47:09
-see uh yeah so the batch is 2 comma 6A 3 that's my input and then I just Define
-47:16
-the causal attention so causal attention class requires actually four um requires
-47:22
-four inputs so here I have my D in I have my D out I have my context length
-47:27
-and the final is the dropout rate so remember context length is batch. shape
-47:33
-one the first index so if you see bat do shape it's 2A 6 comma 3 so badge do
-47:38
-shape index by one will be six since I'm looking at six elements in the sequence the Contex length in this case is equal
-47:44
-to six okay uh so the context length is equal to six what else does the causal
-47:51
-attention class need it needs D in which is equal to 3 D out is equal to 2 context length is equal to 6 and it also
-47:58
-needs a dropout rate so here I have just mentioned dropout rate equal to zero so
-48:03
-you can run this and ultimately see this is uh yeah so here the dropout rate is
-48:11
-equal to zero so you have these attention weights before the Dropout
-48:16
-um and you have uh actually
-48:22
-this I think I should run this part once more so this is my Cal ition class D in
-48:28
-D in um yeah so now that I print the context
-48:34
-vectors these are the context vectors which I obtained right so this is size 6x2 this is exactly the size which we
-48:42
-saw uh here so the context vectors will have a size of 6x2 which are six rows
-48:47
-and two columns but now remember that we have two batches right so in the first batch we have six tokens which will be
-48:55
-processed and that will lead to a context Vector Matrix of 6x2 when you
-49:00
-have the second batch that will lead to another context Vector Matrix of
-49:05
-6x2 um so that's the second batch and now when both remember we are passing
-49:11
-two batches here so if you see the input we are stacking two
-49:17
-batches here so there are two batches so the output will be 2A 6A 2 so here is 2A
-49:24
-6 the first batch output the first batch context Vector Matrix and this is the
-49:30
-second batch context Vector Matrix so the output size is 2A 6A 2 so don't be
-49:35
-confused that why is the output size or output Dimensions not equal to 6x2 the
-49:40
-reason it's 2A 6A 2 is that we have two batches and each has a size 6x2 right so this is my context Vector
-49:48
-Matrix and it seems to be correct uh here I have just written another function which prints out the attention
-49:55
-weights before Dropout and after after Dropout so here I have run the causal
-50:00
-attention class with the dropout rate equal to.5 and uh I have shown the prints
-50:06
 before Dropout and after Dropout so you'll see that before Dropout let's see here there were four two weights which
 50:12
 were active right but after Dropout only one of this is active but this is scaled by a factor of two because dropout rate
@@ -212,19 +125,3 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,106 +18,9 @@
 
 * 15:00
 
-
-journey um starts with one step right and basically
-15:16
-this 6x6 Matrix indicates that I have values for every single entry here
-15:27
-so so if I looking at journey and that's my query I'm basically finding the
-15:33
-attention scores between journey and all the other uh words even before and after
-15:40
-Journey right so this is the attention score between journey and your this is the attention score between journey and
-15:46
-journey this is the attention score between journey and starts this is the attention score between journey and with
-15:53
-this is the attention score between journey and one and this is the attention score between journey and step
-15:59
-now this can be represented in a visual manner like this
-16:06
-your journey starts with
-16:11
-one step and if journey is my query Vector I am essentially finding the
-16:17
-attention of Journey with all the other tokens no matter whether the token comes
-16:22
-before Journey or after Journey now pay very careful attention here if journey
-16:28
-is is my query right so if your and journey are essentially my inputs to
-16:35
-predict the output Journey will not have access to the tokens which come after it at
-16:41
-all so when journey is my query Vector if we are looking at causal attention
-16:47
-ideally we should find the attention scores only between your and journey all
-16:54
-the other tokens which come after this point do not matter too much to us at all because they are any way not going
-17:00
-to influence the calculation of the next
-17:06
-token let me explain this point once more essentially what we do in self
-17:13
-attention mechanism is that we get these attention scores right so every token
-17:18
-for every token we find its attention with the tokens which come before it and which come after it but the key point to
-17:25
-realize is that for every token we do not have access to the tokens which come
-17:31
-after it at any point in the prediction process so take a look at the Harry Potter example
-17:36
-right every token for every token we don't have access to the words which come after it we cannot look into the
-17:43
-future and since we cannot look into the future there is no use finding the attention scores between a token and the
-17:51
-tokens which come after that point so ideally if you have a 6x6
-17:57
-Matrix such as this so let's say this is 1 2 3 4 5 6 1 2 3 4 5 6 2 3 so these are
-18:10
-three rows and let me actually copy this
-18:15
-and paste it let me just do it again here so these
-18:23
-are three rows this is my fourth row over here this is my fifth row over here
-18:29
-and this is my sixth row these are the attention scores right this is a 6x6 so
-18:35
-if we cannot look into the future for the first token we only need to find the attention score between the first token
-18:41
-and itself so that's this for the second token Journey we only need to find the
-18:46
-attention score between your and journey for the third token we only need to find
-18:52
-the attention score between your journey starts for the fourth token we only need
-18:57
-to find the attention scores between your journey starts with for the fifth
-19:03
-token we need to find the attention between one and your journey starts with
-19:09
-one so all the tokens which come before one and for the sixth we can essentially find all the attention scores between
-19:16
-step and all the tokens which come before
-19:24
-it so now if you see all these attention scores which are above the diagonal
-19:30
-which I have marked over here all of those are not needed at all all of these
-19:36
-attention scores are not needed because we anyway won't look into the future at any time Point remember why did we get
-19:42
-the attention scores we got the attention scores between a token and the other tokens so that that will help us
-19:49
-get from the input embedding Vector to the context Vector but in self attention we kind of looked into the future right
-19:56
-because we for one token we even found the attention score between that token and tokens which come after that
-20:03
-point and so the value Vector which we ultimately uh so the context Vector is a
-20:08
-
-
-
-
 ***
 
-
+* 20:00
 
 
 multiplication of the values vector and the attention scores Matrix right so the context Vector for every token
@@ -747,6 +650,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

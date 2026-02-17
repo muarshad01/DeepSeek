@@ -25,8 +25,13 @@
 
 * Attention score -> softmax -> attention weights -> Add 0's above diagonal -> masked attention score -> normalize rows -> masked attention weights
   
-
 ***
+
+* 30:00
+
+
+
+
 
 31:17
 e.8 the second element will be replaced with e to 1.8 divided e.1 plus e to 1.8
@@ -458,6 +463,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

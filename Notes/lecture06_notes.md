@@ -3,10 +3,6 @@
 
 ***
 
-* 5:00
-
-***
-
 * 10:00
 
 1. Causal attention, also known as a masked attention is a special form of self attention.
@@ -16,10 +12,6 @@
 5. To achieve this in GPT like LLMs, for each token processed, we mask out the futhre tokens, which come after the current token in the input text.
 
 * Also called masked attention; unidirectional attention (autoregressive).
-
-***
-
-* 15:00
 
 ***
 
@@ -566,6 +558,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

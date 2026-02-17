@@ -28,98 +28,13 @@
 ***
 
 * 30:00
+  
+***
+
+* 35:00
 
 
 
-
-
-31:17
-e.8 the second element will be replaced with e to 1.8 divided e.1 plus e to 1.8
-31:24
-so the in each row will sum up to one and we'll also make make sure that all the elements above the diagonal are
-31:30
-essentially zero so this will make sure that we are not doing two stages of normalization here we did two stages of
-31:37
-normalization right we did soft Max followed by every row normalization but
-31:42
-here we are doing only one soft Max normalization that's it that's this trick of introducing negative Infinity
-31:49
-above the diagonal and it's a very powerful trick and uh it saves the computations for us so the more
-31:56
-efficient way is essentially you have the attention scores uh the more efficient way is that
-32:03
-you have uh these attention scores and then you apply something which is called as an upper triangular Infinity
-32:11
-mask um what this mask essentially means is that you replace the upper triangular
-32:17
-which is all the elements above the diagonal will be replaced with negative infinity and then you directly apply
-32:23
-soft Max only once so see here you have only one soft Max whereas here
-32:28
-uh you had one soft Max to get the attention weights and then you had another layer of normalization so that
-32:34
-way there are two normalizations so this on the other hand is a much more efficient way we are now just going to see this in
-32:41
-code so that you can understand uh uh what we are trying to do over here
-32:46
-remember in the previous lecture we started out with this inputs embedding Matrix where we had your journey starts
-32:53
-with one and step okay so these are the six inputs over here and there's a
-32:59
-vector embedding for each input here which is a three-dimensional Vector embedding and at the end of the previous
-33:05
-lecture we had defined this uh self attention class essentially what this
-33:11
-does is that it takes in the inputs it finds the keys queries and the values it
-33:17
-finds the attention scores then it gets the attention weights and then it finds the context Vector in causal attention
-33:24
-we are going to just make changes in this part so that all the elements about the diagonal are essentially masked out
-33:30
-right so let's see what is done in a causal attention so this section is titled hiding future words with causal
-33:37
-attention we start with the same inputs and I'm just printing out the attention weights over here and I'm first going to
-33:44
-show you this first approach in the first approach what we do is that we start with the attention weights which
-33:50
-have been already obtained previously so remember when we are showing these attention weights we have already
-33:55
-applied soft Max before to the attention scores and in the first in the first
-34:01
-method what we do is that we just take elements about the diagonal and put them to be equal to zero so now here is the
-34:09
-mask which is essentially all the elements above the diagonal are zero and then we apply this mask to the attention
-34:16
-weights so when we apply this mask to the attention weights you will see that we have the attention weights Matrix but
-34:23
-all the elements above the diagonal are now put to zero but this Pres presents the problem
-34:28
-that every row Now does not sum up to one right and that's an issue so to solve this what we do is that we simply
-34:35
-divide by the summation of the rows and this is what we saw uh this is exactly
-34:41
-what we saw actually on the white board over here if you remember um the first step what we saw
-34:47
-over here is you just put the elements above the diagonal to be zero and then just divide by the sum of the
-34:55
-rules uh so when you run this this will give you the mask attention weights and
-35:01
-this is the main purpose of causal attention now I'll show you the second method which is actually more effective
-35:07
-so here's the attention scores Matrix so remember in the second method we don't start with the attention weights like we
-35:15
-did in the first method we start with attention scores so we start with the attention scores and then here is the
-35:22
-mask which we have so we have this mask where there are ones above the diagonal
-35:28
-and then we take this mask and use it to replace all the elements above the diagonal with negative
-35:34
-infinity and once we have this then what we do is that we just have to take the soft Max once the soft Max will make
-35:41
-sure that all the negative Infinity over here are essentially put to zeros that's
-35:46
-what I'm showing on the screen right now and softmax will also ensure that the sum of every row is equal to one so now
-35:54
 if you actually compare these values so this is 1.55 17. 4483 and you'll see that these
 36:03
 are actually exactly the same values right the third row is 38309 7.31 03
@@ -463,6 +378,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -33,84 +33,17 @@
 
 * 35:00
 
+* Masking additional attention weights with dropout
+* Dropout is a deep learning technique where randomly selected hidden layer units are ignored during training.
+* This prevents overfitting and improves generalization performance.
+
+***
+
+* 40:00
 
 
-if you actually compare these values so this is 1.55 17. 4483 and you'll see that these
-36:03
-are actually exactly the same values right the third row is 38309 7.31 03
-36:10
-38309 7.31 03 so essentially both the methods give us the exact same answer
-36:16
-but the second method is actually much much more effective because we just start with the attention scores uh we
-36:23
-replace the elements above the diagonal with negative infinity and we just take soft Max once we don't have to take the
-36:30
-soft Max and then again normalize as we did in the earlier method uh one more final step before we
-36:37
-actually move to coding the um causal attention mechanism is something called
-36:44
-as Dropout so Dropout is actually a deep learning technique and in this technique
-36:49
-what's done is that um sometimes during training neural networks we observe that
-36:56
-there are some neuron neur which don't learn anything and these neurons actually become lazy and they are not
-37:04
-contributing anything during the learning process so let's say if this my first neuron this is my second neuron
-37:10
-this is my third neuron this is my fourth neuron this is my
-37:16
-uh this is my fourth neuron this is my fifth
-37:21
-neuron and this is my six neuron
-37:26
-oops let's say this is my six neuron now let's say if these six neurons are
-37:32
-learning and we observe that out of these there are two neurons actually which are not doing anything which means
-37:38
-they are lazy neurons and all the work is being done by these four neurons one way to solve this problem is
-37:45
-that during the training process what we do is that we make sure that some neurons are randomly turned off so for
-37:53
-example if during the training process this neuron and this neuron are randomly turned off
-38:00
-and remember these were the neurons which used to do most of the work but now if these neurons are not there then
-38:06
-these two neurons have no other option but to learn something on their own right so Dropout actually solves this
-38:13
-issue of lazy neurons where some neurons don't do any work at all the fact that we randomly drop out or we make certain
-38:20
-neurons inactive other neurons have to pick up the pace it's like working on a group project right and if there are we
-38:27
-always have such groups in which there are only two people doing the work and others are not doing anything but if
-38:32
-those two people suddenly fall sick and they're not available the others have no
-38:37
-option but to work right it's the same case we drop out so what we actually do
-38:42
-is that in the case of causal attention a similar sort of a Dropout mechanism is applied where after calculation of the
-38:51
-attention weights let's say we get the attention weights Matrix and of course it will look something like this all the
-38:57
-elements above the diagonal are zero we randomly mask out certain attention weights we put them to zero randomly and
-39:04
-the and this is what do I mean random is that at every iteration different
-39:09
-weights are put to be equal to zero so the only thing which is fixed is the dropout rate so if the dropout rate is
-39:16
-50% it means that in every forward pass through the large language model 50% of
-39:22
-the attention um atten 50% of the weights in every row will be randomly put to zero
-39:29
-and the same weights will not be selected each time because the weights are selected in a random manner but on an average
-39:36
-half um of the attention weights will be put to zero that's what's done using the Dropout mechanism
-39:43
-so in this figure it actually illustrates that these gray uh these
-39:48
-gray neurons or rather these gray attention weights over here are masked out or they are randomly turned off and
-39:56
-the reason Dropout is implemented is that it improves generalization performance the issue with lazy neurons
-40:02
+
+
 is that if we are using this neural network on a new problem then the lazy neurons again won't fire and so
 40:09
 generalization will not be good so Dropout ensures that all neurons are effectively learning something and we
@@ -378,6 +311,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

@@ -9,10 +9,13 @@
 
 * 10:00
 
-* Causal attention, also known as a masked attention is a special form of self attention.
-* It restricts the model to only consider previous and current inputs in a sequence, when processing any given token.
-* This in contrast to self attention mechanism, which allows access to the entire input sequence at once.
-* When computing attention scores, the casual attention mechanism ensures that the model 
+1. Causal attention, also known as a masked attention is a special form of self attention.
+2. It restricts the model to only consider previous and current inputs in a sequence, when processing any given token.
+3. This in contrast to self attention mechanism, which allows access to the entire input sequence at once.
+4. When computing attention scores, the casual attention mechanism ensures that the model
+5. To achieve this in GPT like LLMs, for each token processed, we mask out the futhre tokens, which come after the current token in the input text.
+
+* Also called masked attention; unidirectional attention (autoregressive).
 
 ***
 
@@ -22,99 +25,10 @@
 
 * 20:00
 
+* We mask out the attention weights above the diagonal, and we normalize the non-masked attention weights, such that the attention weights sum upto 1 in each row.
 
-multiplication of the values vector and the attention scores Matrix right so the context Vector for every token
-20:15
-essentially had information about the future and that's not a that's not what
-20:21
-actually happens when we predict the next token when we predict the next token we are not going to have
-20:26
-information about the future at all so ideally when we get the context vectors we should prevent access to this
-20:35
-future information completely so all the elements Above This diagonal should be should be essentially set to zero
-20:41
-because we don't have access for one token we only have access to the tokens before or equal to that current
-20:49
-token this is the main intuition behind causal attention um so this is in contrast to
-20:56
-the self attention mechanism which allows access to the entire input sequence at once now while Computing the
-21:02
-attention scores the causal attention mechanism ensures that the model only factors tokens that occur at or before
-21:09
-the current token in the sequence this is what we saw so for every token we
-21:15
-should only consider the tokens which occur at that point or the ones which occur before that current token to get
-21:21
-the attention scores to achieve this for each token
-21:26
-process we mask out the future tokens which come after the current token in the input text this is the most
-21:33
-important sentence that's why causal attention is also sometimes called as M attention so if you look at by
-21:40
-directional attention which is self attention every token essentially attends to all the other tokens right so
-21:46
-we get information of the attention scores which come before and after a current token but in uni unidirectional
-21:53
-attention this is also called Auto regressive attention or causal attention or Mas attention there are many names
-21:59
-uh we essentially mask out all the tokens which come above the diagonal so
-22:04
-essentially all of these tokens which which come above the diagonal we will set these tokens equal to
-22:11
-zero and that's what this rest of the lecture is going to be about that how do we exactly set these tokens to be equal
-22:17
-to zero so the rest of the lecture is going to be a bit mathematical but until now I hope you have understood the
-22:24
-intuition of what we are trying to do right so we mask out out all the
-22:29
-elements above the diagonal and remember that in attention weights Matrix in the attention weight Matrix which we had
-22:36
-seen before so here was the attention weight Matrix the main difference between attention scores and attention
-22:42
-weights is that each row essentially summed up to one so that is a property
-22:47
-which we ideally want to retain so the problem is that if you randomly put all the elements to zero the rows will no
-22:54
-longer sum up to one so we'll need to do a normalization step once more so that
-22:59
-the attention weight in each row actually sum up to one so now let's see
-23:05
-how we actually um so the task is now we have the attention scores right we have
-23:11
-to put all the elements above the diagonal in the attention scores to be equal to zero let's see how to do that
-23:18
-now so there are actually two strategies to do this right the and I want you to
-23:24
-pause here and I want to and I want you to think right the the problem at hand is that imagine or take into account
-23:31
-this previous lecture in the previous lecture we had calculated this attention scores but now I'm telling you that all
-23:37
-of these values need to be set to zero this this all of these these values which are essentially above the
-23:43
-diagonal these values need to be set to zero all these values need to be set to zero so how will you go about
-23:53
-essentially calculating the attentions weights or another way to think about it
-23:59
-is that you have the attention weights right what if you set all of these values to zero let's say you set all of
-24:06
-these values to zero now what will happen if you if you just
-24:12
-put all of these values to zero if that is the case you'll see that the rows don't sum up to be equal to one so then
-24:20
-what you can simply do is that whatever is remaining so if you set all of these to zero this Matrix will be something
-24:26
-like uh this Matrix will be something like. 1
-24:32
-0 0 0 um it will be.
-24:40
-1.5 0 0 point oops so
-24:51
-actually the actual values which you need to set to zero are these ones
-25:00
-um this this needs to be set to zero these three these two and this these values
-25:08
-you need to set to zero so if you set this to zero directly what will happen is that this will be 0.1 0 0 0 0 this
-25:19
+***
+  
 will be. 1. 5 0 0 0 this will be 0.05
 25:32
 2 2 0 0 Etc so the remaining two rows
@@ -650,6 +564,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

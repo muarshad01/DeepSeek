@@ -28,6 +28,8 @@
 * We mask out the attention weights above the diagonal, and we normalize the non-masked attention weights, such that the attention weights sum upto 1 in each row.
 
 ***
+
+* 25:00
   
 will be. 1. 5 0 0 0 this will be 0.05
 25:32
@@ -564,6 +566,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

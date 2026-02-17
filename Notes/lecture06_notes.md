@@ -25,111 +25,9 @@
 
 * Attention score -> softmax -> attention weights -> Add 0's above diagonal -> masked attention score -> normalize rows -> masked attention weights
   
-will be. 1. 5 0 0 0 this will be 0.05
-25:32
-2 2 0 0 Etc so the remaining two rows
-25:37
-also so now you see the problem here is that each row does not sum up to one now the first row sums up to 01 the second
-25:44
-row sums up to 6 Etc so what can you do in this case so that each row sums up to one the
-25:51
-simplest thing you can do is that the first row the entire summation is now 0.1 right so you divide this by 0.1
-25:59
-the second row entire summation is now 6 so you divide each element by
-26:10
-6 six the third row the entire summation is now 2 +24 + 0.05 which is 45 so you
-26:18
-divide each of these by 45 you divide this also by
-26:26
-045 and you divide this also by 045 what that will ensure is that that will
-26:32
-ensure that each um that will ensure that each row still sums up to one so
-26:39
-this is actually the first strategy which is implemented to uh to get the
-26:45
-causal attention scores the first strategy is like you have the you already have the attention scores to
-26:50
-which you have applied soft Max and you have got the attention weights you did that in self attention itself then what
-26:55
-you do is that you just add zeros above the the diagonals and you get the mass attention scores but then you normalize
-27:02
-the rows again so that they sum up to one and then ultimately you get the M attention weights that's the strategy
-27:08
-which we saw right now but do you see the problem with the strategy the problem with the strategy is that let's
-27:14
-see here again you see to go from attention scores to attention weights we are already doing soft Max so we are
-27:20
-doing one step of normalization here and then again we are doing one more step of normalization when we divide by the sum
-27:26
-of the rules so we are unnecessarily doing two normalization steps over here
-27:32
-so then the question is can we do a smarter way of normalization so that we
-27:38
-can we need to only apply softmax once and it turns out it is possible to do
-27:43
-that and the way to do that is we directly Target the attention scores so let me tell you how we do this so the
-27:50
-way to do that is we directly Target the attention scores here is where we make our intervention instead of making our
-27:57
-intervention in the tension weights so the way we do this now is that uh
-28:03
-essentially what we do is that all of these values all of these values which
-28:09
-I'm marking right now in circles which are essentially above the diagonal and
-28:14
-which need to be replaced eventually with zero and what we do with these values is
-28:20
-that we will replace these values with negative Infinity we'll replace these values with
-28:26
-negative Infinity so let let's see what the attention scores Matrix now becomes so the attention scores Matrix now
-28:33
-becomes 6 uh then negative infinity negative
-28:39
-infinity negative infinity and negative
-28:48
-Infinity uh the second row becomes
-28:55
-.1 um1 then
-29:00
-uh 1.8 and then again I will have
-29:11
-uh these three negative Infinity values so I just copy pasted them over here
-29:17
-then in the third row I'll have two negative Infinity values so I'll just show this for the three rows um and the
-29:25
-third row values will be 2 um the third row values will be
-29:32
-2 1.1 1.2 now why are we doing this because
-29:38
-remember that when you apply soft Max what soft Max does is that soft Max
-29:44
-actually takes the exponent So Soft Max will uh for the first row each element
-29:51
-the soft Max will replace with e to so the first element it will replace with e to X1 divided by the sum
-29:59
-the second element the soft Max will replace with e to
-30:06
-X2 divided by the sum so this we are doing for the first row uh so let's say let me Mark the
-30:13
-first rower here so if this is my first row each element will be replaced
-30:19
-with Mar this again so if this is my first row each element will be replaced with this e to X1 by su e to X2 by su
-30:27
-Etc now I want you to check what is e to minus infinity so you'll see that e to
-30:34
-minus infinity is actually equal to zero right so the second element will be
-30:40
-replaced with e to minus infinity / sum which is anyway zero because e to minus
-30:46
-infinity is zero this third element will be replaced with zero fourth element will be replaced with zero and Fifth
-30:51
-Element will be replac with zero essentially wherever we have minus infinity all of those will be replaced
-30:56
-by zero because X exponent ra to minus infinity is equal to 0 anyways and the first element will be
-31:03
-replaced with e to6 divided by E to6 so it will be
-31:08
-replaced with one so it will sum up to one here the first element will be replaced with e.1 divided e.1 +
+
+***
+
 31:17
 e.8 the second element will be replaced with e to 1.8 divided e.1 plus e to 1.8
 31:24
@@ -560,6 +458,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

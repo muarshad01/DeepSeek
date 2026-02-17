@@ -9,7 +9,7 @@
 2. It restricts the model to only consider previous and current inputs in a sequence, when processing any given token.
 3. This in contrast to self attention mechanism, which allows access to the entire input sequence at once.
 4. When computing attention scores, the casual attention mechanism ensures that the model
-5. To achieve this in GPT like LLMs, for each token processed, we mask out the futhre tokens, which come after the current token in the input text.
+5. To achieve this in GPT like LLMs, for each token processed, we mask out the future tokens, which come after the current token in the input text.
 
 * Also called masked attention; unidirectional attention (autoregressive).
 
@@ -35,4 +35,5 @@
 * This prevents overfitting and improves generalization performance.
 
 ***
+
 

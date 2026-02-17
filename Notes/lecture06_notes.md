@@ -41,111 +41,12 @@
 
 * 40:00
 
+***
+
+* 45:00
 
 
 
-is that if we are using this neural network on a new problem then the lazy neurons again won't fire and so
-40:09
-generalization will not be good so Dropout ensures that all neurons are effectively learning something and we
-40:15
-prevent overfitting to noise or we prevent um memorization of the data
-40:24
-which usually leads to overfitting and generalization issues CH so this is Dropout and let me just
-40:31
-show you in code how Dropout is implemented now so let's say if you have a matrix like this and imagine this is
-40:37
-your attention weights Matrix for the sake of Simplicity when you have a matrix like this and when you uh add a
-40:43
-Dropout so tor. nn. Dropout of 0.5 it means that on an average 50% of every
-40:50
-row is put to zero and remember this is on an average so it does not definitely mean that half of every row will be put
-40:56
-to Z Z so you see here none of these are essentially put to zero but here you
-41:02
-see five of them are put to zero here four of them are put to zero here three of them are put to zero so it's a random
-41:09
-process right but one thing is that in Dropout since we have a factor of 0.5
-41:15
-the values which are not put to zero are effectively scaled by a factor of two if we have a factor of point4 of Dropout
-41:23
-which means 40% it will be 1 divided 04 so every value will be multiplied by
-41:30
-that so to compensate for the reduction in active elements the values of the remaining elements in The Matrix are
-41:36
-scaled by a factor of 1 by5 which is 2 this scaling is crucial to maintain the
-41:42
-overall balance of the attention weights um ensuring that the average influence of the attention mechanism remains
-41:48
-consistent during the training and the inference phases so Dropout is a very simple mechanism you can think of
-41:55
-attention weights as a light bulbs right so if it's um if if these are the attention weights think of all of them
-42:01
-as light bulbs and Dropout is simply light bulbs going on and off during
-42:07
-every iteration and you can specify the dropout rate so if the dropout rate is
-42:13
-equal to uh if the dropout rate is equal to 50% which means that half of the
-42:18
-light bulbs in every row uh we will be randomly put to zero that is what is very important to
-42:26
-understand over here and this prevents overfitting and improve generalization
-42:31
-performance now that we have learned all of this we are actually ready to code the causal attention class uh we'll
-42:37
-start with the same input so we have six tokens over here your journey starts
-42:43
-with one step and you'll see that every token is a three-dimensional input
-42:49
-embedding Vector in this case what I'm going to do is that I'm going to create a two batches so this is the first batch
-42:57
-remember every batch has six tokens and every token has three dimensions right
-43:02
-so when I stack two batches on top of each other we'll have two which is the batch size six which are the number of
-43:09
-rows over here and three which are the number of columns that's essentially the input embedding Dimension
-43:15
-right so this is my input embedding Vector in causal attention the aim is the same we will ultimately take each
-43:21
-input embedding vector and convert it into a context Vector but the only thing which changes now is that let's say we
-43:28
-get these attention scores which are queries multiplied by the keys transpose the only thing which now
-43:35
-changes is that we replace all the elements above the token above the diagonal with negative infinity and then
-43:42
-we take the soft Max that's it actually so the attention
-43:47
-weights are calculated like this this will make sure that all the elements above the diagonal are equal to zero and
-43:54
-then what we do is that we apply the Dropout mechanism which means that in every row of the attention weights the
-44:00
-attention weights are actually plugged off and put to zero randomly this improves generalization as
-44:07
-we discussed earlier and the context Vector calculation then stays the same we just take the attention weights
-44:13
-Matrix and we multiply the multiply it with the values Matrix and we get the context Vector
-44:19
-Matrix so if you think of the difference between self attention and causal attention the only difference happens
-44:26
-after the attention scores are calculated after the attention scores are calculated we replace the elements
-44:32
-above the diagonal with negative Infinity we take a soft Max and then we apply Dropout so there are two changes
-44:38
-actually the first is the negative infinity and then soft Max and the second change is actually adding the
-44:45
-Dropout um which randomly puts off some attention weights to zero you might
-44:50
-notice certain things here which I have not explained such as what is this bias which is equal to false that essentially
-44:57
-means that we are just going to multiply the inputs with the keys quaries and the values right without any adding any bias
-45:04
-term that's why this bias is equal to false then secondly what is register
-45:10
-buffer over here so why is this mask being created with the self. register buffer so the main idea is it's not
-45:17
-strictly necessary but uh buffers are automatically move to the appropriate
-45:22
-device along with our model which will be relevant when training the llm lator this means that we don't need to
-45:28
 manually ensure that these tensors are on the same device as our model parameters which might avoid device
 45:35
 mismatch errors you don't need this right now per se but if it's there it's just a better
@@ -311,6 +212,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

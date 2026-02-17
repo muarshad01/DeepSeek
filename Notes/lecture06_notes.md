@@ -22,6 +22,8 @@
 ***
 
 * 25:00
+
+* Attention score -> softmax -> attention weights -> Add 0's above diagonal -> masked attention score -> normalize rows -> masked attention weights
   
 will be. 1. 5 0 0 0 this will be 0.05
 25:32
@@ -558,6 +560,7 @@ going to get deeper and deeper now as we proceed into the further modules and I 
 this course and finish and finish all the lectures so stay motivated keep making notes and ask doubts so we'll be
 54:04
 able to clarify them thanks a lot everyone and I look forward to seeing you in the next lecture
+
 
 
 

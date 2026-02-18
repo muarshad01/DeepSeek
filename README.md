@@ -13,7 +13,7 @@
 | [Lecture 04 - The Attention Mechanism 1 hour explanation](https://www.youtube.com/watch?v=K45ze9Yd5UE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes04](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture04_notes.md) | Feb 13, 2026 |
 | [Lecture 05 - Self Attention Mechanism - Handwritten from scratch](https://www.youtube.com/watch?v=s8mskq-nzec&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=5)|  [Notes05](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture05_notes.md) | Feb 15, 2026 |
 | [Lecture 06 - Causal Attention Explained: Don't Peek into the Future!](https://www.youtube.com/watch?v=c6Kkj6iLeBg&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes06](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture06_notes.md) | Feb 17, 2026 |
-| [Lecture 07 - Multi-Head Attention Visually Explained](https://www.youtube.com/watch?v=qbN4ulK-bZA&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes07](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture07_notes.md)| |
+| [Lecture 07 - Multi-Head Attention Visually Explained](https://www.youtube.com/watch?v=qbN4ulK-bZA&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes07](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture07_notes.md) | Feb 18, 2026 |
 | [Lecture 08 - Multi-Head Attention Handwritten from Scratch](https://www.youtube.com/watch?v=rvsEW-EsD-Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes08](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture08_notes.md)| |
 |---|---|---|
 | [Lecture 09 - Key Value (KV) Cache from Scratch: The good side and the bad side](https://www.youtube.com/watch?v=IDwTiS4_bKo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes09](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture09_notes.md)| |

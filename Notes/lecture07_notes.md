@@ -46,21 +46,6 @@ $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 
 * 45:00
 
-
-perspectives within this context Vector Matrix P1 and P2 so hopefully we'll capture richer representations in the
-45:39
-text itself the disadvantage is of course in each perspective we now get reduced number of Dimensions to play
-45:45
-with so the expressivity in each perspective might be reduced but this is a trade-off which
-45:51
-seems to work well in our favor because all the modern llms are based on the
-45:57
-
-
-
-***
-
-
 multi-ad attention mechanism we no llm just has a single head we have multiple heads so that each head can capture
 46:03
 different perspective so this is the whole stepbystep procedure of how we go from the self attention mechanism to the
@@ -212,6 +197,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

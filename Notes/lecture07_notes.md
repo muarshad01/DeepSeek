@@ -24,6 +24,16 @@
 
 #### Implementing a 2-head attention (step-by-step)
 
+1. Input Embedding
+* Example: (11 X 8), where d_in=8
+2. Start with a single W_q, W_k, W_v
+* Example: (8 X 4), where d_out=t
+* Output is (11x4) for query vectors, key vectors, value vectors
+3. Split W_q, W_k, W_v into multiple heads
+* Example: (8 X 2) (W_q1,W_q2), (W_k1,W_k2), (W_v1,W_v2)
+
+$$\text{head_dim} = \frac{d_{out}}{n heads}$$ 
+
 ***
 
 literature and in other videos it just explained in a complicated and reverse manner instead it's much easier to
@@ -582,6 +592,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

@@ -13,6 +13,16 @@
 
 * 20:00
 
+| Self Attention | Perspective |
+|---|---|
+| 1 Self Attention | 1 Perspective | 1 Context Vector Matrix | 
+| Multiple Self Attention | Multiple Perspective | Multiple Context Vector Matrices |
+
+***
+
+* 25:00
+
+#### Implementing a 2-head attention (step-by-step)
 
 capture multiple perspectives of the given sentence or the given paragraph So the main idea is this right
 20:56
@@ -94,6 +104,12 @@ this step by-step procedure you will have a complete visual road map of how the 
 25:01
 if you have understood self attention multi-ad attention is actually quite straightforward but I think in
 25:06
+
+
+
+
+***
+
 literature and in other videos it just explained in a complicated and reverse manner instead it's much easier to
 25:13
 explain multi-ad attention if you motivate it like this and then if you show the step by- step uh visual Matrix
@@ -206,6 +222,11 @@ Vector Matrix that's Q2 which is again 11 by2 similarly I take my input
 30:56
 embedding Matrix multiply with W K1 and W K2 and that gives me the two key
 31:02
+
+***
+
+
+
 Vector matrices and I take my input embedding Matrix and I multiply it with W V1 and I
 31:09
 multiply it with W V2 and then I get my two value Vector matrices V1 and V2 now
@@ -645,6 +666,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

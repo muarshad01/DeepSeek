@@ -36,106 +36,9 @@ $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 
 ***
 
-literature and in other videos it just explained in a complicated and reverse manner instead it's much easier to
-25:13
-explain multi-ad attention if you motivate it like this and then if you show the step by- step uh visual Matrix
-25:20
-or visual matrices calculation so let's see the step by- step procedure right now okay the first thing which we do is
-25:28
-as always we start with an input embedding Matrix and the input embedding Matrix looks like this we have these
-25:35
-Tokens The Artist painted the portrait of a woman with a brush right we have
-25:42
-these 11 tokens and then every token is essentially uh an input embedding of
-25:49
-eight Dimensions which we have considered over here this is also called as the input embedding Dimension or D in
-25:55
-so the dimensions of this entire Matrix are we have 11 rows and we have eight
-26:00
-columns so the dimensions are 11 by 8 that's my input embedding Matrix
-26:05
-remember the goal of this two-head attention now is to take this input embedding Matrix and to convert it into
-26:12
-two context uh context Vector matrices not just one we have to convert it into two
-26:17
-so that each context Vector Matrix captures a different perspective so this is the input
-26:23
-embedding Matrix which we have started with and then the first thing which I want to do show you what we would have
-26:29
-done if we just had a single uh single attention head so if we have a single
-26:35
-attention head what would we have done we would have multiplied this input embedding Matrix with the trainable
-26:41
-query Matrix which is an 8x4 Dimension Matrix a trainable key Matrix which is an 8x4 Dimension Matrix and a trainable
-26:48
-value Matrix which is 8x4 and this multiplication would have resulted in the query Vector Matrix that's 11 by4 a
-26:55
-key Vector Matrix that's 11 by4 and a value Vector Matrix that's 11 by4 now to
-27:01
-extend this into a multi-ad attention or two head attention in this case what we have to do is that we have to first
-27:07
-decide on the output Dimension which we want and here I'm deciding the output Dimension is equal to four that is
-27:14
-something which is fixed at the start the input Dimension is fixed the output Dimension is fixed then what we do is
-27:21
-that uh then we decide the number of heads which we want and here we are
-27:26
-having two attention heads right so this output Dimension is then split among these two attention heads so each
-27:33
-attention head will have Dimension equal to two and the way this visually looks right now is something like this so now
-27:40
-my trainable query key and the value weight matrices earlier they looked like this right but now I'm just going to
-27:48
-divide them into two parts so my trainable query Matrix is now for the first attention head it's this so see
-27:55
-the size of this has been now it's eight row and two columns instead of eight rows and four columns and for my second
-28:02
-head the trainable query Matrix is this which is again eight rows and two columns so in terms of nomenclature now
-28:10
-instead of WQ I have wq1 which corresponds to the first head and I have
-28:15
-wq2 which corresponds to the second head so if Dimensions understanding
-28:20
-Dimensions is a bit difficult just remember that to split this into two attention heads I've just divided the
-28:26
-query into two parts the keys weight Matrix into two and the value weight Matrix into two that's
-28:33
-it so this Dimension over here which the trainable query weight Matrix has the
-28:39
-trainable query second uh for the second head this is called as the head
-28:44
-Dimension and the head Dimension is just the output Dimension divided by the number of heads so the output dimension
-28:51
-in our case is equal to 4 and the number of heads is two so the head Dimension is just 4X 2 which is equal to 2
-28:58
-so what is the head Dimension it's essentially the number of columns in each attention head and that's equal to
-29:04
-two in our case and the same split happens for the trainable key Matrix and
-29:10
-the trainable value Matrix as well so similar to what we did for the trainable
-29:15
-query Matrix we now have W K1 W V1 W K2
-29:21
-and W V2 so these are the trainable key matrices for the both heads
-29:28
-and these are the trainable value matrices for the both heads so see what we are doing in this step is that we are
-29:34
-creating multiple copies of the trainable uh query weight Matrix the
-29:39
-trainable key weight Matrix and the trainable value weight Matrix this is the main idea in the multi-ad attention
-29:45
-and if you think about it it's quite simple right uh in a single head we just had one Matrix and remember that now
-29:52
-that the D out is fixed we cannot change this so if we want two attention heads we just split the D out out into two
-29:59
-parts so this is my these are my trainable query weight matrices trainable key we matrices and trainable
-30:06
-value at matrices that's step number three we essentially split or create
-30:11
-multiple copies of WQ WK and WV now now that we have multiple copies of WK WQ WK
-30:19
-and WV it will naturally create multiple copies of the query vectors the key vectors and the value vectors right
-30:26
+* 30:00
+
+
 because uh let's look at the query vectors first I will first take my input embedding Matrix
 30:33
 X and I will multiply it with wq1 so that's 11 by 8 * 8x2 and that will give
@@ -592,6 +495,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

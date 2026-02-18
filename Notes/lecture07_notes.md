@@ -1,10 +1,7 @@
 #### problem with the self attention mechanism is and
-9:41
-for that I want to start out with a simple illustration so what I want to start out with is that I want to start
-9:47
-out with a sentence right and the sentence is the
-9:52
-artist the artist painted the portrait of a woman with a brush
+* The artist painted the portrait of a woman with a brush.
+
+
 9:59
 let me read this sentence aloud once more the artist painted the portrait of
 10:04
@@ -841,4 +838,5 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 

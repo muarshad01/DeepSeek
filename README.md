@@ -61,7 +61,6 @@
 |RNN (1980)|||||
 |LSTM Network (1997)|||||
 | Transformer (2017)  | (encoder, decoder)|       | | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
-
 |||||[Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781)|
 | BERT (2018)|(encoder, ---)||| [BERT (2018): Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)|
 | GPT (2018)   |(---, decoder)|         | | [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
@@ -70,3 +69,5 @@
 | GPT-3.5      ||       |  | |
 | GPT-4 (2023)       ||       |  | |
 | GPT-5 (2025)       ||       |  | |
+
+

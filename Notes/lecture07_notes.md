@@ -44,112 +44,9 @@ $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 
 ***
 
-* 40:00
+* 45:00
 
-done a single head attention uh without splitting into two heads the output Dimension is four right so you would
-40:15
-have also got the same context Vector Matrix size 11x 4 but it would not have
-40:21
-consisted of two perspectives in a single head if you had just used a single head there also you would have
-40:27
-have gotten the same context Vector Matrix of 11x 4 but there the whole
-40:32
-thing would have been just one perspective but now the advantage here is that the final size Remains the Same
-40:39
-but it consists of two perspectives the first perspective given by my first head
-40:44
-which I'm calling P1 and the second perspective given by my second head which is called as P2 so we have just
-40:50
-extracted more information from my text of course the disadvantage of this is that for extracting each perspective we
-40:58
-have only two Dimensions to play with now that's the drawback whereas here we had essentially four dimensions for each
-41:04
-perspective right but now we have reduced number of Dimensions to play with for each perspective that's the
-41:10
-drawback for multi-ad attention the main drawback is that the dimension size uh
-41:16
-for each head reduces right as you see over here the the dimension for each
-41:21
-head is effectively reduced because we have to split the whole query weight Matrix key we Matrix and value with
-41:28
-Matrix into two so the dimension size for each head is reduced so the amount of information we can capture is a bit
-41:34
-reduced but the number of perspectives we can capture is is increased so each head captures more perspective so the
-41:42
-way I think about it is like divide and conquer instead of Conquering the whole sentence at once you divide into
-41:48
-different parts and then each part conquer some different perspective um that's the simplest way I like to think
-41:54
-about multi-ad attention so this whole stepbystep procedure which
-42:00
-we saw let's recap it quickly we start with the input embedding Matrix the artist painted the portrait of a woman
-42:06
-with a brush and I've deliberately started with the sentence here which can be looked at from different perspectives
-42:12
-correct so what we do here is that we start with the input embedding Matrix and when we multiply it with the
-42:19
-trainable query key and the value Matrix we split these trainable weight matrices into two parts so we fix the outut
-42:27
-Dimension equal to four and we decide the number of heads so since we have two heads here each head will essentially
-42:33
-get two dimensions that's called as the head Dimension which is the D out 4
-42:38
-divided by the number of heads which is equal to 2 so wq1 is 8 by2 wq2 is 8 by2
-42:44
-Etc so we have this these are the query key and the value trainable weight matri
-42:49
-for head number one and these are the trainable query key and the value we mates for head number
-42:56
-two all right so once we have these multiple copies of w q WK and WV
-43:02
-naturally it leads to multiple copies of query key and value so head 1 has one
-43:07
-copy of Q KV which is q1 k1 and V1 and head 2 has another copy of qkv that's Q2
-43:13
-K2 and V2 then what we do is that for q1 and K1 we have the first attention
-43:20
-scores Matrix for Q2 and K2 we have the second attention scores Matrix the first
-43:25
-attention scores Matrix is from head one second attention score Matrix is from head two why do we have two attention
-43:32
-score matrices well each head might be capturing a different perspective such as maybe the first head might be
-43:38
-capturing this perspective maybe the second head might be capturing this perspective Etc so each head might be
-43:44
-capturing different perspective and that's why we have two uh attention
-43:49
-scores Matrix here in my view this part is the most important step because here
-43:55
-we see that each attention scores Matrix captures a different perspective and that's the whole advantage of the
-44:00
-multi-head attention mechanism and then after that we follow similar steps which we had seen for self attention we then
-44:08
-take the attention score Matrix scale it by square root of keys Dimension apply soft Max apply causal attention which
-44:14
-means we mask out all elements above the diagonal in the attention weights to be zero and then if needed we can apply
-44:21
-Dropout to improve the generalization performance or to prevent overfitting so until this point we have the attention
-44:27
-weights which have been calculated and then what we do is we multiply the attention weights for every head into
-44:34
-the value Vector for that head V1 and V2 and then we get the context Vector Matrix for head number one context
-44:40
-Vector Matrix for head number two what the context Vector Matrix for each head represents is that now we have 11 rows
-44:48
-here right the artist painted Etc so we go from input embedding to a
-44:53
-context Vector so now for artist instead of just looking looking at the semantic notion of artist the
-44:59
-context Vector for artist now captures information about how this artist relates to the other tokens that's why
-45:06
-this Matrix is much more richer than the input embedding Matrix so this is the head one context Vector Matrix and this
-45:12
-is the head two context Vector Matrix and in the last step what we do is that we merge the context Vector matrices for
-45:18
-both the heads and that leads to the final context Vector Matrix 11x 4 the size of this is the same as what it
-45:25
-would have been if we just used self attention with a single head but the main advantage is that we have now two
-45:31
+
 perspectives within this context Vector Matrix P1 and P2 so hopefully we'll capture richer representations in the
 45:39
 text itself the disadvantage is of course in each perspective we now get reduced number of Dimensions to play
@@ -315,6 +212,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

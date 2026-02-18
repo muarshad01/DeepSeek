@@ -32,7 +32,7 @@
 3. Split W_q, W_k, W_v into multiple heads
 * Example: (8 X 2) (W_q1,W_q2), (W_k1,W_k2), (W_v1,W_v2)
 
-$$\text{head_{dim}} = \frac{d_{out}}{n heads}$$ 
+$$\text{head-dim} = \frac{d_{out}}{num ~of ~heads}$$
 
 ***
 
@@ -592,6 +592,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

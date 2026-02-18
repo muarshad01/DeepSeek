@@ -138,6 +138,13 @@ the maximum right so it seems that head number three which we saw over here thin
 50:42
 perspective because it seems in the second perspective the woman holds a brush in her hand and the attention
 50:48
+
+
+
+
+
+***
+
 between woman and brush is the maximum in this head whereas if you look at head number eight the attention between woman
 50:55
 and brush is very low so it seems that this head has recognized that maybe the woman is not holding the brush but the
@@ -197,6 +204,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

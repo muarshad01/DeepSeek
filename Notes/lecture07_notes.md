@@ -38,102 +38,13 @@ $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 
 * 35:00
 
-
-extend the self attention mechanism so that we can get multiple attention scores matrices and that is exactly what
-35:28
-is happened here since we had two copies of the queries since we had two copies
-35:33
-of the queries and we had two copies of the keys we can essentially multiply these two copies and get two attention
-35:39
-scores matrices so each attention score Matrix essentially can capture a different perspective and that's the
-35:46
-main advantage of multi-ad attention this step here that although we have multiple heads and although the
-35:52
-dimension of each head is now split into two so the head Dimension is now equal
-35:58
-to 2 which was 4 before so in single head attention it was 11x 4 * 4X 11 and
-36:05
-that gave us the 11 by 11 attention score Matrix but now it's 11x 2
-36:10
-multiplied by 2x 11 so although this Dimension is reduced by half so although this Dimension is
-36:17
-essentially reduced by half the final attention score Matrix still is 11 by 11
-36:23
-so this Dimension is same in both of these cases that's the beauty of multi-head
-36:28
-attention although the head each head has a reduced Dimension when we take the
-36:33
-dot product of the queries and keys transpose for both the heads it's we get two attention score matrices of
-36:40
-Dimensions 11 by 11 and each of these can now capture a different perspective essentially we have two copies of the
-36:46
-attention score matrices now then what happens in the next step is the same
-36:52
-since we have two copies of the attention scores now what we'll do is that we'll scale we'll scale by square
-36:58
-root of the keys Dimension we'll apply soft Max and then we'll apply causal attention which means that we'll just
-37:04
-make sure that all the elements above the diagonal are set to zero remember we cannot peek into the future and if
-37:10
-needed we can also apply Dropout so in this schematic I've assumed the dropout rate to be zero but after you get the
-37:18
-attention weight Matrix you can even had have a dropout rate and randomly turn off different elements in the attention
-37:25
-weight Matrix so this is the head one attention weight Matrix that is 11 by 11
-37:30
-and this is the head two attention weight Matrix that is also 11 by 11 Matrix now and what is the difference
-37:37
-between attention weights and attention scores attention weights every row will just be normalized so if you look at
-37:43
-every row it will be summed up to one and also remember that we are implementing causality here so we make
-37:50
-sure that for both of these attention weight matrices the elements above the diagonal will essentially be equal to
-37:57
-zero so just keep that in mind and then what
-38:02
-we do in the last step is that now we have two we have an attention head Matrix for both these heads right and
-38:08
-remember earlier we had calculated the value matrices V1 and vs2 V1 was 11 by2
-38:14
-V2 was 11 by2 so V1 is the value Matrix for head 1 V2 is the value Matrix for
-38:20
-head 2 so what we will do in this last step is essentially we take the
-38:25
-attention weight Matrix of the first head we multiply it with the value Matrix of the first head so that gives
-38:31
-us the context Vector Matrix for head 1 which is 11 by2 and for the second head
-38:36
-we similarly take the attention weight matri of the second head and we multiply it with the value value Vector for the
-38:45
-second head so that's 11 by 11 * 11 by2 and that gives us the head two context
-38:50
-Matrix so head 1 context Matrix is 11 by2 and head 2 context Matrix is also 11
-38:56
-by2 and now remember what we do after this point is that we have the context Vector
-39:03
-matrices from both the heads and remember what we had discussed at the start once we have the context uh once
-39:10
-we have the context Vector Matrix for the head number one and once we have the context Vector Matrix for head number
-39:16
-two we'll just merge these context Vector matrices and that's exactly what we do in the last step in the last step
-39:23
-what we do is that we have the first head one context Matrix which is which you you can say as giving us the first
-39:30
-perspective that is perspective one and we have the head sorry this
-39:35
-should be head two so we have the head two context Matrix and that essentially gives us the perspective
-39:41
-two and when you merge these context Vector matrices you will have the final context Vector Matrix which is of the
-39:48
-size of 11x 4 so to the left side of this is my first head to the right side
-39:55
-of this is my second head so ultimately when I merge the results from both the heads together I'll have the context
-40:02
-meor of vector of size 11 by4 and remember now if you had just done a single head attention if you had just
-40:09
-
+6. Computing attentin weights for each head
+* Scaling - softmax - causal attantion - Dropout
+7. Merge the contex matrix for two heads
 
 ***
+
+* 40:00
 
 done a single head attention uh without splitting into two heads the output Dimension is four right so you would
 40:15
@@ -404,6 +315,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

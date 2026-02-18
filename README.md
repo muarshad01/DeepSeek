@@ -60,8 +60,9 @@
 |---        |--- |---    | --- | ---|
 |RNN (1980)|||||
 |LSTM Network (1997)|||||
-| Transformer (2017)  | (encoder, decoder)|       | | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
 | (2013) ||||[(2013) Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781)|
+| (2014)||||[Neural Machine Translation by Jointly Learning to Align and Translate - 2014](https://arxiv.org/abs/1409.0473)|
+| Transformer (2017)  | (encoder, decoder)|       | | [Transformer (2017): Attention is all you need](https://arxiv.org/abs/1706.03762) |
 | BERT (2018)|(encoder, ---)||| [BERT (2018): Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)|
 | GPT (2018)   |(---, decoder)|         | | [GPT (2018): Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)|
 | GPT-2 (2019) || 1.5 B |   | [GPT-2 (2019): Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)|

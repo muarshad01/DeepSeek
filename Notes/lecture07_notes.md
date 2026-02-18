@@ -131,6 +131,10 @@ of this is my second head so ultimately when I merge the results from both the h
 40:02
 meor of vector of size 11 by4 and remember now if you had just done a single head attention if you had just
 40:09
+
+
+***
+
 done a single head attention uh without splitting into two heads the output Dimension is four right so you would
 40:15
 have also got the same context Vector Matrix size 11x 4 but it would not have
@@ -243,6 +247,12 @@ with so the expressivity in each perspective might be reduced but this is a trad
 45:51
 seems to work well in our favor because all the modern llms are based on the
 45:57
+
+
+
+***
+
+
 multi-ad attention mechanism we no llm just has a single head we have multiple heads so that each head can capture
 46:03
 different perspective so this is the whole stepbystep procedure of how we go from the self attention mechanism to the
@@ -394,6 +404,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

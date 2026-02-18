@@ -36,110 +36,9 @@ $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 
 ***
 
-* 30:00
+* 35:00
 
 
-because uh let's look at the query vectors first I will first take my input embedding Matrix
-30:33
-X and I will multiply it with wq1 so that's 11 by 8 * 8x2 and that will give
-30:39
-me my first query Vector Matrix q1 which is 11 by2 then I will take my input
-30:45
-embedding Matrix X and multiply it with wq2 that will give me my second query
-30:51
-Vector Matrix that's Q2 which is again 11 by2 similarly I take my input
-30:56
-embedding Matrix multiply with W K1 and W K2 and that gives me the two key
-31:02
-
-***
-
-
-
-Vector matrices and I take my input embedding Matrix and I multiply it with W V1 and I
-31:09
-multiply it with W V2 and then I get my two value Vector matrices V1 and V2 now
-31:16
-remember here what we have done simply is that instead of having one one query Vector Matrix one key
-31:23
-Vector Matrix and one value Vector Matrix for single head since we have multiple heads now we have two query
-31:30
-Vector matrices q1 and Q2 we have two key Vector matrices K1 and K2 and we
-31:35
-have two value Vector matrices V1 and V2 and what are the dimensions of this
-31:41
-these uh these matrices the number of rows essentially remain the same so if
-31:47
-you see for all of them the number of rows remains 11 why do the number of rows remain 11
-31:53
-because the number of tokens which I have the artist painted the portrait of a woman with a brush those are 11 tokens
-32:00
-but the key thing to note here is that the number of columns which we have the number of columns now becomes equal to
-32:06
-two because that's the head Dimension remember the head Dimension is just the D out divided by the number of heads
-32:14
-which is equal to 4 / 2 which is equal to 2 so the number of columns in all of these matrices are equal to two again if
-32:22
-you are getting confused just look at the head number one all of these matrices are the query key and the value
-32:27
-matri es for head number one and all of these matrices are the query the key and
-32:32
-the value matrices for head number two remember this head number one we
-32:38
-have these matrices and head number two we have these matrices it just that we have now created multiple copies so what
-32:45
-happens is that we have the same vectors for a single head but now we have two copies and now that we have two copies
-32:51
-we still have only four dimensions right so each copy has to have only two Dimensions remember the D out is fixed
-32:58
-at the start so in Step number four we create multiple copies of the query the key and
-33:04
-the value Vector matrices which I have denoted over here right now q1 Q2 K1 K2
-33:10
-V1 V2 now think about this right what is usually done in the next step usually we
-33:15
-take the dot product of queries and the keys transpose to get the attention score Matrix but here we have two query
-33:23
-matrices we have two key matrices so what will happen naturally we will have two attention score matrices right so
-33:30
-that's what happen next we compute the attention scores for each attention head
-33:35
-so this is q1 Q2 K1 and K2 so for computing the head one attention scores
-33:42
-what we simply do is we multiply q1 with the we multiply
-33:48
-q1 uh with K1 transpose we multiply q1 with
-33:53
-K1 transpose so that's 11 by 2 * 2A 11 and and that gives us the attention
-33:59
-score of the first head that's 11 by 11 then what we do is that to find the
-34:04
-attention scores Matrix of the second head we multiply Q2 with K2 transpose so
-34:10
-that's 11x 2 * 2x 11 that's 11 by 11 so now take a look here what is exactly
-34:16
-happening when we looked at uh single head if we look at a single head
-34:22
-attention we'll have an attention score Matrix of 11 by 11 right if you just look at one head because there are 11
-34:29
-tokens here the cool thing which has happened or the amazing thing which has happened with multiple heads is that
-34:35
-although the output Dimension is getting split into two parts so the head Dimension is equal to two the attention
-34:41
-scores Dimension Remains the Same for both the heads it's 11 by 11 for the
-34:46
-first head and it's 11 by 11 for the second head and it would have been 11 by 11 if we just did a single head so
-34:53
-essentially now what we have done is that we have two copies of the attention scores we have 1 11 by 11 attention
-34:59
-score and 1 11 by1 attention score why is it 11 by1 because remember there are
-35:05
-11 tokens right the artist painted the woman painted the portrait of a woman
-35:11
-with a brush Etc and if you think about where we started with this is exactly what we
-35:16
-wanted right instead of just getting one attention scores Matrix we wanted to
-35:21
 extend the self attention mechanism so that we can get multiple attention scores matrices and that is exactly what
 35:28
 is happened here since we had two copies of the queries since we had two copies
@@ -495,6 +394,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

@@ -1,6 +1,7 @@
 #### problem with the self attention mechanism is and
 * The artist painted the portrait of a woman with a brush.
 
+***
 
 9:59
 let me read this sentence aloud once more the artist painted the portrait of
@@ -111,6 +112,12 @@ artist because the artist is holding the brush and it has high attention scores
 15:35
 with uh what is this it yeah this should not be there so the brush just has a
 15:40
+
+
+
+***
+
+
 high attention score with the artist because the artist seems to be holding the brush right whereas here if you see
 15:48
 um brush has a high attention score with portrait because the portrait is that of
@@ -207,6 +214,16 @@ context Vector matrices Each of which capture different perspectives and then I'
 20:43
 the final context Matrix Matrix which I have will be much richer in that it will
 20:48
+
+
+
+
+
+
+
+***
+
+
 capture multiple perspectives of the given sentence or the given paragraph So the main idea is this right
 20:56
 you have instead of just having one one self attention mechanism what you can do is that let's say you have the input um
@@ -838,5 +855,6 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 

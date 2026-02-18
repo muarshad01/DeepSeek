@@ -24,90 +24,6 @@
 
 #### Implementing a 2-head attention (step-by-step)
 
-capture multiple perspectives of the given sentence or the given paragraph So the main idea is this right
-20:56
-you have instead of just having one one self attention mechanism what you can do is that let's say you have the input um
-21:05
-let's say you have the input embedding Matrix right you pass it
-21:11
-through self attention mechanism number one you pass it through self attention
-21:17
-mechanism number two let's say we look at two right now so this will give me a
-21:22
-context Vector Matrix one
-21:28
-context Vector Matrix number one and this will give me a context Vector Matrix number
-21:35
-two and then what I will do is that I will just merge these two context Vector matrices together so that I'll have one
-21:42
-resultant context Vector Matrix which now consists of multiple perspectives this is perspective number
-21:50
-one and this is essentially perspective number two and when I say perspective it
-21:55
-can it does not necessarily have to do with meaning always it can be something else like one context Vector Matrix
-22:02
-essentially looks at or pays more attention to verbs in a given sentence
-22:07
-the second context Vector Matrix maybe pays more attention to the hidden meaning of a given sentence Etc so
-22:14
-multiple representations might come out from different context Vector Matrix so here we are just trying to expand our
-22:21
-range of what we capture from a given sentence and this thing of converting
-22:27
-the self attention mechanism to multiple self attention mechanism is essentially
-22:33
-called as multi-head attention multi- head attention the
-22:39
-reason this term head comes into the picture is that it's essentially like having multiple self attention heads so
-22:46
-if you think of one one self attention as one person with one head it's like one head is giving one attention right
-22:52
-but now you have multiple heads each of these heads is capturing a different perspective so think think of these as
-22:59
-multiple people let's say this is the first person with the first perspective second person with a second perspective
-23:05
-so this is just a nomenclature but the head comes from the fact that we are aggregating multiple self attention
-23:12
-blocks together and that's where the name U multi-head attention actually has
-23:17
-its Origins okay so I hope until now I have
-23:23
-uh motivated the concept of why do we need multi-head attention and what are
-23:29
-the limitations of the self attention mechanism and now we are going to start looking at how does multi-ad attention
-23:35
-actually operate in the context of the matrices which we have seen before the queries ke values Etc how exactly can we
-23:42
-change that whole procedure so that we have multiple heads so the main question here right now is that what if we have
-23:50
-two self attention mechanisms instead of one so let's take this same sentence the artist painted the portrait of a woman
-23:56
-with a brush now now I'm going to show you the stepbystep procedure of how we can have two self attention mechanisms
-24:05
-within this sentence and remember that the main purpose of this exercise is that if we have two self attention
-24:10
-mechanisms we should have two attention scores matrices and we should have two context Vector matrices because each has
-24:17
-to capture a different perspective so I'll need to show you how this is exactly done in the query key value
-24:24
-representation which we have Okay so what if we have two self
-24:29
-attention mechanisms instead of one now by the way this two self attention mechanism is also called having two
-24:36
-heads uh and that is the origin of the term multi head okay so now what we are
-24:42
-going to do is that we are going to take this sentence and we are going to see a stepbystep procedure of how we can
-24:47
-Implement a two-head attention on this input sequence and when you understand
-24:54
-this step by-step procedure you will have a complete visual road map of how the multi-ad attention mechanism works
-25:01
-if you have understood self attention multi-ad attention is actually quite straightforward but I think in
-25:06
-
-
-
-
 ***
 
 literature and in other videos it just explained in a complicated and reverse manner instead it's much easier to
@@ -666,6 +582,7 @@ the nuts and bols of how deep seek is constructed but to go to that stage it's
 important for us to be on the same page with the building blocks thanks a lot everyone and I look forward to seeing
 53:55
 you in the next lecture
+
 
 
 

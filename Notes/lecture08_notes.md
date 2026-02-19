@@ -132,6 +132,12 @@ all the keys queries and the values matrices are now transposed and we have 1 co
 30:00
 index and two is this index so these need to be interchanged now that's what's done in this part of the code
 30:07
+
+
+
+
+***
+
 Okay so until now we have the q1 Q2 we have the K1 K2 and we have the V1 V2 so
 30:14
 if we were to map it out to the steps which we had seen in the previous lecture we have reached this part of the
@@ -249,6 +255,12 @@ done in the mathematical calculations also so let me take you through
 that okay so we have the attention scores M matrices now what we'll first do is that we'll first mask the
 36:12
 attention scores to implement causal attention so to do this so this is the
+
+
+
+
+***
+
 36:17
 head one attention scores and these are the head two attention scores what we do is that the elements above the diagonal
 36:23
@@ -338,6 +350,12 @@ do is that I'll simply multiply these two together now take a look at the dimens
 40:38
 multiplied over here so so B comma number of heads and B
 40:43
+
+
+
+
+***
+
 common number of heads that's the same for both these matrices or both these four dimensional matri they are both
 40:49
 grouped by the number of heads but what really we should check while multiplying is that this is number of tokens by
@@ -537,6 +555,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

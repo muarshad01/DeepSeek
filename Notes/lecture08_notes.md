@@ -33,7 +33,8 @@ $$\text{head-dim} = \frac{d_{out}}{num_{heads}} = \frac{6}{2} = 3$$
 * 15:00
 
 * __Step-5__: Unroll last dimension of Keys, Queries, and Values to include num_heads and head_dim
-* (b, num_tokesn, d_out) = (b, num_tokesn, head_dim, num_heads)
+* (b, num_tokesn, d_out) = (b, num_tokesn, head_dim, num_heads) = (1,3,2,3)
+
 $$\text{head-dim} = \frac{d_{out}}{num_{heads}} = \frac{6}{2} = 3$$
 
 ***
@@ -622,6 +623,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

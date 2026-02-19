@@ -49,129 +49,11 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * 30:00
 
-
-Okay so until now we have the q1 Q2 we have the K1 K2 and we have the V1 V2 so
-30:14
-if we were to map it out to the steps which we had seen in the previous lecture we have reached this part of the
-30:20
-code where we have q1 Q2 K1 K2 and V1 V2 now let's go to the next part where we
-30:26
-actually compute um where we actually compute the attention scores to compute the
-30:33
-attention scores what we have to Simply do is that we have to look at q1 and K1
-30:39
-and take their transpose we have to look at Q2 and K2 take their transpose that's it so that's exactly what we are doing
-30:46
-here we are going to take the queries and we are going to multiply it with keys. transpose 2 comma 3 why 2 comma 3
-30:53
-because now we are grouping by the number of heads right so when we look at one head
-30:58
-we essentially so first what we do is that we look at the first head so we have to multiply this with the transpose
-31:05
-of this Matrix so what does it mean taking the transpose of this Matrix so it means
-31:12
-that so now the rows here are T1 T2 and T3 right and the columns are the
-31:17
-dimensions so the rows here are the number of tokens and the columns are head Dimensions which means we have to
-31:22
-take the transpose of these two so multiplying K1 and multiply q1
-31:28
-and K1 transpose essentially just means taking the transpose of these last two Dimensions over here for K1 why the last
-31:35
-two because we are already so each row here corresponds to First token second
-31:40
-token third token and each column corresponds to the dimension which are essentially corresponding to the last
-31:46
-two Dimensions so multiplying K1 multiplying q1 with K1 transpose
-31:51
-essentially just means queries multiplies by keys. transpose 2A 3 so
-31:56
-now we have this entire queries made Matrix right when we take the squares Matrix and when we multiply it with
-32:02
-keys. transpose 2A 3 what will essentially happen is that first Q q1 will be multiplied with K1 transpose and
-32:09
-then Q2 will be multiplied with K2 transpose so that's essentially what we are going to get over here so if you
-32:16
-think about the dimensions of the resultant Matrix what we are now doing is
-32:21
-that uh we have this Matrix quaries which is B comma number of heads comma
-32:27
-number of Tok comma head Dimension and we are multiplying it with keys. transpose 2 comma 3 which means these
-32:33
-two are interchanged so we are multiplying this Matrix with B comma number of heads comma head dim comma
-32:39
-number of tokens right so what will the multiplication result in it's the number of tokens comma head dim multiplied by
-32:46
-the head dim comma number of tokens so it's going to be B comma number of heads comma number of tokens comma number of
-32:52
-tokens and that just going to be 3x3 so if you take take this
-32:58
-multiplication you'll get this Matrix which is of the size 1A 2 comma 3A 3 but
-33:03
-now what this means is that this is head one the these are this is actually head
-33:08
-one attention scores this is actually head one attention scores and this is actually a
-33:15
-had two attention scores and since these are attention
-33:22
-scores of course their Dimensions have to be number of tokens number of tokens
-33:28
-multiplied by the number of tokens so this is how we get the two
-33:35
-attention scores in matrix multiplication which is exactly what was done in the code also once we have the
-33:41
-sorry which was exactly what was done in our visual lecture once we have q1 and K1 we take this dot product once we have
-33:48
-Q2 and K2 we take this dot product so q1 multiplied by K1 transpose gives us the
-33:53
-head one attention scores Q2 multiplied by K2 transpose gives us this two attention scores but I want you to pay
-34:00
-very careful attention to the dimensions over here because the dimensions are where people usually get confused right
-34:07
-so you have this head one uh head 2 head 1 head 2 head 1 and head two so you have
-34:12
-q1 Q2 K1 K2 V1 V2 then what you have to do is that you have to multiply q1 with
-34:17
-K1 transpose Q2 with K2 transpose and when you do that you finally get this attention scores Matrix whose Dimensions
-34:25
-now are B which is the bat size is number of heads because you have grouped by the number of heads this head one and
-34:31
-this head two and why is this 3 comma 3 because since it's attention scores it
-34:36
-has to be number of tokens multiplied by number of tokens because the attention scores are calculated among every
-34:43
-token uh so this is now the two attention scores Matrix which we have for the two heads and this is exactly
-34:50
-what is done in the code also to get the attention scores we have to multiply the queries and keys. transpose 2 comma 3
-34:57
-this 2 comma 3 is very important because it's the last two Dimensions which get transposed and which get multiplied so
-35:04
-the ultimate di the ultimate dimensions of the attention scores after we take the dot product for each head is B comma
-35:12
-number of heads comma number of tokens comma number of tokens this step is also called taking the dot product for each
-35:19
-head why because first we multiply q1 with K1 transpose that's taking the dot
-35:24
-product for head number one and then we multiply Q 2 with K2 transpose that's
-35:30
-essentially taking the dot product for head number two Okay so until now we have found the attention scores Matrix
-35:38
-now what we have to do is that we have to find the attention weights so this is this is to get this what we had seen in
-35:44
-yesterday's lecture was to get the attention weights we have to basically first uh scale it then apply soft Max
-35:52
-then do causal attention and if needed we can do Dropout so now this is exactly what is
-35:58
-done in the mathematical calculations also so let me take you through
-36:05
-that okay so we have the attention scores M matrices now what we'll first do is that we'll first mask the
-36:12
-attention scores to implement causal attention so to do this so this is the
-
-
-
-
 ***
+
+* 35:00
+
+
 
 36:17
 head one attention scores and these are the head two attention scores what we do is that the elements above the diagonal
@@ -467,6 +349,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

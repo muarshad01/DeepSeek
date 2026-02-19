@@ -14,14 +14,14 @@ b, num_tokens, d_in = x.shape
 
 * 10:00
   
-* __Step-2__: Decide (d_out, num_heads) = (6,2)
+* __Step-2__: Decide (d_out, num_heads) = (6, 2)
 
 $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * __Step-3__: Initialize trainable weight matrices for Key, query, value (W_k, W_q, W_v) 
-  * W_k (d_in, d_out) = (6,6)
-  * W_q (d_in, d_out) = (6,6) 
-  * W_v (d_in, d_out) = (6,6) 
+  * W_k (d_in, d_out) = (6, 6)
+  * W_q (d_in, d_out) = (6, 6) 
+  * W_v (d_in, d_out) = (6, 6) 
 
 * __Step-4__: Calculate Keys, Queries, Value Matrix (Input X W_k, Input X W_q, Input X W_v)
   * Keyes (b, num_tokens, d_out) = (1 X 3 X 6) 
@@ -537,6 +537,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

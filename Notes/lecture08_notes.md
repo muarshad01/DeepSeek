@@ -1,103 +1,18 @@
 ***
 
-5:00
+* 5:00
 
-that it can capture multiple perspectives so what we did was a single
-5:12
-head can get us one attention score so what if we have multiple heads right so
-5:18
-what if we have two self attention mechanisms instead of one and then we saw how to implement this multi-head
-5:24
-attention step by step we started with an input embedding Matrix the artist painted the portrait of a woman with a
-5:31
-brush we saw that the first step which is done is that we decide the output Dimension and this is going to stay the
-5:37
-same in today's lecture as well we have to decide the output Dimension and we have to decide the number of heads which
-5:43
-we want the number of attention heads so in our case in the previous lecture we had output Dimension equal to four and
-5:50
-number of attention heads equal to two so the head Dimension is the output Dimension divided by the number of
-5:56
-attention heads that's equal to two the this is the dimension of each head so what actually happens when we start
-6:03
-doing the calculation is that we uh split the trainable query Matrix the key
-6:08
-Matrix and value Matrix into two parts and that eventually splits the query vectors the key vectors and the value
-6:16
-vectors into two parts why do we have two parts because there are two attention heads so there is one copy of
-6:23
-q k and V which is the query key and value Matrix for each head and now that
-6:28
-we have two copies of the query key and value it essentially leads to two attention scores so this is the
-6:34
-attention scores Matrix calculated from the first head and this is the attention score Matrix calculated from the second
-6:41
-head this right here is the most important point in the multi-ad attention mechanism workflow because
-6:48
-each attention scores Matrix here essentially represents a different perspective this was not possible with
-6:55
-just the self attention mechanism now we have two attention scores matrices right so each can capture a different
-7:02
-perspective and that's the main advantage of multi-ad attention then what we do is after we
-7:08
-have the attention scores we do the scaling with square root of the keys Dimension we apply soft Max causal
-7:14
-attention and if we want we can do Dropout also that leads to the attention weights the head one attention weights
-7:21
-and the head two attention weights and then what we do is that we multiply the
-7:26
-attention weights of the head one and head two with their corresponding value vectors and then we get the context
-7:33
-Matrix for head 1 and head 2 we merge these context matrices and then we get the final context Matrix which now is a
-7:40
-mixture of two perspectives so remember the more the attention heads we have the more the
-7:45
-perspectives we can capture into our final context Matrix that's exactly how
-7:51
-the multi-head attention actually works in practice we also saw a cool visualization towards the end where we
-7:57
-took a pre-trained um large language model and we all actually explored inside the
-8:03
-attention heads so today as I mentioned we are
-8:08
-going to do a mathematical calculation of exactly how the multi-ad attention
-8:14
-works so I'm going to show you every single matrix multiplication from scratch and then I'm also going to show
-8:21
-you how it relates to the code for the multihead attention so here if you see
-8:26
-this is the multihead attention class and if you just see the class without understanding the mathematical details
-8:33
-this all might seem a bit confusing to you but I will take you today through the entire mathematical derivation and
-8:40
-then I'll show you that it's actually directly mapped to the code and then
-8:45
-understanding the code becomes that much easier so let's get started today the
-8:50
-example which we are going to consider is this example where we'll start with an input embedding Matrix okay so the
-8:57
-input embedding Matrix is X and there are three tokens essentially let me change my color here
-9:04
-so that maybe I'll change it to this new color over here which is
-9:11
-orange so this is my input embedding Matrix here the way to visualize this
-9:16
-Matrix is that there are three tokens this is token one that corresponds to the first row this is token two which
-9:22
-corresponds to the second row and this is token three which corresponds to the third row and every token essentially
-9:28
-has a certain Dimension that's my input Dimension and this is going to be equal to six in this case so there are three
-9:35
-tokens and each token has six dimensions but as you see this this this
-9:41
-is a tensor with three dimensions over here so what's these three the second is essentially just the number of tokens
-9:47
-the third is essentially the input Dimension D in so this is the tokens this is the D in but what's the First
-9:55
-Dimension the First Dimension is essentially the batch the the batch size
-10:00
-so we are going to just pass in one batch for the sake of Simplicity but if there are two batches which are passed
-10:06
+#### Example
+* (b, num_tokens, d_in) = (1, 3, 6)
+  * batch = 1
+  * num_tokens = 3
+  * d_in = 6
+
+***
+
+* 10:00
+
+
 then this will be off of a size 2x 3x 6 if there are three batches which are passed together then this will be of a
 10:12
 size 3X 3X 6 Etc right but for the sake of Simplicity I am going to assume that
@@ -871,4 +786,5 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 

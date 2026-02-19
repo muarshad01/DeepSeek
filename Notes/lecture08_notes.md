@@ -62,98 +62,13 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * 40:00
 
-common number of heads that's the same for both these matrices or both these four dimensional matri they are both
-40:49
-grouped by the number of heads but what really we should check while multiplying is that this is number of tokens by
-40:54
-number of tokens so that's going to be 3x3 and this is number of tokens by the head Dimension so that's also 3x3 so
-41:02
-when you multiply this again the product is now taken into the number of tokens comma head Dimension space so we have
-41:09
-three tokens here and uh each head Dimension is equal to three right so when you multiply the
-41:17
-attention weights with the values you get the context Vector matrices so the first row over here is the context
-41:23
-Vector Matrix for head one and the second is the context Vector Matrix for head number two and we have three tokens
-41:30
-over here so there are context Vector for each tokens and the size of each context Vector is equal to the Head D is
-41:36
-equal to the Head Dimension which is equal to the number of which is equal to the last Dimension
-41:42
-over here which is equal to the Head Dimension now if you scroll to the visual multi-ad attention this is
-41:48
-exactly what we had obtained yesterday right we had obtained the head one context Matrix and we had obtained the
-41:54
-head two context Matrix here also there were 11 tokens and the size of each context Vector was equal to two which
-42:00
-was equal to the Head dimension in this case this is the same thing as what is been done over
-42:07
-here we have the context vectors for head one and we have the context vectors for head number two and when you go
-42:13
-inside each head the size is number of tokens and each token has the context
-42:19
-Vector of size equal to head Dimension this is done in this part where we multiply uh the attention we
-42:27
-multiplied with the values okay when we get the context Vector now what we do is
-42:33
-that when we get the context Vector remember that our final aim is not directly to get two different context
-42:41
-matrices but we have to merge the context Matrix for head one and the context Matrix for head 2 we have to
-42:47
-merge these context matrices right we we don't have to keep them separate so that
-42:53
-part is still remaining right and to merge these what we have to do is that we have to again Group by the number of
-42:59
-tokens so that's why we need to reshape it again currently the dimension is B comma number of heads right it's grouped
-43:06
-by the number of heads so we need to uh reshape it again remember we did this
-43:11
-step earlier once um where what here what we did is we actually uh switched it so we
-43:19
-deliberately brought the number of heads before so we want to group by the number of heads but now we'll switch it back to
-43:24
-the original configuration so that we group it by by the number of tokens so this is now token number one this is now
-43:31
-token number two and this is now token number three the reason I want to group it by tokens is that eventually I want
-43:38
-to merge the head one and the head two output for each token right so token one
-43:43
-it has the head one context vector and it has a head two context Vector I don't want it to be separate I want to merge
-43:50
-so then then I'll merge these two together similarly for token two I have
-43:55
-the head one context vector and I have the head two context Vector I don't want these vectors to be separate so I'll
-44:00
-merge these two for token number three I have the head one context vector and I
-44:06
-have the head two context Vector I don't want these to be separate so I'll merge these two and this merging is just
-44:11
-easier if I group it by the number of tokens so that's why we actually uh switch these positions once more and
-44:19
-that's the reason that there's one more transpose 1A 2 here so once we get the context Vector Matrix we'll again
-44:25
-transpose 1A 2 so that we'll group Again by the number of tokens and once we Group by the number
-44:32
-of tokens what we'll simply do is that we will merge for the token one we'll merge the first row and the second row
-44:39
-so it leads to six values which are the first two rows merged then for token two we'll merge these two head one context
-44:47
-Vector head 2 context Vector that will give me these six values and for token number three I'll merge these two
-44:54
-vectors so that will give me these six Valu Val again so ultimately the final
-45:00
-resultant context Vector Matrix which I have will be batch size number of tokens and the output Dimension so you see what
-45:07
-we did initially we started out with uh initially we started out with B comma number tokens comma D
-45:14
-in right then we went through a bunch of steps and then ultimately we obtained
-45:20
-the context Vector which is B comma number of tokens B comma number number of tokens
-45:27
-comma D out this is the final context Vector
-45:32
-Matrix and this is again the last part of my code the last part of my code is
-45:38
+* __Step-9__: Context Vector = Attention Weights X Values
+  * (b, num_heads, num_tokens, num_tokens) X (b, num_heads, num_tokens, head_dim)
+
+***
+
+* 45:00
+
 this context. continuous. view what this will do is that this will just
 45:44
 merge um the first row second row of token one first row second row token two
@@ -261,6 +176,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

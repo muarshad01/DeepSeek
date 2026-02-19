@@ -36,88 +36,11 @@ $$\text{head-dim} = \frac{d_{out}}{num_{heads}} = \frac{6}{2} = 3$$
 * (b, num_tokesn, d_out) = (b, num_tokesn, head_dim, num_heads)
 $$\text{head-dim} = \frac{d_{out}}{num_{heads}} = \frac{6}{2} = 3$$
 
+***
+
+* 20:00
 
 
-queries and the values we just have to take the multiplication of the we have to take the multiplication
-16:17
-of the input embedding Matrix and the trainable query key and the value matrices that's what's done in this step
-16:24
-so here although you cannot see a direct multiplication operation here X is being
-16:30
-passed X which is my input is being passed as an input to this W key which
-16:35
-is the linear layer of a neural network this essentially is a multiplication
-16:40
-because the biased terms if you see the biased terms are set to zero the reason we use nn. linear instead of nn.
-16:47
-parameter is that nn. linear just has an optimized initialization scheme for the
-16:53
-weights so that helps in our back propagation later but remember in this
-16:58
-part what we are doing is that we are calculating the so this is uh this is calculation of the keys Matrix which is
-17:06
-represented by uh this key over here this Keys Matrix this this part is the
-17:13
-calculation of the queries which is the input multiplied by the trainable query Matrix and the third part over here or
-17:20
-the third line is the calculation of the values Matrix which is the input multiplied by the trainable value Matrix
-17:27
-so until this point in the Cod we have obtained the keys queries and the values and remember its dimensions are batch
-17:33
-size number of tokens and the output Dimension now the real magic of multi-ad
-17:39
-attention starts after this point remember what we saw in the previous
-17:44
-lecture what we saw in the previous lecture is that once we have the query key and the
-17:51
-value matrices depending on the number of heads these mat are split into parts
-17:56
-right so here if you see this whole this whole trainable this whole trainable query
-18:03
-Matrix which was there it was essentially split into two parts because there are two heads this is exactly what
-18:10
-we are going to do in the code right now or this is exactly what we are going to do in the mathematical calculation
-18:16
-right now uh if you see closely the last Dimension is D out right what we are
-18:23
-going to do is that we are going to unroll this last Dimension into two parts So currently the dimensions of
-18:31
-this keys quaries and the values they are B batch size number of tokens and
-18:36
-the output Dimension right we are going to unroll the output Dimension into two parts what this means is that instead of
-18:42
-having a 1 by 3A 6 we are going to unroll it to number of heads comma head
-18:49
-Dimension now check this out carefully we have Define d out which is equal to 6
-18:55
-and we have defined number of heads which is equal to two right that means that the head Dimension is equal to
-19:02
-three essentially what this means is that each head has a dimension of three so if you have this query Matrix now
-19:09
-which is a 6X 6 so 1 2 3 4 5 6 and if I'm going to repeat this six times let's
-19:16
-look at my query Matrix right now right so actually my queries is 3x 6 sorry 1X
-19:21
-3x 6 so I just have to have three rows so now this is my query right but now
-19:27
-instead of having six column s what I'm what I'm saying is that there are two attention heads so each head should get
-19:33
-a dimension of three so I should split it into two parts this should be my head number one and this should be my head
-19:41
-number two so this entire dimension of 3x 6 right so then essentially this will be
-19:48
-3x3 and then essentially this will be
-19:56
-3x3 or rather 1x3 by 3 and 1X 3x3 so another way of saying this is that
-20:02
-instead of having a 1x 3x 6 I will have a four dimensional tensor which is 1x 3x
-20:08
-2x 3 where now D out is just replaced by number of heads and head
-20:15
-Dimension and uh there is a very easy way to actually visualize this if you
-20:21
-you can easily visualize this right number of tokens comma D out that's essentially just three rows and six
-20:26
 columns right number of tokens comma D out which was this is just three rows
 20:32
 and six columns but now 3x 2 comma 3 you can visualize it like this there are three so this is um this is token
@@ -699,6 +622,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

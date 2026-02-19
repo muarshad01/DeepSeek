@@ -33,101 +33,15 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 * 15:00
 
 * __Step-5__: Unroll last dimension of Keys, Queries, and Values to include num_heads and head_dim
-* (b, num_tokesn, d_out) -> (b, num_tokesn, num_heads, head_dim) = (1, 3, 2, 3)
+* Unroll last dim: (b, num_tokesn, d_out) -> (b, num_tokesn, num_heads, head_dim) = (1, 3, 2, 3)
 
 $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 ***
 
-* 20:00
+* 25:00
 
 
-columns right number of tokens comma D out which was this is just three rows
-20:32
-and six columns but now 3x 2 comma 3 you can visualize it like this there are three so this is um this is token
-20:42
-one this is token one this is token two and this is token three right and
-20:49
-earlier each token essentially had six colums associated with it the first
-20:54
-token had these six columns associated with it because the output Dimension was six but now you see these six columns
-21:03
-these six columns have been unrolled into a three three three column and
-21:08
-three column so essentially what is done is that uh after you divide it into two
-21:14
-parts um this thing is essentially brought over
-21:22
-here this thing is essentially brought over here and this is essentially
-21:28
-brought over here so now what I have is that 1 2 3 and let me write it by Brown
-21:37
-1 2 3 then um 1 2 3 and let me show this also by
-21:47
-Brown 1 2 3 and uh
-21:52
-last I have 1 2 3 and and brown
-22:00
-again 1 2 3 so what is done is that my
-22:05
-token one this is now my token one this is now my token
-22:13
-two and this is now my token number three and token one instead of token one
-22:19
-having all these six values together in a row the first row now corresponds to my head
-22:25
-one which are these three values over here and and the second row now corresponds to head number two which are
-22:32
-these three values over here similarly for token two this is my head
-22:37
-one and this is my head two similarly for token number three
-22:43
-this is my head one and this is my head number
-22:49
-two so this is what it means when we say convert a 1x 3A 6 or 3x 6 to 3x 2A 3 so
-22:57
-now this is a 3x2 3 so this is exactly what I have written over here 1X 3A 2A 3 looks like this
-23:05
-there are three why is it 3 comma 2 comma 3 because there are three tokens three tokens each token has two rows and
-23:12
-three columns so token number one has uh sorry each token has two rows and three
-23:18
-columns so token number one has two rows and three columns token number two has two rows and three columns token number
-23:24
-three has two rows and three columns this is exactly what can be seen over over here token number one uh token
-23:31
-number one has two rows and three columns token number two has two rows and three columns token number three has
-23:37
-two rows and three columns and what does each row in each token correspond to the first row corresponds to head number one
-23:44
-and the second row corresponds to head number two so now imagine that one token right um we are looking at the queries
-23:52
-so the first token had some sort of a input embedding that is split into two parts half of it goes to head number one
-23:59
-which is the first row and half of it goes to head number two which is the second row and that's done in a similar
-24:06
-way for token number two and token number three so this is the reshaped queries Matrix so essentially reshaping
-24:14
-just means splitting it into two so visually splitting the Matrix into two looks easier right but when in the code
-24:21
-you see these unrolling parts in the code when you see these unrolling parts it just gets very difficult to visualize
-24:28
-but here I'm deliberately showing this visualization to you so that it's actually very easy when you what does it
-24:34
-mean to unroll the last Dimension to unroll the last Dimension just means that you have this full Dimension which
-24:40
-is six dimensional token you split it into two and bring the bring the second half below the first part so that leads
-24:47
-to a 1x 3 by 1A 3A 2A 3 reshaped queries Matrix a 1A 3A 2A 3 reshaped Keys Matrix
-24:56
-and a 1x3 1 3A 2A 3 reshaped values
-25:02
-Matrix so this is done in the code also in the code what we have written here is
-25:07
-that unroll the last Dimension so earlier we had B comma number of tokens comma D out and now this is changed to B
-25:15
-comma number of tokens comma number of heads comma head Dimension number of heads is equal to two and head
-25:22
 Dimensions is three so that's 1A 3A 2A 3 that's exactly what what's written here
 25:27
 we are going to unroll this to B comma number of tokens comma number of heads comma head Dimension and the way this is
@@ -623,6 +537,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

@@ -53,7 +53,9 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * 35:00
 
-
+* __Step-8__: Find attention weights
+  * Mask the scores to implement casual attention
+  * Dive by $$\sqrt{\text{head-dim}} = \sqrt{\frac{d_{out}}{\text{num-heads}}} = \sqrt{\frac{6}{2}}=\sqrt{3}$$
 
 36:17
 head one attention scores and these are the head two attention scores what we do is that the elements above the diagonal
@@ -349,6 +351,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

@@ -4,6 +4,7 @@
 
 #### Example
 * __Step-1__: Start with 1 input batch
+* X: (1,3,6)
 * (b, num_tokens, d_in) = (1, 3, 6)
   * batch = 1
   * num_tokens = 3
@@ -22,10 +23,23 @@ b, num_tokens, d_in = x.shape
 $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{6}{2} = 3$$
 
 * __Step-3__: Initialize trainable weight matrices for Key, query, value (W_k, W_q, W_v) 
+  * W_k (d_in, d_out) = (6,6)
+  * W_q (d_in, d_out) = (6,6) 
+  * W_v (d_in, d_out) = (6,6) 
+
+* __Step-4__: Calculate Keys, Queries, Value Matrix (Input X W_k, Input X W_q, Input X W_v)
+  * Keyes (b, num_tokens, d_out) = (1 X 3 X 6) 
+  * Queries (b, num_tokens, d_out) = (1 X 3 X 6) 
+  * Values (b, num_tokens, d_out) = (1 X 3 X 6) 
 
 ***
 
 * 15:00
+
+
+
+
+
 
 queries and the values we just have to take the multiplication of the we have to take the multiplication
 16:17
@@ -688,6 +702,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

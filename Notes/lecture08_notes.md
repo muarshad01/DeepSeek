@@ -41,102 +41,14 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * 25:00
 
-
-Dimensions is three so that's 1A 3A 2A 3 that's exactly what what's written here
-25:27
-we are going to unroll this to B comma number of tokens comma number of heads comma head Dimension and the way this is
-25:34
-done is that the keys Matrix which was originally there right we do keys. view B comma number of tokens comma number of
-25:41
-heads comma head Dimension similarly for values we do values. view B comma number
-25:47
-of tokens comma number of heads comma head Dimension similarly for the queries
-25:52
-we do queries. view B comma number of tokens comma number of heads comma head
-25:57
-dimension so these are the keys values and queries which are reshaped so until now we are at this
-26:05
-part where we have reshaped the keys saries and values to take into account multiple attention heads then what we
-26:11
-are going to do is that uh so the keys queries and the
-26:17
-values have been obtained then we what we are going to do we are going to group The matrices by the number of heads so
-26:23
-you see the problem here is that we have grouped by the number of tokens right we see the token token one and within the
-26:29
-token one there is the head one and head two but now what we have to do is that we have to group it by the heads so
-26:36
-instead of 1A 3 comma 2 comma 3 I want 1 comma 2 comma 3 comma 3 which means I
-26:42
-want to Interchange this and this so essentially I want the
-26:48
-dimensions of my matri to be B comma number of heads comma number of tokens
-26:53
-comma head Dimension so what this will do is that you see the queries Matrix initi we grouped it with token one token
-27:00
-2 token 3 but now we'll group it with heads so now this is my head one and
-27:06
-this is my head two then what will happen is that within each head within each head there is this token one token
-27:13
-two and token three and each token now has head Dimensions which is equal to
-27:18
-three so this is three dimension similarly if you do if you look at head number two the first row of head number
-27:25
-two corresponds to token one token two and token 3 so you see the difference between this 1A 3A 2A 3 here the
-27:32
-grouping was with number of tokens but now we have grouped it with head one and head two why do we do this because it
-27:39
-just then easier to multiply right if you see uh if you see over here the
-27:45
-advantage of these heads is that the queries the keys and the values have been split into multiple heads so we
-27:51
-should clearly see the different copies right um now now that we have done this
-27:57
-type of a grouping we can clearly see the copies this is the first copy which is the queries this is
-28:03
-q1 this is q1 which is the queries for the first head this is Q2 which is the queries
-28:10
-Matrix for the second head so the division just becomes very easy whereas if you group it with the number of
-28:16
-tokens my head one is here my head one is here and my head one is here so part
-28:23
-of my head one is in this first row part is here and part is here so it needs to be grouped together in one single place
-28:30
-so that's why we group it with the number of heads because later remember that we have to then take the dot
-28:36
-product between so let's say this is my q1 now this is my Q2 now this is my K1
-28:42
-and this is the K2 we have to take a DOT product between q1 and K1 transpose and we have to take a DOT product between Q2
-28:48
-and K2 transpose remember this is exactly what we had done over here we had take we had taken a DOT product
-28:55
-between q1 and K1 transpose and we taken a DOT product between Q2 and K2
-29:00
-transpose to take this dot product all the uh to take this dot product
-29:07
-essentially head one needs to be in one place q1 needs to be in one place Q2 needs to be in one place K1 needs to be
-29:13
-in one place K2 needs to be one place so that's why it's very important for us to group The matrices by the number of
-29:19
-heads instead of grouping by the number of tokens and this is what is done in the next part of the code the next part
-29:27
-of the code we just take take the transpose of this these dimensions number one and dimensions number two so
-29:33
-keys. transpose 1 comma 2 just means that since python starts with zero indexing this is index zero this is
-29:39
-index one and this is index two so we are going to take the transpose of these index indexes these are going to be
-29:45
-interchanged to number of heads comma number of tokens so now we are going to be grouping by the number of heads so
-29:52
-all the keys queries and the values matrices are now transposed and we have 1 comma 2 here because one is the this
-30:00
-index and two is this index so these need to be interchanged now that's what's done in this part of the code
-30:07
-
-
-
+* __Step-6__: Group matrices by "number of heads"
+* (b, num_tokens, num_heads, head_dim) - > (b, num_heads, num_tokens, head_dim)
+* (1, 3, 2, 3) -> (1, 2, 3, 3)
 
 ***
+
+* 30:00
+
 
 Okay so until now we have the q1 Q2 we have the K1 K2 and we have the V1 V2 so
 30:14
@@ -555,6 +467,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

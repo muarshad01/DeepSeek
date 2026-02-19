@@ -57,91 +57,9 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
   * Mask the scores to implement casual attention
   * Dive by $$\sqrt{\text{head-dim}} = \sqrt{\frac{d_{out}}{\text{num-heads}}} = \sqrt{\frac{6}{2}}=\sqrt{3}$$
 
-36:17
-head one attention scores and these are the head two attention scores what we do is that the elements above the diagonal
-36:23
-are replaced with minus infinity we saw this in the causal attention lecture also so and the elements above the
-36:29
-diagonal in head number two are also replaced with minus infinity and uh what
-36:34
-we'll do is that we also divide by the square root of head Dimension remember in self attention we divided by the
-36:40
-square root of keys Dimension but now the keys Dimension is equal to the Head Dimension each key Dimension is equal to
-36:47
-the Head Dimension which is D out divided by number of heads which is 6 ided 2 so we'll scale it by the square
-36:54
-root of three we'll scale it by the square root of three and then we'll apply soft Max what soft Max will do is
-37:01
-that it will make sure the elements with negative Infinity are set to zero remember in causal attention we cannot
-37:06
-Peak into the future so for each token we only get the attention scores corresponding to that token and the
-37:12
-tokens which come before it and why do we divide by the square root of head Dimension this is just to make sure that
-37:19
-the variance of the query is multiplied by the keys transpose does not blow up
-37:24
-dividing by the square root of the head dimension make sure that the variance of
-37:29
-that dot product between queries and the keys transpose essentially
-37:35
-stays uh essentially stays closer to one and that's important for us when we are
-37:41
-going to do uh back propagation Etc we don't Valu we don't want values to be
-37:47
-widely different from each other so when we apply soft Max we get the attention weights Matrix and remember that the
-37:54
-dimensions of the attention weight Matrix are exactly same as the dimensions of the attention scores
-37:59
-matrix it's going to be batch size number of heads number of tokens and
-38:05
-number of tokens so the same thing here batch size one number of heads so this
-38:12
-is uh this is head number one this is head number two and then 3 comma 3
-38:18
-because I have number of uh tokens equal to three these number of rows and number of columns also equal to the number of
-38:25
-tokens number of tokens
-38:30
-but the difference now between the attention weights and the attention scores is that the attention score in
-38:36
-the attention weights if you see every row every row essentially sums up to
-38:42
-one so we can also Implement Dropout after this but I have not implemented it here for the sake of simplicity so now
-38:49
-what you can do is that you can go to the code and you'll see that the same thing has been implemented here first
-38:55
-what we do is that we create a mask of Nega negative Infinity above the diagonal which has been done over here
-39:01
-we create this mask of negative Infinity above the diagonal uh then what we do is
-39:06
-that we divide by the square root of the head Dimension uh and then we take the soft
-39:12
-Max and if needed we can also apply the Dropout so if you scroll up to the top
-39:18
-we can set the dropout rate by default I think the dropout rate we can set it to equal to zero if we don't want any
-39:24
-Dropout but if you randomly want to turn off certain attention weights you can do that by applying a dropout rate of let's
-39:30
-say 0. five okay so this is how the until now we have calculated the
-39:36
-attention weights and then apply Dropout then what we do after we get the attention
-39:41
-weights um remember the last step after getting the attention weights is that we have to
-39:47
-multiply um the head one we have to multiply the
-39:53
-head one attention weights with the value one V1 and we have to multiply the
-39:59
-head two attention weights with V2 so let's see how that is done now in matrix
-40:04
-multiplication um all right so this is the attentions
-40:11
-attention weight Matrix so this is head number one and this is head number
-40:17
-two and this these are my values Matrix right so my values is uh this is my
-40:24
-V1 and this is my this is my V V1 and this is my vs2 so H1 and H2 so what I'll
-40:32
+
+***
+
 do is that I'll simply multiply these two together now take a look at the dimensions of what exactly is being
 40:38
 multiplied over here so so B comma number of heads and B
@@ -351,6 +269,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

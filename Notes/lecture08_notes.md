@@ -16,7 +16,7 @@ b, num_tokens, d_in = x.shape
   
 * __Step-2__: Decide (d_out, num_heads) = (6,2)
 
-$$\text{head-dim} = \frac{d_{out}}{num-{heads}} = \frac{6}{2} = 3$$
+$$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 * __Step-3__: Initialize trainable weight matrices for Key, query, value (W_k, W_q, W_v) 
   * W_k (d_in, d_out) = (6,6)
@@ -35,7 +35,7 @@ $$\text{head-dim} = \frac{d_{out}}{num-{heads}} = \frac{6}{2} = 3$$
 * __Step-5__: Unroll last dimension of Keys, Queries, and Values to include num_heads and head_dim
 * (b, num_tokesn, d_out) = (b, num_tokesn, head_dim, num_heads) = (1,3,2,3)
 
-$$\text{head-dim} = \frac{d_{out}}{num-{heads}} = \frac{6}{2} = 3$$
+$$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 ***
 
@@ -623,6 +623,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

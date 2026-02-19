@@ -60,15 +60,7 @@ $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 
 ***
 
-do is that I'll simply multiply these two together now take a look at the dimensions of what exactly is being
-40:38
-multiplied over here so so B comma number of heads and B
-40:43
-
-
-
-
-***
+* 40:00
 
 common number of heads that's the same for both these matrices or both these four dimensional matri they are both
 40:49
@@ -269,6 +261,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

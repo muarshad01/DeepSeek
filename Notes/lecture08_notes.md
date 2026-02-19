@@ -8,6 +8,10 @@
   * num_tokens = 3
   * d_in = 6
 
+```python
+b, num_tokens, d_in = x.shape
+```
+
 ***
 
 * 10:00
@@ -786,5 +790,6 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 

@@ -3,6 +3,7 @@
 * 5:00
 
 #### Example
+* __Step-1__: Start with 1 input batch
 * (b, num_tokens, d_in) = (1, 3, 6)
   * batch = 1
   * num_tokens = 3
@@ -15,120 +16,17 @@ b, num_tokens, d_in = x.shape
 ***
 
 * 10:00
+  
+* __Step-2__: Decide (d_out, num_heads) = (6,2)
 
+$$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{6}{2} = 3$$
 
-then this will be off of a size 2x 3x 6 if there are three batches which are passed together then this will be of a
-10:12
-size 3X 3X 6 Etc right but for the sake of Simplicity I am going to assume that
-10:19
-just one batch is passed at one time but remember that whenever you write the code for the multi-head attention block
-10:27
-it always starts with the input embedding Matrix with three dimensions so when you go to the code you'll see
-10:33
-that we start the forward method of the multi-head attention class with three
-10:38
-dimensions the batch size the number of tokens and the input embedding Dimension that's the X do shape right so this is
-10:45
-my input embedding so just to give you a quick recap of what this is is if you
-10:50
-remember the Journey of the token through the so we had a lecture regarding the Journey of a token through
-10:57
-the llm architecture right there is the whole data pre-processing step where every token essentially gets converted
-11:03
-into something which is called as the input embedding which is the summation of token embedding plus position
-11:09
-embedding and we call the input embeddings as uniform essentially every token gets its own uniform so the input
-11:16
-embedding for every token which I'm showing over here is actually that uniform so every token has its own row
-11:24
-right which is a vector of six dimensions that's its input embedding which is the summation of token
-11:29
-embedding plus position embedding if you have not seen that lecture before I highly recommend you to go through that
-11:34
-lecture which is titled journey of a token through the llm architecture so now we have done the
-11:41
-first step which is essentially defining our input which consists of three dimensions all right now next let's go
-11:47
-ahead to apply the multi-head attention mechanism as we saw in the previous lecture we have to decide two things we
-11:54
-have to decide the output Dimension and we also have to define the number of attention heads which we
-12:01
-want why do we need to decide these two Dimensions because it eventually decides the dimension of each attention head
-12:08
-which I have which is called as head Dimension remember the head Dimension is
-12:13
-going to be D out divided by n heads so in this case what I'm going to
-12:20
-do is that I'm going to decide my output Dimension equal to 6 and I'm going to decide the number of heads to be equal
-12:26
-to two so you can do a cal calculation of what each head Dimension will be it's going to be 6 / 2 so each each attention
-12:35
-head is going to have three dimensions now okay great The Next Step which I'm
-12:41
-going to do is I'm going to multiply my input embedding Matrix with my trainable
-12:46
-query key and the value Matrix so first I have to initialize these matrices right I have to initialize so remember
-12:53
-my X now which is this input has uh is 1
-12:58
-by 3A 6 so if you forget this first batch for now it's 3x 6 so if you want
-13:04
-to multiply it with trainable query Matrix trainable key Matrix and trainable value Matrix the first the
-13:12
-dimensions of this the dimensions of this are D in comma D
-13:17
-out the dimensions of these trainable matri are always D in comma D out and
-13:23
-remember now we have finalized D in and D out my D in is equal to
-13:30
-my dimension in is equal to 6 and my D out is also equal to 6 so my trainable
-13:36
-weight matrices for the query key and value will all be 6x6 matrices which are initialized randomly so that's what I'm
-13:43
-going to do over here I'm initializing the trainable weight matrices for the key query and value and these will be
-13:50
-6x6 matrices so this is for WQ this is for w k and this is WV remember all the
-13:57
-values inside these m Es are completely random right now our goal later through back propagation is to optimize these
-14:04
-values so that the next token is predicted correctly once I have this trainable weight matrices The Next Step what I'll
-14:11
-do is that I'll take my input I'll take my input and I'll multiply with these
-14:17
-matrices so I'll multiply x with w k x with WQ and x with WV so remember my X
-14:24
-is now 1X 3A 6 so if I multiply it with 6X 6 that will lead 2 again a 1x 3 comma
-14:30
-6 Matrix so after this multiplication I get the keys Matrix which is 1x 3x 6 I
-14:37
-get the queries Matrix which is 1x 3x 6 and I get the values Matrix which is 1x 3x 6 I want you to pay very close
-14:44
-attention to these three values over here remember we started out with an X input whose dimensions are batch size
-14:52
-number of tokens and D in now check the dimensions of these queries keys and the values the first is of course of course
-14:59
-the batch size the second is the number of tokens so these two remain the same but the third is now D out so instead of
-15:06
-the input Dimension we are now in the output Dimension space so the keys quaries and values are all of the
-15:12
-dimensions of bat size comma number of tokens comma output Dimension and until now we have not
-15:19
-applied the multi-head attention at all but bear with me we'll apply it later so let's go to the code right now we have
-15:27
-the X do shape which is B comma number of tokens comma the input Dimension and
-15:32
-then what we are going to do is that in the init method so if you see we have to
-15:38
-initialize the trainable query key and value matrices right that's essentially done over here the query the key and the
-15:45
-value matrices are initialized through a linear layer of a neural network and the bias term is equal to zero what this
-15:53
-essentially means is that when you do self dot or when you uh pass X which is
-15:58
-the input through the trainable key weight Matrix It essentially takes a multiplication of the trainable key
-16:06
-Matrix multiplied by X this is exactly what we wanted right to get the keys
-16:11
+* __Step-3__: Initialize trainable weight matrices for Key, query, value (W_k, W_q, W_v) 
+
+***
+
+* 15:00
+
 queries and the values we just have to take the multiplication of the we have to take the multiplication
 16:17
 of the input embedding Matrix and the trainable query key and the value matrices that's what's done in this step
@@ -790,6 +688,7 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+
 
 
 

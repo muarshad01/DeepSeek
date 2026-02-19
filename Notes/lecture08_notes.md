@@ -1,99 +1,7 @@
-hello everyone my name is Dr Raj dander I graduated with a PhD in machine
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
-0:20
-how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below [Music]
-2:03
-hello everyone and welcome to this lecture in the build deep seek from scratch
-2:09
-Series today we are going to have our second lecture on the multi-head attention if you remember in the
-2:16
-previous lecture we went through the conceptual overview of multi-head attention and how the mechanism actually
-2:24
-works how we split the query key and value uh vectors into multiple different
-2:30
-heads and how each of the heads eventually leads to a different attention score and uh that actually
-2:38
-helps us in capturing two different perspectives with just the self attention mechanism we can capture only
-2:45
-one perspective of a given sentence or a given paragraph but in some cases we
-2:50
-would like to essentially compute the concepts in a lot more detail or from a
-2:57
-lot more perspectives which is which is not possible through just a self attention mechanism and that's why we
-3:04
-have the multi-head attention mechanism where each head allows us to compute a
-3:10
-different perspective so we saw the whole process in the previous lecture today what we
-3:16
-are going to do is that today we are going to take a matrix we are going to take an actual input embedding Matrix
-3:23
-and we are going to see step by step about how the multi-ad attention Works in practice so this is going to be a
-3:30
-mathematics based lecture the previous lecture was more about intuition but here we are going to go step by step
-3:37
-with respect to mathematics and parall I'm also going I'm also going to show you the code for how the multihead
-3:44
-attention function is written and by the way what we are going to cover in today's class is exactly how the first
-3:51
-multi-ad attention implementation works in practice so whatever we have done until
-3:57
-now in this lecture series starting from self attention to causal attention to
-4:02
-the first lecture of multi-head attention it all comes to a culmination point in this lecture where we'll code
-4:09
-out the entire multi attention class in multi-head attention class in Python and I'll also show you the step by-step
-4:16
-mathematical derivation and every matrix multiplication in a lot of detail first
-4:22
-let's do a quick overview of what we learned in the previous lecture in the previous lecture we saw that if you have
-4:29
-sentences such as this the artist painted the portrait of a woman with a brush this can be viewed in terms of two
-4:36
-perspectives either the artist painted the portrait of a woman using a brush or
-4:42
-the artist painted the portrait of a woman with a brush so the woman had a
-4:48
-brush in her hand it can be two different perspectives right but a self attention mechanism can only Capture One
-4:55
-such perspective because there is only one attention scores Matrix either we can have this or we can have this so
-5:01
-then the question is can we somehow extend the self attention mechanism so
-5:07
+***
+
+5:00
+
 that it can capture multiple perspectives so what we did was a single
 5:12
 head can get us one attention score so what if we have multiple heads right so
@@ -963,3 +871,4 @@ reaching this part please stay with me the later parts will be even more rewardi
 completing the lectures until here so thanks a lot everyone please make notes along with me so that you learn the most
 51:14
 thanks everyone I look forward to seeing you in the next lecture
+

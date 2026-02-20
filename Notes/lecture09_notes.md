@@ -1,105 +1,9 @@
-I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we make progress towards understanding one of the key innovations
-2:15
-in the deepseek architecture and that key innovation is multi head latent
-2:21
-attention. Deepse seek when they wrote their uh the architecture of the model
-2:28
-which was eventually going to transform um the whole LLM landscape. One of the
-2:34
-key innovations was this concept of multi-head latent attention. And uh through this
-2:40
-innovation they unlocked speed improvements, performance
-2:46
-improvements in the transformer architecture itself. Now to understand multi head
-2:52
-latent attention, we cannot go to understand this concept directly. We have to first understand the key value
-2:59
-cache. And the main purpose of today's lecture is to understand the key value
-3:06
-cache. So I'm going to divide today's lecture in three parts. First I'm going
-3:11
-to explain to you what exactly happens during the inference time of a language model. Second we are going to understand
-3:19
-what is this key value cache and why do we really need it. And third thing which
-3:24
-we'll understand is that once we understand why we need the key value
-3:30
-cache, how to implement the key value cache. This lecture serves as the
-3:35
-foundational building block towards finally understanding multi head latent attention because latent attention would
-3:42
-not have been developed if it were not for the key value cache. At the end of
-3:47
-today's lecture, we'll see that key value cache has some disadvantages. Of
-3:52
-course, it leads to a huge number of improvements, but it comes with a dark
-3:57
-side. And to deal with this dark side of key value cache, latent attention was
-4:02
-ultimately innovated. But to understand the dark side of the key value cache, we'll need
-4:08
-to first understand the concept in a lot of detail. I took a long time to prepare this lecture because I want all of us to
-4:14
-understand every single thing from the very basics. So most of the lecture is going to be on the whiteboard where as
-4:22
-always I'll explain everything from scratch and then towards the end of the lecture we also have a coding
-4:28
-component. So if you recall what what all we have covered in this series so far. First we started with the concept
-4:35
-of self attention. Then we learned about causal attention and in the previous lecture we learned about multihead
-4:41
-attention. If you have followed until this part, then you are aware of the concept of attention and now you're
-4:48
-fully ready and equipped to understand the key value cache. So without any further delay, let's get started with
-4:54
-this very important concept. One more thing before we go ahead is that if you
-5:00
-look at the OpenAI API and its pricing, let's look at the pricing for this GPT4
-5:07
-which is mentioned over here. It's about $30 per million token. Now we have another GPT4 year with 32K
-5:15
+
+
+***
+
+* 5:00
+
 that's $60 per million tokens. So why is there a price difference of two times?
 5:21
 One thing to note here is that this 32K or 32,000 is the context size. For GPT4
@@ -1119,3 +1023,4 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+

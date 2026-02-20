@@ -106,6 +106,11 @@ concept of key value cache. When an input sequence is given, it passes through t
 10:45
 new token is predicted. That new token is appended back to the input sequence. That input sequence goes through the LLM
 10:52
+
+
+***
+
+
 architecture again. Again a new sequence is or again a new token is predicted. That new token is again appended back to
 10:59
 the input sequence. This goes on until we reach the specified limit of a
@@ -200,6 +205,13 @@ vector for is over here after this point the other tokens don't matter at all.
 15:50
 the other tokens the next day only matter after we come out of the
 15:55
+
+
+***
+
+
+
+
 attention block. Why? Because in the attention block we need to get the attention scores between is and all the
 16:01
 other tokens. Right? So until this point all the other tokens are important but
@@ -1023,4 +1035,5 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 

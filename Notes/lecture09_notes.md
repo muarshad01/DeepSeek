@@ -115,6 +115,12 @@ token. Since we only need to cache keys and values, this is called as key value
 40:34
 cache. This is called as key value cache. And sometimes it is also referred
 40:40
+
+
+
+
+***
+
 to as the KV cache. So once we cache the keys and the values, once we cache the
 40:46
 keys and the values, every time a new token comes in, we don't need to recomputee those previous keys and
@@ -217,6 +223,12 @@ computations we reduce the cost and that is the key advantage of key value cache
 45:50
 So it seems that everything is amazing right this key value cache we can cache
 45:56
+
+
+
+
+***
+
 things in memory we can store them and that reduces the number of computations
 46:01
 so it's good for us right what are the disadvantages well the key value cache
@@ -474,6 +486,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

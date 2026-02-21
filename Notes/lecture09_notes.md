@@ -22,106 +22,10 @@
 
 * 25:00
 
-
-tokens. Since we have four tokens here, the next day is it's a 4x4 matrix. Then
-26:00
-once we have these attention scores, we scale it by square root of the keys dimension. We apply soft max and apply
-26:07
-causality so that all the elements above the diagonal are zero. These are our attention weights and then we are going
-26:13
-to multiply the values vector or we are going to multiply the attention weights with the values matrix and that gives us
-26:20
-the context vector matrix. So once we come out of this attention block here we
-26:25
-have this context vector matrix right. So then we have context vectors for every or sorry the context vector for
-26:33
-the next day and is. So these are the context vectors they are much more
-26:39
-richer than the input embedding vectors because each context vector captures information of the neighbors. Okay
-26:46
-that's how the self attention mechanism proceeds. Now we are doing inference.
-26:52
-Always keep this in mind. This entire lecture is in the domain of inference. We are not doing pre-training. So now
-26:58
-let's say we have to predict the next token. Uh we have next day is and during
-27:05
-this entire pipeline once we have this context matrix it goes through all of these rest of the layers. We get the
-27:11
-logits matrix and we predict the next token. So the the next day is goes through this entire transformer block
-27:18
-during info during inference. We get out we get the logits matrix and the next token is predicted. Let's say the next
-27:24
-token is bright. Now uh imagine or remember what I told you
-27:30
-the bright which is the next token will be appended to the previous input. So now during the next inference stage my
-27:37
-new input matrix becomes the next day is bright. Correct? So now my input matrix
-27:43
-is 5 by 8 because there are five tokens now. And now this input matrix will
-27:48
-again go through the entire attention mechanism. We'll multiply it with the queries keys values. We get the queries
-27:54
-keys values. Now those are 5x4 5x4 5x4. The attention scores matrix is 5x 5. The
-28:02
-attention weights is 5x 5. And the context matrix is now 5x4 because the
-28:08
-first is for every or sorry the first row is for the next day is and the last
-28:14
-row is for bright. Okay. So
-28:20
-now take a look at these computations and take a look at the earlier
-28:25
-computations which we did. Do you notice something
-28:31
-repeating? So in the earlier computation there were four tokens right the next day is right and in the next computation
-28:40
-there were five tokens the next day is bright wq wk and we are the same
-28:46
-matrices in in this step and uh in this step. So what is
-28:52
-repeating when we computed in the previous inference step and when we computed the attention scores in the
-28:58
-next inference step? What is exactly repeating? You can pause this video for a while
-29:05
-here. Okay. So now let's say if you take a very closer look at this new uh
-29:12
-context matrix calculation, you will see that everything which I've shown in this black box is repeated.
-29:21
-So these three which I have marked in the black box let's say these are 4x4 right the first black box is 4x4 the
-29:28
-second black box is 4x4 and the third black box is 4x4 we already computed
-29:33
-these queries keys and values 4x4 matrices in the previous inference
-29:39
-step is the first repetition which you should be aware of then let's look at the attention scores in the attention
-29:46
-scores currently we have a 5x5 Okay, actually let me remove this. We
-29:53
-have this 5x5, correct? But now I'm marking one 4x4. This 4x4 which I have marked over
-30:01
-here, we have already computed this 4x4 attention score in the previous
-30:06
-computation. We have already computed this. Similarly when we go to the attention
-30:12
-weights now Similarly when we go to the
-30:18
-attention weights now let me mark this we have already computed these
-30:23
-4x4 in the previous attention weights calculation because previous attention weights was also 4x4. So you see the
-30:30
-problem which we are or the repetitions which we are doing here. We are again repeatedly
-30:37
-calculating the same things again and again. We are recalculating the queries keys and values. We are recalculating
-30:43
-the previous attention scores. We are recalculating the previous attention weights. We are also recalculating the
-30:49
-
-
-
-
-
-
 ***
+
+* 30:00
+
 
 these four values of the context vector matrix which was already computed before. So why are we doing all of these
 30:56
@@ -668,6 +572,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

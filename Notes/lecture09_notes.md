@@ -18,117 +18,9 @@
 
 * 20:00
 
-
-new input sequence is the next day
-20:17
-bright is that again goes to my through my entire
-20:25
-pipeline and I have my next token which is let's say
-20:31
-and and you see after every inference the token is appended to the next
-20:38
-input. So already you must be seeing here right? First this input sequence goes through the entire pipeline. Now
-20:44
-this input sequence goes through the entire pipeline. This input sequence then again goes through the entire
-20:49
-pipeline. It seems that a huge number of computations need to be performed during the inference. And not just that
-20:56
-intuitively it seems that we might be performing the same calculations again and again. Right? Which means the next
-21:02
-day I already passed these three inputs through the entire architecture. Now do
-21:07
-I have to again pass these three inputs through the entire architecture? Then do I have to again pass these three inputs
-21:13
-through the entire architecture? It seems that we are just performing the same computations again and again and
-21:19
-again. Right? We are passing the same tokens in the input sequence through the entire architecture once a new token is
-21:25
-generated. So just understand or intuitively imagine you have constructed the LLM and
-21:33
-you are getting the inference but you think about the fact that actually a lot of in computations need to be performed
-21:40
-during inference and maybe we are repeating the computations and what is the problem
-21:45
-with repeating the number of computations. The main problem with repeating the number of computations is
-21:50
-that for every piece of data stored in the memory we pay a price. Think about data as houses, right? Imagine you have
-21:58
-a huge land and there is a house. For every land area occupied by the house,
-22:04
-you have to pay a price, right? Similarly, think of the memory as that area which we have which is very
-22:10
-precious to us. For every piece of that memory occupied with data, we have to
-22:16
-pay a price. Okay? And uh the more the memory is occupied,
-22:22
-the higher the price we have to pay during inference. The thing is the more number of computations you perform, the
-22:28
-more number of repeated computations you perform, the more amount of data you need to store in the memory, that leads
-22:34
-to more amount of computations that leads to more price which you have to pay during the inference. That is one
-22:41
-reason intuitively why a higher context size is priced higher. We'll come to why context size matters in a moment. But
-22:47
-just remember that more context size means more memory uh and every piece of
-22:53
-data stored in the memory we pay a price. So now until now what we have seen is that many computations seem to
-23:00
-be repeated during the inference. That is number one. Second insight which we have is that actually during the
-23:06
-inference only the context vector for the last token matters. So maybe we can
-23:11
-do something more efficient. So then the question is can we do something to reduce the memory storage
-23:18
-during inference and once you start asking this
-23:25
-question that once you intuitively realize that okay I seem to be doing so many repeated computations during the
-23:31
-inference can I do something to reduce the memory storage and this is where the
-23:36
-key value cache or this is where the KV cache actually comes into the picture we'll now See
-23:43
-mathematically so we'll prove that we are actually repeating the computations. Currently I just intuitively showed you
-23:50
-that we might be repeating some calculations. Right now we are actually going to take an hands-on example and
-23:55
-I'm going to show to you that during inference we are actually repeating many computations. Then we will see what to
-24:03
-do to avoid those repeat repetations. And to implement that logic of avoiding
-24:09
-repetitions, we are going to use this intuition which we have seen that we only need the context vector for the
-24:15
-last token. So I hope you are excited for the next part of this class where we are going to dive a bit into visual
-24:24
-mathematics. All right. Now I want to prove to all of you that we are repeating calculations or repeating
-24:30
-computations during inference and many things can be optimized further. Let me prove that to you. So first we have to
-24:38
-look at the self attention mechanism and we have seen this a lot in the previous classes. If you are not aware of this
-24:44
-mechanism, I encourage you to go through the previous classes. U so here's what
-24:49
-happens during the attention mechanism. Right? Let's say the input is the next day is okay. So imagine now that when we
-24:57
-are looking at the attention mechanism, we are focusing on this block right now. Okay. So here's what happens. The input
-25:05
-is the next day is that's the input sequence and we are considering an 8dimensional input sequence and we have
-25:12
-four tokens. That's why the input embedding matrix is 4x8. We multiply it with the trainable query weight matrix,
-25:19
-trainable key weight matrix and trainable value weight matrix. That gives us the queries matrix, the keys
-25:24
-matrix and the values matrix. Okay, all of these are 4x4. Then we multiply the
-25:30
-queries with the keys transpose and that gives us the attention scores. Every row of the attention score
-25:37
-corresponds to one query which let's say is this and how it attends to the other tokens in the input sequence. That's why
-25:44
-the attention scores is 4x4. The size of attention scores will always be number of tokens. Number of tokens, number of
-25:53
-
-
-
 ***
+
+* 25:00
 
 
 tokens. Since we have four tokens here, the next day is it's a 4x4 matrix. Then
@@ -776,6 +668,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

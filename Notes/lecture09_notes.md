@@ -10,115 +10,9 @@
 
 * 10:00
 
-concept of key value cache. When an input sequence is given, it passes through the whole LLM architecture. The
-10:45
-new token is predicted. That new token is appended back to the input sequence. That input sequence goes through the LLM
-10:52
-
-
 ***
 
-
-architecture again. Again a new sequence is or again a new token is predicted. That new token is again appended back to
-10:59
-the input sequence. This goes on until we reach the specified limit of a
-11:04
-maximum number of new tokens or until when the response is finished. Okay. So keep this flow in mind. So now let us
-11:13
-understand what happens when the input sequence goes through the LLM architecture itself to produce the next
-11:19
-token. So if you remember what we have learned in the previous lecture, this is the entire
-11:26
-uh this is the sequence through which the uh input tokens or input sequence actually passes. They first go through
-11:33
-the data prep-processing pipeline which is this whole uh they are tokenized then
-11:39
-they are converted into token embeddings. Positional embeddings are added. The input embeddings then go into
-11:44
-the transformer block. In the transformer block there are all of these different layers and then we finally
-11:51
-come out of the transformer block go through another layer of normalization have an output layer and the next token
-11:57
-is predicted. Okay. Now I want you to understand some very key things over
-12:03
-here. Let's say the input is the next day is. Okay. The input
-12:10
-is the next day is and what I want to do is
-12:18
-that after is I want to predict the next token. What happens through this entire
-12:23
-architecture now is that all of these are converted into input embeddings and
-12:29
-they are passed to the transformer. This much is fine. Now this all of these
-12:35
-input embeddings go through layer normalization then they go through multi head attention. Now this is that part
-12:42
-where so we have to predict what's the next token which comes after is right. So in this part we actually get the
-12:50
-attention scores between is and all the other tokens. And then what we do is that at
-12:58
-this stage we get the context vector for is we get the context vector for
-13:07
-is okay which is the last token in my input sequence. We get the context vector for is and then the key thing to
-13:14
-remember is that this context vector then goes through all of these other sequences and ultimately there is
-13:20
-something like a logit matrix which comes out which means that when is the context or when is we are focusing on is
-13:27
-as the query and if the vocabulary size is 50,000 we get this vector of
-13:33
-probabilities with length of 50,000 and then in this vector we look at that
-13:39
-index with the highest as probability and that is going to be my next token which is
-13:44
-bright. So this is how the next token prediction task actually happens and let
-13:51
-me explain this once more because I think this is the most important part to understand the key value cache and I
-13:57
-don't think many people actually understand this in detail. Right? So what I'm trying to say over here is that
-14:03
-this uh my task is
-14:09
-the let me increase the thickness a bit over here let's say the input is the
-14:17
-next day is that's the input right and what I want to do is that I want to pass
-14:23
-this input through this entire architecture and I want to predict the next token so the way this next token is
-14:30
-predicted is that at the end of this architecture I get something like a logits matrix and the logits matrix is
-14:38
-actually computed for all the tokens the next day is and then this is a 50,000
-14:44
-vector this is a 50,000 dimensional vector this is a 50,000 dimensional vector this is a 50,000 dimensional
-14:50
-vector the size of all of these is 50,000 because that's my vocabulary size
-14:55
-one very important thing to remember here is that to predict the next token I don't care about these at all. I don't
-15:02
-care about this. I only look at the logits vector for is. I only look at the
-15:08
-logits vector for is and I look at that index which has the highest probability
-15:14
-and then I decode that index and that predicts the next token. This insight is very important. When this entire input
-15:21
-sequence goes through this architecture and finally we get the logits matrix only the last row of the logits matrix
-15:27
-which is the vector corresponding to is that's the most important. Now what does
-15:32
-this mean? This last row of the logits matrix ultimately depends on the context
-15:37
-vector for is. This last row of the logits matrix. So if you get the context
-15:43
-vector for is over here after this point the other tokens don't matter at all.
-15:50
-the other tokens the next day only matter after we come out of the
-15:55
-
-
-***
-
-
-
+* 15:00
 
 attention block. Why? Because in the attention block we need to get the attention scores between is and all the
 16:01
@@ -943,6 +837,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

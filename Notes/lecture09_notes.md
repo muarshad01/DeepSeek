@@ -14,86 +14,11 @@
 
 * 15:00
 
-attention block. Why? Because in the attention block we need to get the attention scores between is and all the
-16:01
-other tokens. Right? So until this point all the other tokens are important but
-16:07
-once we get out of the attention block at this point the only thing which matters is the context vector for is
-16:13
-this context vector for the last token then travels the rest of the pipeline and then we get this final row of the
-16:20
-logit vector and then we can predict the next token. So what I'm trying to say here is that when we are predicting the
-16:27
-new token we we have to get the context vector for the last token which is is to
-16:32
-get that context vector we use the multi head attention block. But after we come
-16:37
-out of the multi head attention block and once we have that context vector for the is then we don't need these other
-16:44
-tokens at all. We just need that one context vector to predict the next token.
-16:50
-So first insight is that I only need we only
-16:56
-need we only need the context
-17:01
-vector we only need the context vector for the last
-17:06
-token in the input
-17:12
-sequence to predict the next token.
-17:18
-Please keep this in mind. Why do we only need the context vector for the last token? Well, because to predict the next
-17:25
-token in the logits matrix, only the last row of the logits matrix actually
-17:31
-matters. And the last row of this logits matrix only depends on the context vector for the last token which is is
-17:39
-right. So we don't need all of these other tokens once we get the context
-17:44
-vector for is. It's like using the other tokens till we get the context vector for is and then discarding them because
-17:51
-now once I have the context vector for is I know how is attends to all the other tokens and then I can predict my
-17:57
-next token. Okay, keep this insight in mind. This is very very important to
-18:02
-understand key value cache. So what I have written over here is that when a new token comes in when a new token is
-18:10
-there it is added back to the input sequence. The input sequence is converted into input embeddings and then
-18:16
-we only need the context vector for the last token in the input sequence. That context vector gives us the logit vector
-18:22
-for the last token in the input sequence and that helps us to predict the next
-18:28
-token. Keep this journey in mind. Imagine the whole input sequence passing through the LM architecture. When the
-18:34
-whole input sequence passes through the LLM architecture, finally we get an entire logits matrix like this. But in
-18:40
-this logits matrix all of these other the first three tokens are irrelevant because we have to predict the token
-18:46
-after is. So the only thing which is relevant over here is this last row.
-18:52
-Which means the only thing which is relevant is the context vector for is that's all. Okay. Now you must be
-19:00
-thinking why is this insight needed? Where is this used? It will be used later. Just bear with me for a moment.
-19:07
-Now think about the inference process which I mentioned right you get one sentence you predict the next token then
-19:14
-you append that uh next token over here then so let me write it down let's say
-19:22
-you have um let's say you have the input sequence
-19:30
-as the next day okay that input sequence
-19:36
-quence goes through this entire that input
-19:43
-sequence goes through this entire pipeline that input sequence goes to
-19:49
-this entire pipeline and I predict the next token which is bright. Now this brite is appended to
-19:55
-the input sequence again and my new input sequence again goes through my entire
-20:04
-pipeline. My new sequence again goes through my entire pipeline and then I have the next token which is is. Now the
-20:12
+***
+
+* 20:00
+
+
 new input sequence is the next day
 20:17
 bright is that again goes to my through my entire
@@ -837,6 +762,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

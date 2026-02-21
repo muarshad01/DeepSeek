@@ -26,93 +26,12 @@
 
 * 30:00
 
+* to generate a new token, we only need the hidden state of the most recent token. None of the other hidden states are required.
 
-these four values of the context vector matrix which was already computed before. So why are we doing all of these
-30:56
-rec computations? In fact, keep in mind that our whole goal of this task is to
-31:02
-predict the next token. Correct? Our whole goal of this task is to predict the next token. And from our learning
-31:09
-before to predict the next token after this, what do we need to predict the
-31:14
-next token? All we need is that to predict the next token, we only need the
-31:20
-context vector for the last token. Which means that after doing all of these repetitions, the only thing which we are
-31:26
-going to use is this context vector for bright because that's my last token
-31:32
-currently. This context vector for bright is the only thing which we need to predict the next token. So why are we
-31:38
-computing all of these things unnecessarily. So now let us formalize
-31:44
-this and try to quantify what are we computing again and again and what can we do to solve it. So think about this
-31:51
-right? It looks like we are unnecessarily doing a lot of repeated calculations. Can we optimize this? And
-31:57
-already you can think that one way to optimize this is that these query or these keys and values matrices which
-32:03
-I've computed previously, why do I need to compute again? Can I just store the
-32:10
-keys and values matrices from my previous calculation?
-32:15
-That's where the concept of caching comes into the picture. Caching is basically just storing the previously
-32:21
-computed values so that you can use them in the next iteration. So then you might be thinking
-32:27
-let me store the queries also. Let me store queries, keys and values. Let me store all of that. Now let's come to
-32:34
-what exactly we need to store. Okay. Now we have understood that repeated
-32:39
-calculations are happening and we need to store something in memory to make our computations more efficient as the next
-32:46
-stages of inference proceed ahead. Now we are going to see step by step what exactly we should store. Okay. The input
-32:53
-is the next day's bright and our goal is to predict the next token. So the next day is bright will travel through this
-32:59
-entire architecture and we have to predict the next token. Remember what I told you earlier to get the next token
-33:06
-prediction. When when we reach this final layer when we reach this final layer we'll have a logits matrix. We'll
-33:12
-have a logits matrix for the next day is bright. This is the logits matrix. When
-33:19
-we reach the end of this computation, so when we reach at this part, we'll have the logits matrix. And the size for each
-33:26
-will be my vocabulary size. All of these. Now, out of all of
-33:31
-these vectors, I don't care about these first four at all. I don't care about
-33:36
-these because I want to predict the next token. I only care about the logits vector for bright. Then I'm going to
-33:42
-look at that index with the highest probability and predict the next token. So I only care about the logit vector
-33:49
-for brite. As a result, I only care about the context vector for bride which
-33:56
-is computed at this stage. I only care about the context vector for brite. After this stage all the other tokens do
-34:03
-not matter to me at all. So after this point once I get the logits vector for
-34:08
-bright or sorry once I get the context vector for bride my context vector can go through all of these layers and only
-34:15
-that context vector influences my logits vector so I only need that I don't need other tokens after that point so after
-34:22
-this point which is marked in orange right now the earlier tokens are not
-34:27
-needed to generate a new token we only need the uh hidden state or the context
-34:33
-vector of the most recent token none of the other context vectors are needed. Keep that in mind. So when you look at
-34:40
-this context vector matrix, when you look at this context vector matrix you had obtained earlier, we don't need the
-34:46
-entire context vector matrix. We only need the context vector which is corresponding to brite. That's the most
-34:53
-important realization. Once you realize that you only need the context vector for brite, let's backtrack now. Okay. So
-35:01
-we only need this. That's what we have understood up till now. We have got the whole context vector. But I don't need
-35:07
-these other context vectors at all because they don't influence this final logits vector. So I only need the
-35:13
-context vector for bride. Now let us backtrack and check what we actually really need to get this context vector
-35:20
+***
+
+* 35:00
+
 for bride. What do I need? How will this context vector for bride be calculated? I need the attention weights only for
 35:27
 bride and I will multiply it with the entire values matrix. that will get me
@@ -572,6 +491,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

@@ -13,138 +13,7 @@
 
 ***
 
-* 35:00
-
-***
-
-* 40:00
-
-
-
-
-zoom out, pay careful attention to how many caches I need. I only need to cache
-40:15
-the keys and I only need to cache the values. I don't need to cache the
-40:20
-queries at all because I just need the new query vector for my uh for my new
-40:26
-token. Since we only need to cache keys and values, this is called as key value
-40:34
-cache. This is called as key value cache. And sometimes it is also referred
-40:40
-
-
-
-
-***
-
-to as the KV cache. So once we cache the keys and the values, once we cache the
-40:46
-keys and the values, every time a new token comes in, we don't need to recomputee those previous keys and
-40:52
-values. So again, let me repeat what happens when a new token comes in. When a new token comes in, I first multiply
-40:59
-the input embedding with WQ, W K and WV. Only three computations need to be done.
-41:04
-Then I get the query vector, the key vector and the value vector for the new token. Based on the query vector, I
-41:12
-multiply the query with the keys matrix. So to get the keys matrix, I use the keys cache and append my new keys
-41:18
-vector. So then the query vector multiplied by the keys transpose gives me attention scores.
-41:25
-uh then I get the attention weights and then I get the I use the cache value
-41:30
-matrix and append the new value vector for the new token. That's how I get my
-41:36
-new values matrix. Then I multiply my attention weights with the new values
-41:41
-matrix and that's how my I get my context vector for the new token. That's it. Then we get the context vector for
-41:48
-bright. And then this context vector at this stage then it passes through the rest of the architecture. When it comes
-41:54
-out we get the logits vector. We get the logits vector only for
-41:59
-bright. Then we look at this logits vector and we find that index with the
-42:05
-highest probability and that gives us the next token. This is what is meant by key
-42:11
-value cache. we just store the previous keys and values. But to understand key value
-42:17
-cache, it is very important to understand this intuition that to generate a new token, we only need the
-42:24
-context vector of the most recent token. In this case, it was bright. And this
-42:29
-insight actually helped us that helped us to know what to cache. So once we got
-42:34
-this insight that I only need this new context vector, then you see how we backtracked. Then we know what all to
-42:40
-cache, right? then it becomes very easy. We only need to cache the keys and the values. We don't need to cache queries.
-42:46
-Uh that's all and only three new computations need to be done every time a new token comes in. The token
-42:52
-embedding multiplied by WQ, WK and WV. That's all. Then the keys are appended
-42:57
-to the cache. The values are appended to the cache and we get the context vector for the new token. That saves a huge amount of
-43:04
-computations during inference. We are we don't need to compute every single thing again and again like we saw over here
-43:11
-these black boxes were recomputed again and again right all right so until now what we
-43:19
-have learned is that we need to cache the keys and the values matrices and this is called as the key value cache.
-43:26
-We don't need to store or cache the queries matrix at all. Now what's the use of the key value cache? The main use
-43:32
-of the key value cache is that as the number of input tokens increases, the amount of compute time increases
-43:39
-linearly which means that we can speed up the computations by a huge factor.
-43:45
-Why do we speed up the computations? Because we are not doing repeating calculations again and again. Earlier if
-43:51
-you notice what was happening what was happening here is that this the next day
-43:56
-we get bright. Bright is appended then the next day is used again for the next calculation. then it's used again for
-44:02
-the next calculation. These repeated calculations lead to quadratic computations or quadratic
-44:08
-complexity. What quadratic complexity actually means is that as the number of tokens
-44:14
-increases, as the number of tokens increases, if we don't do caching, the
-44:20
-amount of computations which we need to do increase in a quadratic manner. But once we do caching. So once
-44:28
-we do caching what actually happens is that if you see the same example this
-44:34
-once it's used is cached. It's not computed again. It's cached. Then once this is used it's cached. These keys and
-44:41
-values are cached. So we don't need to compute this again and again. As we saw the keys and values vector are cached.
-44:47
-So we don't need to compute these black boxes again and again. This caching helps us because it ultimately leads to
-44:53
-a linear compute time. This caching leads to a linear compute
-44:59
-time instead of a quadratic compute time. So as the input tokens increase the compute time increases linearly not
-45:06
-quadratically. So once we use the k value cache computation speed up uh
-45:12
-because we don't recomputee the same thing again and again and again. Uh that's the whole advantage of
-45:21
-using a key value cache that we can just store the variables in memory and then
-45:26
-we don't need to reuse or we don't need to recomputee the same thing again and again. Remember when we recmp compute
-45:33
-the same thing the number of computations increase uh then the cost also increases as we saw earlier every
-45:39
-single compute instance takes cost. So the moment we reduce the number of
-45:44
-computations we reduce the cost and that is the key advantage of key value cache.
-45:50
-So it seems that everything is amazing right this key value cache we can cache
-45:56
-
-
-
-
-***
+* 45:00
 
 things in memory we can store them and that reduces the number of computations
 46:01
@@ -242,6 +111,12 @@ model V3 base model they use number of transformer blocks as 61 if we use the
 50:50
 batch size equal to one during inference. Then uh the number of attention heads which they have is 128.
 50:58
+
+
+***
+
+
+
 Um and the size of each or the dimension of each head is 128. And the context size is actually
 51:06
 100,000. So in this case if you multiply all of this the KV cache size becomes equal to 400GB. That's huge. This is
@@ -403,6 +278,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

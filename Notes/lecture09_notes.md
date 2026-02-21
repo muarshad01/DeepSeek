@@ -15,96 +15,13 @@
 
 * 35:00
 
-for bride. What do I need? How will this context vector for bride be calculated? I need the attention weights only for
-35:27
-bride and I will multiply it with the entire values matrix. that will get me
-35:32
-the context vector for bride. So I need the attention weights for bride and I need the values matrix. How do I get the
-35:39
-attention weights for brides? To get the attention weights for brightes, I need the attention scores for bright, which
-35:46
-means how bright how bright relates to all the other tokens, right? The next day is
-35:54
-bright. I need to get these attention scores. These are these attention scores
-35:59
-1, five. So I need five values 1x five. How do I get these attention scores? I
-36:05
-get these attention scores because I need only the query vector for bright multiplied with the keys
-36:11
-transpose. That's all. So I will need the So here is what
-36:17
-I will actually need. I will need my values matrix. That is what I will need.
-36:23
-And I will need my attention weights. To get the attention weights I need attention scores. To get attention scores, I need query vector for bright
-36:30
-multiplied by the keys transpose. Now, how do I get the values vector? How do I get the uh values or
-36:38
-how do I get the values matrix? Let's say this is my whole values matrix. So, let's start from the top. To
-36:45
-get the context vector for bright, I need attention weights for bright multiplied by values matrix. What I have
-36:51
-marked in my black box is the cache value matrix which is the value matrix
-36:56
-coming from the previous iteration. So the top four rows I'll get from my cache. My bottom row which is the value
-37:02
-vector corresponding to bride. I just take the input for bride multiplied with
-37:08
-the trainable weight matrix for bride. And this is how I get the value vector
-37:13
-for brite. This is the only new computation which I have to do. For all these other value vectors, I can anyway
-37:19
-cache them from my previous iterations. Then to get the attention
-37:26
-scores, we need the query vector for bright multiplied by the keys transpose. To get the query vector for brite, I
-37:32
-just take the input for brite multiplied with the trainable query matrix, trainable query weight matrix. And if
-37:39
-you look at the keys transpose, same two values, same as the values, the first four rows of this can be cached. I don't
-37:46
-need to recomp compute this again. But only the last row which is the keys corresponding to brite will be the input
-37:53
-corresponding to brite multiplied by the trainable key matrix. That's all. So if I zoom out a
-38:00
-bit these three boxes number one, number two and number three are the only three
-38:06
-new computations I need to do for every inference. So take a look closely at
-38:12
-these three boxes. What are these boxes? These boxes are just the input vector for brite multiplied by the trainable
-38:19
-query, the trainable key and the trainable value matrices. And these trainable matrices, this W, Q, WK, and W
-38:27
-are already fixed because WK, W, Q and W are fixed during pre-training. We don't
-38:32
-need to compute them again. So they are already fixed. I don't even need to catch them. They are fixed values. They
-38:39
-are fixed during pre-training. So I get my input token. So once a new token
-38:44
-comes in, here's what I have to do. Once a new token comes in, I find the query vector corresponding to the new token
-38:50
-first by multiplying the input embedding for that token multiplied by WQ. Then I
-38:56
-get the query vector for the new token. Okay? Then what I do is that I have already cached my previous keys. Then I
-39:04
-compute the new key vector for the new token. I compute the key vector for the new token by multiplying the input
-39:10
-embedding with W K. This is the key vector for the new token. I do not compute the key vectors for the previous
-39:16
-tokens because they are cached. Then I augment my new key vector
-39:22
-with my previous cache to get the whole keys matrix. Then I multiply the query vector with the keys transpose. I get my
-39:29
-attention scores. I scale them. Apply soft max and causality to get my attention weights. Once I have my
-39:36
-attention mates weights, I calculate the values vector for the only the new token
-39:42
-by multiplying the input embedding with we get the value vector for the new token. And then to get the values
-39:48
-matrix, I just append the new values vector with the cached values. So I don't compute this cache again. And then
-39:56
-I multiply the attention weights multiplied by this value vector and I get only the context vector for bride.
-40:02
-That's it. I only get the context vector for bride. I don't care about the other context vectors at all. So again, if I
-40:10
+***
+
+* 40:00
+
+
+
+
 zoom out, pay careful attention to how many caches I need. I only need to cache
 40:15
 the keys and I only need to cache the values. I don't need to cache the
@@ -486,6 +403,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

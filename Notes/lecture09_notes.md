@@ -4,6 +4,11 @@
 
 * 5:00
 
+| Model | Context Size|
+|---|---|
+| gpt-4     |  8k |
+| gpt-4-32k | 32k |
+
 that's $60 per million tokens. So why is there a price difference of two times?
 5:21
 One thing to note here is that this 32K or 32,000 is the context size. For GPT4
@@ -1035,5 +1040,6 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 

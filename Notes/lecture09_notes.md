@@ -14,91 +14,20 @@
 ***
 
 * 45:00
+  
+* l.n.h.s.b.2.2
+* l : number of transformer blocks
+* n : number of attention heads
+* h : attention head size
+* s : context length
+* b : batch size
+* 2 : Two caches one each for (k,v)
+* 2 : number of byptes per floating point
 
-things in memory we can store them and that reduces the number of computations
-46:01
-so it's good for us right what are the disadvantages well the key value cache
-46:06
-remember I told you that it comes with a dark side the key value cache comes with
-46:12
-a dark side and that is with respect to the size of the key value cache
-46:17
-u whenever we store something in memory memory it takes up space in the memory
-46:23
-so we have to pay more. So speed is important that's fine but another consideration is memory right we we are
-46:30
-avoiding recomp computations but the disadvantage is that we are storing something in memory caching essentially
-46:36
-means that we are storing something right and remember what we talked about data taking a footprint so every time we
-46:43
-store something it takes a footprint it's like occupying land so we have to pay the rent we have to pay the cost so
-46:49
-the more amount of space which is taken up by data the more cost it will incur so if you take take a closer look at the
-46:56
-size of the KV cache. The way the size of the KV cache is actually computed is
-47:01
-that let's say we have four tokens, right? The next day is every token will
-47:09
-have a certain number of embedding dimension that is equal to the number of
-47:15
-attention heads. The number of attention heads into the attention head dimension.
-47:21
-This is the uh dimension of every input. Now the thing is there are these many
-47:26
-number of inputs and the number of inputs which will be there or the number of tokens in one sentence is decided by
-47:33
-the context size. So if the context size is uh s in this case the context size is
-47:40
-four but in large models the context size is 1,000 even 10,000 1,000
-47:46
-etc. So n into h into s and that is for one
-47:51
-batch. If you have multiple batches, it's n into h into s into b. So n into h
-47:56
-is the dimension. S is the context size. B is the batch size. So you'll see this
-48:04
-n into h into s into b. So in one transformer
-48:09
-um the size of the cache for one transformer is this because we have to
-48:14
-save all of this all these number of tokens we have to save and the dimensions right. So if if there are
-48:21
-four dimensions 1 2 3 4 every single thing here carries some weight or rather
-48:29
-it occupies some space so we have to pay for it. Put it another way. Let's say we
-48:35
-take the same thing. The next day is right. So in this case we have used a context size of four and the dimension
-48:42
-of four. So n into h is four. S is equal to 1. The sorry s is equal to four
-48:47
-because that's the context size and the batch size is equal to 1. So for every single parameter we have to pay. So how
-48:54
-many parameters are there? Number of dimensions which is n into h. Number of tokens which is given by the context
-49:00
-size and number of batches. So here we have n into h into s into b. These many
-49:06
-parameters we have to save for one transformer. Now remember when we have language models there are multiple such
-49:12
-transformers. So we have to take that factor also which is l which is the number of layers right? Uh so l into b
-49:19
-into n into h into s. Now we have to have one cache for keys and one cache for values. So multiplied by
-49:27
-two and then here we are assuming that every single thing is a floating point
-49:32
-which is essentially 16 bit. So we are assuming two bytes per floating point.
-49:37
-So this will be further multiplied by two. So the size of the KV cache is given by L into B into N into H into S
-49:44
-into 2 into 2. So keep in mind here that one key variable which affects the size of the KV cache is context length. As
-49:51
-the context length increases the size of the KV cache increases. So we have to we have to store more memory or we have to
-49:58
-store more parameters. So we have to pay more. And that is the reason why we when we increase the context size remember we
-50:05
-saw this at the start when we increase the context size the amount of parameters which we need to store
-50:11
-increases because the size of the cache also increases. And that's one reason why more context size during inference
-50:18
+***
+
+* 50:00
+
 open charges us more. So this is the size of the KV cache
 50:24
 right and let's say if we have a 30 billion model whose number of transformer blocks is 48 the context
@@ -288,6 +217,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

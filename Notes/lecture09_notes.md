@@ -1,7 +1,3 @@
-
-
-***
-
 * 5:00
 
 | Model | Context Size|
@@ -9,104 +5,11 @@
 | gpt-4     |  8k |
 | gpt-4-32k | 32k |
 
-that's $60 per million tokens. So why is there a price difference of two times?
-5:21
-One thing to note here is that this 32K or 32,000 is the context size. For GPT4
-5:28
-the context size is just 8,000 but here the context size is 32,000. This clearly shows that if the
-5:34
-context size actually increases the price also increases proportionately.
-5:41
-And today we are going to learn that the key value cache is one very major reason for this price increase. Once we
-5:49
-implement the key value cache, it comes with certain limitations. And that's why
-5:54
-those limitations depend on the context size. And that's why as you increase the context size, open air charges you a lot
-6:02
-more. This also will be clear once we reach the end of today's lecture. Okay. So the first thing which
-6:09
-we have to understand in this lecture is that key value cache or KV cache only
-6:15
-comes into picture during the inference stage of LLS and that's the most important thing
-6:21
-to notice. So people who are watching this stop and think whether your concept
-6:27
-about pre-training and inference is clear. Okay. So when an
-6:33
-LLM is used it it's actually decomposed into two parts. First we have to pre-train the language
-6:39
-model. First we have to pre-train the language model and then you get a pre-trained LLM. On the pre-trained LLM
-6:47
-then you perform inference which means you ask questions and then the LLM responds. To give an example let's say
-6:53
-if I go to chat GPT right now right and then let me ask some questions such as
-6:59
-uh make a travel plan for Italy. If I ask this question right now, I'm not
-7:06
-doing pre-training here. I'm in the inference stage because the model which
-7:11
-is printing this response is already pre-trained. But here the pre-trained
-7:17
-model is used for inference which means for predicting one new token every single time and key value cache the
-7:25
-whole discussion which we are going to do in today's lecture only applies during the inference stage of the
-7:31
-language model. This means that imagine your model is pre-trained. If the model has 175 billion parameters, all of those
-7:38
-parameters are pre-trained and they are fixed. Now we are using that model to
-7:44
-predict the next token. So what actually happens during the inference stage is that it's a next token prediction task,
-7:50
-right? So we are going to predict the next token during the inference stage. And this is the main purpose of
-8:00
-inference. The model is now trained. All the parameters are fixed. We predict one token at a time. So the first concept to
-8:09
-understand is that key value cache only is applicable during the inference stage. So first let us understand what
-8:16
-actually happens during the inference pipeline of language models. So let's say we uh we ask or we give some
-8:24
-sentence to the language model. And here I have a simple demonstration for you where I've given some prompt such as the
-8:31
-next day is bright and I'm using GPT2. This is a pre-trained GPT2. Okay,
-8:37
-I'm going to pass this prompt to GPT2. And then you'll see that the model
-8:42
-prints out one token each time. See over here what is happening. One new token is being printed each time during the
-8:49
-inference stage. So the next day is bright and then the next token is and the next
-8:55
-token is sunny etc. So I'll run this code again just keep an eye out what is happening over here. So if you look at
-9:02
-what is happening over here you'll see it proceeds very fast but one new token is being printed every single time and
-9:09
-all when you are interacting with chat GPT the UI or the interface is such that you feel that everything is presented at
-9:15
-once but actually one new token is generated for you every single time.
-9:20
-Okay, so this is the main thing which is happening in the LLM inference and the way it works at a more deeper level is
-9:27
-that let's say if the input is the next day is it goes through the LLM architecture or the LLM pipeline we'll
-9:34
-see that in a moment the new token is predicted let's say the new token is bright that new token is then added back
-9:42
-to the input so the way it happens is that
-9:47
-the next A is okay and let's say we are
-9:53
-doing the inference and the next token predicted is bright. This bright is then added
-9:59
-back over here and now the new input is the next day is bright.
-10:06
-Now this now this whole sentence goes through my inference pipeline and the next token is predicted
-10:13
-which is and this is now again appended back and now the new input sequence is
-10:19
-the next day is bright and then it again
-10:26
-goes through the inference pipeline and then the new token is predicted which is lovely let's say and then this is again
-10:32
-appended back to the input sequence. This loop which I have shown over here is very important to understand the
-10:39
+
+***
+
+* 10:00
+
 concept of key value cache. When an input sequence is given, it passes through the whole LLM architecture. The
 10:45
 new token is predicted. That new token is appended back to the input sequence. That input sequence goes through the LLM
@@ -1040,6 +943,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

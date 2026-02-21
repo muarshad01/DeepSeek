@@ -5,23 +5,6 @@
 | gpt-4     |  8k |
 | gpt-4-32k | 32k |
 
-
-***
-
-* 10:00
-
-***
-
-* 15:00
-
-***
-
-* 20:00
-
-***
-
-* 25:00
-
 ***
 
 * 30:00
@@ -491,6 +474,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

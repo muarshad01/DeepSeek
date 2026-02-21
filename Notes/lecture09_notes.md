@@ -197,6 +197,16 @@ it's done already. It took 2 seconds to print out the next 100 tokens. And witho
 55:11
 right now and it has taken around 7 seconds. We already saw that this is the advantage of the KV cache, right? We
 55:18
+
+
+
+
+
+
+***
+
+
+
 don't do recalculations. Um everything is done just once. We optimize or we store the
 55:25
 keys and values so that we don't recomputee it again and again. That's why inference time inference speeds up a
@@ -278,6 +288,7 @@ grouped query attention which we'll start seeing in the next lecture. Thank you 
 this lecture and I took a lot of time to create this lecture particularly because I wanted to explain it from different
 59:35
 angles intuition theory code etc. Thanks everyone I look forward to seeing you in the next lecture.
+
 
 
 

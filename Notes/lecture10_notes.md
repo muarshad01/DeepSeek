@@ -3,113 +3,15 @@
 
 * 10:00
 
+#### How to solve KC cache memory problem?
+1. Multi-Query Attention (MQA)
+* What if all the attention heads share same Key & Value matrics?
+3. Group-Query Attention (GQA)
 
-size now what happens with this huge size is that your memory is overloaded
-10:21
-and for remember for every piece of memory occupied by data you have to pay a price so that would increase our price
-10:27
-during inference because the company running this also has to incur more cost so this is hugely disadvantageous to us
-10:35
-the more memory which is stored our overall computations will also become slow and the thing is as the parameter
-10:42
-size increases of the model rate so here as I go from left to right the model is becoming more and more complex as the
-10:48
-parameter size of the model increases the size of the K value C just goes on increasing that's actually shown by this
-10:54
-red curve over here so key value cash speeds things that's the good good side but it takes
-11:00
-space that's the dark side or the ugly side I hope in this much time I have provided a summary of what the key value
-11:07
-cash memory problem really is so the memory problem needs to be solved because of course we cannot have
-11:14
-400 gigabytes of memory being occupied all the time um that would slow
-11:19
-computations that would cost us more as a company and so I'll charge my clients also more deep seek costs very less
-11:27
-during inference time so of course they did not go with this directly they made a number of Innovations and their main
-11:33
-Innovation is the multi-head latent attention but to get to that we first need to understand Innovations which
-11:38
-came before that and the first major Innovation which came before that is the multiquery attention so in the rest of
-11:46
-this lecture we are going to visually understand the multiquery attention its advantages and disadvantages and then we
-11:52
-are going to implement it in food so let's get started the way I think about multiquery attention is that what what's
-11:59
-the simplest thing which you can do to solve the KV cach memory problem and
-12:04
-multiquery attention solve this problem by asking the question what if all the attention heads share the same key and
-12:12
-the value matrices so if you just look at this statement it feels difficult to
-12:18
-visualize this okay what does it mean attention heads sharing the same key and value matrices so I've have constructed
-12:24
-some visuals for you to understand this a lot better so first let's look at normal multi-ad attention without
-12:30
-multiquery attention in normal multi-head attention we start with an input embedding Matrix
-12:36
-let's say I have five tokens the next day is bright each token let's say has eight dimensions that's the embedding
-12:43
-Dimension we multiply the input embedding Matrix with the keys and keys trainable weight Matrix and the values
-12:49
-trainable weight Matrix now if you look at the keys weight Matrix let's say there are four heads if there are four
-12:55
-attention heads the keys weight Matrix is split into four Parts the first is
-13:01
-the keys weight Matrix for attention head one the second is the keys weight Matrix for for attention head two the
-13:07
-third is the keys weight Matrix for attention head three and the fourth is the keys weight Matrix for attention
-13:13
-head four that's the similar for the values or that's what happens for the
-13:19
-values weight Matrix also uh the first part or the first split is for the first
-13:24
-attention head second for the second head third for the third attention head and the fourth for the the fourth
-13:29
-attention head now normally in normal multi-ad attention you see I have shown
-13:34
-all of these head colors with different values right this is shown in a different color this is shown in a
-13:40
-different color the reason I've shown in different colors is because naturally
-13:45
-the weights of the keys for different attention heads are different why would they be the same they're initialized in
-13:51
-random manner similarly the weights for let's say for this attention head and
-13:57
-for the second attention head the value weights are different from each other and that's why all of these are shown in
-14:02
-different colors and naturally now when you take Keys weight Matrix and values weight Matrix like this and multiply it
-14:09
-with the input embedding Matrix you get the keys Matrix and the values Matrix right for different heads and here also
-14:16
-since the WK and WV are different for every attention head the final Keys
-14:21
-Matrix is also different for head one compared to head 2 compared to head three compared to head four and the
-14:27
-final values Matrix is also different for head 1 and head 2 and head 3 and
-14:33
-head four now if you see very closely the number of dimensions in the key value
-14:39
-cache the number of dimensions of the key value cache is directly dependent on the number of attention heads which we
-14:46
-have and every head will have a certain Dimension right so if if let's
-14:52
-say uh take a look at this Keys Matrix and if it generated during one iteration
-14:58
-of my inference I will have to cash this entire Keys Matrix so that means I have to cach the Keys Matrix for head one I
-15:06
-have to cach the Keys Matrix for head two I have to cach the Keys Matrix for head three and I have to cach the Keys
-15:11
-Matrix for head four what multiquery attention does is that it says what if I
-15:18
-have to cash just the keys for one head and I don't cash the keys for the other heads then you might be saying okay that
-15:26
-will not work because all of these other heads have different values you need to cat them multiquery attention then says
-15:32
-what if all of the attention heads has have the same values as the head number
-15:38
-one so if you look at the keys Matrix what if head one head 2 head three and
-15:44
+***
+
+* 15:00
+
 head four all have the same values such as like this if you look at the values Matrix
 15:51
 what if head one head 2 head three and head four all have the same values such
@@ -534,6 +436,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

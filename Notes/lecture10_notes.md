@@ -33,104 +33,10 @@
 
 * 25:00
 
+* [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
+***
 
-for this comparison is that we are choosing a gpt2 model which implements standard multi-ad attention and we are
-25:21
-going to select the Falcon model so if you search Falon uh llm
-25:29
-you'll see that falicon is a series of language models which are pretty popular they are open- Source models available
-25:36
-through hugging phas and we are going to use that variant of the Falon model which uses multiquery attention so if
-25:43
-you see I'm going to code right now I'll share this file with you we are going to use the gpt2 medium model for our
-25:49
-multi-head attention purposes that's a 355 million parameter model and we are going to use a falcon 1 billion
-25:56
-parameter model uh which uses multiquery attention which means it uses the same key value matri across all the
-26:03
-heads now uh I'm running this on an a100 GPU but if you are on Google collab and
-26:10
-if you don't have access um if you're on Google collab and if you don't have access to the a100 that's completely
-26:17
-fine you can just go to the runtime and you can just switch to a T4 T4 GPU which
-26:22
-is free uh and the code which I'm sharing will still run so these models are pre- Trend I'm just loading these
-26:28
-models from hugging face and then I'm using this prompt the quick brown fox
-26:34
-jumps over the lazy dog okay I'm using this prompt and so first in the step one
-26:39
-what I'm going to do I'm just loading these two models so here you'll see the loading has completed so this took
-26:44
-around 3 to 4 minutes for me on a100 on a T4 GPU it might take 10 to 15 minutes
-26:50
-and overall you will need to allocate around uh I think throughout this full exercise
-26:56
-you will need to allocate around 5 GB of space that's it then what I'm doing is that I'm actually running uh I'm passing
-27:04
-this prompt through this entire model and uh I'm evaluating the time it
-27:10
-takes um for the model to give me the attention scource essentially so I'm evaluating the time it takes for my
-27:17
-input P prompt to pass through the entire model now remember
-27:22
-that uh multi-ad attention we are using separate key values per head and M mul
-27:28
-query attention we are sharing the key values across all the heads and multi- head attention the memory consumption is
-27:35
-higher multiquery attention the memory consumption is lower why is the memory consumption lower in multiquery
-27:41
-attention because we reduce the number of heads so remember the KV cache size formula for multi-head attention versus
-27:48
-multiquery attention for multi-head attention is this for multiquery attention we reduce uh by 1 by n so we
-27:56
-we get rid of this number of heads so for multiquery attention we
-28:02
-expect to reduce the memory consumption so overall I would expect a good performance time in my multiquery
-28:08
-attention because I'm saving less amount in the memory and I expect that to improve my performance and I'm also
-28:15
-doing less number of computations actually because I'm sharing my same keys and values across different heads
-28:22
-so if you run this second code to compare the inference times you'll see that the inference time for multihead
-28:29
-attention is 1.62 seconds and the inference time for multiquery attention is 64 seconds so that's I think almost a
-28:37
-factor of 40% Improvement in the inference time why is there a Improvement in the inference time for
-28:44
-multiquery attention because we saving Less in the memory uh since it's uh we
-28:49
-reduce the number of heads in the KV cache formula and we are also doing less number of computations since the keys
-28:55
-and values are just repeated across multiple I not going through this code because my
-29:01
-main intention is not to walk you through this code but to essentially show you how these models function and
-29:08
-what we can diagnose from this already pre-trained models the next thing which we are going to do after this point is
-29:15
-that we are going to evaluate the uh we are going to evaluate the trainable key
-29:21
-matrices and the trainable value matrices for these uh models so let me go to the top here and let me show you
-29:28
-what we are exactly going to visualize uh we are going to visualize
-29:33
-this so what you'll see is that so I'm going
-29:40
-to visualize this is WK right and this is WV so for the multi-ad attention we are going to first see Matrix for head
-29:47
-one we are going to visualize the Matrix for head 2 we are going to visualize the Matrix for head three we are going to
-29:52
-visualize the Matrix for head four each of these matrices would look different from each other because in the multi
-29:58
-head attention we don't share these values and we are going to visualize the same thing now in multiquery attention
-30:05
-also in our code we are going to visualize this head one this head two
-30:10
-this head three and head number four so in the visualization you will see that
-30:15
-so let's let me show you directly the visualization again I won't take you through the code so this is the gpt2
-30:21
 medium visualization so let's first see for head number zero this is the trainable Matrix for head number0 Z it's
 30:29
 the same thing as the first uh let me go over here it's the same thing as this
@@ -271,6 +177,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

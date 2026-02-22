@@ -1,97 +1,9 @@
 
 ***
 
-* 5:00
+* 10:00
 
 
-token so I've not computed that so the second realization is that I'm doing so many recalculations here can I store
-5:40
-something that's where the idea of the cash comes into the picture so then we started backtracking to predict the next
-5:47
-token so what I have to do is to predict the next token based on these inputs right what do I need to predict the next
-5:53
-token I only need the context Vector corresponding to the last token so to get that context vector what I only need
-6:01
-is that I need the attention weights for my last token multiplied by the values Matrix to get the attention weights I
-6:07
-need the attention scores to get the attention scores I need the query Vector multiplied by the keys now all of the
-6:15
-these things which I have marked in the black boxes are casted which means to
-6:20
-get the keys Matrix I will cach my previous keys I will cach my previous values and I will only compute this new
-6:27
-row I will only compute this new rows so whenever a new whenever a new
-6:33
-token comes in all I have to do is that I have to find the query Vector corresponding to the new token I have to
-6:39
-find the keys Vector corresponding to the new token and append it to the cast keys so that gives me the total Keys
-6:45
-Matrix and the third thing I have to do is I have to find the value Vector for the new token and I have to append it
-6:51
-for the cast values then I multiply queries with keys transpose I get the
-6:56
-attention scores from that I get the attention w I multiply it with the values Matrix and that's how I get the
-7:02
-context Vector only for the last token this context Vector for the last token will Traverse the rest of this journey
-7:10
-and then it will predict my next token so you see what you we have done here we don't recompute the values and the keys
-7:18
-again at all we store them from the previous iteration that's the idea of caching we cach the keys and values now
-7:26
-as we have seen in the previous lecture what happens with caching is that it reduces the number of computations which
-7:31
-we need to do so if you see this line when we Implement caching the amount of
-7:37
-computations which we need to do increase only linearly with the number of input tokens however if you don't do
-7:43
-caching the amount of computations increase quadratically so that's one good side of
-7:49
-implementing K value cach the good side is that it reduces the number of computations which we need to do that
-7:55
-ultimately reduces our cost that's a good thing for us then what what's the bad side the bad side or the ugly side
-8:02
-of the K value cach is that we or the key value cach is that we are storing something now we are caching something
-8:09
-and just like every piece of land to own every piece of land we have to pay a
-8:14
-price right similarly for every piece of data stored in the memory for every single parameter stored in the memory we
-8:21
-have to pay a price the number of parameters you need to store when you look at a k value cach
-8:26
-key value cach is given by this much why is it this much well because let's look
-8:31
-at one Transformer block initially if you look at one Transformer block let's say I have four tokens
-8:39
-the next day is let's say this is my four tokens and each token has a
-8:45
-dimension of four now these Dimension is the number of attention heads multiplied
-8:52
-by the head Dimension so that's n into H the number of rows over here is equal to
-8:58
-my contact size so that that's s and this is just one batch but if I'm processing in multiple batches then this
-9:05
-will be multiplied by B that's where the B into n into s h into s comes in these
-9:11
-are the number of parameters which need to be stored and remember if this is the keys uh if this is the keys Matrix there
-9:20
-will be a values Matrix along with it so then this will be multiplied with two uh
-9:25
-and then I'm just showing this for one Transformer block there are usually multiple Transformer Block in language
-9:32
-models so that will be multiplied by L which is the number of Transformer blocks and this one more two additional
-9:38
-is the number of bytes per floating point so I'm assuming that each parameter stored is 16 bits which is two
-9:44
-bytes so the size of the KV cache is given by L into B into n into H into s
-9:50
-into 2 into 2 now if you have gpt2 that's 36 MB of memory if you have gpt3
-9:56
-that's 4.5 GB of memory but if you have deeps R1 or their V3 base model which
-10:03
-essentially uh has 61 Transformer blocks 128 attention heads and each head having
-10:09
-128 Dimensions Contex size of 100,000 the KV cach size is 400 GB that's a huge
-10:16
 size now what happens with this huge size is that your memory is overloaded
 10:21
 and for remember for every piece of memory occupied by data you have to pay a price so that would increase our price
@@ -622,5 +534,6 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 

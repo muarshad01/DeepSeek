@@ -9,10 +9,10 @@
 
 * How? All attention heads can have the same K,V matrics.
 
-| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed |
-|---|---|---|
-| Multi-Head Attention (MTA)  | l.b.n.h.s.2.2 | 4.5 GB |
-| Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB|
+| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek |
+|---|---|---|---|
+| Multi-Head Attention (MTA)  | l.b.n.h.s.2.2 | 4.5 GB | 400GB |
+| Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB | 3GB |
 
 
 * DeepSeek has 128 attention heads!
@@ -36,3 +36,4 @@
 * [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
 ***
+

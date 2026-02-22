@@ -16,7 +16,7 @@
 
 
 * DeepSeek has 128 attention heads!
-* MQA reduces size of KV cache by 1/128
+* MQA reduces size of KV cache by 1/128 (400GB (MHA) -> 3GB (MQA))
 
 * __Each query still has its own projection (like in MHA).__
 * __All queries share the same key and value vectors.__
@@ -25,114 +25,15 @@
 
 * 20:00
 
-20:02
-will get a dimension of two the queries so each query still has its own values
-20:07
-like in multi-ad attention but the but but the keys and the value vectors are
-20:13
-the same across the different heads now think about this for a moment
-20:18
-right if you are reducing by factor of n deep seek has 128 head so multiquery
-20:23
-attention reduces the KV cach size from 400 GB which we had calculated earlier
-20:28
-for deeps remember the KV cach is 400 GB and now it's reduced by 128 to 3 GB
-20:35
-that's incredible right um that's a huge reduction in the KV cach size so then
-20:41
-you might be thinking that wow this is great reduction so why doesn't everyone just use multiquery attention because
-20:49
-multiquery attention also comes with a dark side and I want you to pause this video for a moment here and think about
-20:56
-what the dark side might be the hint which I'll give you is think about why we started doing multi-head attention
-21:02
-right what is the advantage of multi-head attention and uh what are we losing
-21:08
-out by uh essentially doing multiquery
-21:15
-attention Okay so let me give you the answer if you think about why we started
-21:20
-multi-head attention the main thing which we wanted to capture was different perspectives through
-21:27
-different heads correct uh so let's say if you have a statement like this the artist painted the
-21:32
-portrait of a woman with a brush it can be either something like this the artist painted the portrait of a woman using a
-21:39
-brush or it can be something like this the artist painted the portrait of a woman with a brush in her hand it can be
-21:46
-either of these two if you just use the self attention mechanism it can only capture a single perspective it cannot
-21:53
-capture multiple perspectives and that's why we had started uh understand in
-21:58
-multi-ad attention so remember the purpose of multi-ad attention the purpose of multi-ad attention was since
-22:06
-the queries the keys and the values are split into multiple heads ultimately
-22:11
-we'll get um an attention weights Matrix for head one we'll get an attention
-22:17
-weights Matrix for head 2 then we'll get a context Vector Matrix for head 1 and head2 and ultimately when we merge these
-22:24
-two context Vector matrices the first attention head will Capt capture one perspective my second attention head
-22:30
-will capture another perspective so the idea of having different attention heads
-22:36
-was to capture different perspectives now if you suddenly say that my keys my
-22:42
-K1 and K2 will be the same that's what you are saying in multiquery attention right you're saying in multiquery
-22:47
-attention that my K1 and K2 will essentially be the same they won't be different values my V1 and V2 will be
-22:53
-the same they won't be different values what that does is that that red reduces
-22:59
-the amount of different perspectives which we can capture across these different heads so that means the
-23:06
-performance of our language model wouldn't be as good as it was with multi-head attention the power of
-23:11
-multi-head attention was that K1 and K2 are different V1 and V2 are different so
-23:16
-we had given the each attention head the provision to capture something completely
-23:22
-different but now if you're making the keys and the Valu same across all the attention heads then you restricting the
-23:29
-power of the heads right you're restricting the diversity which different heads can capture because they
-23:35
-all share the same keys and the values although the queries they share are different the queries they share are different so the attention scores will
-23:42
-be different that's fine but still you are keeping the keys and the values to
-23:47
-be the same across different heads so you are kind of restricting the amount
-23:52
-of diversity which you can capture through different attention heads that's one of the huge drawback of multiquery
-23:59
-attention although it is saving my memory it is we get a significant
-24:05
-performance degradation and that is not what we want deeps models are hugely
-24:11
-performative they are great at performance they are great at capturing context so of course this is not what
-24:17
-deeps implemented uh that's the main disadvantage of multiquery attention
-24:23
-because we use the same keys and the values across different heads we we get a severe performance it memory is saved
-24:30
-that's good so we counter the Dark Side of KV cache we save the memory but mqa
-24:36
-introduces its own dark side and we get a severe performance degradation what I'm going to do right
-24:43
-now is that after this point I hope you have understood the concept of multiquery attention it's positives and
-24:48
-its negatives I'm going to now take two models two language models one which
-24:53
-implements multi-ad attention one which implements multiquery attention the we are already three Trend models and we
-25:00
-are going to visualize the key value matrices in these heads we are also going to compare the inform the
-25:07
-inference performance of these models so let's get started with that now all right so the models which I'm choosing
-25:14
-
-
-
+#### Disadvantage of MQA
+* Significant performance degradation
+* Remember the purpose of MHA: Each head captures different perspectives!
 
 ***
+
+* 25:00
+
+
 
 for this comparison is that we are choosing a gpt2 model which implements standard multi-ad attention and we are
 25:21
@@ -370,6 +271,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

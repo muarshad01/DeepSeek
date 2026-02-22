@@ -72,4 +72,15 @@
 | GPT-4 (2023)       ||       |  | |
 | GPT-5 (2025)       ||       |  | |
 
+***
 
+#### Architecture of LLM
+
+| Model | Parameters |
+|---|---|
+| GPT-2   | 1.5 Billion |
+| GPT-3   | 175 Billion |
+| GPT-4   | 1 Trillion |
+| GPT-4.5 | 5-10 Trillion |
+
+***

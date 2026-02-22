@@ -1,8 +1,3 @@
-
-***
-
-* 10:00
-
 #### How to solve KC cache memory problem?
 1. Multi-Query Attention (MQA)
 * What if all the attention heads share same Key & Value matrics?
@@ -20,91 +15,19 @@
 | Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB|
 
 
-head four all have the same values such as like this if you look at the values Matrix
-15:51
-what if head one head 2 head three and head four all have the same values such
-15:56
-as I'm showing right now so that actually means that if you look at the trainable Keys Matrix and
-16:03
-trainable value Matrix here also head one head two head three and head four
-16:09
-will have the same values so among these different heads the values are same
-16:14
-that's why I've shown it with a different color within one particular head the values can change but if I
-16:19
-showed them with a different color it would be too many colors so that's why for the sake of Simplicity within one
-16:24
-head also I've shown with the same color but the real point I'm trying to illustrate here is that for head one
-16:30
-whatever the values are there for head one it's the same for head 2 head three and head four and that's exactly the
-16:36
-same for the values weight Matrix whatever values we have for the head one it's the same for head 2 head three and
-16:43
-head four then if you think about it then I just need to cach it for one head right
-16:49
-I just need to cach the keys and the values for one head I don't need to cash for all the other heads because they are
-16:54
-the same values so why should I store more things in my memory if uh all of these head two head three and
-17:02
-head four are the same values so that's why what happens in multiquery attention
-17:07
-is that if you look at the size of the KV cache it depends on the number of attention heads right now this is taken
-17:13
-out of the picture completely this is taken out of the picture completely because we get rid of
-17:19
-uh we get rid of the differences in the heads which means that now I only need
-17:25
-to store the keys and the values for one head so so in uh in the case of
-17:30
-multiquery attention the size of the KV cache size or the size of the KV cache suddenly reduces by a factor of
-17:38
-N and if you have 32 heads or if you have 128 heads like in the case of deep
-17:43
-seek deep seek has 128 heads so multiquery attention reduces the KV cach
-17:48
-size by a factor of 128 that's a huge reduction that much is the reduction in
-17:54
-the memory space if you use multi querer tension so let me re uh revisit what I
-18:01
-just mentioned what I just told you is a simple trick I told you that instead of
-18:06
-having different WK and WV values for different heads what if you just have it
-18:12
-for one head and then you create copies for head 2 head 3 and head
-18:17
-four so if you create copies in WK and WV even in the keys Matrix what will
-18:23
-happen is that you just get the keys uh Matrix for head one and you create
-18:28
-copies for head 2 head three and head four so even if you create the values
-18:33
-for head one and you create copies for head two head three and head four that is what is actually meant by what if all
-18:40
-attention heads share the same key and the value matrices right now what this ultimately
-18:46
-leads to is that it leads to the fact that the size of the KV cach reduces by factor of n because I don't have to
-18:53
-store the keys and the values for all my heads right now I just store it for one head that's it and then when the time
-18:59
-for inference comes I just use the same values across different heads that reduces the KV cach size now
-19:07
-one thing to keep in mind here is that the queries if you look at the query vectors for the different attention
-19:13
-heads q1 Q2 Q3 and Q4 those are different I'm just saying that in
-19:18
-multiquery attention the keys and values share the same values across heads but if you see for head number one for head
-19:25
-number two for head number three and head number four I have marked the query vectors with different colors the reason
-19:31
-I've marked them with different colors is because they are different I'm not making the queries same across different
-19:39
-heads if you at any point you get confused how to interpret the rows and the columns here just remember that in
-19:45
-the queries keys and the value Matrix the rows are my number of tokens the
-19:50
-next day is bright and the column columns are my
-19:56
-total dimensions which were eight but now they are just split into four attention heads so each attention head
+* DeepSeek has 128 attention heads!
+* MQA reduces size of KV cache by 1/128
+
+* All Queries share the same key and value vectors.
+
+***
+
+* 20:00
+
+
+
+
+
 20:02
 will get a dimension of two the queries so each query still has its own values
 20:07
@@ -444,6 +367,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

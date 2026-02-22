@@ -12,6 +12,14 @@
 
 * 15:00
 
+* How? All attention heads can have the same K,V matrics.
+
+| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed |
+|---|---|---|
+| Multi-Head Attention (MTA)  | l.b.n.h.s.2.2 | 4.5 GB |
+| Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB|
+
+
 head four all have the same values such as like this if you look at the values Matrix
 15:51
 what if head one head 2 head three and head four all have the same values such
@@ -436,6 +444,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

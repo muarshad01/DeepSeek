@@ -1,112 +1,8 @@
-e my name is Dr Raj dander I graduated with a PhD in machine
-0:05
-learning from MIT in 2022 and I'm the creator of the Bild deep seek from scratch series before we
-0:12
-get started I want to introduce all of you to our sponsor and our partner for this series inv video AI all of you know
-0:20
-how much we value foundational content building AI models from the nuts and bolts invid AI follows a very similar
-0:28
-principle and philosophy to that of us let me show you how so here's the
-0:33
-website of invido AI with a small engineering team they have built an
-0:38
-incredible product in which you can create high quality AI videos from just
-0:43
-text prompts so as you can see here I've mentioned a text prompt create a hyper
-0:49
-realistic video commercial of a premium luxury watch and make it cinematic with
-0:54
-that I click on generate a video within some time I'm presented with this Incredible video which is
-1:02
-highly realistic what fascinates me about this video is its attention to detail look at
-1:08
-this the quality and the texture it's just incredible and all of this has been created from a single text
-1:15
-prompt That's The Power of nido's product the backbone behind the awesome
-1:20
-video which you just saw is invido ai's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first princip principles to experiment and Tinker with
-1:32
-foundational models they have one of the largest clusters of h100s and h20s in
-1:37
-India and are also experimenting with b200s invido AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them so much the good news is that they
-1:51
-have multiple job openings at the moment you can join their amazing team I'm posting more details in the description
-1:57
-below
-2:03
-hello everyone and welcome to this lecture in the build deep seek from scratch Series today we are going to
-2:10
-start to understand how do we solve the KV cach memory problem we learned about
-2:16
-the KV cache in the previous lecture and we saw that it comes with a good side and it comes with a bad side first let
-2:22
-me quickly recap what is the KV cache why do we need it what is its good side
-2:28
-and what is its bad side so it all starts by looking at the inference pipeline of language models and this is
-2:34
-how language models do inference we first have an input sequence of tokens
-2:40
-let's say we have four tokens the next day is and then we have to predict the next token that's the main task of
-2:46
-language model inference this input sequence goes through this entire architecture it goes through this first
-2:53
-block of data pre-processing it goes through the Transformer block it goes through the output layer and then we get
-3:00
-a logits matrix through which the next token is predicted one key thing to realize here is that to predict the next
-3:08
-token we only need the context Vector of this last token so let me explain to you
-3:14
-how once we are in the multi-ad attention layer we get the attention score between this last token and all
-3:20
-the other tokens and that's how we can get the context Vector for this last token this context Vector then goes
-3:27
-through all of these remaining layers it goes through these output layers and ultimately we get a Logics Vector
-3:33
-corresponding to is which is the last token in my input sequence this Logics
-3:38
-Vector is a vector which has 50,000 tokens if or 50,000 parameters if the
-3:44
-vocabulary size is 50,000 and then I choose that index which has the highest value or the
-3:51
-highest probability and then I find the token corresponding to this index and that's my next token prediction which is
-3:57
-bright so the first key insight to remember during llm inference is that to
-4:03
-get the next token prediction I only need the context Vector of my last token of the input sequence that's it I don't
-4:10
-need this other context vectors at all that's the first Insight the second
-4:16
-Insight is that let's say uh the next day is was the input and
-4:22
-bright is the output now this bright is appended to my input and that becomes my
-4:28
-new input sequence so the new new input sequen is the next day is bright which will again pass through this entire
-4:34
-architecture and we predict the new token so let's look at what happens when this new input Matrix passes through the
-4:41
-Transformer block especially let's look at what happens when this new input Matrix passes through the multi-head
-4:46
-attention block so here we see that we'll get the queries Matrix we'll get the keys Matrix we'll get the values
-4:53
-Matrix we'll get the attention scores we'll get the attention weights and we'll get the context Matrix but if you
-4:59
-pay close attention look at these black boxes which I marked I've marked a black
-5:05
-box over here I've marked a black box over here Ive marked the black box over here here here and in the context Matrix
-5:14
-also so the second key realization is that all of these black boxes are
-5:19
-already computed in my previous iteration in my previous iteration in the multi-ad attention I've already
-5:25
-computed all of these queries Keys values except for this last row over here that's corresponding to my new
-5:33
-
 
 ***
+
+* 5:00
+
 
 token so I've not computed that so the second realization is that I'm doing so many recalculations here can I store
 5:40
@@ -726,4 +622,5 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 

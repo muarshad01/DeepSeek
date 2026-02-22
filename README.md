@@ -57,7 +57,7 @@
 
 * [Paper Browser](https://papers.lunadong.com/)
 
-| Model | Architecture |Parameters/($) | Paper Link| 
+| Model | Architecture | Parameters | Paper Link| 
 |---        |--- |---    | ---|
 |RNN (1980)|||||
 |LSTM Network (1997)||||

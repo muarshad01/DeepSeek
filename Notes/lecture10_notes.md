@@ -18,15 +18,12 @@
 * DeepSeek has 128 attention heads!
 * MQA reduces size of KV cache by 1/128
 
-* All Queries share the same key and value vectors.
+* __Each query still has its own projection (like in MHA).__
+* __All queries share the same key and value vectors.__
 
 ***
 
 * 20:00
-
-
-
-
 
 20:02
 will get a dimension of two the queries so each query still has its own values
@@ -131,6 +128,12 @@ are going to visualize the key value matrices in these heads we are also going t
 25:07
 inference performance of these models so let's get started with that now all right so the models which I'm choosing
 25:14
+
+
+
+
+***
+
 for this comparison is that we are choosing a gpt2 model which implements standard multi-ad attention and we are
 25:21
 going to select the Falcon model so if you search Falon uh llm
@@ -367,6 +370,7 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+
 
 
 

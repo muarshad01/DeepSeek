@@ -104,6 +104,10 @@ already computed in my previous iteration in my previous iteration in the multi-
 5:25
 computed all of these queries Keys values except for this last row over here that's corresponding to my new
 5:33
+
+
+***
+
 token so I've not computed that so the second realization is that I'm doing so many recalculations here can I store
 5:40
 something that's where the idea of the cash comes into the picture so then we started backtracking to predict the next
@@ -722,3 +726,4 @@ might get a bit challenging so make notes you can share the notes with me ask do
 37:41
 forward to seeing you in the next lecture
 Multi-Query Att
+

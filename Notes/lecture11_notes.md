@@ -36,7 +36,7 @@
 
 | Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
 |---|---|---|---|
-| Multi-Head Attention (MTA)  | l.b.n.h.s.2.2           | 4.5 GB            | 400 GB |
+| Multi-Head Attention (MHA)  | l.b.n.h.s.2.2           | 4.5 GB            | 400 GB |
 | Multi-Query Attention (MQA) | l.b.1.h.s.2.2 (n=1)     |  48 MB            |   3 GB |
 | Group-Query Attention (GQA) | l.b.g.s.2.2  (n -> g)   | 384 MB (8 groups) |        |
 
@@ -44,9 +44,9 @@
 
 | Attention Mechanism Type | Number of unique key-value (KV) pairs | KV cache size | Performance (Context Understanding)|
 |---|---|---|---|
-| MHA | H (Each head has its own K and V) | Largest  | Best |
-| GQA | 1 (ALL heads share the same K and V) | Medium   | Medium |
-| MQA | G (Heads are divided into G groups, each group shared K and V) | Smallest | Worst |
+| Multi-Head Attention (MHA)    | H (Each head has its own K and V)                              | Largest  | Best |
+| Grouped-Query Attention (GQA) | 1 (ALL heads share the same K and V)                           | Medium   | Medium |
+| Multi-Query Attention (MQA)   | G (Heads are divided into G groups, each group shared K and V) | Smallest | Worst |
 
 
 ***
@@ -351,6 +351,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

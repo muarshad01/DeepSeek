@@ -44,9 +44,9 @@
 
 | Attention Mechanism Type | Number of unique key-value (KV) pairs | KV cache size | Performance (Context Understanding)|
 |---|---|---|---|
-| Multi-Head Attention (MHA)    | H (Each head has its own K and V)                              | Largest  | Best |
+| Multi-Head Attention (MHA)    | H (Each head has its own K and V)                              | Largest  | __BEST__ |
 | Grouped-Query Attention (GQA) | 1 (ALL heads share the same K and V)                           | Medium   | Medium |
-| Multi-Query Attention (MQA)   | G (Heads are divided into G groups, each group shared K and V) | Smallest | Worst |
+| Multi-Query Attention (MQA)   | G (Heads are divided into G groups, each group shared K and V) | __SMALLEST__ | Worst |
 
 
 #### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)
@@ -170,6 +170,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

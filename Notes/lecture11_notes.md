@@ -15,7 +15,7 @@
 
 1. MHA (ALL heads are different) - Complete diversity!
 2. GQA
-3. MQA (ALL heads are same) - Least diversity!
+3. MQA (ALL heads are same) - Least diversity - performance degradation!
 
 * GQA: Instead of all attention heads kaving same K-V matrices, what if we create groups of attention heads.
 
@@ -400,6 +400,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

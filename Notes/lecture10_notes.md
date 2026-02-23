@@ -12,7 +12,7 @@
 | Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
 |---|---|---|---|
 | Multi-Head Attention (MTA)  | l.b.n.h.s.2.2 | 4.5 GB | 400 GB |
-| Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB | 3GB |
+| Multi-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB | 3GB |
  
 #### DeepSeek has 128 attention heads!
 * L : 61
@@ -39,6 +39,7 @@
 * [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
 ***
+
 
 
 

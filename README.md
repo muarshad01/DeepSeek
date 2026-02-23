@@ -5,7 +5,7 @@
 *** 
 
 | Lecture | Notes | Date Updated |
-|---|---|---|
+|:---:|---|---|
 | [Lecture 01 - Build DeepSeek from Scratch: Series Introduction](https://www.youtube.com/watch?v=QWNxQIq0hMo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes01](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture01_notes.md)| |
 | [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes02](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture02_notes.md)| |
 |---|---|---|
@@ -27,7 +27,7 @@
 | [Lecture 16 - Rotary Positional Encodings (RoPE) - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture16_notes.md)| |
 |---|---|---|
 | [Lecture 17 - How DeepSeek exactly implemented Latent Attention - MLA + RoPE](https://www.youtube.com/watch?v=m1x8vA_Tscc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes17](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture17_notes.md)| |
-|---|---|---|
+|__MoE__|---|---|
 | [Lecture 18 - Mixture of Experts (MoE) Introduction](https://www.youtube.com/watch?v=v7U21meXd6Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes18](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture18_notes.md)| |
 | [Lecture 19 - Mixture of Experts (MoE) Hands on Demonstration - Visual Explanation](https://www.youtube.com/watch?v=yw6fpYPJ7PI&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes19](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture19_notes.md)| |
 | [Lecture 20 - Mixture of Experts (MoE) Balancing Techniques - Auxiliary Loss - Load Balancing - Capacity Factor](https://www.youtube.com/watch?v=nRadcspta_8&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes20](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture20_notes.md)| |

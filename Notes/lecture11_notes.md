@@ -10,112 +10,23 @@
 
 #### Disadvantages of MQA
 * Significant performance degradation
-* Rember the purpose of MHA: each head captures a different perspective!
+* Remember the purpose of MHA: each head captures a different perspective!
+* MQA: Diversity across multiple heads is very low!!!
 
 ***
 
 * 10:00
 
-perspectives from different attention heads. Now think about this fact that if the K1 and K2 values are completely
-10:51
-similar to each other, if all the keys values across the heads are the same, the value the values are the same across
-10:57
-the heads. That means that the diversity which we get across different attention
-11:03
-heads is is not that much. It's very low. What do I mean by diversity? I mean
-11:09
-that the attention weights matrix for my heads
-11:14
-and the context vector matrix for my heads ideally they need to capture a lot
-11:20
-more diversity. So they need to be different from each other by a lot of magnitude but now we don't allow them to
-11:27
-be as different from each other. Of course the query vectors are different from each other. Q1 and Q2 are
-11:33
-different because in multiquery attention we don't force Q1 to be equal to Q2 we just force K1 to be equal to K2
-11:40
-V1 to be equal to V_sub2 so Q1 and Q2 are different so the attention scores matrix across different heads will be
-11:47
-different but it won't be that different because K1 K2 V1 V2 are the same so we
-11:52
-are restricting the diversity captured by the different attention heads and that leads to significant performance
-11:59
-degradation in the case of multiquery query attention and that's where group query
-12:05
-attention comes into the picture. Groups query attention is somewhere between multi-query attention and multi head
-12:11
-attention. So in multi head attention all the keys and the values had different key and value matrices have
-12:17
-different values. In multi-query attention all the key and the value matrices across different heads
-12:24
-have the same values. grouped query attention lies somewhere in the middle. Essentially, what group query
-12:32
-attention says is that instead of all the attention heads having the same key
-12:37
-value matrices, what if we create groups of attention heads and what if those
-12:43
-groups have the same values? Let me explain what this means in a lot more
-12:48
-detail. Now, so here's the schematic of the multi-query attention. You see based on the color codes here head 1, head
-12:55
-two, head three, head four have the same values for keys and head one, head two, head three, head four have the same
-13:01
-values for the values matrix. In group query attention what is essentially done is that we create groups. So here you
-13:08
-see this is group number one. In group number one there is head one and head two. Both of these will have the same
-13:13
-values for WK. In group number two there is head three and head four. Both of
-13:19
-these will have the same values. Similarly for the values matrix, group number one has the same values and group
-13:27
-number two has the same values. This for W, K and WV. Similarly, in the keys matrix K, what happens is that group one
-13:34
-has two attention heads. Both these attention heads will have the same value and group number two has two attention
-13:41
-heads and both of these attention heads will have the exact same values. Similarly for the values matrix, group
-13:48
-number one has v_sub_1 and v_sub_2. They will have the exact same values and group number two has v_ub3 and v_ub4.
-13:55
-They will have the exact same values. So you see what we are doing here. We are not saying that all attention heads will
-14:01
-have the same values. Here all the colors were the same. Right? So here all the colors were the
-14:07
-same and that's why there was not too much diversity which we obtained in the
-14:13
-attention scores. But now you see what's happening is that the colors are not all the same. In multi-head attention that's
-14:20
-the best thing because in multi-head attention if you see there was a complete diversity in the colors.
-14:26
-Everything was different from each other. All these colors were different from each other.
-14:31
-Right? And in multi-query attention nothing was different from each other.
-14:37
-In group query attention, it lies somewhere between multiquery attention and multi head attention because now
-14:43
-groups have the same colors. So overall if you see I'm still
-14:50
-not doing as good as the multi head attention because in multi head attention every head has different
-14:55
-content. But here what I'm saying is that okay I don't want to be as bad as
-15:00
-multiquery attention and I don't want to be as good as multi head attention. Let me lie somewhere in the middle. Which
-15:06
-means that if there are 30 32 attention heads and if I create eight groups, let
-15:13
-me write it here. If there are 32 attention
-15:19
-heads, 6 7 8 whatever there are 32 attention heads
-15:25
-like this. Then let's say I create eight groups. The first group G1, second group
-15:31
-G2, third group G3, etc. Now in each group I will share the same key value
-15:38
-key value content but across these groups it will be different. So G1 values will be
-15:44
-different from G2 will be different from G3 etc. I hope you have understood how
-15:49
-group query attention lies somewhere in between multi-query attention and multi head attention. Now the reason group
-15:56
+1. MHA (ALL heads are different) - Complete diversity!
+2. GQA
+3. MQA (ALL heads are same) - Least diversity!
+
+* GQA: Instead of all attention heads kaving same K-V matrices, what if we create groups of attention heads.
+
+***
+
+* 15:00
+
 query um attention was introduced is that it solves the drawback
 16:01
 uh slightly solves the drawback of multiquery attention. Here what we did was the K1, K2, K3, K4 etc. the values
@@ -493,5 +404,6 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 

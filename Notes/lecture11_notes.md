@@ -2,7 +2,7 @@
 
 * Normal Multi-Head Attention (MHA) - 400 GB
 * Multi Query Attentino (MQA) - 3 GB
-* MQA reduces the KV size by a factor of 128
+* MQA reduces the KV size by a factor of 128 for DeepSeek
 
 #### Disadvantages of MQA
 * Significant performance degradation
@@ -262,6 +262,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

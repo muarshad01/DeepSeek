@@ -34,6 +34,12 @@
 * 20:00
 
 
+| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
+|---|---|---|---|
+| Multi-Head Attention (MTA)  | l.b.n.h.s.2.2         | 4.5 GB | 400 GB |
+| Multi-Query Attention (MQA) | l.b.h.s.2.2           |  48 MB | 3GB |
+| Group-Query Attention (GQA) | l.b.g.s.2.2  (n -> g) | 384 MB | 3GB (8 groups) |
+
 
 matrix from group one and I need to cache one matrix from group two. So essentially based on the number of
 20:47
@@ -333,6 +339,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

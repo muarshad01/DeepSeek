@@ -5,7 +5,7 @@
 *** 
 
 | Lecture | Notes | Date Updated |
-|:---:|---|---|
+|---|---|---|
 | [Lecture 01 - Build DeepSeek from Scratch: Series Introduction](https://www.youtube.com/watch?v=QWNxQIq0hMo&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes01](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture01_notes.md)| |
 | [Lecture 02 - DeepSeek Basics](https://www.youtube.com/watch?v=WjhDDeZ7DvM&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes02](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture02_notes.md)| |
 |---|---|---|

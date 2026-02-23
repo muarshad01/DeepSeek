@@ -49,106 +49,12 @@
 | Multi-Query Attention (MQA)   | G (Heads are divided into G groups, each group shared K and V) | Smallest | Worst |
 
 
-***
-
-
-
-matrix from group one and I need to cache one matrix from group two. So essentially based on the number of
-20:47
-groups which I have I need to cache those many matrices. If I have 10 groups
-20:52
-I cache 10 matrices one from each group. So this n factor here, this n factor here is now replaced
-21:02
-with g. So let's say in deep seat this n was 128 and if the number of groups are 8,
-21:09
-this is now replaced with 8. So there is still the kv cache reduction which we obtain 128 by 8. In the multi-query
-21:18
-attention the kv cache reduction was the maximum because it was 128 by 1 which is 128 times. In the case of uh group query
-21:26
-attention the reduction would be 16 times 128 divided by 8 which is 16. So
-21:32
-GQA has better performance than MQA. Uh so this is in terms of diversity. In
-21:39
-diversity when I mean diversity I mean the different perspectives which my attention heads can capture making my
-21:45
-language model better. GQA is better than MQA but it's still not as good as MHA. we are still doing a bit of
-21:52
-cheating. We are not doing as much cheating as we did in multiquery attention. But still slight amount of
-21:58
-cheating is being done. Um so if you actually compare multi head attention
-22:04
-versus multi-query attention versus grouped query attention, you'll have to compare along two verticals. First is
-22:10
-the KV cache size and one is the performance. In the KV cache size, multi head attention is the largest because it
-22:17
-takes all the attention heads. Multi-query attention is the smallest
-22:22
-because there is a division factor of 1 by n and group query attention lies
-22:27
-somewhere in the middle. It's still lesser than multi head attention but it's higher than multi-query attention.
-22:33
-So the factor here is actually g by n where g is the number of groups. That's for the kv cache size. For the
-22:40
-performance which is context understanding, multi head attention performs the best because every head has
-22:47
-different values of key and value matrices. So it captures more diversity, more perspectives. Multi-query attention
-22:53
-is the worst. The reason it's the worst is because uh um the reason is the worst is
-23:01
-because every head has the same value. And uh you'll see that grouped query
-23:06
-attention lies somewhere in the middle. Again, it lies somewhere in the middle because it's better than multi-query
-23:13
-attention, but it's not good good at good as multi head attention in terms of performance or context understanding.
-23:20
-So, you see grouped query attention lies somewhere in the middle. It's in terms of KV cache size is in the middle
-23:26
-between MHA and MQA. In terms of performance also, it's in the middle between MHA and
-23:31
-MQA. So, that's about group query attention. Once you have understood multi-query attention, group query
-23:37
-attention is just a small extension where we create groups. Now what I've done is that I've created a small code
-23:44
-which we are going to go through where we are going to take a very well-known model which uses group query attention
-23:51
-and that model is llama 38 billion. So if you see llama 3 8 billion and if you
-23:57
-search group query uh you'll see that meta themselves have
-24:03
-had mentioned when the llama 3 was launched uh on April 18, 2024 they
-24:09
-themselves have mentioned that they have adopted group query attention across both the 8 billion and 70 billion sizes.
-24:15
-So when I was constructing a tutorial for this topic I was going through models which I can use to explore.
-24:22
-Naturally I came across llama 3. So then I wanted to explore further with llama 3
-24:27
-and I wanted to actually create a heat map across the different heads so that I
-24:32
-can visualize the groups which are there and I wanted to see whether the keys across groups are the same and the
-24:39
-values across groups are the same. So that's what I did actually exactly here
-24:44
-is my hugging face key which should not be exposed but you can create you can
-24:51
-log into hugging face and to access this model through hugging face you'll need to submit the access request actually so
-24:57
-you can click on this and uh I have access to this right now but if you don't have access you'll need to submit
-25:04
-your details and only then you can get access once you get access in 1 to two
-25:09
-hours you will get access and a notice will come that you have been granted access to this model and then you can
-25:15
-start using it. So they require your details but I guess it's fine at least
-25:20
-they made the full thing open source. So then what I do is that I download this model from hugging face
-25:26
-
-
-
+#### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)
+* Llama 3 adopts grouped query attention (GQA) across both the 8B and 70B sizes.
 
 ***
 
+* 25:00
 
 that is the first thing which I do and it does not take too much time. Although I ran it on an A100 on a T4 GPU also
 25:33
@@ -242,6 +148,11 @@ all the heads. Similarly, if you go right down till the very end, the last group
 30:03
 all the heads. But now if you compare between the first group and the second group, the value matrices differ. From
 30:10
+
+
+* 30:00
+
+
 the second group and the third group, the value matrices differ. So uh group
 30:16
 one has different value matrices than group two dot dot dot right up till the last group. This is exactly how group
@@ -351,6 +262,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

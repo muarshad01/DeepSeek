@@ -4,120 +4,18 @@
 
 * 5:00
 
-variant of this KV cache. The company has to pay a lot because it has to store a lot of uh uh parameters
-5:10
-during the inference time and naturally this increases the cost which the
-5:16
-company charges to the clients for inference. But as we know deepseek
-5:21
-inference cost per API call is very low. It's incredibly less. So clearly it's
-5:28
-not using this normal variant of the KV cache. Right? So people have figured out ways to solve the KV cache memory
-5:35
-problem and the ultimate way is the new innovation which deepseek implemented
-5:40
-and that's the multi-head latent attention. But to get to that there were two other innovations. The first one was
-5:46
-the multi-query attention which we learned about in the previous lecture and today we are going to learn about
-5:52
-group query attention. The key concept of multi head multi-query attention is very simple.
-5:59
-What we learned in the previous lecture was that if in normal multi head
-6:04
-attention when we look at the trainable keys matrix and when we look at the trainable value matrix every head
-6:12
-essentially has different values right so if you look at head one or attention head two or attention head three or
-6:18
-attention head four these values are different from each other that's why the color coding which I have used here
-6:24
-denotes that every attention head has different values for W K And every attention head similarly has different
-6:31
-values for WV as well. Now naturally since the input
-6:37
-embedding is multiplied with W K and WV to give me the keys matrix and the query keys matrix and the value matrix. When
-6:45
-we look at the keys matrix K the attention head one values are very different from the attention head two
-6:51
-values which are different from the attention head three and which are different from the attention head four.
-6:56
-And that's similar to the values also to the values matrix. The values or the elements for each attention head are
-7:04
-different from each other. Now since these values for the keys matrix and the value matrix are different from each
-7:10
-other for different heads, we have to store all of them in the cache. So we are caching the keys and the values,
-7:16
-right? So when we cache the first head, we also have to cache the second head. We also have to cache the third head and
-7:23
-we also have to cache the fourth head. Similarly for the values we have to cache all the heads separately and as a
-7:30
-result if you look at the formula for the KV cache size you'll see that it
-7:35
-actually grows with the number of attention heads. The more the number of attention heads the more the parameters
-7:42
-we need to store. So in multi-query attention people did a simple trick. They said that what if in the W K and in
-7:51
-the WV matrix I'll first take a look at the parameters in my attention head one and
-7:58
-then I duplicate these same parameters for head number two head number three and head number four. Similarly for the
-8:05
-values I take my head head one parameters and I duplicate it for head two head three and head four. Naturally,
-8:12
-what this will also mean is that in my keys matrix K and my value matrix V, my
-8:17
-attention head one values, attention head two, attention head three and attention head four values will all be
-8:23
-identical to each other. There will be no difference in the values of the keys
-8:28
-among different heads. Head 1, head 2, head three and head four will be the same. Now if you look at the values
-8:34
-matrix also what we have for v_sub_1 will be the same for v_sub_2 for v_sub_3
-8:39
-and v_sub4. So in multi-query attention keys and the value
-8:45
-matrices have attention heads and each attention head contains the same information in fact the exact same
-8:52
-parameters. So you can think of taking K1 and duplicating it to form K2, K3 and
-8:57
-K4. You can think of taking V_sub_1 and duplicating it to have V_sub1, V_sub2 and V4. V_sub1, V_sub2, V3 and V4.
-9:05
-Naturally the consequence of this is that now since the values for all the heads are the same we just need to cache
-9:11
-or store one of these heads we don't have to store the um matrices for all
-9:18
-the different heads because these values are literally the same right so we can get rid of this factor n the number of
-9:25
-attention heads in the size of the kv cache so when we use multi-query attention um let's say deepsek has 128
-9:34
-attention heads. When we use multiquery attention, we reduce the KV cache size by a factor of 128 from 400 GB to just
-9:43
-3GB. However, although we save the amount of
-9:48
-memory storage required by the KV cache, there are a number of disadvantages of the multi-query attention and the major
-9:55
-disadvantage is that it leads to significant performance degradation. The main reason for this performance
-10:00
-degradation is that the intuition for multi head attention was that the reason
-10:07
-we introduced multi head attention is that let's say if you have a sentence like this the artist painted the
-10:12
-portrait of a woman with a brush. It can either be something like this which is artist painting the woman with a brush
-10:19
+* Normal Multi-Head Attention (MHA) - 400 GB
+* Multi Query Attentino (MQA) - 3 GB
+* MQA reduces the KV size by a factor of 128
 
+#### Disadvantages of MQA
+* Significant performance degradation
+* Rember the purpose of MHA: each head captures a different perspective!
 
-
-
+***
 
 * 10:00
 
-
-or it can be something like this where the artist painted the portrait of a woman who had a brush in her hand. There
-10:26
-can be two perspectives right? Similarly, there are many paragraphs, sentences, text which have multiple
-10:31
-perspectives. The reason we introduced multi head attention was that we wanted
-10:37
-every attention head to capture different perspectives. So that in the final context matrix we have
-10:43
 perspectives from different attention heads. Now think about this fact that if the K1 and K2 values are completely
 10:51
 similar to each other, if all the keys values across the heads are the same, the value the values are the same across
@@ -595,4 +493,5 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 

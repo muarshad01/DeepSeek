@@ -56,99 +56,7 @@
 
 * 25:00
 
-that is the first thing which I do and it does not take too much time. Although I ran it on an A100 on a T4 GPU also
-25:33
-this will run. I ran it uh I downloaded it through hugging face and then what I did is that I wanted to visualize. So
-25:40
-first let's look at the keys only. Let's look at the keys. Let's worry about the values later. What I wanted to do was
-25:47
-that I wanted to create some sort of a visual like this. I wanted to look at
-25:53
-group number one. I wanted to look at group number two, group number three, uh
-25:59
-etc. So I had read somewhere that this model actually has eight groups. This
-26:05
-model has eight groups and each group has four headers. So there there are 32
-26:10
-total attention heads and each group has four heads. So group one has four attention heads, group two has four
-26:17
-attention heads etc. What I wanted to do was that I wanted to visualize
-26:23
-uh I wanted to visualize the query I wanted to visualize the keys um I wanted
-26:29
-to visualize the keys matrix and I wanted to visualize the values matrix. So this I wanted to visualize the keys
-26:35
-matrix for every group. So now um there will be K1, K2, K3 and K4 the keys
-26:43
-matrix for group one. Then for group number two there will be K5, K6, K7 and
-26:49
-K8 etc like that. Uh and what would be the dimensions of the keys matrix? The
-26:55
-dimensions of the keys matrix will be based on the input tokens which I have and uh the head dimension essentially.
-27:02
-So I'm looking at so if you look at this the number of rows will be the number of
-27:07
-input tokens and the number of columns would be the dimension for that
-27:13
-particular header. So I just want to visualize ideally K1 should be equal to
-27:19
-K2 should be equal to K3 should be equal to K4 because within one group all the key matrices will be the same but for
-27:26
-the second group the key matrices should be different from each other. That is what I wanted to visualize. And then I
-27:32
-just wrote a simple code for this where I took the keys uh I took the
-27:38
-keys matrix and then I just uh constructed a heat map. So for example,
-27:43
-if you see every row corresponds to a particular group the first row corresponds to group number zero. So
-27:50
-here the indexing is from zero group group one then group two and right up till group number seven. So if you look
-27:56
-within one particular group, if you look at group number zero, you'll see that for head 1, head two, head three and
-28:03
-head four, we have the same values. Look at this, this, this, and this. It's the same content because within one group,
-28:10
-all the matrices have to be the same. If you look at the second group, within that second group, you'll see that all
-28:15
-the matrices are the same. Similarly, if you go right till the very end and if you look at the last group, you'll see
-28:21
-that all the matrices visually are exactly the same. This is proof that Meta Lama 3 used the group query
-28:28
-architecture. And now if you see if you see if you compare group zero and group
-28:34
-one it's different. Group one and group two it's completely different. Group two and group three it's completely
-28:39
-different. So within one group it is the same. The key value the key matrices are
-28:44
-all the same but across different groups they are different. That's the advantage of GQA in terms of MQA.
-28:51
-uh especially in terms of uh the diversity which we discussed capturing
-28:57
-um more context doing well with respect to understanding perspectives
-29:03
-etc. So I hope this visual makes it clear to you that llama 38 billion uses
-29:09
-a grouped query attention because in each group you'll see that the key matrices are exactly the same. Then what
-29:16
-I did is I did the same thing for the values. So I did the same visualization for the values where for the values also
-29:23
-within one within let's say group number one v_sub_1 should be equal to v3 should
-29:28
-be equal to v v_sub1 v_sub2 v3 and v4 then in group number two v5 should be
-29:35
-equal to v6 should be equal to v7 should be equal to v8 this is exactly what I
-29:40
-tested next so my next plot was exactly replicating this but now I did it for
-29:45
-the values so if you see group zero has has the same values matrix across all my
-29:51
-heads. Head one, head two, head three and head four. Group number the next group has the same values matrix across
-29:58
-all the heads. Similarly, if you go right down till the very end, the last group has the same value matrix across
-30:03
-all the heads. But now if you compare between the first group and the second group, the value matrices differ. From
-30:10
-
+*** 
 
 * 30:00
 
@@ -262,6 +170,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

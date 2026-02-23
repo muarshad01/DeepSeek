@@ -23,92 +23,18 @@
 
 * 15:00
 
-query um attention was introduced is that it solves the drawback
-16:01
-uh slightly solves the drawback of multiquery attention. Here what we did was the K1, K2, K3, K4 etc. the values
-16:09
-were the same across all the heads. But now in group query attention we are saying that look we won't have it same
-16:15
-across all the heads like this example which we considered right
-16:21
-uh this example of 32 heads which we considered we won't have it same across all the heads but I'll create groups so
-16:29
-although it won't be as diverse as multi head attention but I still have different groups so I still have eight
-16:36
-different in this case there are eight groups right so I still have eight different values in keys and the values
-16:43
-matrices. So I can still capture more diversity across different heads. Maybe one head if one head lies in group one
-16:50
-and one head lies in group two. They both have completely different values. So they will capture different
-16:56
-perspectives. If one head lies in group one, one head lies in group eight. They will capture completely different
-17:02
-perspectives. So again let's take an example and let's say I have 1 2 3 4 5 6
-17:09
-1 2 3 4 5 6 7 8 Let's say I have 16 attention heads and let us visualize
-17:18
-um and I will draw all three now and let us now visualize multi head attention
-17:24
-multi-query attention and group query attention okay so in multi head attention let's start with let's start
-17:32
-with multi head attention. In multi head attention, so let's say this is head one, head two and this is head number 16
-17:38
-for all. In multi head attention, all these heads will have different keys and values. There won't be anything common.
-17:46
-In multi-query attention, all these heads, head one, head two, head three will have the same values. But in group
-17:53
-query attention, we'll create groups. This group will have one value, this group will have another value, etc. So
-17:59
-let's say if I take uh if I take head number three and if I
-18:05
-take head number six if I take head number three and if I take head number six in multi-query attention head number
-18:12
-three and head number six will have the same key value content. So these heads won't capture that much diversity in the
-18:20
-text or in the information which is given because they have the same key values. Although their queries are
-18:26
-different but we are restricting them by having the same key values. But now if I consider H3, this is H3, right? And this
-18:33
-is H6. H3 and H6. They both have different key values because they belong to
-18:39
-different groups. So they will capture more diversity. But in multi so this is H3
-18:45
-and H6 where we clearly prove that GQA is better than MQA. But now let us
-18:50
-consider H1 and H2. If you consider H1 and H2 head one and head two
-18:59
-uh if you consider head one and head number two in GQA they both belong to the same
-19:05
-group. So they will contain duplicate key values. they will contain the key value matrices for head one will be the
-19:11
-same as the key value matrices for head two in multiquery attention anyway everything is the same so the key value
-19:17
-matrices for head one and head2 are the same so there is no difference between MQA and GQA and MHA is still better
-19:24
-because H1 and H2 will have different values so that way you can see that for
-19:29
-some group for some heads GQA is better than MQA for some heads it's the same as
-19:35
-MQA that's why GQA lies is somewhere in the middle. So, MHA is the best in terms
-19:41
-of diversity. Then comes GQA and then comes MQA. This only in terms of
-19:49
-diversity. In terms of uh memory of the KV cache, it goes in the other way which
-19:55
-we'll come to right now. So now let us calculate the KV
-20:00
-cache size for all three of them. Right? For multi head attention, the KV cache size depends on n which is the number of
-20:08
-attention heads. In multi-query attention, this n was not there. So there was a reduction by 1 by n because
-20:15
-all the heads carry the same key value. In grouped query attention, this n is
-20:20
-now replaced with the number of groups which I have right. So for example, let's say I take this case. This case,
-20:28
-what do I need to cache? I need to actually cache only one one matrix from
-20:34
-group one and I need to cache one matrix from group two. That's it in the keys for the values. I need to cache one
-20:41
+#### Diversity
+* MHA >> GQA >> MQA
+
+#### Memory
+* MHA << GQA << MQA
+
+***
+
+
+
+
+
 matrix from group one and I need to cache one matrix from group two. So essentially based on the number of
 20:47
 groups which I have I need to cache those many matrices. If I have 10 groups
@@ -400,6 +326,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

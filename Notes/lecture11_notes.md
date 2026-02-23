@@ -1,99 +1,9 @@
- my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this next lecture in the build deepseek
-2:08
-from scratch series. Today we are going to learn about group query attention. In
-2:14
-the previous lecture, we started learning about techniques which we can use to solve the KV cache memory
-2:21
-problem. And the first technique which we learned about was the multiquery attention and today we are going to
-2:28
-learn about the grouped query attention. First let me do a quick revision of what
-2:33
-we learned in the multi-query attention. Essentially it all started by looking at the KV cache. So during inference we
-2:41
-cache the uh we cache the keys we cache the keys matrix and we cache the values
-2:48
-matrix during the inference time and as a result we don't have to do repeated
-2:53
-calculations again and again while predicting the next token. That's the main idea of the key value
-2:59
-cache. Although the key value cache offers a lot of benefits such as it
-3:04
-offers a linear relationship between the input tokens and the compute time. Whereas if you don't do caching then the
-3:12
-compute or compute requirements rather then the amount of computations which we need to do increase quadratically. If we
-3:18
-don't do caching if we do caching on the other hand the amount of computations needed increase linearly with the input
-3:25
-tokens. So we save on a huge amount of computational cost and we don't have to
-3:32
-do repeated computations again and again. That's one main benefit of the KV cache. However, it comes with this dark
-3:39
-side which we learned about in the previous lectures. And that dark side is
-3:44
-that it takes a lot of space in the memory. In fact, the memory requirements
-3:51
-of the KV cache or the size of the KV cache grows with the number of transformer blocks, the batch size, the
-3:58
-number of attention heads, the attention head size, and the context length. As
-4:03
-all of these parameters increase, the size of the KV cache grows. So, for
-4:09
-example, for GPT2, it's a relatively small model. The KV cache is just 36 MB.
-4:15
-But for GPT3 the KV cache grows to 4.5 GB. If you go to even bigger models like
-4:22
-the deepse R1 or V3 for example this model uses 61 transformer
-4:29
-blocks. Even if we assume a batch size of one during inference the number of attention heads is 128 and the attention
-4:36
-head dimension is also 128 along with a context size of
-4:41
-100,000. With all of these parameters, the KV cache size for the deepsek model becomes as huge as 400
-4:48
-GB. Now, if we take up this much space in memory, it slows down our
-4:54
-computations and we also have to pay more. So, imagine a company has built a foundational model with just the normal
-5:02
+
+
+***
+
+* 5:00
+
 variant of this KV cache. The company has to pay a lot because it has to store a lot of uh uh parameters
 5:10
 during the inference time and naturally this increases the cost which the
@@ -192,6 +102,14 @@ we introduced multi head attention is that let's say if you have a sentence like
 10:12
 portrait of a woman with a brush. It can either be something like this which is artist painting the woman with a brush
 10:19
+
+
+
+
+
+* 10:00
+
+
 or it can be something like this where the artist painted the portrait of a woman who had a brush in her hand. There
 10:26
 can be two perspectives right? Similarly, there are many paragraphs, sentences, text which have multiple
@@ -677,3 +595,4 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+

@@ -38,7 +38,7 @@
 |---|---|---|---|
 | Multi-Head Attention (MHA)  | l.b.n.h.s.2.2           | 4.5 GB            | 400 GB |
 | Multi-Query Attention (MQA) | l.b.1.h.s.2.2 (n=1)     |  48 MB            |   3 GB |
-| Group-Query Attention (GQA) | l.b.g.s.2.2  (n -> g)   | 384 MB (8 groups) |        |
+| Grouped-Query Attention (GQA) | l.b.g.s.2.2  (n -> g)   | 384 MB (8 groups) |        |
 
 ***
 
@@ -59,5 +59,6 @@
 * __Golden question__:  Can we reduce KV cache size and still obtain good performance?
 
 ***
+
 
 

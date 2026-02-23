@@ -125,6 +125,13 @@ start using it. So they require your details but I guess it's fine at least
 25:20
 they made the full thing open source. So then what I do is that I download this model from hugging face
 25:26
+
+
+
+
+***
+
+
 that is the first thing which I do and it does not take too much time. Although I ran it on an A100 on a T4 GPU also
 25:33
 this will run. I ran it uh I downloaded it through hugging face and then what I did is that I wanted to visualize. So
@@ -326,6 +333,7 @@ both worlds. They reduced the memory requirements of the KV cache and they also 
 performance out of this mechanism called multi head latent attention which we'll look at in the next lecture. So thanks
 35:52
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

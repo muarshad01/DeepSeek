@@ -13,8 +13,13 @@
 |---|---|---|---|
 | Multi-Head Attention (MTA)  | l.b.n.h.s.2.2 | 4.5 GB (GPT-3) | 400GB |
 | Group-Query Attention (GQA) | l.b.h.s.2.2   | 48 MB | 3GB |
-
-* DeepSeek has 128 attention heads!
+ 
+#### DeepSeek has 128 attention heads!
+* L : 61
+* b : 1
+* n : 128
+* h : 128
+* s : 100,000 (Number of tokens?)
 
 * __Each query still has its own projection (like in MHA).__
 * __All queries share the same key and value vectors.__
@@ -34,6 +39,7 @@
 * [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
 ***
+
 
 
 

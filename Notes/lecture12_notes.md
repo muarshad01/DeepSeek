@@ -18,6 +18,8 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 #### Key-Value Cache
 * __Takeaway-1__: We seem to be doing a lot of repeated calculations.
 
+***
+
 * 15:00
 
 * To get the logits vector for "bright," we only need the context vector for "bright".
@@ -159,3 +161,4 @@ $$
 $$
 
 ***
+

@@ -132,8 +132,23 @@ $$
 
 * 50:00
 
+* __16__: Does this solves the two problems we started with?
+* Can we get the best of both worlds?
+1. Low cache size
+2. Good language model performance
+
+$$
+\begin{aligned}
+   MHA &: 2 \times 2 \times l \times b \times s \times n \times h \\
+   MQA &: 2 \times 2 \times l \times b \times s \times 1 \times h \\
+   GQA &: 2 \times 2 \times l \times b \times s \times g \times h \\
+   MLA &: 1 \times 2 \times l \times b \times s \times d_{l} \\
+\end{aligned}
+$$
+
 ***
 
 * 55:00
 
 ***
+

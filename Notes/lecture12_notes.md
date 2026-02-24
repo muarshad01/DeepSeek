@@ -1,4 +1,4 @@
-#### Multi-Head Latent Attention
+#### Multi-Head Latent Attention (MLA)
 
 * How DeepSeek Changed Attention?
 
@@ -98,6 +98,10 @@ $$
 \end{aligned}
 $$
 
+* $$XW_{DKV$$: We only cache this and share across all attention heads.
+* Unlike MQA, the shared latent matrix is projected back into Keys and Values matrices -> $$W_{UK} & W_{UV}$$ have weights different for each attention head. Thus, all heads have different K,V values. This solves the performance proboem of MQA.
+
+
 ***
 
 * 45:00
@@ -150,14 +154,8 @@ $$
 \begin{aligned}
 \text{Reduction of size} &= \frac{2 \times n \times h}{d_l}\\
 \text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576}\\
-                         &\approx 571
+                         &\approx 57
 \end{aligned}
 $$
 
 ***
-
-* 55:00
-
-***
-
-

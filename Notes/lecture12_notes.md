@@ -173,6 +173,11 @@ cache and we don't need the value cache. We just need one KV cache or one latent
 50:03
 this one latent cache which is this CKV. So where is this latent cache used? I
 50:08
+
+
+***
+
+
 use this latent cache to get my updated uh so I need to compute the attention
 50:15
 scores right. So for here I need my cache to get the um attention scores. To
@@ -273,6 +278,14 @@ here what we are doing is that with one simple trick of projecting my input
 55:02
 embedding into the latent space and the second trick of understanding this absorption WK needs to be absorbed with
 55:09
+
+
+
+
+
+***
+
+
 WK these are fixed at pre-training so we don't need to cache them understanding
 55:15
 this absorption helps us understand that we only need to cache the CKV and if we
@@ -381,6 +394,18 @@ deepseek. If you think about it, projecting things into latent spaces has been d
 1:00:32
 learning since long time. But deepseek brought it into language modeling and it's it's an incredible innovation.
 1:00:38
+
+
+
+
+
+
+
+
+
+***
+
+
 After this lecture, we are going to see more complicated versions of the latent attention such as the decoupled rotary
 1:00:44
 position embedding. For that we'll first need to understand what is rotary positional embedding and how MLA is
@@ -401,24 +426,4 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+***

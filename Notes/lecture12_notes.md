@@ -84,8 +84,8 @@ $$
 \end{aligned}
 $$
 
-* X(W_QW_{UK}^{T}): Absorted Query - Fixed at training time (only compute once).
-* (XW_{DKV})^{T}: This needs to be cached.
+* $$X(W_QW_{UK}^{T})$$: Absorted Query - Fixed at training time (only compute once).
+* $$(XW_{DKV})^{T}$$: This needs to be cached.
 
 ***
 
@@ -427,3 +427,4 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
 ***
+

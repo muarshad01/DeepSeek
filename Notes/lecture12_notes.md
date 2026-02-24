@@ -13,111 +13,15 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 ***
 
-nothing is explained from scratch. It's not meant for people who are who want to
-5:57
-understand how latent attention works right from the matrix calculation matrix
-6:02
-multiplication level. This lecture is intended for all those people who want to open the black box of machine
-6:10
-learning and understand how the nuts and bolts work. It took a very long time for me to prepare this lecture but I'm
-6:16
-finally ready with it. So let's get started. So first we'll have to understand what
-6:22
-is the key value cache. Then we'll understand what is the dark side of the key value cache. Then we'll understand
-6:30
-what people did to solve the key value cache problem uh which is the multi-query attention and the group
-6:36
-query attention. And then finally we'll come to how latent attention works. So
-6:42
-to our story begins at the inference stage of language models. So let's say
-6:48
-pre-training is done and now we are at the inference stage. What happens in the inference stage? When you go to chat GPT
-6:54
-let's say and when you type something let's say make a travel plan for Spain. Let's
-7:02
-say you type something like this chat GPT what it does or any language model
-7:07
-it predicts one token at a time. That's the main purpose of inference. During inference we predict one token at a
-7:14
-time. So let's say the input tokens are the next day these three input tokens
-7:21
-but during inference and then we have to predict the next token. These three tokens go through this entire LLM
-7:27
-architecture. They go through the data prep-processing layer. They go through the transformer layer and then they go
-7:34
-through the output layer. Finally we get this logits matrix at the output layer
-7:39
-through which we can predict the next token. In this case, let's say the next token is
-7:44
-is this next token is then appended back to the input sequence and the input
-7:50
-sequence is then passed again through this pipeline. Remember when the input sequence is now passed through this
-7:56
-pipeline, everything is pre-trained. So the trainable matrices, trainable parameters are all fixed and then we get
-8:03
-the next token. The next token is then appended back to the input sequence. The entire input sequence is again passed
-8:10
-through through this entire pipeline and we get the next token. This is how the next token prediction task works. Now if
-8:17
-you take a look very closely at this inference pipeline, you might intuitively realize that are we
-8:24
-repeating calculations again and again because these three tokens were passed through this entire architecture to
-8:30
-predict is. Then these three tokens were again passed through this entire architecture to predict bright. Then
-8:37
-these three tokens were again passed through this entire architecture to predict and. So the first takeaway of
-8:44
-our story is that we seem to be doing a lot of repeated calculations in the inference stage. That's number one.
-8:51
-Please keep this point in mind. Now this is at an intuitive level. What we can do
-8:56
-now is that let us visualize this repeated calculations. And in particular I want to focus on the multi head
-9:03
-attention block. Remember what happens in the multi head attention block is that the input sequence comes in and
-9:10
-then we get the input embedding vectors and they are transformed into context
-9:15
-vectors. So let's see the calculations which are happening inside this multi head attention block and let's see if
-9:23
-there are any repetitions in the calculations. If there areations in the
-9:28
-calculations then we'll see what to do with it. But intuitively we seem to be doing a lot of repeated calculations,
-9:35
-right? Let's try to quantify this. So I have the next day is these
-9:41
-are my four tokens. They form my input embedding matrix. Okay, these four
-9:47
-tokens are there. They will be multiplied with the trainable query matrix. They'll be multiplied by the
-9:53
-trainable weight key matrix and the trainable value matrix which is W K, W, WQ, W K and WV. After this
-10:02
-multiplication, we get the query vectors which is 4x4. We get the key vectors and we get the value vectors. The query
-10:09
-vector matrix will be multiplied with the transpose of the key matrix and we get the attention score matrix which is
-10:15
-4x4 because there are four tokens. We apply the scaling by the square root of keys dimension plus soft max plus the
-10:23
-causal attention to make sure that we get attention weights. Finally the attention weights
-10:30
-matrix is multiplied with the values matrix to get the context matrix. So if
-10:35
-you take a close look at the context matrix there are four rows. The first row corresponds to the second row
-10:41
-corresponds to next. Third row corresponds to day and fourth row corresponds to is. This context vector
-10:48
-matrix is the output of the multi head attention block. All right. Now let's see actually how the next token is
-10:55
-predicted. Once we have this uh context vector matrix, it passes through the
-11:02
-rest of the layers. It passes through the rest of the layers. And when it passes through the rest of the
-11:08
+* 5:00
 
-
-
-
-
+#### Key-Value Cache
+* __Takeaway-1__: We seem to be doing a lot of repeated calculations.
 
 ***
+
+* 10:00
+
 
 layers, we get this logits matrix, right? And then the logits matrix
 11:14
@@ -1078,5 +982,6 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 

@@ -22,101 +22,9 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 10:00
 
-
-layers, we get this logits matrix, right? And then the logits matrix
-11:14
-essentially is a vector for all of these tokens. So we see the logits vector for
-11:19
-is which is the last token in my input sequence and then we find the token ID
-11:24
-corresponding to the maximum probability that's going to be my next token. In this case the next token predicted is
-11:31
-bright. Now this next token bride is appended to my input matrix and my new
-11:37
-input matrix now becomes this which has five tokens. Correct? As I told you, the token which
-11:45
-is generated is appended back to the input sequence and it goes back through to the inference pipeline. Now let's say
-11:51
-I have this input sequence and again it goes through this same mechanism, right? Because this input new input sequence is
-11:58
-again passed through this entire inference pipeline. So then this new input sequence is again multiplied by WQ wkv.
-12:07
-We get the queries keys values. We multiply queries with the keys transpose to get the attention scores. We get the
-12:13
-attention weights and we get the context matrix. Remember now the context matrix is 5x4 because we have five tokens here
-12:21
-corresponding to the next day is bright. Now what I want you to do is I want you
-12:27
-to focus on these black boxes which I have marked over here and let me mark
-12:32
-them again in a sharper manner. So these are the black boxes which I have marked here. Right? this black box. There is a
-12:39
-black box here. Um, there is a black box here. There is a black box here. What do
-12:45
-these black boxes represent? These black boxes actually represent that we have already done these calculations in the
-12:51
-previous step. Here we calculated a 4x4 queries, keys and the values matrix.
-12:58
-This is the exact same 4x4 which is shown in this black box.
-13:05
-uh then this attention score we already calculated a 4x4 attention score in the
-13:10
-previous iteration right so here we are repeating this calculation again similarly in the attention weights even
-13:16
-in the context matrix we already calculated the context vector for the previous four tokens right so here we
-13:22
-seem to be repeating a huge number of calculations so everything shown in the
-13:28
-black box is actually repeated um so that's the first second takeaway
-13:33
-the first takeaway was we seem to be doing a lot of repeated calculations. The second takeaway is that yeah indeed
-13:41
-we are actually repeating everything which we have calculated before including the
-13:46
-queries, keys values, the attention scores, the attention weights and even the context
-13:52
-matrix. Then let us try to think from first principles that what do we really
-13:57
-need to do to predict the next token. So if the input sequence is the next day is
-14:02
-bright, what do I need to predict the next token? Let's say this is my input
-14:07
-sequence which passes through the LLM architecture. Right? What happens is that when this input sequence comes at
-14:13
-the right at the very end, we have this logits matrix, right? We have the logits matrix right at the very end over
-14:20
-here. Um let me mark it with the yellow color. Yeah, this is the logits matrix.
-14:25
-What does the logits matrix look like? It looks something like this. For all the for all my input tokens, the
-14:32
-next day is bright. I have a logit vector with size equal to my vocabulary size. And to predict the next token, I
-14:39
-only look at the logits vector for bright and we look at that ID which corresponds to the maximum probability
-14:46
-and then that helps me predict the next token. The main realization here is that
-14:52
-we don't need these other logits vectors at all. we only need the logits vector for
-14:58
-bride. That actually means that if we only need the logits vector for bride,
-15:04
-we only need the context vector corresponding to brite which comes out of the multiad attention block out. When
-15:11
-we come out of the multiad attention block, we get the context vector for all the tokens, right? But now since we only
-15:17
-need the logit vector for bride, to get the logit vector for bride, we only need the context vector for bride. So if you
-15:25
-see the context vector matrix which we had calculated in the previous iteration, we don't need all these
-15:30
-values at all. We only need this last row. Why? Because after the multi
-15:36
-attention block, the tokens are on their own. They don't care about each other anyways. So if I get the logit, if I get
-15:43
-the context vector for bride, that context vector will traverse through this rest of the journey and that
-15:49
-context vector itself will give me the logit vector for bride. So I don't need the context vector for the next day and
-15:57
-
 ***
+
+* 15:00
 
 
 his. This is the third takeaway from our story. Our third takeaway is that to get
@@ -995,6 +903,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

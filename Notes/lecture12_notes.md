@@ -160,8 +160,6 @@ $$
 \end{aligned}
 $$
 
+* Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
+
 ***
-
-
-
-

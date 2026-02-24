@@ -115,8 +115,10 @@ $$
 * First, we compute the queries project into latent space.
 
 $$
-Q: X_{bright}(W_Q.W_{UK}^{T})\\
-X_{bright}(1,8)(8,4)(4,4) \to \text{Query vector for bright}(1,4)
+\begin{aligned}
+Q &= X_{bright}(W_Q.W_{UK}^{T})\\
+&=X_{bright}(1,8)(8,4)(4,4) \to \text{Query vector for bright}(1,4)\\
+\end{aligned}
 $$
 
 
@@ -376,6 +378,7 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
 ***
+
 
 
 

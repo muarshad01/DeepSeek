@@ -141,6 +141,11 @@ to W4. That will translate to V1 being equal to V_sub_2 and V3 being equal to
 29:58
 V4. What this will do is that this will also reduce the number of uh uh the amount of
 30:07
+
+
+
+***
+
 information I store in the memory right because now in each group I just need to store one attention head
 30:14
 information. So basically I just instead of a factor of n instead of a factor of
@@ -247,6 +252,13 @@ performance? That's what DeepSync achieved with the multi head latent retention.
 35:42
 what they did to answer this question. But to answer this question, they asked a simpler
 35:48
+
+
+
+***
+
+
+
 question. They thought about it differently. The way they thought about it was uh what if we don't have to cache
 35:55
 the keys and the values separately. So currently what's happening is that the keys and the values are being cached
@@ -333,6 +345,13 @@ get the keys and the values matrix through through W K and WV. Instead what we a
 40:07
 latent matrix which is CV. We are multiplying C KV with W UK and W UV.
 40:13
+
+
+***
+
+
+
+
 That's how we get the keys matrix and the values matrix. After this, everything stays the same. The queries
 40:19
 are multiplied with keys transpose to get the attention scores. We get the attention weights. The attention weights
@@ -740,6 +759,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

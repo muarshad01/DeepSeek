@@ -46,6 +46,14 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 35:00
 
+* __10__: What if we don't have to cache the Keys & Values seperately?
+  * What if we cache only one matrix.
+  * What if this matrix has less dimention than "n X h"
+ 
+ $$2\times x\times h \to 1 \times n_l \times h$$
+
+* To get this matrix, we start by projecting the input embedding matrix into latent space!
+
 question. They thought about it differently. The way they thought about it was uh what if we don't have to cache
 35:55
 the keys and the values separately. So currently what's happening is that the keys and the values are being cached
@@ -546,6 +554,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

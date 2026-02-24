@@ -74,9 +74,18 @@ C      &= C_{KV} \times W_{UV} = X \times W_{DKV} \times W_{UV}
 \end{aligned}
 $$
 
+#### The Absorption Trick
 
+$$
+\begin{aligned}
+\text{Attention ~Score} &= Q \times K^{T} \\
+                        &= XW_Q \times (W_{UK}^{T} \times W_{DKV}^{T} \times X^{T} )\\
+                        &=X(W_QW_{UK}^{T}) (XW_{DKV})^{T}
+\end{aligned}
+$$
 
-
+* X(W_QW_{UK}^{T}): Absorted Query - Fixed at training time (only compute once).
+* (XW_{DKV})^{T}: This needs to be cached.
 
 That's how we get the keys matrix and the values matrix. After this, everything stays the same. The queries
 40:19
@@ -496,6 +505,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

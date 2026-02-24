@@ -121,7 +121,13 @@ Q &= X_{bright}(W_Q.W_{UK}^{T})\\
 \end{aligned}
 $$
 
-
+* __2__: Compute KV Vector
+$$
+\begin{aligned}
+Q &= X_{bright}.W_{DKV}\\
+&=X_{bright}(1,8).(8,4) \to (1,4) \to \text{Append to latent KV cache}\\
+\end{aligned}
+$$
 
 ***
 
@@ -378,6 +384,7 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
 ***
+
 
 
 

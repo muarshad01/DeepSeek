@@ -166,6 +166,11 @@ you might be wondering that this sounds a bit abstract and I'm not fully being a
 45:39
 So for that what I've done is that I have now I'll show you a separate section where I'll show you visually
 45:45
+
+
+***
+
+
 what happens when a new token comes in and how this absorption trick actually helps us. For now just remember that
 45:53
 what we are actually going to cash is X into WDKV which means that X multiplied
@@ -266,6 +271,12 @@ and that is shared to get the attention scores. That same KV cache is used to ge
 50:59
 KV cache to get the values matrix and then the attention weights for the new token is just multiplied with this value
 51:05
+
+
+
+***
+
+
 matrix to get the context vector for bright. This is exactly how multihead
 51:10
 latent attention actually works. And then we can see that did we actually solve two problems which we started
@@ -469,6 +480,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

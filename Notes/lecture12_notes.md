@@ -105,91 +105,26 @@ $$
 
 * 45:00
 
-what happens when a new token comes in and how this absorption trick actually helps us. For now just remember that
-45:53
-what we are actually going to cash is X into WDKV which means that X multiplied
-45:59
-by WDKV if if this is the result this we are going to cash again I'm shown this
-46:06
-with black box remember this these black boxes I was showing you initially separately for the
-46:12
-uh I was showing you these black boxes for caching the values and the keys separately right but here I'm showing
-46:19
-that instead of caching the keys and the value separately. We only need to cache CV which is the latent matrix multiplied
-46:27
-which we get after multiplying X with WDKV. So if this is sounding a bit
-46:33
-abstract let's see what happens when a new token comes in. So if a new token
-46:38
-comes in let's say my new token is again bright similar to what we saw before. If
-46:44
-a new token comes in, as I mentioned, what we need to first do is we need to find the absorbed query, which means
-46:51
-that we just need to get the X for this new token and we need to multiply it with WQ multiplied by W UK transpose. So
-46:59
-I get my new my I get my new input embedding for bright and I multiply it
-47:05
-with WQ multiplied by W UK transpose. Compare and contrast this with what we
-47:10
-did in the actual key value cache. In the actual key value cache, we just multiplied it with WQ. But now we have
-47:17
-absorbed W UK transpose within this. So whenever a new token comes in, I just
-47:23
-multiply the input embedding for the new token with WQ and WK transpose. Nothing
-47:29
-here needs to be cached because we already fixed these things during pre-training. So I get my new query
-47:35
-vector done. This is my absorbed query vector for Bright. Absorbed query vector for Bright. Then what I have to do to
-47:42
-get the attention score is I have to calculate my updated cache. Okay. So to get my updated cache I have to first
-47:48
-find the new cache vector new KV vector. So my new KV vector is my input
-47:55
-embedding for bride multiplied with this WDKV and that gives me my latent
-48:00
-embedding for my new vector which is bright. I append this embedding to my KV
-48:05
-cache. So this was my previous CKV and this is my updated or appended vector to
-48:11
-this CKV. This is my updated KV cache. So what I will simply now do is
-48:17
-that I will multiply this query vector which absorbed query vector with this updated KV cache. That gives me my
-48:24
-attention scores for bright. Then I get my attention weights for bright. Then
-48:30
-what I'm going to do is that uh I'll need to get this updated KV cache and
-48:36
-multiply it with W UV to get my values matrix. Um and so see this updated KV
-48:44
-cache is shared for my keys and the values. I don't need to calculate a separate value cache here. I use the
-48:50
-same updated KV cache which we had computed here for the uh attention scores computation and I use it for the
-48:57
-values matrix computation. I multiply this with Wuv. Again, this is fixed after pre-training and I get my values
-49:03
-matrix. Then I will multiply the attention weights for bright multiplied with the values matrix and then I get my
-49:10
-context vector for bright. Remember I only need the context vector for bright to make the next token
-49:17
-prediction. This is awesome, right? Uh because what we are doing here is that I
-49:22
-have just showed you what happens when a new token comes in. First let us see earlier what we did when a new token
-49:29
-came in earlier what we did when a new token came in. When a new token came in earlier remember what we did first we
-49:36
-found the query vector we found the key vector we found the value vector that much is fine but then we need two caches
-49:42
-earlier we need the keys cache and we need the KV cache and we need the Vcash. Sorry we need the keys cache and we need
-49:49
-the values cache. But now you see we don't need these key cache. We don't need the key
-49:56
-cache and we don't need the value cache. We just need one KV cache or one latent cache which is this CKV. We just need
-50:03
-this one latent cache which is this CKV. So where is this latent cache used? I
-50:08
+#### Example
+
+#### Letent KC-cache
+
+* $$X(4,8) \times W_{DKV}(8,4) \to KVcache (4,4)$$
+
+* __15__: So, what happens when a new token comes in?
+* First, we compute the queries project into latent space.
+
+$$
+Q: X_{bright}(W_Q.W_{UK}^{T})\\
+X_{bright}(1,8)(8,4)(4,4) \to \text{Query vector for bright}(1,4)
+$$
+
 
 
 ***
+
+* 50
+
 
 
 use this latent cache to get my updated uh so I need to compute the attention
@@ -441,5 +376,6 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
 ***
+
 
 

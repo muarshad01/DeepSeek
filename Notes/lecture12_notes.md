@@ -115,6 +115,10 @@ the context vector for bride, that context vector will traverse through this res
 15:49
 context vector itself will give me the logit vector for bride. So I don't need the context vector for the next day and
 15:57
+
+***
+
+
 his. This is the third takeaway from our story. Our third takeaway is that to get
 16:03
 the next token prediction to get the next token prediction, we only need the
@@ -207,6 +211,15 @@ magnitude. But what is the dark side of the KV cache? The KV cache actually come
 20:41
 side is that it takes up memory. Now remember these black boxes which I mentioned over here. We need to cache
 20:48
+
+
+
+
+
+
+***
+
+
 them which means we need to store them in the memory. Right? What are the size? What is the size of this black box? We
 20:54
 have to have the number of tokens which is the um context size multiplied by the
@@ -982,6 +995,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

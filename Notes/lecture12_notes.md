@@ -1,120 +1,15 @@
 #### Multi-Head Latent Attention
 
-ndkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today is probably one of the most important lectures in this
-2:14
-series because today we are going to see how deep C completely changed the attention mechanism or how they rewrote
-2:21
-the transformer architecture through the invention of the multi-head latent
-2:26
-attention mechanism. The reason deepseek achieved so much more efficiency in their
-2:34
-transformer architecture. The reason they were ma they managed to reduce the size of the KV cache while still
-2:41
-maintaining the performance of the transformer architecture is one of the main reasons
-2:49
-why deep C became so popular and why they have so less inference costs and
-2:56
-the main innovation behind this reduction in inference costs
-3:02
-which DeepS has is multi head latent attention mechanis mechanism. So this mechanism which was
-3:10
-innovated in the deepseek paper actually changed this component of the
-3:15
-transformer architecture. So if you see this entire architecture of the LLM, there is the input block, there is the
-3:22
-processor block and then there is the output block. The latent attention mechanism which
-3:28
-they introduced transformed this aspect of the transformer architecture which is the multi head attention
-3:36
-mechanism. So today we are going to explore the long journey to multi head latent attention. We are going to
-3:42
-understand how latent attention works and we are going to understand the intuition behind latent attention. I'm
-3:49
-going to show you every single thing in detail from scratch on this whiteboard so that you don't find latent attention
-3:57
-confusing. If you go to the deepseek v2 paper which was introduced in June
-4:04
-2024, here is where they introduced the
-4:09
-um multi head latent attention architecture and here is the schematic for the latent attention architecture.
-4:16
-So if you scroll down below you'll see that they have multiple variants of the
-4:22
-latent attention mechanism. Today we are going to see the simplest variant which they call low rank key value joined
-4:29
-compression. In one of the later lectures in this series we are going to see what is meant by decoupled rotary
-4:36
-position embedding. We are not going to see that today. Today we are going to see the most simple version of the multi
-4:42
-head latent attention. When you scroll through this paper, you'll see that they have four figures.
-4:48
-They have multi head attention, grouped query attention, multi-query attention, and finally multi head latent attention.
-4:55
-We are going to learn about these three quickly today and then finally we are going to see multi head latent
-5:01
-attention. So the plan for this lecture is going to be as follows. I have
-5:07
-already covered key value cache, multi-query attention and group query attention in separate lectures
-5:13
-previously but I am aware that there might be some people who are listening to this lecture for the first time. So
-5:20
-for those people I'm going to go through all of these concepts slightly quicker and then we'll come to multihead latent
-5:27
-attention. That way this will be a self-contained lecture on its own. The
-5:32
-main issue with the current available resources on multi head latent attention is that if you search multi head latent
-5:40
-attention, you'll get blog posts like these. If you walk through these blog posts, you'll see that they only have
-5:46
-paragraphs and these matrices which are incredibly difficult to understand and
-5:52
+* How DeepSeek Changed Attention?
 
+* [DeepSeek-V2: A Strong, Economical, and Efficient
+Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
-
-
-
+1. Key-Value (KV) cache
+2. Multi-Head Attention (MHA)
+3. Multi-Query Attention (MQA)
+4. Grouped-Query Attention (GQA)
+5. Multi-Head Latent Attention (MLA)
 
 ***
 
@@ -1183,4 +1078,5 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 

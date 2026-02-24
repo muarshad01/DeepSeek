@@ -46,27 +46,6 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 35:00
 
-different from each other and W V1 W V2 V3 and V4 are different. How do I
-35:11
-achieve both these things? Because it seems that to reduce this I need to share some content over here. So it
-35:17
-seems impossible to achieve both of these things, right? How MQA reduced the size of the KV cache by making all these
-35:24
-colors the same. But how can we do this by having different values in KV matrix?
-35:29
-How can we reduce the size of the KV cache while still maintain good language model
-35:35
-performance? That's what DeepSync achieved with the multi head latent retention. And it's a beautiful thing
-35:42
-what they did to answer this question. But to answer this question, they asked a simpler
-35:48
-
-
-
-***
-
-
-
 question. They thought about it differently. The way they thought about it was uh what if we don't have to cache
 35:55
 the keys and the values separately. So currently what's happening is that the keys and the values are being cached
@@ -157,7 +136,7 @@ latent matrix which is CV. We are multiplying C KV with W UK and W UV.
 
 ***
 
-
+* 40:00
 
 
 That's how we get the keys matrix and the values matrix. After this, everything stays the same. The queries
@@ -567,6 +546,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

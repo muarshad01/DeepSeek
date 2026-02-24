@@ -52,7 +52,7 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
  
  $$2 \times n \times h \to 1 \times n_l \times h$$
 
-* To get this matrix, we start by projecting the input embedding matrix into latent space!
+* To get this matrix, we start by projecting the input embedding matrix into __latent space!__
 
 $$X: (4,8) \times W_{DKV} (8,4) \to \text{Latent Matrix}: C_{KV}(4,4)$$
 
@@ -480,6 +480,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

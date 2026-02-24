@@ -26,190 +26,27 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 15:00
 
+* To get the logits vector for "bright," we only need the context vector for "bright".
 
-his. This is the third takeaway from our story. Our third takeaway is that to get
-16:03
-the next token prediction to get the next token prediction, we only need the
-16:08
-context vector for the last token in my input sequence. Keep this in mind. We
-16:14
-only need the context vector for the last token in my input sequence. Okay, that's a key realization.
-16:23
-So the question now we ask is what if we store the keys and the value matrices during
-16:28
-inference. What if we store the keys and the values matrix matrix during
-16:33
-inference? Will that help us to predict this last context vector matrix? Remember now we only need the context
-16:40
-vector for the last token. So if we only need the context vector for the last token, let us
-16:46
-backtrack and check what we really need. So if we need the context vector for my last token, I of course need the
-16:52
-attention weights for my last token and I need the values matrix. But what if I
-16:58
-cache the previous value matrix? What if I cach the previous value matrix and I
-17:03
-only compute the value vector corresponding to the new token? The way I'm going to do that is I'm going to
-17:09
-take the input embedding only for the new token and I'm going to multiply it by we this is anyway fixed during
-17:17
-pre-training. So I get the value vector corresponding to the new token and I append it to the cache. That's how I get
-17:23
-the entire value matrix. To get the attention weights for bride, I first need the attention scores
-17:29
-for bride. And to get the attention scores for bride, I need to multiply the
-17:34
-query vector for brite multiplied by the keys transpose. Similarly to what we did for
-17:41
-values, we can cache everything shown in the black box. And we need to only
-17:46
-compute the keys vector for my new token which is brite. So I take the input embedding for brite and I multiply it
-17:52
-with W K which is also fixed during pre-training. That's how I get this new keys vector. I append it to the previous
-17:59
-previous cache and I get my keys matrix. Similarly to get the query vector for brite I simply need to multiply the
-18:06
-input embedding for brite multiplied with WQ. That's all. So if I zoom out a bit here, you'll see
-18:13
-that the elements which I have marked in the boxes number one, number two and number three. These are the only three
-18:20
-computations which we need to do for any new inference. Which means that whenever any new inference whenever any new token
-18:27
-comes in, we first compute its query vector, we compute its key vector, we compute its value vector, we then append
-18:34
-the key vector with the previous cache to get the keys matrix. We append the value vector with the previous cache to
-18:40
-get the value matrix. Then we multiply the query vector with the keys transpose to get the attention scores. We get the
-18:47
-attention weights. The attention weights are multiplied with the value matrix. And then we get the context vector for
-18:53
-my new token. We only need this context vector to predict the next token. So
-18:58
-that's all we need. This actually proves that if we can store these keys and the values, if we
-19:06
-can cache the keys and the values, it will save us a lot of computations. We don't need to recomputee these values
-19:12
-every single time. And we don't need to cache the query query matrix at all
-19:18
-because we only need the query vector for the new token anyways. We don't need the entire query matrix. So we only need
-19:24
-to cache the keys and the values matrices. So the conclusion after this
-19:30
-demonstration was that the first major conclusion is that we need to cache the keys and the value matrices during
-19:36
-inference. This is called as the KV cache. Now the KV cache has a lot of
-19:42
-advantages. One major advantage of the KV cache being that if you plot the amount of computations needed versus the
-19:48
-number of input tokens. If you don't have a KV cache, the amount of computations needed increase
-19:54
-quadratically because you're repeating the calculations each time, right? But if you have a KV cache, the amount of
-20:00
-computations which you need don't grow quadratically with the number of input tokens. They only grow
-20:07
-linearly. Which means that even if you're doing more and more and more and more inference, since you're caching,
-20:14
-you are not increasing the cost quadratically. You are only increasing linearly. So you actually save uh so you
-20:22
-actually save this much amount of recomputations and that speeds up inference which is actually good. We
-20:28
-speed up inference due to the KV cache and it speeds up inference by a huge
-20:35
-magnitude. But what is the dark side of the KV cache? The KV cache actually comes with a dark side and that dark
-20:41
-side is that it takes up memory. Now remember these black boxes which I mentioned over here. We need to cache
-20:48
-
-
-
-
-
+* __4__: What if we store/cache the keys and valus matrices during inference?
+* __5__: We need to cache Kay and Value matrices. This is called a K-V cache. We don't need to store Queries (Q) matrix.
+* __6__: K-V cache advantages.
+  * Computation Cost = O(number of tokens)
 
 ***
 
+* 20:00
 
-them which means we need to store them in the memory. Right? What are the size? What is the size of this black box? We
-20:54
-have to have the number of tokens which is the um context size multiplied by the
-21:02
-dimensions. Right? So if you take a look at this black box we have to have the so
-21:08
-I'm calculating how many parameters we need to store in memory. So if the context size is denoted by s we need the
-21:15
-uh context size s multiplied by this dimension. So if my number of attention heads are n and if each head dimension
-21:22
-is h this will be n into h. So s into n into h number of parameters need to be
-21:28
-saved and if I have b batches then it will be n into s into h into
-21:33
-b and then this will be for the keys as well as the values. So this will be
-21:39
-multiplied by two. So if you take a closer look at the size of the KV cache formula, you'll see that it depends on
-21:46
-the context length which is number of my token my number of tokens in the keys and the values matrices multiplied by n
-21:53
-into h which is the keys and the values dimension number of attention heads multiplied by the head dimension
-21:59
-multiplied by b which is the batch size multiplied by two. So this first two is because I have k and v. there are two
-22:06
-caches and the second two is because I'm actually calculating number of parameters right
-22:12
-so these are number of bytes per floating point I'm assuming each parameter I'm assuming I'm calculating
-22:19
-the memory of each parameter and I'm assuming each parameter to be floating point to be a 16 bit floating point
-22:26
-which is two bytes so every parameter will take two bytes in memory that's why there is the second loop what is this L
-22:34
-this L is essentially the number of transformer blocks. This transformer block which I showed to you over here,
-22:40
-every transformer block will have a key value cache. And usually language models have 12, 24, 96
-22:47
-or even higher number of transformer blocks. So the size of the KV cache also depends on L which is the number of
-22:53
-transformer blocks. Now if you have a deepsek R1 model or V3, the number of
-22:59
-transformer blocks they have is 61. The batch size is one. The number of
-23:04
-attention heads which they have is 128 and the dimension of each attention head is
-23:10
-128. The context window is actually 100,000. So if you use this formula to
-23:16
-find the size of the KV cache, you'll see that the size of the KV cache for deepse R1 or V3 model is 400 GB. That's
-23:24
-a huge huge size. And why don't we want such a huge size? Because the higher the
-23:30
-size the more our memory will be overloaded. And if let's say if I am deepse and I have to store this KV cache
-23:38
-in memory which means I have to pay for this memory right it's like occupying land for every
-23:44
-piece of data stored we have to pay rent so deepseek has to pay that much amount
-23:49
-so then it will charge it in inference but the inference cost which deepseek charges is not that high at all which
-23:56
-clearly shows that they are not using this simplified version of KV cache they are doing a whole lot of new
-24:02
-modifications after this point which we are going to learn in today's lecture. But this is the dark side of the KV
-24:08
-cache. It takes up a huge amount of memory. Takes up a huge amount of memory. So it costs more. It also it
-24:14
-also slows down our other computations because our memory is overloaded. Imagine what happens if your laptop is
-24:20
-filled with memory, right? Your your tabs become slower. When you are trying to run a piece of code, it runs slow.
-24:26
-Your new windows open a bit slow. That's exactly what happens during inference time if you take up a lot of memory.
-24:33
-So these are the disadvantages of the KV cache. Now all of the innovations which
-24:39
-happened in the attention mechanism which I'm going to discuss in the rest of this lecture are there to solve these
-24:45
-disadvantages. So after this point people started thinking that okay the KV I of course need the KV KV cache because
-24:52
-I want to save these much amount of computations but I need the KV cache but
-24:57
-at the same time I want to solve the KV cache memory problem.
-25:02
-and it's clearly not being solved with the multi head attention mechanism. So then people started coming up with new
-25:08
+* __7__: K-V cache disadvantages.
+  * Size of K-V cache
+
+* __8__: Solving the K-V cache memory problem
+
+***
+
+* 25:00
+
+
 ways of solving the KV cache memory problem. Let's discuss these new ways
 25:13
 next. There are essentially two two major things people try to solve the KV
@@ -903,6 +740,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

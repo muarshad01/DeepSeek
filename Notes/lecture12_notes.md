@@ -56,93 +56,6 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 $$X: (4,8) \times W_dKV (8,4) \to \text{Latent Matrix}: C_{KV}(4,4)$$
 
-question. They thought about it differently. The way they thought about it was uh what if we don't have to cache
-35:55
-the keys and the values separately. So currently what's happening is that the keys and the values are being cached
-36:01
-separately right and this n into h factor is coming that's being multiplied by two. What if we don't cache the keys
-36:08
-and the values separately. What if we cache only one matrix and furthermore
-36:13
-what if this matrix has lesser number of dimensions than n into h. So currently
-36:18
-we have this 2 into n into h right two because we are caching k and v separately and n into h because that's
-36:26
-the dimension of the keys and the values. What deepse asked instead was
-36:32
-what if we don't have this factor of two instead we just have one matrix and instead of n into h we have
-36:39
-something else we have another dimension which is much lesser than n into h. Can
-36:44
-we do this? Can we cache only one matrix instead of two? And can we make sure
-36:49
-that this matrix has less dimensions? So this seems like something like a magic
-36:54
-bullet, right? Or a magic formula. How is this ever going to happen? The way they did this is that
-37:01
-they used the concept of a latent space. The idea of latent spaces has been used in machine learning and deep learning
-37:08
-for a very long period of time. But it's the first time they applied it to language modeling. So to get this matrix
-37:15
-which has less dimensions than n into h and if you only need to cache one matrix
-37:21
-they said that to get this matrix we start by projecting the input embedding matrix into a latent
-37:27
-space. So let's say this is my input embedding matrix right the next day is
-37:32
-I'm first going to show you how the uh latent KV cache mechanism works or how
-37:40
-the latent attention mechanism is implemented and then I'm going to walk you step by step through it. So first
-37:45
-they started by saying that what if we project the input embedding matrix into a latent
-37:51
-space and the latent space what does latent space mean? First of all, the input embedding matrix is a size of 4x8.
-37:59
-What they said is that what if we multiply it with this w dv. D means down
-38:06
-projection and kv means the kv cache. For now uh it's fine if you don't
-38:12
-understand this but let's just understand what we are doing here. Here we are multiplying the input embedding
-38:17
-matrix with another matrix and then we have the CKV matrix. This is that matrix
-38:23
-which I was talking about. What deepseek showed was instead of caching the keys and the values they showed that we only
-38:29
-need to cache this matrix and then we will achieve the best of both worlds. They said that this is our latent matrix
-38:37
-which we will cache and that will achieve the best of both worlds. That
-38:42
-will help us reduce the size of the KV cache and we won't even need to share values among
-38:47
-heads. Now you might be confused that what are we exactly doing here? We seem to be introducing one more matrix. How
-38:54
-is this actually helping us? So let me first show you the full workflow of what they did. Actually the first step is the
-39:01
-only place where some changes are happening because here we introduce this latent space right. So this is now my
-39:07
-latent matrix. This will be multiplied with wuk and
-39:12
-wuv. U is basically a projection. So now with this multiplication we are
-39:18
-converting it into into the query matrix and the value matrix. For the sorry the
-39:23
-keys matrix and the values matrix. For the queries it stays the same. For the queries we are going to take the input
-39:29
-embedding matrix we are going to multiply it with the WQ to get my queries matrix. Later versions of latent
-39:35
-attention are a bit more complex where the queries are also projected to a different space. But for now I'm
-39:41
-projecting the queries the same way as we did before. The queries are multiplied with W K. The sorry the input
-39:47
-embedding matrix is multiplied with WQ and we get the queries matrix. X multiplied by WQ gives me the queries
-39:54
-matrix. The change happens to get the keys and the values matrix. Now we don't
-40:00
-get the keys and the values matrix through through W K and WV. Instead what we are doing is that we are having this
-40:07
-latent matrix which is CV. We are multiplying C KV with W UK and W UV.
-40:13
-
 
 ***
 
@@ -556,6 +469,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

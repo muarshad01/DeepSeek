@@ -18,12 +18,6 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 #### Key-Value Cache
 * __Takeaway-1__: We seem to be doing a lot of repeated calculations.
 
-***
-
-* 10:00
-
-***
-
 * 15:00
 
 * To get the logits vector for "bright," we only need the context vector for "bright".
@@ -42,107 +36,16 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * __8__: Solving the K-V cache memory problem
 
-***
-
-* 25:00
-
-***
-
 * 30:00
 
+* __9__: Can we get best of both worlds?
+  * Low cache size
+  * Good language model performance
 
-information I store in the memory right because now in each group I just need to store one attention head
-30:14
-information. So basically I just instead of a factor of n instead of a factor of
-30:20
-n now this n is replaced by a factor of g. So this should be g and this should be h. Now this n is replaced with a
-30:27
-factor of g over here because instead of saving all n attention heads, I only save for groups. So if I have 96
-30:35
-attention heads and only 16 groups, this will be 16 instead of 96 over here. So
-30:41
-you see the group query attention lies somewhere in the middle of multi-query and multi head attention. In multiquery
-30:47
-attention, all the heads share the same content. In grouped query attention, groups of head will share the same
-30:52
-content. Now naturally this will have consequences right this will have consequences for the size of the KV
-30:59
-cache. If you look at multi head attention it has the largest KV cache. So if you compare for GPT3 it occupies
-31:06
-4.5GB. If you look at the multiquery attention it has the smallest KV cache because I reduce by factor of n which is
-31:13
-96. GPT3 largest model has 96 heads. So the KV cache memory size reduces by a
-31:19
-factor of 100. And if you look at group query attention and if you assume eight groups, the size occupied by the group
-31:26
-query attention lies somewhere in the middle of MQA and MHA, it's about 384
-31:31
-mgabytes. So multi-query attention seems to solve this problem of memory, right? So you might be thinking then why do we
-31:38
-even need latent attention? Why not use multi-query attention? But this comes with a very big cost and that cost is
-31:44
-with respect to the performance of the language model. The reason we started with multi head attention is because we
-31:50
-wanted different heads to capture different diversity in my underlying data. But now if you share same content
-31:58
-across different heads, I'm I will not be able to capture enough diversity in my underlying data because all the heads
-32:05
-are now having the same keys and the values content anyways. So both the multi-query
-32:10
-attention and group query attention actually suffer in performance and they suffer in context understanding. So if
-32:17
-you look at this now if you compare all of these different mechanisms you'll see that multi head attention has the
-32:23
-largest KV cache size and it has the best performance whereas multi-query attention has the smallest KV cache size
-32:29
-but it has the worst performance because all values are shared whereas grouped query attention has a medium KV cache
-32:35
-size so it lies somewhere in the middle and group query attention also has a medium performance it lies somewhere in
-32:42
-the middle so multi attention has a great performance but it does not
-32:48
-solve the KV cache problem. Multi-query attention has solves the KV cache problem but it has the worst
-32:54
-performance. Even group query attention does not have that good of a performance. So then that's why people
-33:01
-thought can we get the best of both worlds which means that can I have a low cache size can I have a low cache size
-33:09
-like multiquery attention but can I have a good language model performance? Can
-33:14
-we get the best of both worlds? And when people started answering this question,
-33:19
-that's where the multi head latent attention was born. Let's learn about this
-33:25
-now. So how do we get the best of both worlds? First, let's quantify what best of both worlds actually mean. We want a
-33:32
-low cache size, right? Which means that in the size of the KV cache formula, these two terms which are there n into h
-33:40
-which are the number of attention heads multiplied by the head dimension. This seems to be in our control. Other things
-33:46
-like number of transformer blocks, the batch size, the context size. Let's say we do not play with these parameters.
-33:53
-But what if we take these and we make sure that this needs to be reduced. This n into h needs to be reduced for
-34:00
-deepsek. It's 128 into 128. That's a huge factor. If we can reduce this
-34:05
-somehow, that will reduce my KV cache size memory problem. Deepc currently takes 400 GB with normal
-34:13
-KV cache as we saw over here. Uh if we just implement the normal KV cache, it
-34:19
-takes 400 GB because it has 128 N into 128H. If we can reduce this
-34:25
-multiplication further, we'll reduce size of the KV cache. That's number one. Number two is that to have a good
-34:31
-language performance, what we need is that all the attention heads should have different values in the KV matrix. I
-34:38
-don't want to do something like this where I'm sharing values across attention heads because that seems to
-34:43
-reduce performance a lot. So I want different colors. I want k1 to be different from k2 to be different from
-34:50
-k3 to be different from k4. I want v_sub_1 to be different from v_sub_2 to be different from v_sub_3 to be
-34:56
-different from v4. That will only happen if this weight matrices this trainable weight matrices W K1 W K2 W K3 W K4 are
-35:05
+***
+
+* 35:00
+
 different from each other and W V1 W V2 V3 and V4 are different. How do I
 35:11
 achieve both these things? Because it seems that to reduce this I need to share some content over here. So it
@@ -664,6 +567,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

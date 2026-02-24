@@ -46,105 +46,10 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 25:00
 
-
-ways of solving the KV cache memory problem. Let's discuss these new ways
-25:13
-next. There are essentially two two major things people try to solve the KV
-25:19
-cache problem, KV cache memory problem. The first is the multi-query attention and the second is the grouped query
-25:25
-attention. These are the same diagrams which you'll see over here. the group query attention and the multi-query
-25:31
-attention. It's very difficult to understand anything from these diagrams. So I've simplified it a bit further
-25:36
-here. Let's say if you look at the normal multi head attention, right? What happens is that if this is W K and this
-25:43
-is WV, these are the weight drainable weight matrices for keys and the values.
-25:49
-You'll see that these are split into different heads, right? based on the number of attention heads which we have
-25:55
-and each attention head has different values because every attention head captures something different in my
-26:01
-underlying piece of data or underlying piece of text. So naturally when the input is now multiplied with W K and WV
-26:08
-we have the keys matrix and the values matrix. Now even when you look at the keys and the values matrix each
-26:15
-attention head has different values which are shown by different colors here. I've deliberately shown them by
-26:20
-different colors because every attention head has different values naturally. Now since every attention
-26:26
-head has different values, we need to store them separately in the cache. We need to store this head values in the
-26:32
-cache, this head values in the cache, this head values in the cache and this head values in the cache. And as a
-26:38
-result, if you see the formula for the KV cache, the formula for the KV cache depends on the number of attention heads
-26:46
-because every attention head has different values. So we need to store the keys and the values corresponding to
-26:52
-each attention head. Now these different colors is
-26:57
-exactly what the MQA and GQA target. The MQA and GQA say that instead of every
-27:03
-attention heads having different colors or having different values, what if attention heads could share the same
-27:10
-content then we would need to cache less, right? So that would reduce our memory requirement. Let me explain what
-27:18
-this means. First, let's look at multi-query attention. What multi-query attention says is that I'm not going to
-27:23
-touch my queries matrix at all. So, every attention head will have different Q1 value. Q2, Q3 and Q4. But what I will
-27:32
-do is that I will make sure that W K1 is equal to W K2 is equal to W K3 is equal
-27:38
-to W K4. And consequently, K1 is equal to K2 equal to K3 equal to K4. I'll also
-27:45
-make sure that wub equal to w2 equal to w3 equal to w4 and subsequently v_sub_1
-27:52
-equal to v_sub_2= to v3 equal to v4. What this means is that every attention
-27:57
-head will now share the same values. Every attention head will share the same key value. So k1 this is k1 this is k1
-28:04
-this is also k1 and this is also k1. That's why I shown it with the same color. Similarly for the values matrix,
-28:11
-every attention head will share the same content as V_sub1. This head one will be V_sub1. Head two content will be V1.
-28:18
-Head three content will be V1. Head four content will be V1. What this will do naturally is that since the content of
-28:24
-all the attention heads is the same. I don't need to cache all my attention heads separately. Right? I only need to
-28:30
-cache one head values. For the keys matrix, I only need to cach K1. And for
-28:36
-the values matrix, I only need to cach V1. that suddenly reduces my KV cache
-28:41
-memory size by a factor of uh by a factor of n. So the attention
-28:48
-head size actually this h should remain this h should this h remains as it is but here there was this n right which is
-28:55
-the number of attention heads that is now suddenly reduced. So I get a reduction of 1 by n in the size of the
-29:01
-kv cache because now I don't need to cache all my n attention heads in memory. I only cach one attention head.
-29:08
-Similarly, what is done in group query attention is that group query attention says that instead of making all the
-29:13
-heads to be the same, what if I make groups? So, for example, I make
-29:19
-head 1 and head 2 into one group and make all their values to be same. So, w k1 will be equal to w k2 and I have a
-29:27
-group two. So, w k3 will be equal to w k4. So, all of these won't be equal to each other. Only w k1 will be equal to w
-29:34
-k2. W K3 will be equal to W K4. Similarly, here only K1 will be equal to
-29:39
-K2 and K3 will be equal to K4 which you'll see from the colors. So, one group has one color. They share the same
-29:45
-content. Similarly, for the values W1 will be equal to W2 and W3 will be equal
-29:52
-to W4. That will translate to V1 being equal to V_sub_2 and V3 being equal to
-29:58
-V4. What this will do is that this will also reduce the number of uh uh the amount of
-30:07
-
-
-
 ***
+
+* 30:00
+
 
 information I store in the memory right because now in each group I just need to store one attention head
 30:14
@@ -759,6 +664,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

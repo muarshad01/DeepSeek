@@ -87,6 +87,20 @@ $$
 * $$X(W_QW_{UK}^{T})$$: Absorted Query - Fixed at training time (only compute once).
 * $$(XW_{DKV})^{T}$$: This needs to be cached.
 
+
+$$
+\begin{aligned}
+\text{Context Vector Matrix} &=  \text{Attention Weights} \times V \\
+                             &= (QK^{T})(XW_{DKV}W_{UV}) \\
+                             &= (QK^{T})(XW_{DKV}W_{UV})W_{0}: \text{Logits Matix}\\
+                             &= (QK^{T})(XW_{DKV})(W_{UV}W_{0})\\
+                             &= (\text{Attention Scores})(\text{Cached})(\text{Fixed at traing - Only commputed Once})\\
+\end{aligned}
+$$
+
+
+
+
 ***
 
 * 45:00
@@ -427,4 +441,5 @@ latent attention and I hoped you liked it. Thanks everyone and uh this is how de
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
 
 ***
+
 

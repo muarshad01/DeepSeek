@@ -87,114 +87,9 @@ $$
 * X(W_QW_{UK}^{T}): Absorted Query - Fixed at training time (only compute once).
 * (XW_{DKV})^{T}: This needs to be cached.
 
-That's how we get the keys matrix and the values matrix. After this, everything stays the same. The queries
-40:19
-are multiplied with keys transpose to get the attention scores. We get the attention weights. The attention weights
-40:25
-are multiplied by values to get the context matrix. So then you must be thinking what really changed over here,
-40:32
-right? Because in the earlier case also we were multiplying with W K and WV
-40:37
-instead of this W U K and W U. But here we seem to be introducing an additional
-40:43
-step. So instead of reducing my KV cache, I seem to be increasing my KV cache size. U but that's where we'll see
-40:53
-how does adding this latent matrix actually help. And what deepse call is that they call this trick of adding this
-40:59
-latent matrix an absorption trick. So here we'll need to go into some amount of mathematics to see how addition of
-41:06
-this latent matrix actually helps. And once you start seeing this, it's actually quite beautiful. So let's first
-41:12
-start with what we are doing here, right? We are starting with the input embedding matrix. We are multiplying
-41:17
-with it with WQ to get my queries matrix. That's step number one. Done.
-41:23
-Then what we are doing is that we are multiplying my input embedding matrix with this WDKV and we are getting my
-41:29
-latent matrix. That's step number two. Done. Then we multiply this CKV with W
-41:34
-UK to get my keys matrix. And I multiply this CKV with Wuv to get my values
-41:40
-matrix. So CKV * W UK is just X multiplied by WDKV multiplied by WUK.
-41:49
-And CV * W UV is just X multiplied by WDKV multiplied by
-41:56
-Wuv. Now let's see what this absorption trick is. Eventually you'll want to find the attention scores, right? So you'll
-42:03
-need to find queries multiplied by the keys transpose. Now queries is X into WQ
-42:09
-and keys transpose will be transpose of this which will be W UK transpose W DKV
-42:15
-transpose and XR transpose. Here is where the absorption actually comes into the picture. What I'm going to do now is
-42:21
-I'm going to absorb these two together. I'm going to absorb
-42:28
-WQ and W together. So this same multiplication can be
-42:34
-written as X into WQ into W UK transpose multiplied by X into WDKV transpose.
-42:42
-Okay. So now these two matrices if you have a closer look at it WQ and W UK
-42:49
-transpose these two are fixed at training time. What this means is that we have already all these trainable
-42:56
-weight matrices they are fixed during pre-training right we don't need to compute them during inference. So these
-43:01
-two are fixed during training time. So we don't need to store any store this at all. This will not cost us anything.
-43:07
-This is already fixed. We already compute them during pre-training. Now if you carefully observe this quantity,
-43:14
-this quantity is nothing but my CKV and we can cache this
-43:22
-quantity. So to get my attention scores now what I can simply do is that I can
-43:27
-find X. So if a new token comes in I just have to find this absorbed query
-43:34
-what is my absorb query? My absorbed query is just the new token multiplied by this vector this whole matrix that
-43:41
-gives me my absorb query and then I have to just multiply it with the cache this
-43:47
-latent cache. So this matrix is the only one which will be stored in the cache and I just need to multiply with the
-43:54
-cache value. This is what is called as the absorption trick. Through the absorption trick,
-43:59
-they showed that addition of this matrix actually helps us because WQ and Wuk can
-44:05
-be absorbed together. So we already know this. So even if we only cached this, it
-44:10
-helps us compute the attention scores. Now if you move to the attention the
-44:16
-context vector, you'll multiply the attention weights with the value matrix, right? So you'll multiply the attention
-44:22
-weights which is Q into K transpose multiplied by V. And what is V? V is
-44:27
-just X into W DKV into W UV. So V is X into W DKV into W
-44:33
-UV. So this is my context vector matrix and then we'll ultimately get the logits
-44:39
-matrix by multiplying it with some output projection head. So similarly here we can absorb this W UV and the
-44:46
-output projection head into one into one bracket and this only needs to be computed once during pre-training. This
-44:53
-is fixed and this can be cached similarly. So what I'm trying to show here is that
-45:00
-if we cache CKV we can compute the attention scores and we can compute the
-45:05
-context vector matrix which will help us compute the next token also. So this will help this this is the formula for
-45:11
-the context vector matrix and this is the formula for the logits matrix which helps us compute the next token. So I'm
-45:18
-I'm showing here that even if we cache only one matrix it will help us go through this entire pipeline even if we
-45:24
-cache this latent matrix it will help us compute the attention scores and it will help us compute the next token also. So
-45:32
-you might be wondering that this sounds a bit abstract and I'm not fully being able to understand what's the flow here.
-45:39
-So for that what I've done is that I have now I'll show you a separate section where I'll show you visually
-45:45
-
-
 ***
 
+* 45:00
 
 what happens when a new token comes in and how this absorption trick actually helps us. For now just remember that
 45:53
@@ -505,6 +400,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

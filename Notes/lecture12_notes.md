@@ -146,9 +146,18 @@ $$
 \end{aligned}
 $$
 
+$$
+\begin{aligned}
+\text{Reduction of size} &= \frac{2 \times n \times h}{d_l}\\
+\text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576}\\
+                         &\approx 571
+\end{aligned}
+$$
+
 ***
 
 * 55:00
 
 ***
+
 

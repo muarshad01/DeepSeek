@@ -1,3 +1,5 @@
+#### Multi-Head Latent Attention
+
 ndkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
 I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
@@ -1181,3 +1183,4 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+

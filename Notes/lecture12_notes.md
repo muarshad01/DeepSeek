@@ -61,7 +61,8 @@ $$X: (4,8) \times W_{DKV} (8,4) \to \text{Latent Matrix}: C_{KV}(4,4)$$
 
 * 40:00
 
-$$(W_Q,W_K,W_V) \to (W_{UQ},W_{UK},W_{UV})$$
+$$(W_Q,W_K,W_V) \to (W_{Q},W_{UK},W_{UV})$$
+* Note: W_Q remains the same but W_K and W_V and projects to W_{UK} and W_{UV}
 
 That's how we get the keys matrix and the values matrix. After this, everything stays the same. The queries
 40:19
@@ -481,6 +482,7 @@ because it's very hard to find this content anywhere. It took me almost 2 months
 latent attention and I hoped you liked it. Thanks everyone and uh this is how deepsek changed or changed the attention
 1:01:33
 and rewrote the transformer. Thanks everyone and I look forward to seeing you in the next lecture.
+
 
 
 

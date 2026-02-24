@@ -22,7 +22,7 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * 15:00
 
-* To get the logits vector for "bright," we only need the context vector for "bright".
+* __To get the logits vector for "bright," we only need the context vector for "bright".__
 
 * __4__: What if we store/cache the keys and valus matrices during inference?
 * __5__: We need to cache Kay and Value matrices. This is called a K-V cache. We don't need to store Queries (Q) matrix.
@@ -161,4 +161,5 @@ $$
 $$
 
 ***
+
 

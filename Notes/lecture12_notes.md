@@ -54,7 +54,7 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
  
  $$2 \times n \times h \to n_l$$
 
-* To get this matrix, we start by projecting the input embedding matrix into __latent space!__
+* __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
 
 $$X: (4,8) \times W_{DKV} (8,4) \to \text{Latent Matrix}: C_{KV}(4,4)$$
 
@@ -163,5 +163,6 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 

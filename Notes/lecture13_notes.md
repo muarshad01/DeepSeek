@@ -9,87 +9,10 @@
 * 10:00
 
 ***
-  
-what's the advantage it is providing us? The main advantage which this provides us is that originally the size of the KV
-10:41
-cache is governed by the number of attention heads multiplied with the head dimension and that will be multiplied by
-10:49
-two because we have one cache for keys and one for values. But instead of that
-10:54
-now I just have DL which is the dimension of my KV cache. So basically instead of saving a
-11:02
-separate cache for keys and values I just have to cache this right. So only this dimension matters which is my
-11:09
-latent dimension. So the size will be governed by this latent dimension multiplied with the context vector
-11:16
-size multiplied by the sorry context length the latent the latent dimension
-11:22
-multiplied by the context length. So the uh size of the KV cache
-11:28
-or the size of the latent KV cache in the case of multi latent attention is the product of my path size number of
-11:35
-transformer blocks context length and the main thing is this DL which is the dimension of the KV cache. So if you
-11:42
-consider deep seek we get a size reduction of 2 * n into h divided by dn
-11:48
-which means if we use multi head attention the u factors which would have
-11:53
-contributed in the kv cache size was the number of attention heads multiplied by the head dimension which is 128 into 128
-12:00
-and why is there a two here because we have one cache for keys and values for deepsek they used dl which is the latent
-12:08
-dimension of 576 so if you divide this you will see that using the latent attention you get
-12:14
-the size reduction of 57 times in the KV cache and it also maintains the
-12:21
-performance because if you see the w uh wuk and the wuv values they are
-12:28
-different for different heads so I'm not sharing any content across my heads which was the main problem with
-12:34
-multiquery attention so we truly get the best of both worlds we reduce the size
-12:39
-of our KV cache and we get the good language model performance. I hope this much has given you a quick summary of
-12:45
-what all we covered in the last lecture. Today what we are going to do is that we are going to
-12:51
-implement this same version of the multi head latent attention in Python. So we
-12:57
-are going to have a code for multi head latent attention implementation and
-13:02
-through this code I'm also going to walk you through an exact mathematical example so that dimensions would be
-13:09
-clear to you. Until now we have intuitively understood what's going on. But this is very different than actually
-13:15
-writing down matrices on a p piece of paper and multiplying them and then parallelly writing code for executing my
-13:23
-next open prediction. Okay. So my main goal of today's lecture is if your intuition is clear, let's get right down
-13:31
-to the level of matrix multiplication and understand exactly what happens in terms of mathematics and then we'll also
-13:38
-code out the multi head latent attention from scratch in Python. So let's get
-13:44
-started. All right. So let's get started with coding the multi head latent attention from scratch. Remember before
-13:52
-we get started we have to decide a few things. The first is the embedding dimension for the model which we are
-13:58
-going to choose as eight. The latent dimension this is ultimately going to decide the KV cache size and this we are
-14:05
-choosing to be equal to four. Um the number of heads equal to two and that
-14:11
-naturally means that each head will have a dimension of 8 / 2 which is equal to four. Um and remember let's say during
-14:20
-the inference pipeline we have inferred five tokens which is the next day is
-14:25
-bright and then we are passing this through my architecture to predict the next token. So my input embedding matrix
-14:32
-will be something like this. my input matrix is the next
-14:39
-uh the next day is bright and then I will have embeddings corresponding to
-14:46
-these and after this point I'm going to consider a new token which has come in
-14:53
-um so let's say we have already processed these five tokens we have the cache for these five tokens and then a
-15:00
+
+* 15:00
+
+
 new token will come in and the embeddings for the new token token will be given by this. Okay, this will be my
 15:06
 new input token and then my goal is to pass this input token through my uh
@@ -693,4 +616,5 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 

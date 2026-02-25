@@ -116,7 +116,7 @@ $$
 
 #### Letent KC-cache
 
-* $$X(4,8) \times W_{DKV}(8,4) \to KVcache (4,4)$$
+* $$X(4,8) \times W_{DKV}(8,4) \to C_{KV}(4,4)$$
 
 * __15__: So, what happens when a new token comes in?
 * First, we compute the queries project into latent space.
@@ -167,6 +167,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

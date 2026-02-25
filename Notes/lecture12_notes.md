@@ -49,8 +49,8 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 * 35:00
 
 * __10__: What if we don't have to cache the Keys & Values seperately?
-  * What if we cache only one matrix.
-  * What if this matrix has less dimention than "n X h"
+  * What if we cache only one matrix?
+  * What if this matrix has less dimention than $$n \times h$$?
  
  $$2 \times n \times h \to 1 \times n_l \times h$$
 
@@ -163,3 +163,4 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+

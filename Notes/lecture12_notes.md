@@ -90,9 +90,9 @@ $$
 \end{aligned}
 $$
 
-* $$X(W_QW_{UK}^{T})$$: Absorted Query - Fixed at training time (only compute once).
+* $$X(W_QW_{UK}^{T})$$: Absorted Query
+  * Fixed at training time (only compute once).
 * $$(XW_{DKV})^{T}$$: This needs to be cached.
-
 
 $$
 \begin{aligned}
@@ -167,6 +167,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

@@ -65,7 +65,7 @@ $$X: (4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which 
 
 * __13__: What we do next?
 
-$$(W_Q,W_K,W_V) \to (W_{Q},W_{UK},W_{UV})$$
+$$(W_Q,W_K,W_V) \to (W_{Q}(8,4),W_{UK}(4,4),W_{UV}(4,4)) \to $$
 * Note: W_Q remains the same but W_K and W_V and projects to W_{UK} and W_{UV}
 
 #### How does adding this latent matrix help?
@@ -165,6 +165,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

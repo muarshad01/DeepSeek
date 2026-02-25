@@ -133,7 +133,7 @@ $$
 $$
 \begin{aligned}
     Q &= X_{bright}.W_{DKV}\\
-      &= X_{bright}(1,8).(8,4) \to (1,4) \to \text{Append to latent KV cache}\\
+      &= X_{bright}(1,8).(8,4) \to (1,4) \to \text{Append to latent KV cache $$C_{KV}$$}\\
 \end{aligned}
 $$
 * Updated KV cache (5,4)
@@ -167,6 +167,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

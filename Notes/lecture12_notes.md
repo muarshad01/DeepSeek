@@ -56,7 +56,7 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
 
-$$X: (4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which we'll cache!}: $$
+$$X: (4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which we'll cache.}$$
 
 
 ***
@@ -66,17 +66,17 @@ $$X: (4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which 
 * __13__: What we do next?
 
 $$(W_{Q}(8,4), W_{UK}(4,4), W_{UV}(4,4)) \to (Q(4,4), K(4,4), V(4,4))$$
-* Note: W_Q remains the same but W_K and W_V and projects to W_{UK} and W_{UV}
 
 #### How does adding this latent matrix help?
 $$
 \begin{aligned}
 Q      &= X \times W_Q \\
-C_{KV} &= X \times W_{DKV} \\
+C_{KV} &= X \times W_{DKV} ~~~\text{Latent Matrix.}\\
 K      &= C_{KV} \times W_{UK} = X \times W_{DKV} \times W_{UK}\\
-C      &= C_{KV} \times W_{UV} = X \times W_{DKV} \times W_{UV}
+V      &= C_{KV} \times W_{UV} = X \times W_{DKV} \times W_{UV}
 \end{aligned}
 $$
+* __Note__: W_Q(8,4) remains the same but $$W_K$$ and $$W_V$$ and projected to $$W_{UK}$$ and $$W_{UV}$$.
 
 #### The Absorption Trick
 
@@ -165,6 +165,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

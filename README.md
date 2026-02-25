@@ -36,7 +36,7 @@
 | [Lecture 23 - Multi-Token Prediction (MTP) Introduction](https://www.youtube.com/watch?v=tMtHAAg0UT4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes23](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture23_notes.md)| |
 | [Lecture 24 - How DeepSeek rewrote Multi-Token Prediction (MTP)?](https://www.youtube.com/watch?v=4GmwJLvwaXE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes24](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture24_notes.md)| |
 | [Lecture 25 - Multi Token Prediction (MTP) Coded from Scratch](https://www.youtube.com/watch?v=lyHe8_JHoVI&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes25](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture25_notes.md)| |
-|---|---|---|
+| __Quantization__ |---|---|
 | [Lecture 26 - Introduction to LLM Quantization](https://www.youtube.com/watch?v=0U9l3-r6jVE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes26](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture26_notes.md)| |
 | [Lecture 27 - How DeepSeek Rewrote Quantization Part 1 - Mixed Precision - Fine-grained quantization](https://www.youtube.com/watch?v=xftka2aXnm4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes27](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture27_notes.md)| |
 | [Lecture 28 - How DeepSeek Rewrote Quantization Part 2 - Accumulation Precision - Online Quantization](https://www.youtube.com/watch?v=FxDbrWBENy8&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes28](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture28_notes.md)| |

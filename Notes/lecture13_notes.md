@@ -1,15 +1,5 @@
 ### MLA Code
 
-*** 
-
-* 5:00
-
-***
-
-* 10:00
-
-***
-
 * 15:00
 
 
@@ -616,6 +606,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

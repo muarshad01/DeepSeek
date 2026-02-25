@@ -78,6 +78,8 @@ V      &= C_{KV} \times W_{UV} = X \times W_{DKV} \times W_{UV}
 $$
 * __Note__: W_Q(8,4) remains the same but $$W_K$$ and $$W_V$$ and projected to $$W_{UK}$$ and $$W_{UV}$$.
 
+* __14__: How does adding this Latent matrix help?
+
 #### The Absorption Trick
 
 $$
@@ -165,6 +167,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

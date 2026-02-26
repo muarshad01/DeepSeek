@@ -14,6 +14,7 @@
 | Apr 2024 | [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)|
 | Jun 2024 | [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) |
 | Jun 2024 | [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
+| Dec 2024| [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
 
 started to get pretty crazy after that
 5:07
@@ -522,6 +523,7 @@ everyone and I look forward to starting
 this journey of building deep seek from
 15:13
 scratch with you see you
+
 
 
 

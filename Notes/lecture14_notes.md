@@ -21,6 +21,9 @@ The dog chased another dog.
 
 * [Huggingface example](https://huggingface.co/blog/designing-positional-encoding)
 
+
+#### Integer Positional Encoding (IPE)
+
 ```
 The dog chased the ball. It couldn't catch it.
 ```
@@ -152,6 +155,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

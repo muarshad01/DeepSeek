@@ -7,15 +7,6 @@
 
 ***
 
-going to introduce you to what positional embeddings are. And then we are going to look at two types of
-5:08
-positional embeddings. Today we are going to look at integer positional embeddings and binary positional embeddings. That's the purpose of
-5:15
-
-
-***
-
-
 today's lecture. In the next lecture we are going to look at sinosidal positional embeddings.
 5:22
 These sinosidal positional embeddings were introduced in the attention
@@ -620,6 +611,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

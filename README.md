@@ -40,6 +40,7 @@
 | [Lecture 26 - Introduction to LLM Quantization](https://www.youtube.com/watch?v=0U9l3-r6jVE&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes26](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture26_notes.md)| |
 | [Lecture 27 - How DeepSeek Rewrote Quantization Part 1 - Mixed Precision - Fine-grained quantization](https://www.youtube.com/watch?v=xftka2aXnm4&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes27](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture27_notes.md)| |
 | [Lecture 28 - How DeepSeek Rewrote Quantization Part 2 - Accumulation Precision - Online Quantization](https://www.youtube.com/watch?v=FxDbrWBENy8&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes28](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture28_notes.md)| |
+| --- |---|---|
 | [Lecture 29 - Build Deep Seek from Scratch 20 minute summary](https://www.youtube.com/watch?v=78zic2E8DRU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes29](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture29_notes.md)| |
 | [Lecture 30 - Book Launch with Manning: Build DeepSeek from Scratch](https://www.youtube.com/watch?v=mjMmedGfUsQ&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms&index=30)|  [Notes30](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture30_notes.md)| |
 

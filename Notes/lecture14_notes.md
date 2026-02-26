@@ -1,104 +1,12 @@
 #### Integer and Binary Positional Encodings (PE)
 
+1. Integer Positional Encodings (IPE)
+2. Binary Positional Encodings (BPRE)
+3. Sinusoidal Positional Encodings (SinPE)
+3. Rotary Positional Encodings (RoPE)
 
-my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we are going to start learning about positional
-2:14
-embeddings. First let me clarify why are we learning about positional embeddings or
-2:21
-positional encodings in a course about deepseek. So in the previous lecture we
-2:28
-learned about multi head latent attention and we have started this whole series with the purpose of understanding
-2:35
-the deepseek architecture in detail and ultimately with the purpose of building the different components of deepseek
-2:41
-from scratch. So then suddenly why are we starting to learn about positional
-2:47
-encodings? Let me give you a little bit of a background around that. So here's
-2:52
-the deepseek version two or deepseek v2 paper which came out in June
-2:57
-20124. If you look at the multi head latent attention section over here they
-3:02
-first start out with the simplified multi head latent attention which is what we have seen in the previous
-3:07
-lecture. But after this point in section 2.1.3 they introduced something which is
-3:14
-called as the decoupled rotary position embedding. What they did in this
-3:19
-decoupled rotary position embedding. Let me go back to that
-3:25
-section. Yeah. What they did in this decoupled rotary position embedding is that they combined multi head latent
-3:33
-attention with something called the rotary position embedding. And that leads to a much more powerful version of
-3:39
-the multi head latent attention. In the latent attention mechanism which we saw, we did not include the positional
-3:46
-embedding, the rotary positional embedding. So to understand this advanced multi head latent attention
-3:53
-mechanism, we really need to understand what rotary positional embedding means.
-3:59
-And if you see the deepseek version 3 paper which came out in 2025 and which
-4:06
-ultimately led to this whole deepseek revolution it led to deepseek R1
-4:12
-etc. You'll see that here they directly start with this multi head latent
-4:18
-attention which by default uses rotary positional encoding or rotary positional
-4:23
-embedding. So in this lecture I'm going to use embedding and encoding interchangeably but it means the same
-4:29
-thing. So the reason we are having this two to three lectures now on positional
-4:35
-embeddings or positional encodings is that we ultimately want to understand what rotary positional encodings are and
-4:42
-then we'll understand how the multi head latent attention is mixed with rotary positional embedding to create a much
-4:49
-more advanced version of the latent attention mechanism. So the way I'm going to divide this is
-4:56
-that in today's lecture I'm going to introduce you to what positional embeddings are. So today's lecture I'm
-5:03
+***
+
 going to introduce you to what positional embeddings are. And then we are going to look at two types of
 5:08
 positional embeddings. Today we are going to look at integer positional embeddings and binary positional embeddings. That's the purpose of
@@ -712,5 +620,6 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 

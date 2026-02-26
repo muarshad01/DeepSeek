@@ -12,115 +12,11 @@
 
 * 25:00
 
-
-apply layer normalization to it. So that's my new latent KV vector. This new
-25:18
-vector I'll append to the previous cache. So this new vector will be appended to the
-25:24
-previous cache. This new vector will be appended to the pre previous cache. And then I will get my new latent KV cache.
-25:32
-Take a look at the dimensions over here. Now this will be 6x4. Why? Because I have six tokens. The next day is right
-25:38
-and my new token which is here. So this is 6x4. Now that's how the cache
-25:44
-
-
-
-
 ***
 
-actually goes on increasing whenever new infer token is appended right and the reason I have four dimensions over here
-25:51
-or four columns is because the latent dimension is equal to four. So remember
-25:57
-what we have done here is that we have first looked at our previous cache and we have computed the cache corresponding
-26:04
-to my new input uh token and then I have just appended it to the previous cache
-26:09
-and then I get my updated KV cache. Why am I doing this? The reason I'm doing this is because to get the attention
-26:16
-scores or to get the attention weights remember what I have to do to get the attention scores I have to multiply this
-26:23
-absorbed query with the updated KV cache. That's why I'm I need to find my
-26:30
-updated KV cache. All right. So until now what we have done on this whiteboard is that we
-26:36
-have found the latent KV representation for my new token and we have not just
-26:42
-done that we have also appended it to our old KV cache and we have got the new cache. Let's see how this that is done
-26:49
-in the code right now. Um so see what we are doing here is that first we are finding the latent KV
-26:57
-vector for the new input token. So if the new input token is X, I'm going to I'm going to multiply it with
-27:03
-WDKV. Uh and then I'm going to apply layer normalization. So this self.l
-27:08
-essentially just does layer normalization. So this one step or this one line of code is actually doing two
-27:15
-things. I'm multiplying my input embedding with WDKV and then I'm applying layer
-27:22
-normalization. So that gives me my new latent KV vector. And since we are caching KV cache is not none. So what we
-27:29
-will do is that we'll take our new KV vector and we will append it to my previous cache. This is how I get my new
-27:36
-KV cache, right? Um and the dimensions of this are S total which are the number
-27:42
-of total tokens inferred up till now. And the latent dimension is the number of columns. B is just the batch
-27:49
-size. So until now what I've done is that I've got my new um or I've got my
-27:55
-updated latent KV cache. So let's move to the next step now. All right. So in
-28:01
-the next step, what we have to do is that we have to slowly start computing our attention scores, right? And the way
-28:08
-to do this is first we need to compute our absorbed query. Which means what we'll need to do is that we'll need to
-28:14
-multiply X which is my input multiplied by my this absorbed weight matrix which we
-28:21
-have already computed. Remember here what we have done is that we have already computed this absorbed K matrix
-28:28
-right which is WQ multiplied with W Uranspose. So this this we have already
-28:35
-computed we now just need to multiply X with it. But remember what we did after WQ multiplied by W UK transpose is that
-28:43
-we split it into two heads. So if you remember what we have done here this matrix we have split it into two heads
-28:49
-head zero and head one. So to multiply my input embedding vector with these two
-28:55
-heads. Now what I'll have to do is that I'll have to split my new tokens input into two heads. So the new token input
-29:03
-was an 8 dimensional vector which was this. I'll split it into half. So half
-29:08
-the first half will correspond to head number one. The second half will correspond to head number two. Right? So
-29:14
-for the first head what I'm going to do is that I'm going to multiply the first half of the input multiplied with the
-29:21
-first head absorbed query matrix. So that will give me the absorbed query vector for the first head. This will be
-29:28
-1x4. This will be the absorbed query vector for the first head. So what I'll do is that for the second head I'm going
-29:34
-to do something similar. For the second head what I'll do is that I'll take the second half of this input. I'll take the
-29:41
-second half of this input and I'll multiply with the second absorbed head or second absorbed query. So that gives
-29:48
-me the absorbed query vector for the second head. This multiplication essentially what we are doing here is
-29:54
-that we are just multiplying we are just multiplying x with this wq * wrpose. But now we are
-30:02
-splitting it into two heads, right? We have the first head and we have the second head. So the first head will
-30:08
-contain So the first head will contain the product of half of this input
-30:13
-embedding multiplied by the absorbed qk0. Absorbed qk0 is this first the
-30:20
-absorbed matrix corresponding to the first head and for the second head I'll multiply the second half of the input
-30:27
-embedding multiplied with absorbed qk1. Okay. So now I have the absorbed
-30:32
-query vector for the first head and the absorbed query vector for the second head. Once I have the absorbed query
-30:38
-vector to get the attention scores all I have to do is that I have to multiply the absorbed query vector with my
-30:44
+* 30:00
+
+
 updated cache which we have already calculated. So to get the attention scores what we do is that we take the
 30:52
 for head number for the first head we take this absorbed query vector and we multiply it with the cache
@@ -426,6 +322,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -19,6 +19,8 @@
 
 ***
 
+* 15:00
+
 I was looking for there were R posts but
 10:06
 this was again not very useful or
@@ -292,6 +294,7 @@ everyone and I look forward to starting
 this journey of building deep seek from
 15:13
 scratch with you see you
+
 
 
 

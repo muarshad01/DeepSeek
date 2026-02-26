@@ -25,103 +25,15 @@ The dog chased another dog.
 
 * 10:00
 
+```
+The dog chased the ball. It couldn't catch it.
+```
 
-that without any positional information, the output of a self attention operation
-10:39
-is identical for the same token. That's not good at all. We want the output of
-10:44
-the attention mechanism to be different for different tokens, right? Which are in different positions because these
-10:50
-dogs mean completely different things. That's why position embedding or positional encoding is very very
-10:57
-important. So another example of this is that
-11:04
-the dog chased the
-11:10
-ball. It could not catch it. Now see what's happening
-11:19
-here. If we don't use positional encoding, this it would be the same as this it, right? But that's not good
-11:26
-because this it actually refers to the dog and this second it refers to the
-11:31
-ball. So I want this I want the transformer block to know that the input
-11:37
-embedding for this it and this it is different. So they can refer to different things. That's why it's very
-11:43
-important to somehow add the positional embedding information to the token
-11:48
-embedding information. We need to let the transformer know at which position that given token comes into the picture.
-11:56
-Right? So that's the first takeaway from today's lecture that positional embeddings are very important along with
-12:03
-token embeddings. If we don't have positional embeddings, two words which look the same, if they are in different
-12:09
-positions, they will be treated the same way by the transformer, which is not good because words which look the same
-12:16
-can refer to completely different things. Great. Then let's start thinking about
-12:22
-how do we do positional embedding, right? How do we do positional encoding? One more goal of mine for today's
-12:29
-lecture is for you to start thinking from first principles. So, pause this video for a moment and think that okay,
-12:36
-let's take this same example. The dog chased another dog and you have got the token embedding and you somehow want to
-12:42
-add a positional embedding vector to each of these token embedding vectors. How will you encode the information
-12:48
-about the position? Think about this for a moment. You can pause this video also.
-12:54
-All right. So, the simplest way to think about this is that okay, if I want to
-13:00
-encode the position information, let me just do this. Let me take the position number of this token in the sentence.
-13:06
-So, this come this dog comes at position number two and this dog comes at position number five. That's it. I'll
-13:13
-just use these positions and add it to my input embedding vector. So the way
-13:18
-I'll do that is that if the embedding size is equal to 8, let's say, and if
-13:24
-dog comes at a position number 200, I'll just use 200 and then I'll create eight
-13:31
-copies of it. So the positional encoding vector for dog will be 200 200 200 200
-13:37
-200 200 200 200 and then I'll just add it
-13:42
-um I'll just add it to the token embedding vector what will be the problem with
-13:49
-this first let me explain to you how this will work in practice if we take the sentence the dog chased another dog
-13:55
-right let's take a look at the first dog in this sentence so in the whole input
-14:00
-context if If the first dog comes at position number 200, we'll assign it a value of 200. So this will be 200.
-14:08
-Chased will be 201. Another will be 202. And the second dog will be
-14:14
-203. Right? So the first dog will so every value here will be now repeated
-14:19
-eight times because that's the size of the token embedding vector and we need to add both of these vectors. So the
-14:26
-first dog will be 200 repeated eight times and the second dog will be 203
-14:31
-repeated eight times. What's the issue with this approach? What's the problem with this
-14:38
-approach? We are achieving what we set out to achieve, right? What I wanted to achieve was that I wanted the
-14:43
-transformer to know that the input embedding vector for this dog and this dog is different. That's what we are
-14:49
-achieving. For the first dog, we are adding a vector of 200s. For the second dog, we are adding a vector of 200. and
-14:55
-threes. So the input embedding vector which is the sum of the token embedding plus position embedding will be
-15:01
-different for the two dogs. So if we are achieving what we what our original aim was, what's the main problem with
-15:07
-integer positional encoding? Well, the main problem with
-15:13
-integer positional encoding is the magnitude of the values itself. So if
-15:18
-you look at token embedding values and the way token embedding values are usually initialized in large language
-15:24
-model architectures is that these values are usually clustered around
-15:31
+***
+
+* 15:00
+
+
 zero which means that these values are usually small right on the other hand if
 15:36
 I have a context length of 1024 let's say I'll have these positional embedding
@@ -521,6 +433,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

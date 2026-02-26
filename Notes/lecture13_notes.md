@@ -2,116 +2,12 @@
 
 * 15:00
 
-
-new token will come in and the embeddings for the new token token will be given by this. Okay, this will be my
-15:06
-new input token and then my goal is to pass this input token through my uh
-15:12
-inference pipeline and to predict the next token. All right, so let's get
-15:18
-started. Um before we get started, we need to decide a few things and
-15:24
-simultaneously I'll walk you through the code. So the class which I'm defining is
-15:30
-called roless MLA. The why we are using the word roless is because an advanced version of MLA use rotary uses rotary
-15:37
-positional encodings which we are not using here. That's why I've given the name roles. Don't be confused by this
-15:43
-name. So we have to decide the D model which is the embedding dimension of our
-15:49
-model the number of heads and then DH is the head dimension which is D model divided by number of heads. Great. Now
-15:57
-let's define a few matrices. Let's go to our figure and let's actually see what
-16:02
-are the matrices which we need to define. Uh for the sake of simplicity,
-16:07
-what I'm going to do is that I'm going to copy this entire thing and I'm going to bring it down so that we don't have
-16:13
-to go um we don't have to scroll up every single time. Okay. So let's see what all are
-16:20
-the matrices which I need. First I need WQ, right?
-16:25
-Um let me remove the yeah first I need WQ which is the
-16:32
-weight matrix corresponding to the queries the trainable weight matrix. What are the dimensions of WQ? The first
-16:39
-dimension of WQ will be given by the input embedding dimension of the model.
-16:45
-So that will just be D model. And the second dimension of WQ is the output
-16:50
-embedding dimension. And in the code we are going to choose this to be same as D
-16:56
-model itself. In this case I've chosen it to be four. But in the code we are choosing this output dimension to be the
-17:02
-same as the input dimension of the model. So I defined this trainable
-17:08
-weight matrix to be having dimensions of D model, D model. And the way I have
-17:13
-initialized this is a neural network linear layer and I put bias equal to false. That's a much more efficient way
-17:20
-to initialize it compared to NN.parameter because weight
-17:25
-initializations are much more robust when we use NN.linear. The second matrix which we
-17:31
-need to initialize is WDKV and this is the most important matrix because when we multiply my input
-17:38
-embedding with this matrix that ultimately gives me my latent matrix. What are the dimensions of WDKV? The
-17:46
-dimensions are um the input. So what is this 8 here? That's the input embedding
-17:51
-dimension and this four is my latent dimension. So WDKV has D model which is
-18:00
-the input embedding dimension and the latent dimension. Then I have to define W UK and
-18:06
-WUV. What are the dimensions of both of these? The first dimension is the latent
-18:13
-dimension for both of these and the second dimension is the output dimension of the model which is same as D
-18:20
-model. So I define W UK and W UV and then there is this WO here which is the
-18:27
-output projection which takes me from my context matrix to my logit matrix. Don't worry about this right now. We are not
-18:33
-going to be too concerned about this for the purposes of this code.
-18:39
-And then I have also defined a layer normalization. So we'll be passing the we'll be passing our uh latent vector
-18:46
-through a layer normalization layer. All right. So these are the matrices which I need to define and you
-18:52
-will see that I have defined them here also. And during inference these matrices are fully trained which means
-18:58
-they won't be updated anymore. I have defined WQ which is now D model by D
-19:03
-model 8 by 8. I have defined WDKV which is now D model multiplied by my latent
-19:09
-dimension. Then I have defined W U K which is the latent dimension multiplied by D model. I have defined W UV which is
-19:17
-the latent dimension multiplied by D model. And finally I define WO which is the output uh projection weight matrix.
-19:24
-All right, great. What we have to do next is that we have to uh define the
-19:30
-forward method. This is where all the magic happens. So let's start going through it step by step. First I have
-19:37
-defined my input. So if you see X X dot size right. So if X is my new token
-19:43
-which is coming in um the batch will be equal to 1. The context size will be
-19:49
-equal to 1 because I'm just looking at one token and the number of dimensions will be equal to 8. So the size will be
-19:55
-1a 1 8. In general this method can take input of any batch any context size and
-20:01
-any dimension. So I can even pass in this entire input sequence which has
-20:07
-which would have the dimension of if the batch is one then I have five tokens
-20:12
-here and then each token has eight dimensions. Okay that's why there are these three dimensions over here for now
-20:19
-you can imagine one token which is passing and it's 1a 1a
-20:25
-8. All right. So this is my x dot size. Then what we have to do is that remember
-20:31
-
-
 ***
+
+* 20:00
+
+
+
 
 we have to define this absorbed query matrix. So we have to define this
 20:37
@@ -616,6 +512,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -6,6 +6,12 @@
 
 * 5:00
 
+| Year | Paper|
+|---|---|
+|  Jan 2024 | [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)|
+
+
+
 
 started to get pretty crazy after that
 5:07
@@ -514,4 +520,5 @@ everyone and I look forward to starting
 this journey of building deep seek from
 15:13
 scratch with you see you
+
 

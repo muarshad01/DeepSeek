@@ -20,109 +20,10 @@
 
 * 35:00
 
-just take this 6x4 matrix and I'll multiply it with wuv. So it's 6x4 * 4x
-35:10
-8. So that's my values matrix which is 6 6 by 8 and I'm again going to divide it
-35:15
-into two parts. So half of it will go to head number one that's 6x4 and uh the remaining half will be
-35:23
-head number two which is again 6x4.
-35:28
-In the code if we inspect where this is implemented you'll see that in the code there is this value matrix right which
-35:34
-is the product of um which is the product of CKV which is
-35:39
-my updated cache multiplied with Wuv. So that's done in this step. And here just
-35:45
-the values are split into two heads. And once I have the value vectors for both the heads to get the context vector for
-35:53
-the first head, I just multiply the attention weights for the first head multiplied by the values matrix for the
-35:58
-first head. So that gives me a 1x4 vector of context vector for head number one. And for the second head, I multiply
-36:05
-the attention weights multiplied by the values matrix for the second head. That gives me 1x4 which is the context vector
-36:12
-for the second head. And then I just merge these context vectors to get my final context vector which is now a
-36:19
-1x8. The reason it's 1x8 is because remember context vectors have the dimension equal to the output embedding
-36:27
-dimension which we have just chosen to be equal to the D model which is 8. So in the code if you see once we have the
-36:34
-attention weights what we are doing here is that we are multiplying the attention weights multiplied by the value vector
-36:40
-for that specific head and then we are just appending all of these context vectors together to get my final context
-36:47
-vector. That's it. This is the entire flow of how multi head latent attention works. Once we have the combined context
-36:55
-vector for that final token, then we just do multiplication with the outputs
-37:01
-matrix etc to get my logits vector for the next token prediction. This is how
-37:06
-the flow of multi head latent attention works for the next token prediction. And if you observe carefully the only thing
-37:12
-which we are caching here is this KV cache latent KV cache whose number of dimensions which we have decided the
-37:19
-number of dimensions are decided to be equal to four. So I hope through this exercise
-37:24
-you have understood mathematically how the dimensions work out across the different heads when we do the latent
-37:31
-attention mechanism. So here is the full code for this roles MLA class. Once you
-37:36
-have understood how every single line of this work step, every single line of this work step by step, you won't find
-37:43
-it that hard. Now what we are going to do is that we are going to do three types of testing, four types rather. We
-37:50
-are going to do a speed test. We are going to do cache test for single new inference, cache test for multiple new
-37:56
-inference and then we are going to visualize the WQ, W and W matrices for
-38:01
-all the heads. So let's get started with these tests. So in the first demo what I
-38:07
-want to demonstrate is the memory requirements which are saved for the KV cache when we do a latent attention. So
-38:14
-if you take a close look at what we are actually caching we are just caching the latent KV cache which is the product of
-38:21
-my input multiplied by WDKV. So my input is projected into a latent dimension
-38:26
-space. So there are three dimensions which govern this size. The batch size, the context length and my latent
-38:33
-dimension. Right? If we have normal multi head latent attention then also we have the batch size then we have instead
-38:41
-of the latent dimension we have the model dimension u which is the number of attention heads
-38:47
-multiplied by the head dimension which is 512 in this case. Um and then we
-38:53
-have a two here which is basically we have one cache for keys and we have one cache for values. One more two here is
-39:01
-because we are assuming a floating point 16 which consists of two bytes. So this
-39:07
-one two is present here also. But when we consider the multi latent attention
-39:13
-we just have one um latent matrix whose size is now 256 because my KV latent
-39:19
-dimension is 256. So out of all of these values here I want to I want you to only focus on
-39:25
-two values. First we look at when we look at multi head multi head attention we use the D model which is equal to 512
-39:33
-but in latent attention we use the KV latent dimension which is 256 in this
-39:39
-particular demonstration which I'm showing right now. So here already we have reduction of two times then we have
-39:45
-another reduction of two times here because in the standard multiate attention we had one cache for keys and
-39:51
-one cache for values. That's why we had two caches. But here there will only be one cache. So there will be a total
-39:58
-reduction of four times. Um and if you print this out, you'll see that the
-40:04
-standard let's say takes 80 kilobytes or 80 KB and the latent KV cache. So
-40:11
-actually I think I'll have to run the first code also. So I've run the first code right now where the roles MLA class
-40:17
-
-
-
-
 ***
+
+* 40:00
+
 
 is uh defined and then I've run my uh second code over here. So the main thing which
 40:23
@@ -259,6 +160,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

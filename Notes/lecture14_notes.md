@@ -1,3 +1,6 @@
+#### Integer and Binary Positional Encodings (PE)
+
+
 my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
 I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
@@ -709,4 +712,5 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 

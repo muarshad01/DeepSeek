@@ -4,7 +4,6 @@
 
 ***
 
-* 5:00
 
 | Year | Paper|
 |---|---|
@@ -18,3 +17,4 @@
 | Jan 2025 | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
 
 ***
+

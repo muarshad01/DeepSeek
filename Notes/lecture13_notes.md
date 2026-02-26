@@ -137,6 +137,10 @@ new token comes in what actually happens in terms of matrices. I truly believe t
 
 ***
 
+* 45:00
+
+
+
 concept. We don't just need to see the code. We need to write the matrices down on a piece of paper and work out
 45:56
 everything by hand from scratch. So the whole goal of today's lecture was to go
@@ -160,6 +164,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

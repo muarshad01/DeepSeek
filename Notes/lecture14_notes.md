@@ -1,9 +1,9 @@
 #### Integer and Binary Positional Encodings (PE)
 
-1. Integer Positional Encodings (IPE)
-2. Binary Positional Encodings (BPRE)
-3. Sinusoidal Positional Encodings (SinPE)
-3. Rotary Positional Encodings (RoPE)
+1. Integer Positional Encoding (IPE)
+2. Binary Positional Encoding (BRE)
+3. Sinusoidal Positional Encoding (SinPE)
+3. Rotary Positional Encoding (RoPE)
 
 ***
 
@@ -21,118 +21,21 @@ The dog chased another dog.
 
 * [Huggingface example](https://huggingface.co/blog/designing-positional-encoding)
 
-***
-
-* 10:00
-
 ```
 The dog chased the ball. It couldn't catch it.
 ```
 
-***
-
-* 15:00
-
-***
-
 * 20:00
 
-this etc. So every position here will be represented with a eight dimensional
-20:12
-vector. Now I want you to observe some very key things over here which will play a very very important role when we
-20:19
-are looking at sinosidal position embeddings and eventually rotary
-20:24
-positional encodings. One key thing to realize here is that there are two things right. The first is the position
-20:30
-itself. Here the position is 64 65 66 67
-20:36
-and within each position I have actually index right. So within each position I have index number
-20:44
-one, index number two, index number three, index number four, index number
-20:49
-five, index number six, index number seven and index number eight. So whenever I'm going to refer to index or
-20:56
-indexes in this lecture and in subsequent lectures of positional encodings, it means these digits right.
-21:03
-So this index is called as the least significant bit LSB and this first index is called as
-21:11
-the most significant bit MSB. And I have also mentioned that this
-21:17
-is LSB and this is MSB. And I also mentioned that over here if you look at 64 we have index 1 2 3 4 5 6 7 8. Index
-21:27
-1 is called the LSB. Least significant bit. Index 8 is called as the MSB. Now I
-21:33
-want you to notice a couple of observations over here. Take a look at the lowest index over here which is this
-21:39
-index number index number one. And let's see how it oscillates. Right? We'll
-21:44
-start from the top. We'll start from 64 and take a look at this lowest index. You'll see it goes from 0 to 1, 1 to 0,
-21:51
-0 to 1, 1 1 to 0, 0 to 1, 1 1 to 0, 0 to 1, 1 1 to 0, which means that it's
-21:56
-oscillating the fastest. Right? Now let's take a look at the second index here. So it's the same for first two
-22:04
-values 0 0 then it changes 1 one. So its oscillation frequency is slightly
-22:10
-lesser, right? After every two values it's changing. Then let's look at the third
-22:17
-year which is shown by the yellow. If you take a look at the third one for the
-22:23
-first three values or for the first four it's the same. So for the first four it's the same then for the next four
-22:29
-it's the same then for the next four it's the same etc. So what I'm trying to show here is that lower indexes
-22:36
-oscillate fast between positions. I you should understand what this sentence mean. What does this mean?
-22:42
-Lower indexes oscillate fast with respect to positions. What this means is that lower indexes means let's say we
-22:49
-look at index number zero. Index number zero oscillates the fastest, right? It quickly oscillates as I move from
-22:57
-different positions. Whereas the if you move to higher indexes, they don't oscillate too much at all. In fact, take
-23:03
-a look at the seventh index. The seventh index is is same across all. Right? So it does not oscillate at
-23:10
-all. Take a look at the third index. The third index oscillates after every four positions. The third index oscillates
-23:17
-after every four positions. But the first index oscillates after every position. So it oscillates the fastest.
-23:23
-Why am I telling you this? Because later we are going to see that um the lower indexes oscillate the fastest. Right? So
-23:30
-they capture fast changes among different among positions and the higher
-23:35
-indexes oscillate very slow. So for the higher indices they do not
-23:41
-capture fast changes uh across the different positions. This is the same
-23:46
-concept of indexes and positions which ultimately led to sinosoidal position embeddings. Right? So there are few
-23:53
-observations which I have made here. The first index oscillates between let me show this with a different color. The
-24:00
-first index oscillates between zero and one with every new position. As we can see over here, the first index
-24:07
-oscillates between 0 and one. Um, the first index oscillates between 0 and one
-24:13
-for every new position. That's done. That's I've shown this with the
-24:18
-red color over here. Okay. The second index oscillates between 0 and one with every two positions which is shown by
-24:25
-this purple color here. It oscillates after every two positions. This is also done.
-24:32
-The third index oscillates between zero and one after every four positions. So this third let me change or let me uh
-24:40
-clean some color over here. So third index oscillates between 0 and one after every four positions.
-24:47
-Right? So this is also done. Similarly in the eth index oscillates between 0
-24:53
-and 1 with every 128 positions. That's why it does not oscillate from 64 to 75.
-24:58
-This eighth index over here. This seventh index oscillates between 0 and one every 64 position. So now let us
-25:05
-write the oscillation frequency for all of these positions. Right? The first index oscillates
-25:12
-between 0 and one every one position. Second index every two position. Third index every four. Fourth index every 8.
-25:20
+#### Binary Positional Encoding (BPE)
+
+* Lower indices oscillate fast between positions. Higher indices oscillate slow between posoitons.
+
+***
+
+* 25:00
+
+
 Fifth index every 16. Sixth index every 32. Seventh index every 64. And the
 25:26
 eighth index after every 128 positions. So that's why you'll see that since we are only showing 11 positions over here
@@ -350,6 +253,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

@@ -16,87 +16,10 @@
 
 * 30:00
 
+***
 
-updated cache which we have already calculated. So to get the attention scores what we do is that we take the
-30:52
-for head number for the first head we take this absorbed query vector and we multiply it with the cache
-30:59
-transpose. So remember we calculated the new cache right. So to get the attention
-31:06
-scores we have to multiply the absorbed query vector with the new cache transpose. So this is for head number
-31:12
-one and the attention scores for head number one is a 1x 6 vector. Why is it 1x 6? Because the absorbed query is 1x4
-31:20
-that will be multiplied with the cash transpose which is 4x 6 because cache is
-31:26
-originally the new cache is 6x4. So the cash transpose will be 4x 6. So 1x4 * 4x
-31:34
-6 gives me the attention scores for head number one that is 1x 6. Similarly for
-31:39
-head number two I multiply the absorbed query vector multiplied by the new cache
-31:44
-transpose that gives me the attention scores for head number two which is 1x 6. Let's do a sanity check to consider
-31:51
-why the attention score has six values. The reason the attention score has six values is remember when I append the new
-31:58
-token. So the first five tokens are the next day is bright and then I have my
-32:07
-new token. Right? Essentially in the attention scores what we are doing is that we are taking the new token and we
-32:13
-are computing its attention score with itself and all the other tokens. That's
-32:18
-why there will be six values because there are six tokens right now. So the attention scores for
-32:25
-this new token has six values for head for the first head and for the second head.
-32:30
-Let's see how that is implemented in the code. So in the code what we are going to do is that in this part this is the
-32:36
-part where the input is split into two halves. Right? This is the part where I take my input and I split it into two
-32:43
-heads. Head number one and head number two. Then in this part what I'm doing is
-32:48
-that first I multiply the uh the absorbed which is WQ * Wrpose
-32:55
-with the first half. So this PMP are the absorbed query vectors which I get for my all the headers. So this has been
-33:03
-mentioned over here. So this PMP is this which are the absorbed query vectors
-33:08
-which I get after multiplying the input for that head multiplied by the absorbed values for that head. Um and then once I
-33:16
-get these tmp values to get the attention scores all I have to do is that I have to multiply these uh these
-33:23
-values multiplied with the new cache transpose. Right? So here what is done is that I get these values and I
-33:30
-multiply it with the new cache transpose. So this is the absorbed query
-33:35
-vector and I multiply it with the new cache transpose. So this gives me my attention scores values for head number
-33:42
-one and for head number two. Okay, once I have the attention scores for head one
-33:47
-and for head two, what I do is that I will do the uh scaling by the square
-33:53
-root of the keys dimension. I will do the scaling by the square root of the keys dimension and I'll
-34:00
-um apply soft max to get the attention weights. So I get the attention weights for head number for the first head and I
-34:08
-get the attention weights for the second head. This step is shown in the code in
-34:13
-this part. So I take my attention scores and I have my head dimension. I divide
-34:19
-by the square root of the head dimension. Um then what I do is that I just do a soft max here. Okay, I get my
-34:26
-attention weights until this point. Now once we get the attention weights,
-34:31
-we have to find the context vector. Right? For that we need the values matrix. To get the values matrix, we
-34:37
-just have to take my updated cache value and multiply it with WV. Why? Because if
-34:42
-you see this to get the values matrix we just have to multiply my updated cache value with w and then I'll get my values
-34:50
-matrix. This is exactly what we do. We have already computed this updated cache right that's a 6x4 matrix which has
-34:56
-already been computed over here um my updated cache which is 6x4. So I
-35:02
+* 35:00
+
 just take this 6x4 matrix and I'll multiply it with wuv. So it's 6x4 * 4x
 35:10
 8. So that's my values matrix which is 6 6 by 8 and I'm again going to divide it
@@ -322,6 +245,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

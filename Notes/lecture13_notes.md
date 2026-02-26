@@ -6,7 +6,7 @@
 
 * 20:00
 
-* [1, s, 8] = [1, 1, 8]
+* [B, S, D] = [1, s, 8] = [1, 1, 8]
 
 
 we have to define this absorbed query matrix. So we have to define this
@@ -512,6 +512,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

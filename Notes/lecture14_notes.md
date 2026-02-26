@@ -11,7 +11,7 @@
 
 #### Why do we need positional embedding or positional encoding?
 * The main reason is that the position at which a word comes in a sentence is very important to the context of the sentence.
-* __Input embedding__ = Token embedding + Positional embedding
+* __Input embedding__ = Token embedding (Capture Semantic Information) + Positional embedding
 
 ```
 The dog chased another dog.
@@ -33,93 +33,10 @@ The dog chased the ball. It couldn't catch it.
 
 * 15:00
 
+***
 
-zero which means that these values are usually small right on the other hand if
-15:36
-I have a context length of 1024 let's say I'll have these positional embedding
-15:42
-values which are very large. So if you add a very very small value to a huge
-15:47
-value, what will happen? The effect of this smaller value will get completely vanished and it will be mostly dominated
-15:54
-with this positional information. That's not good at all. Token embeddings play a very important role. Token embeddings
-16:01
-capture the semantic meaning of words and I don't want that information to be diluted. I don't want that information
-16:08
-to be lost. Um so if the integer positional encoding
-16:15
-values can be very large right so we add a very high positional values to the
-16:21
-very small token embedding values. What this does is that this heavily pollutes
-16:26
-the semantic information which is captured by token embeddings and uh that defeats the whole
-16:33
-purpose of token embeddings because we capture the semantic information which is then passed to the transformers.
-16:38
-Right? What does capturing semantic information means? It means that words which are similar such as let's say
-16:47
-kitten words which are similar will lie together in vector space whereas words
-16:52
-which are dissimilar like if there is a a plane here that will lie somewhat
-16:59
-different from these other vectors. So token embeddings encode semantics. So now if you take these token embedding
-17:05
-vectors and you add a positional embedding vector suddenly which is a huge value which is a huge value these
-17:13
-token embedding vectors will get their information will get diluted
-17:18
-um they won't play such an important role which is not good for us we want this information also to be retained so
-17:25
-ideally what we want along with the fact that I want to tell the transformer that
-17:31
-this dog is different than this dog so They should have different values, different positional values. I also want
-17:37
-to make sure that the positional encoding values need to be constrained and they should not be very
-17:42
-high. So now think about this right. What can you do to make sure that the positional encoding values are
-17:48
-constrained hopefully between zero and one let's say. So I'll use the same
-17:53
-logic. Let's say I have these positions 200 2012 2013. How can I represent them in a
-18:00
-vector so that every value of the vector is constrained hopefully less than one? How
-18:07
-will I do this? Again, think about this for a moment. I'm going to pause here for a while. So, this is where binary
-18:14
-position encoding actually comes into the picture. The main idea is that
-18:20
-integers can be unbounded, right? They can take very large values. So if I want
-18:26
-these values to be constrained, why don't I represent this represent every value by binary numbers. What that means
-18:34
-is that let's say instead of 200, so the position value for the first dog is 200,
-18:40
-right? What if I represent it as a binary representation whose size is equal to 8, which is the exact same size
-18:46
-as the token embedding or the token encoding vector. So now you see that if
-18:52
-I'm going to represent 200 with the binary encoding value then suddenly the
-18:57
-representation becomes 1 1 0 0 1 0 0 0 right and then each value here is
-19:04
-constrained to be less than one. It's either 0 or 1. So it's the order of magnitude now of
-19:11
-the token embedding vectors. The order of magnitude of the token embedding vector and the position embedding
-19:18
-vectors are around similar. That's great for us. This is exactly what we wanted. Right? So what we'll do here is that if
-19:26
-we have 200, 2012, 203 etc. all of them will be
-19:32
-converted into binary representations. So let's see what that actually means. If you have let's say
-19:40
-you are looking at an input sequence whose positions go from number 64 to 65 to 75. The way each of these tokens
-19:48
-would be represented. So the way their positional embedding vectors would be represented with will be like this. If
-19:54
-you start if you look at 64 it will be represented like this. If you look at 65
-19:59
-it will be like this. Let me use a different color. If you if you see 66 it will be like
-20:06
+* 20:00
+
 this etc. So every position here will be represented with a eight dimensional
 20:12
 vector. Now I want you to observe some very key things over here which will play a very very important role when we
@@ -433,6 +350,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

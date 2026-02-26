@@ -4,6 +4,9 @@
 
 ***
 
+* 5:00
+
+
 started to get pretty crazy after that
 5:07
 so here was a LinkedIn post which was
@@ -511,3 +514,4 @@ everyone and I look forward to starting
 this journey of building deep seek from
 15:13
 scratch with you see you
+

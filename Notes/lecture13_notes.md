@@ -118,6 +118,12 @@ standard let's say takes 80 kilobytes or 80 KB and the latent KV cache. So
 40:11
 actually I think I'll have to run the first code also. So I've run the first code right now where the roles MLA class
 40:17
+
+
+
+
+***
+
 is uh defined and then I've run my uh second code over here. So the main thing which
 40:23
 I want to show you is the KV cache reduction which we get of about four times here. So intuitively um even if
@@ -222,6 +228,14 @@ showed you two things. First I wanted to show you mathematically how the when a
 45:44
 new token comes in what actually happens in terms of matrices. I truly believe that to completely understand the
 45:50
+
+
+
+
+
+
+***
+
 concept. We don't just need to see the code. We need to write the matrices down on a piece of paper and work out
 45:56
 everything by hand from scratch. So the whole goal of today's lecture was to go
@@ -245,6 +259,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

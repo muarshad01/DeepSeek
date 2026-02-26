@@ -72,7 +72,6 @@
 | GPT-4 (2023)       || 1 Trillion | |
 | GPT-4.5            || 5-10 Trillion | |
 | GPT-5 (2025)       ||        | |
-| DeepSeek V2 (2024)    ||        |[DeepSeek V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)|
 
 ***
 

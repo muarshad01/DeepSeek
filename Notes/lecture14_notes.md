@@ -35,111 +35,10 @@ The dog chased the ball. It couldn't catch it.
 
 * 25:00
 
+***
 
-Fifth index every 16. Sixth index every 32. Seventh index every 64. And the
-25:26
-eighth index after every 128 positions. So that's why you'll see that since we are only showing 11 positions over here
-25:34
-index these indexes won't oscillate these indexes won't oscillate
-25:40
-in the example which I've 64 to 75 which I've shown because they oscillate every
-25:46
-16 32 64 and 128 positions.
-25:51
-So if you plot the oscillation frequency versus the index position, you'll see that the index position one has the
-25:56
-highest frequency and then the oscillation frequency actually goes down. Right? So the lower indexes
-26:02
-actually capture immediate changes across the different position
-26:08
-values. Whereas the higher indexes capture small moving changes across the
-26:14
-different position values. Which means that position number one and position number eight. Now uh so the higher index
-26:21
-position will not change unless we jump 128 positions. So if you have a sentence and
-26:29
-nearby tokens are or there are nearby tokens which are the same um which have
-26:36
-the same word but they are spaced out by a factor of three or four which means they are close by. their differences are
-26:43
-mostly captured by the um lower indexes because the lower
-26:50
-indexes capture faster oscillations. So one more graph which is
-26:56
-extremely important which I want to show you now is this particular graph right um and let's try to understand this
-27:03
-graph in detail. So you'll see that on the x-axis I have shown the position um
-27:08
-and that can be any position here 64 65 66 etc. And for every position now we
-27:15
-have eight indexes right index one index 2 index 3 4 5 6 7 8. So the way to
-27:21
-interpret this graph is look at a position and every position has eight different indexes. Now 1 2 3 4 5 6 7 8
-27:28
-which are the values between 0 and 1. What this particular plot shows is that how the different index values
-27:34
-oscillate. So you see the first index oscillates very very fast right after every after every position change it
-27:42
-oscillates. Here we saw this directly even with one position change it
-27:47
-oscillates. So that's why the frequency of oscillation of index one is the highest. The frequency of oscillation of
-27:54
-index 2 is slightly lower. It oscillates after every two positions. Index three
-27:59
-oscillates after every four positions. Index four oscillates after every eight
-28:05
-positions. Index number five oscillates after every 16
-28:10
-positions. Index number six oscillates after every 32 positions. Index number seven oscillates
-28:18
-after every 64 positions and index number eight oscillates after every 128
-28:23
-positions. I hope you have understood this graph because this is the same graph which
-28:28
-we'll be seeing in the cyanosidal positional embeddings as well. Okay. So what we have shown in this graph is that
-28:35
-we have considered two factors the position of the token and the index number. These two factors will later
-28:41
-show up in cyanosidal positional encodings and rotary positional encodings as well.
-28:47
-So higher the main conclusion from these so far is that the higher indices or I
-28:52
-should say the lower indices. So this should be lower indexes over
-28:58
-here change more frequently suggesting fine grained encoding which means that fast changes in nearby positions and the
-29:06
-lower index and the higher indexes. So here I should say higher indices higher indexes change less frequency meaning
-29:13
-less frequently meaning course encoding meaning course encoding uh and that means that they don't
-29:21
-capture minute changes in positional encoding they capture broad level changes I'll explain the intuitive
-29:27
-meaning of this when we come to sinosidal encoding in the next lecture but for now just remember that lower
-29:33
-indexes uh lower indexes change more frequently and let Let me actually just change this
-29:39
-in front of you so that uh we are all able to see
-29:45
-this.
-29:51
-Oops. So what I want to do over here is that I want
-29:57
-to change this to lower because this should be lower indexes change more
-30:03
-frequently and this should be higher. which would be higher indexes change less frequently and then I'll again add
-30:10
-a box around this. All right. Now it seems to be correct. So it seems that with integer
-30:16
-positional embedding we have solved the issue of the uh with binary positional
-30:22
-encoding we have solved the issue with integer positional encoding. Right? We have values which are now bounded. They
-30:27
-are either zero or one. And of course because every position has different
-30:32
-values, we take care of the first problem which we thought about that different positions should have different values that needs to be added
-30:39
-to the token embedding vector. So what's the main problem with integer encoding? Can you try to think about this for a
-30:46
+* 30: 00
+  
 moment? You can also pause this video here for a while. One of the main problems of
 30:51
 integer positional encoding is this graph. You see the issue with this graph
@@ -253,6 +152,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

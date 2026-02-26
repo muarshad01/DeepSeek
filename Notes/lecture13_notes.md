@@ -8,97 +8,11 @@
 
 * [B, S, D] = [1, s, 8] = [1, 1, 8]
 
+***
 
-we have to define this absorbed query matrix. So we have to define this
-20:37
-absorbed query matrix which is WQ multiplied by W UK
-20:43
-transpose because I'm going to ultimately use this product directly. So I have to define this matrix now and
-20:50
-that's what we are going to do before we actually compute the latent KV cache.
-20:55
-What we are going to do is that we are going to define the absorbed query matrix. Um the absorbed query matrix
-21:01
-will be a product of WQ multiplied by W UK transpose. So WQ is 8 by8 and W UK
-21:09
-transpose will be 8x4. So the resultant will be an 8x4 matrix. So you'll see in
-21:14
-the code what we are going to do is that first we are going to multiply WQ * W
-21:21
-Uranspose. So the way this torch.matmo works with the weights of these neural
-21:27
-networks are that when we write torch.mmet it actually multiplies wq with w
-21:34
-transpose. So this line of code is performing the same step as what I've mentioned here. Wq is multiplied with wk
-21:41
-transpose and then I get my absorbed query ve query matrix. Okay.
-21:48
-Um now what happens after this point is that which we have not seen in
-21:54
-yesterday's lecture is that there are multiple attention heads which are there right. So the absorbed query matrix
-22:00
-needs to be split among the different heads. So the first attention head will have access to half of
-22:05
-this. This will be head one and the second attention head will
-22:11
-have access to half of this which is going to be head number two. So we are going to group this by the number of
-22:16
-heads. So the dimensions here were 8x 4. Now the dimensions are going to be 2a 4a
-22:23
-4. Why? Because this is going to be my head number one and this is going to be my head
-22:29
-number two. Um so actually let's call this head
-22:35
-number zero and let's call this head number one because there are two heads. So the first head will have 4x4. The
-22:41
-second head will be 4x4. That's why this will be 2a 4a 4. Right? When we look at
-22:47
-each head, the number of rows um are equal to the head dimension and the number of
-22:55
-columns here are equal to the latent dimension. All right, great. Now what we can do is that
-23:03
-let's see first of all whether this the same thing which is being implemented in the code. So in the code what we are
-23:09
-doing here is that absorbed dot view n heads which means here we are telling
-23:16
-that we have to use the absorbed matrix and we have to group it with the number of
-23:21
-heads. So the dimensions of the new matrix will be batch size number of
-23:26
-heads um actually batch size won't be here it will directly start with number of heads
-23:33
-head dimension and the latent dimension. So this will be number of heads, head dimension and the latent dimension. The
-23:39
-way to visualize this is that now we have one matrix for head the first head and we have another matrix for the
-23:46
-second for the absorbed query. Next what we have to do is that
-23:51
-we have to uh we have to first find our original latent cache. So this is an
-23:59
-important step. Remember what I mentioned here the X into WDKV will be
-24:04
-cached right and previously there were five tokens which have which I've entered. So we will have a cache which
-24:10
-is corresponding to X which is 5 by 8 multiplied by WBKV which is 8x4. So our
-24:17
-previous cache will be 5x4. The first row corresponds to the the second row
-24:22
-corresponds to next day is Nbrite.
-24:27
-This is my previous latent KV cache. The dimensions here are four because my KV dimension is four and I have five tokens
-24:34
-which are being cached whose values are being cached. Right? So this is my previously computed KV cache. And what
-24:41
-I'll do now is that I have this new token which has entered. Right? I have this new token which has entered. I will
-24:48
-compute the latent KV cache for this new token. So the way I'll do that is that
-24:54
-I'll multiply this new token embedding with WDKV and this new token has a size
-24:59
-1x 8 because it's an 8 dimensional vector and WDKV is 8x4. So once I do
-25:04
-this multiplication I'll get my new latent KV cache vector that's 1x4 I'll
-25:11
+* 25:00
+
+
 apply layer normalization to it. So that's my new latent KV vector. This new
 25:18
 vector I'll append to the previous cache. So this new vector will be appended to the
@@ -512,6 +426,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

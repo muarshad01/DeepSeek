@@ -109,6 +109,10 @@ you can imagine one token which is passing and it's 1a 1a
 20:25
 8. All right. So this is my x dot size. Then what we have to do is that remember
 20:31
+
+
+***
+
 we have to define this absorbed query matrix. So we have to define this
 20:37
 absorbed query matrix which is WQ multiplied by W UK
@@ -209,6 +213,12 @@ Take a look at the dimensions over here. Now this will be 6x4. Why? Because I ha
 25:38
 and my new token which is here. So this is 6x4. Now that's how the cache
 25:44
+
+
+
+
+***
+
 actually goes on increasing whenever new infer token is appended right and the reason I have four dimensions over here
 25:51
 or four columns is because the latent dimension is equal to four. So remember
@@ -606,6 +616,7 @@ next lectures we'll be looking at rotary positional encoding. Then we'll modify 
 rotary positional encoding. And then after that we'll look at mixture of experts multi-token prediction etc. So
 47:02
 lots of cool things are going to come. Thanks a lot everyone and I look forward to seeing you in the next lecture.
+
 
 
 

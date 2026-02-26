@@ -7,113 +7,23 @@
 
 ***
 
-today's lecture. In the next lecture we are going to look at sinosidal positional embeddings.
-5:22
-These sinosidal positional embeddings were introduced in the attention
-5:27
-um attention is all you need paper. So we are going to look at these
-5:33
-these uh embeddings or these encodings next. If you scroll down in the paper, you'll see that these are the sinosidal
-5:40
-positional embeddings. And then in the lecture after that, we are finally going to look at rotary positional
-5:47
-embeddings which will help us understand how this rotary positional embeddings are mixed with latent attention. The
-5:54
-reason I want to go through this sequential procedure is again I want you to know every single thing from scratch.
-6:00
-So if we directly start with rotary positional embeddings, some understanding, some concepts will be
-6:06
-lost. I want to take you through how these advancements were actually discovered. So I'll go from step number
-6:12
-one in today's lecture to step number two and then to step number three. All right. So let's get started
-6:19
-with today's lecture in which we will cover these three things. Introduction to positional embeddings, integer
-6:24
-positional embeddings and binary positional embeddings. All right. So the first
-6:29
-thing is what are positional embeddings and why do we need positional embedding
-6:35
-or positional encoding in the first place. The main reason is that the position at which a word comes in a
-6:43
-sentence is very important to the context of the sentence. Let me clarify this. So if
-6:50
-there is a sentence called the dog chased another dog. Okay. And there are
-6:55
-two dogs here. Right? Let's say I do not consider positional embedding or
-7:01
-positional encoding at all. What does it mean I do not consider positional embedding? Well, it means that usually
-7:07
-in the input block of the transformer architecture, let me mark this with a different color. In this input block of
-7:14
-a transformer architecture, when a given input text comes in, it's first tokenized. It's converted into token
-7:20
-embeddings. we add positional embeddings to the token embeddings and that leads to something called as the input
-7:26
-embeddings which is then passed to the transformer block. So let's say we don't have this positional embedding layer at
-7:33
-all and we just have the token embeddings and let's say if I pass in
-7:38
-now this sentence the dog chased another dog I have passed in through the input block
-7:45
-what will happen is that both of these dogs will get converted into token embeddings right so the token embeddings
-7:52
-are same for these two because they are the same words so the token embedding for the first dog is this the token
-7:58
-embedding vector for the second block is this. Both of these are completely identical vectors. And now both of these vectors
-8:05
-will pass just like that to the transformer block without adding any kind of a positional embedding. This
-8:11
-means that for these two tokens, the input to the transformer block is
-8:17
-exactly the same. Which further means that when we come out of the attention
-8:22
-block and when we get the context vector. So we get the context vector for the first dog and we get the context
-8:29
-vector for the second dog. Dog number two and this is dog number one. These
-8:35
-two context vectors will be exactly the same because now the input to the transformer block for these two dogs is
-8:42
-exactly the same. So they'll go through the exact same operations in the transformer block and the context vector
-8:48
-for these two dogs will be exactly the same. And this is not what I wanted at
-8:53
-all because I wanted my transformer block to actually capture the fact that these two are different
-8:59
-dogs. I don't want my transformer to think that these are the same dogs. I want the context vector for this dog and
-9:06
-this dog to be completely different. Right? That's why position is
-9:12
-very important. If we don't use positional encoding, the attention mechanism output for both these dogs
-9:20
-will be exactly the same. That's not good. After coming out of the attention
-9:25
-block, we want the model to understand the context of the sentence. We want the model to understand that the first dog
-9:33
-who is chasing is different from the second dog who is being chased. Right?
-9:38
-So before we enter the transformer block, we want to create some distinction between this dog and this
-9:45
-dog. And the way we do that is by adding another vector to the token embedding vector and that's this positional
-9:52
-embedding vector right over here. So there is a very nice tutorial on hugging
-9:58
-face. What they do is that they take the same example the dog chased another dog and they pass it to through a
-10:04
-pre-trained llama 3.2 architecture. What they do after passing this um this
-10:10
-sentence through this architecture is that they let this sentence go through the attention block without positional
-10:16
-embedding. So they only take the token embedding. They don't add positional embeddings and then they compute the
-10:21
-output vector or the context vector of both of these dog one and dog two and then they print is it identical and they
-10:28
-get that the context vector for both of these dogs is identical. And here they conclude
-10:34
+* 5:00
 
+#### Why do we need positional embedding or positional encoding?
+* The main reason is that the position at which a word comes in a sentence is very important to the context of the sentence.
+* __Input embedding__ = Token embedding + Positional embedding
 
+```
+The dog chased another dog.
+```
+
+* After coming out of the attention block, we want the model to understand the context of the sentence. We want the model to understand that the first dog who is chasing is different from the second dog who is being chased. Right?
+
+* [Huggingface example](https://huggingface.co/blog/designing-positional-encoding)
 
 ***
 
+* 10:00
 
 
 that without any positional information, the output of a self attention operation
@@ -611,6 +521,7 @@ sinosidal and then when we learn sinosoidal and when we truly understand it that
 a hint to go to rotary positional encoding. which we are going to see in tomorrow's lecture. Thanks everyone and
 36:37
 I look forward to seeing you in the next lecture.
+
 
 
 

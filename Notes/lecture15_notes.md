@@ -117,6 +117,13 @@ two. Y1 is the positional encoding value at position 2 and x1 is cos of theta.
 29:57
 Right? So that will be the positional encoding value at position number three. That's what I've shown in this plot. Y1
 30:04
+
+
+***
+
+
+
+  
 corresponds to sin of theta. So it's at positional encoding at position 2. And
 30:11
 x1 corresponds to cos theta. So it's positional encoding for a position or i equal to 3 for index
@@ -209,6 +216,11 @@ are rotations of each other, it satisfies this property that there is now a rela
 34:58
 the encoding vector for one position to find the position encoding for another position, we just rotate the initial
 35:05
+
+
+
+***
+
 vector. That's beautiful, right? Instead of just adding or subtracting, we rotate
 35:11
 to get the new position encoding vector. For a new position, we rotate from an initial position. That's where the
@@ -426,6 +438,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

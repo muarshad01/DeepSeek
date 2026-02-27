@@ -50,7 +50,7 @@ $$
 * One major issue is that we add these encodings directly to token embeddings. This can __pollute the semantic information__ carried by token embeddings.
 
 
-* can we instead augment my query and the key vectors itself with positional embeddings?
+* Can we instead augment my query and the key vectors itself with positional embeddings?
 
 ***
 
@@ -61,5 +61,3 @@ $$
 * The main idea is to take Query and Key vectors, and to apply the sine and cosine  positional encoding to these vectors.
 
 ***
-
-

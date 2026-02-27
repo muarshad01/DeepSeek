@@ -46,19 +46,9 @@ $$
 
 * 35:00
 
-vector. That's beautiful, right? Instead of just adding or subtracting, we rotate
-35:11
-to get the new position encoding vector. For a new position, we rotate from an initial position. That's where the
-35:17
-rotation comes into the picture and this is the idea which we are going to expand
-35:22
-later when we learn about rotary positional encodings. So the reason we encode
-35:28
-alternate indexes by s and cosine is that to rotate a vector we need both s
-35:34
-and cosine terms otherwise rotation will not be possible. The s and cosine in the
-35:40
-formula ensure that relative positional encodings are rotations of each other.
+* Relative positional encodings are just rotations of each other.
+
+
 35:45
 Okay. And that makes sure that there is a relation between different positions which the transformer can later
 35:52
@@ -263,6 +253,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

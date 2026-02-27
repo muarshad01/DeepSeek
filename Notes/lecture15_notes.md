@@ -17,8 +17,8 @@ $$
 $$
 
 * (pos, index)
-  * Event index = 2i
-  * Odd index = 2i+1
+  * Event index = $$2i$$
+  * Odd index = $$2i+1$$
 
 
 the values are sign of position divided by 10,000 to 2 I divided by the model
@@ -688,5 +688,6 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 

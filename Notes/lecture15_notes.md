@@ -19,10 +19,10 @@ $$
 * 15:00
 
 #### EXAMPLE GPT-2
-* Context size = 1,024
-    * The range of "pos" variable is (1,1024)
+* Context size = 1024
+    * The range of "pos" variable is [1, 1024]
 * Embedding dimentions = $$d_{model}$$ = 768
-    * The range of "i" or index variable is (1,768)
+    * The range of "i" or index variable is [1, 768]
 
 ***
 
@@ -534,6 +534,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

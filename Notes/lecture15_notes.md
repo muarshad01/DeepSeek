@@ -42,102 +42,6 @@ $$
 
 * 30:00
 
-  
-corresponds to sin of theta. So it's at positional encoding at position 2. And
-30:11
-x1 corresponds to cos theta. So it's positional encoding for a position or i equal to 3 for index
-30:19
-equal to two for index equal to 3 and here we have index equal to two for y1
-30:25
-that's what's mentioned here y1 represents the sinosidal positional encoding for a given position at index 2
-30:31
-at index 2 and x1 represents the sinosidal positional encoding for a given position p at index number three.
-30:39
-Okay. Now let me give you a puzzle. What if I want to find the
-30:46
-um what if I want to find the position encodings for a position P
-30:52
-+ K. So currently I'm at a certain position P right which also I'm calling POS. So let's say I'm at a position P +
-31:01
-K. Okay. How can I find the values the sinosidal positional
-31:06
-encoding values for I= 2 and for I = 3. So I know this Y1 and X1 for my given
-31:13
-position. But what if for position P + K? How can I find I = 2 and I= 3. I'm
-31:19
-only looking at these indexes. So let's say we want to find
-31:24
-the cinosidal positional encoding values for a position shifted by K. So it turns
-31:30
-out that you can simply find these values by just rotating my initial vector. So this was my initial vector
-31:36
-v_sub1. Correct? Let's say I rotate that by a factor of
-31:41
-theta_1. Let's say I rotate that by a factor of theta_1 where theta_1 is now
-31:46
-omega * k. Right? So if you do theta + theta 1, my theta + theta1 will now
-31:53
-become omega * p + k. Right? Um so this
-31:59
-is theta + theta 1. So what will be sin of um theta + theta 1? It will be sin of p
-32:08
-+ k divided by 10,000 to 2 by d and cos
-32:15
-of p + k / 10,000 to 2 + 1 / d. And if
-32:21
-my i is again equal to 1, this will just be two and this will be
-32:27
-three. So what this means now my y2 corresponds to this value, right? My y2
-32:34
-is now sin of my y2 is now sin of theta +
-32:40
-theta1. My y2 is now sin of theta + theta1. And my x2 is cos of theta +
-32:47
-theta1. So my x2 is cos of theta + theta 1. and my y2 is sin of theta + theta
-32:55
-1. So to find the values for index = 1
-33:01
-or for index= 2 and 3, all we have to do is rotate the given vector v1 by an
-33:06
-angle of theta 1 equal to omega k where k is the amount of positions which I need to shift
-33:12
-by. And then y2 represents the positional embedding vector of position p + k at index number two. and x2
-33:20
-represents the positional encoding vector of position p + k at index number three. So you see earlier the in the
-33:28
-first vector y1 represented the uh positional embedding vector at index 2
-33:34
-x1 represented at index 3. But for the position P. Now if you want to shift the position by K, all you have to do is you
-33:41
-have to rotate my vector by an angle equal to omega K where omega is given by
-33:47
-this and I will be equal to 1. And so in my given vector I just take the X component of my new rotated vector that
-33:54
-will be the positional encoding vector of the new position at index 3. and my y component of the new rotated vector will
-34:01
-be the positional encoding vector of position p + k at index equal to
-34:07
-2. So what this means is that v_sub_1 and v_sub_2 are just rotations of each other. Which means that if we know the
-34:14
-positional encoding value for a given position, if we know the positional encoding value for a given position, to
-34:21
-find the positional encoding value for a new position, all we have to do is rotate my vector.
-34:27
-This means that relative position encodings are just rotations of each other. Now do you see why we have sine
-34:33
-and cos? We have sine and cos because the rotations will become possible. Without s and cos rotations will not
-34:39
-come into the picture. The cosine is there because that corresponds to the x coordinate. The sign is there because
-34:46
-that corresponds to the y-coordinate. And because positional encodings here
-34:51
-are rotations of each other, it satisfies this property that there is now a relation between encoded positions. Which means that if we have
-34:58
-the encoding vector for one position to find the position encoding for another position, we just rotate the initial
-35:05
-
-
-
 ***
 
 * 35:00
@@ -359,6 +263,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

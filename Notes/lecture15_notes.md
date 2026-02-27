@@ -97,6 +97,14 @@ indexes are oscillating. It's almost it's extremely quick, right? And the reason
 19:57
 will oscillate after every position. After every one position, it will immediately oscillate. That's why you
 20:02
+
+
+
+
+
+***
+
+
 see so many oscillations over here. Now what I've done is that I also go a bit deeper and I say if I equal to
 20:09
 50, I have also collected all the values for I equal to 50 and I plotted them together. So here you see the frequency
@@ -189,6 +197,16 @@ intuitively. Right? So until now what we have seen is that the sign and sinosida
 24:55
 intuition as binary positional encodings. Lower indexes oscillate faster. Higher indexes oscillate slower.
 25:01
+
+
+
+
+
+
+
+***
+
+
 Cool. The second thing which we saw is that sinosidal positional encodings avoid the discontinuous nature which was
 25:08
 there with binary positional encodings. They are smooth, continuous and differentiable.
@@ -592,6 +610,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

@@ -28,123 +28,15 @@ $$
 
 * 20:00
 
-
-see so many oscillations over here. Now what I've done is that I also go a bit deeper and I say if I equal to
-20:09
-50, I have also collected all the values for I equal to 50 and I plotted them together. So here you see the frequency
-20:16
-of oscillations now slightly reduces as my index value increases from 1 to 50.
-20:23
-And the last plotting I have done is for I equal to 150. So I go even one step ahead and I plot I equal to 150. I
-20:30
-collect this value for all the different positions and I plot them together. So here you see now the frequency reduces
-20:37
-by huge amount. So if you go from i = 1 to i = 50 to i = 150. What is it that
-20:46
-you notice? The main thing which you notice is that lower indices oscillate fast
-20:52
-between positions. Higher indexes oscillate slow between positions. That is exactly what we have seen for binary
-21:00
-positional encoding. We had seen that lower indexes change more frequently, higher indexes change less frequently.
-21:07
-This is the same thing which we observe here. Lower indexes oscillate fast between positions and higher indexes
-21:12
-oscillate slow between positions. Now this is one proof that this formula actually works. What this
-21:19
-formula does is that it captures the intuition of binary positional encoding. How do we know that? Because we got the
-21:26
-same result like right lower indexes oscillate faster higher indexes oscillate slower. that intuition remains
-21:33
-the same whether we use binary or whether we use this formula. So that's awesome. The second thing which this
-21:39
-gives me is that sinosidal encodings are now continuous. They lie between minus1 and one. So you see these these curves
-21:46
-now they are not discrete like we had observed for binary positional encoding.
-21:52
-All of these curves were completely discrete and jumpy. Right? For sinosidal positional encodings I have these curves
-21:58
-which are now smooth and continuous and also differentiable. Okay. So the main advantage of sinosidal
-22:05
-encoding or cinos cyanosidal embedding over binary encoding is that the positional graphs are continuous as
-22:12
-opposed to being jumpy and discontinuous and that leads to a much more stable LLM
-22:18
-optimization routine. Okay. So it solves the problem which was there with integer
-22:23
-positional encodings. So if you look at this formula and if this formula seems too difficult to understand, forget
-22:29
-about this and go back to binary positional encoding. In binary positional encoding, it's very easy to
-22:34
-visualize this formula and how the values change across different positions and for different
-22:41
-indexes. What this s and cosine formula at its core, it's actually doing the
-22:46
-same thing. We are saying that the lower indexes oscillate faster, the higher
-22:51
-indices oscillate slower. That's why this denominator has 10,000 to 2 I. So
-22:58
-the index has to be there in the denominator because the lower indexes need to oscillate faster. The higher
-23:04
-indexes need to oscillate slower. So one more way to look at this formula
-23:10
-is that the frequency of oscillation the frequency of oscillation is given by so
-23:16
-if you look at this formula right let me rub this
-23:22
-uh and let's take a closer look at this formula. This formula can also be written as first let's look at the even
-23:28
-positions right it can be written as sin of omega * p where p is my position
-23:34
-right so what is omega omega is 1 / 10,000 ra to 2 i by d
-23:42
-model this is my frequency of oscillation this is my frequency of
-23:50
-oscillation and here you can clearly see that the i comes in the denominator.
-23:55
-Right? So for lower indices the frequency of oscillation will be higher and for higher indexes the frequency of
-24:02
-oscillation will be lower. That's an intuition for why this I has to come in
-24:07
-the denominator. And why do we have 10,000 here? That's an experimental choice. The reason is because the model
-24:13
-dimensions will be close to 1,000. So it just makes sense that if we have a 10,000 over here um my frequencies will
-24:22
-go on decreasing eventually for I equal to 150 200 300 etc. If I change this
-24:27
-value of 10,000 maybe my frequencies will die down very fast or very slow which I don't want. This 10,000 just
-24:34
-gives an optimal range so that for I equal to 1 the frequencies are very high and for I equal to 150 200 300 500
-24:41
-they'll slowly die down and then ultimately become flatter. That's an understanding of this formula
-24:48
-intuitively. Right? So until now what we have seen is that the sign and sinosidal positional encodings have the same
-24:55
-intuition as binary positional encodings. Lower indexes oscillate faster. Higher indexes oscillate slower.
-25:01
-
-
-
-
-
-
+* SinPE avoid the discontinuous nature that was there with BPE.
+* SinPE values are smooth, continuous, and also differentiable.
+* Thats helps LLM training routine.
 
 ***
 
+* 25:00
 
-Cool. The second thing which we saw is that sinosidal positional encodings avoid the discontinuous nature which was
-25:08
-there with binary positional encodings. They are smooth, continuous and differentiable.
-25:14
-What that helps us is that the smooth continuous and differentiable nature which is there which you see in these
-25:20
-plots that helps my LLM training routine. That was one of the major issues with binary positional encoding.
-25:27
-So you might still be thinking right all of this now seems fine but one thing is still unclear for me and that thing is u
-25:36
-why do we really have a s and a cosine over here? What's the reason for this? that was not explained until now. So one
-25:45
-thing to notice is that even indices have a sign formula or odd indices have a cosine formula. Why do we need to do
-25:51
+
 this? What's the reason for this? Um and actually if we understand this reason,
 25:57
 it truly sets the stage to understand rotary positional encodings.
@@ -534,6 +426,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

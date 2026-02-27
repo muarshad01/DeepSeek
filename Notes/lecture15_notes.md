@@ -1,12 +1,3 @@
-
-***
-
-* 5:00
-
-***
-
-* 10:00
-
 #### Sinusoidal Positional Encoding (SinPE)
 
 $$
@@ -600,6 +591,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

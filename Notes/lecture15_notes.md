@@ -40,15 +40,11 @@ $$
 
 ***
 
-* 30:00
-
-***
-
 * 35:00
 
 * Relative positional encodings are just rotations of each other.
 
-* rotations ensure that relative ship shifts map to fixed angular differences, which then translate into predictable, learnable attention patterns - like focusing more on nearby words.
+* Rotations ensure that relative ship shifts map to fixed angular differences, which then translate into predictable, learnable attention patterns - like focusing more on nearby words.
 
 #### What's the main problem with sinusoidal embedding?
 * One major issue is that we add these encodings directly to token embeddings. This can __pollute the semantic information__ carried by token embeddings.
@@ -65,4 +61,5 @@ $$
 * The main idea is to take Query and Key vectors, and to apply the sine and cosine  positional encoding to these vectors.
 
 ***
+
 

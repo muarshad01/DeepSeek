@@ -140,6 +140,8 @@ the encoding vector for one position to find the position encoding for another p
 
 ***
 
+* 35:00
+
 vector. That's beautiful, right? Instead of just adding or subtracting, we rotate
 35:11
 to get the new position encoding vector. For a new position, we rotate from an initial position. That's where the
@@ -357,6 +359,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

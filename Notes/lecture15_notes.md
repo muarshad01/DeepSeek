@@ -10,6 +10,7 @@ $$
 * (pos, index)
   * Event index = $$2i$$
   * Odd index = $$2i+1$$
+  * The values live in the range [-1, 1]
 
 * [Attention Is All You Need - 2017](https://arxiv.org/abs/1706.03762)
 
@@ -591,6 +592,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

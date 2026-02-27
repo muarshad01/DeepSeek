@@ -10,7 +10,7 @@ $$
 * (pos, index)
   * Event index = $$2i$$
   * Odd index = $$2i+1$$
-  * The values live in the range [-1, 1]
+  * The values are in the range [-1, 1]
 
 * [Attention Is All You Need - 2017](https://arxiv.org/abs/1706.03762)
 
@@ -65,3 +65,4 @@ $$
 * The main idea is to take Query and Key vectors, and to apply the sine and cosine  positional encoding to these vectors.
 
 ***
+

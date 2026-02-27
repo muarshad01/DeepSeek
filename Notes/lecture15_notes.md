@@ -36,92 +36,11 @@ $$
 
 * 25:00
 
-
-this? What's the reason for this? Um and actually if we understand this reason,
-25:57
-it truly sets the stage to understand rotary positional encodings.
-26:03
-So remember that this reason will ultimately set the stage for R O which
-26:09
-is rotary positional encodings which is the main thing which we want to understand to eventually see how rope or
-26:15
-R O rotary positional encoding is mixed with latent attention. So let's start understanding this reason.
-26:22
-The key to understanding the reason for the use of s and cosine is to understand
-26:30
-one key property which we need when we construct positional encodings. When we construct positional encodings, we want
-26:38
-to have a linear relation between two encoded positions. This means that
-26:43
-whatever formula we decide to use for positional encodings whether it's s cos integer binary encodings the
-26:50
-relationship between positions should be mathematically simple which means that if we know the encoding for position p
-26:57
-it should be straightforward to compute the encoding for position p + k why
-27:03
-because imagine you are a transformer and you want to learn positional patterns if there is already an
-27:11
-underlying pattern pattern which we have encoded it will be much easier for you as a transformer to learn the positional
-27:17
-patterns among different tokens. So that's why when you look at this attention paper you have you can
-27:23
-see here that the authors have mentioned we must inject some information about the relative or absolute position of
-27:30
-tokens in the sequence. So when we construct position encodings, we should construct them smartly so that if you
-27:37
-have the positional encoding vector at a given position, you can easily find out the position encoding vector at other
-27:44
-positions also mathematically so that the transformer can also learn this mathematical
-27:49
-property. Keep this in mind. We have a desire to have a linear relation between
-27:54
-two encoded positions. With this in mind, we'll see that having the sign and
-28:00
-cosine actually help us to achieve this. Given the positional encoding of one token at position pos, the sign and
-28:07
-cosine make it much easier to find the positional encoding of another token at
-28:12
-another position, let's say pos or position plus k. Which means that if we have the positional encoding at a given
-28:18
-position, having the sign and cosine makes it much easier to find the encoding at another position. Let's see
-28:25
-how and why this is possible. Right? So for the purposes of this visual demonstration, I'm assuming that I'm at
-28:31
-a given position P and I'm looking at this formula. So let me let me pull down
-28:38
-this formula from here. Uh this is the positional encoding formula for
-28:44
-different indexes. Right? So here in this formula, what I'm going to do is that I'm going to choose I equal to 1.
-28:50
-So if I = 1, I'm going to look at indexes 2 I which is equal to 2 and 2 I
-28:56
-+ 1 which is equal to 3 at a given position. So if you look at the given
-29:03
-position at index 2, what's its value? Its value will become sine of my given
-29:09
-position divided by 10,000 to 2 / D.
-29:15
-Correct? And this value will become cos of my given position divided by 10,000
-29:22
-to 2 / d. So what I have drawn over here is that let's say
-29:28
-um let's say this is this value here position divided by 10,000 to 2x d is
-29:33
-equal to theta. So if this is equal to theta then my sin theta will be the y1
-29:40
-which is shown over here and my cos theta will be the x1. So this value is
-29:45
-now represented the sin theta is represented by y1. So y1 is the positional encoding value at position
-29:51
-two. Y1 is the positional encoding value at position 2 and x1 is cos of theta.
-29:57
-Right? So that will be the positional encoding value at position number three. That's what I've shown in this plot. Y1
-30:04
-
+* __Property 2__: Linear relation between two encoded positions.
 
 ***
 
-
+* 30:00
 
   
 corresponds to sin of theta. So it's at positional encoding at position 2. And
@@ -438,6 +357,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

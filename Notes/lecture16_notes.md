@@ -84,6 +84,11 @@ attention mechanisms were always coupled with recurrent neural networks. But thi
 15:09
 attention mechanism from the RNN. Now if you scroll down below, there is a very small section on sinosidal positional
 15:16
+
+
+
+***
+
 encoding. You see only three paragraphs where they introduce these two these two
 15:21
 functions. How to find the positional encoding values at different indices using the s and the cosine functions. So
@@ -186,6 +191,12 @@ by huge amount. So if you go from i = 1 to i = 50 to i = 150. What is it that
 20:46
 you notice? The main thing which you notice is that lower indices oscillate fast
 20:52
+
+
+
+***
+
+
 between positions. Higher indexes oscillate slow between positions. That is exactly what we have seen for binary
 21:00
 positional encoding. We had seen that lower indexes change more frequently, higher indexes change less frequently.
@@ -667,5 +678,6 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 

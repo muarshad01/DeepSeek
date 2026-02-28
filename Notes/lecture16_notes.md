@@ -6,88 +6,9 @@
 
 * 10:00
 
-example um we are considering GPT2 we are considering GPT2 and that has the model
-11:07
-dimension of 768 and I want to find the positional encoding for position
-11:14
-number let's say I want to find it for position number two and now every position remember
-11:20
-every position will have uh uh a vector every position so
-11:26
-position number two will have a vector whose size is equal to 768. So this is the positional embedding
-11:32
-vector of position 2. It will have a size of 768. So the I value the index
-11:38
-will go from 1. So this is let's say I is equal to 1 right up till index
-11:45
-768. What this formula gives is that it finds what value will be there at every
-11:50
-index. Right? So at I = if I put I = 1 then it will be position which means
-11:57
-second position and so let's start from I equal to0 actually. So my value at zero position
-12:05
-will be sine of position which is 2 divided by
-12:12
-10,000 raised to 2 into I. So my I is zero right? So it will be zero.
-12:19
-So my value at position number zero. So let's say I starts from zero and goes to 76
-12:26
-uh7. So for for if I put I equal to0 then the
-12:32
-value here will be given by this sign. And if I equal to0 then my positional
-12:38
-embedding at second position and index equal to 1 will be equal to cos position
-12:44
-divided by so cos 2 / 10,000 raised to 2 /
-12:52
-768 because actually my i is equal to zero. So this will still be zero. So then I
-12:59
-get this value as well um i = 1. Now to find the next values
-13:06
-what I do is then I put my i equal to 1. So I get my values for
-13:11
-the second index and I get my values for the third index. So then I'll fill second index and third index
-13:17
-appropriately. Similarly I'll go right till the very end using this formula. So
-13:22
-the thing to note is that if you take a look at this 768 dimensional vector the
-13:28
-even positions the even positions which is I =0 I = 2 I =
-13:34
-4 I = 0 I = 2 I = 4 these are given by the
-13:42
-sinosidal or sign formula and if you take a look at the odd positions if you
-13:48
-look at take a look at the odd positions which is I = 1 then i = 3 then i = 5
-13:57
-these are given by the cosine formula we'll see why there is a separate formula for the sign for the even
-14:03
-positions and why there is a separate formula for the odd positions but I hope you understood what are the different
-14:09
-variables over here there are two variables over here right there is the position variable and there is the index
-14:16
-variable so the way to read this formula is that you fix a position and you will have a 768 dimensional vector. Now you
-14:23
-need to decide what's each of those 768 values right those are my 768
-14:28
-indexes and to get the value at every index I first decide whether that index is even or whether it's odd. If it's
-14:35
-even I use this formula if it's odd I'm going to use this formula and that's how I fill all my values. So you might be
-14:43
-thinking where did this formula actually come from right and where did it originate? This formula was proposed in
-14:49
-the attention is all you need paper. This was the main paper in which the transformer architecture was proposed
-14:56
-with the attention mechanism. We did not have a recurrent neural network over here. Until this paper was proposed,
-15:03
-attention mechanisms were always coupled with recurrent neural networks. But this was the first one with which freed the
-15:09
-attention mechanism from the RNN. Now if you scroll down below, there is a very small section on sinosidal positional
-15:16
-
-
-
 ***
+
+* 15:00
 
 encoding. You see only three paragraphs where they introduce these two these two
 15:21
@@ -678,6 +599,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

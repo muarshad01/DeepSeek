@@ -102,6 +102,15 @@ see so many oscillations over here. Now what I've done is that I also go a bit d
 20:09
 50, I have also collected all the values for I equal to 50 and I plotted them together. So here you see the frequency
 20:16
+
+
+
+
+
+
+
+***
+
 of oscillations now slightly reduces as my index value increases from 1 to 50.
 20:23
 And the last plotting I have done is for I equal to 150. So I go even one step ahead and I plot I equal to 150. I
@@ -599,6 +608,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

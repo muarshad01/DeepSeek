@@ -1,1 +1,661 @@
+e, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
+0:08
+I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
+0:15
+to our sponsor and our partner for this series invido AI. All of you know how
+0:20
+much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
+0:27
+similar principle and philosophy to that of us. Let me show you how. So here's
+0:33
+the website of Invido AI. With a small engineering team, they have built an
+0:38
+incredible product in which you can create highquality AI videos from just
+0:43
+text prompts. So as you can see here, I've mentioned a text prompt. Create a
+0:49
+hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
+0:56
+a video. Within some time I'm presented with this incredible video which is
+1:02
+highly realistic. What fascinates me about this video is its attention to detail. Look
+1:08
+at this. The quality and the texture is just incredible. And all of this has been created from a single text
+1:15
+prompt. That's the power of Invido's product. The backbone behind the awesome
+1:21
+video which you just saw is Invido AI's video creation pipeline in which they
+1:26
+are rethinking video generation and editing from the first principles to experiment and tinker with foundational
+1:33
+models. They have one of the largest clusters of H100s and H200s in India and
+1:38
+are also experimenting with B200s. Nvidia AI is the fastest growing
+1:44
+AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
+1:51
+they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
+1:57
+description [Music]
+2:02
+below. Hello everyone and welcome to the lecture in the build deepseek from
+2:08
+scratch series. Today we are going to learn about rotary positional encoding.
+2:14
+So if you remember in the previous lectures we have started looking at different types of positional encodings.
+2:20
+In particular in the last lecture we have taken a detailed look at sinosidal positional encoding and in the lecture
+2:26
+before that we have taken a look at integer and binary position encoding. So
+2:31
+you might be thinking why are we spending this time on positional encoding in a deepseek from scratch
+2:38
+series. The main reason is that if you'll take a look at the deepseek paper, they have this multi-head latent
+2:45
+attention mechanism, right? We have already covered the most basic version of the
+2:51
+MLA. But deepseek R1 and Deepseek V3 which were released in
+2:56
+2025, they combine multi head latent attention with a special type of positional embedding which is called as
+3:03
+the rotary positional encoding. If you see over here, the MLA is combined with
+3:08
+rotary positional encoding. So without understanding rotary positional encoding, it's impossible for us to
+3:14
+understand how it's combined with multi head latent attention. And that's why we have been spending the past few lectures
+3:20
+on understanding different types of positional encoding. Now we have built up sufficient knowledge to finally
+3:27
+tackle what exactly is rotary positional encoding. So let's get started with
+3:32
+today's lecture. If you recall towards the end of the previous lecture, we saw some limitations with sinosidal
+3:39
+embeddings. One major limitation was in sinosidal embeddings, we added the
+3:45
+positional encoding values directly to the token embedding, right? Or token encoding. And we know that the token
+3:51
+encoding essentially captures the semantics. So by adding an information
+3:56
+about the position directly to the semantics, we are polluting the semantic information carried by the token
+4:03
+embeddings. Ideally what I want is the follows. Right? So let's take a look at
+4:08
+the um entire LLM architecture and I'm going
+4:14
+to copy this and paste it over here. Right? This is the entire LLM architecture. Currently if you see what
+4:21
+we are doing with sinosidal position encoding is that we are adding we are adding token encodings to the positional
+4:27
+encodings. So here is where the positional embeddings or positional encodings come into the picture. Ideally
+4:33
+I don't want this. Ideally I want my token embeddings to be passed unfiltered
+4:38
+to the transformer block so that their semantic meaning is not diluted. And
+4:44
+then the question which we asked towards the end of previous lecture is that can we somehow inject information about the
+4:50
+token position in the attention mechanism itself. Instead of adding the positional embeddings to the token
+4:56
+embeddings in this first data prep-processing step, why don't we include information about the positional
+5:02
+embedding in the multi head attention mechanism? And that's where rotary positional encoding idea is born.
+5:10
+So what we saw in the previous lecture was that if you take a look at the multi
+5:16
+head attention mechanism right the multi head attention mechanism consists of finding the attention scores. So we have
+5:23
+the query matrix and we have the key matrix the queries is multiplied with the keys transpose to get my attention
+5:30
+scores. So it is this mechanism. It is the multi head attention mechanism where
+5:36
+we take into account the position of different tokens and find the attention scores. So why don't we add the
+5:42
+positional information or why don't we inject positional information into these
+5:48
+vectors? Why don't we inject positional information into the query vectors and the key vectors? That's the first
+5:54
+question. The second question which we asked in the end of the previous lecture was that if you see the token embeddings
+6:02
+are just added to the positional embeddings right the token embeddings are added to the positional embeddings
+6:07
+over here in this step which has also been shown over here the token embeddings are added to the positional
+6:13
+embeddings which changes the magnitude of the token embedding itself which is not good ideally what I want is I don't
+6:20
+want the magnitude of the original vector to change so let's say this is my original query vector instead of adding
+6:27
+another vector to it. So instead of adding another vector and forming a new vector why don't I rotate this
+6:34
+vector if I want to capture information or if I want to inject information about the position why don't I take a query
+6:41
+vector or the key vector and simply rotate it by an angle theta to inject the information about position. So if a
+6:48
+token has a higher position I'll rotate it by a different angle. If it has a uh
+6:53
+or if it's if it has a position which is smaller or position index or it's at a
+6:58
+lower position, I'll rotate it by a smaller angle. Essentially, the angle will quantify some information about my
+7:05
+position, but the magnitude of the vector will not change. Since I'm just doing the rotation, the magnitude of the
+7:11
+query vector or the key vector is not going to change. That will make sure that my original vector's magnitude
+7:18
+remains the same. So there are these two ideas with which we start the today's lecture. First instead of adding the
+7:25
+positional embedding in the data prep-processing block over here why don't I add it in the attention
+7:30
+mechanism in particular why don't I modify the query and the key vectors. Second instead of just adding my
+7:37
+positional encoding vector to the query and the key vector why don't I just rotate these vectors so that the
+7:42
+magnitude of the original vector remains unchanged. With these two ideas, we start our lecture today on understanding
+7:48
+rotary positional encoding. Now, if you understand rotary positional encoding, you'll never forget
+7:55
+it because it's a very visual concept. But if you directly go into the mathematics, it might sound hard or even
+8:01
+intimidating or scary at first. So, I'm going to try to make this lecture as visual as possible. Okay, let's get
+8:08
+started. So the main idea of rotary positional encoding is to take my query
+8:14
+and the key vectors and to apply sinosidal positional encoding to these vectors. What that means is that in the
+8:22
+previous lecture we saw that sinosidal positional encoding has this formula right where essentially if you if you
+8:30
+scroll down yeah this is the formula where the even indices of any given position are given by a sign value and
+8:38
+the odd indices of any any given position are given by the cosine value. So what if we use this same formula but
+8:46
+now instead we apply it to the query and the key vectors and instead of adding
+8:51
+this to the vector we are going to do a rotation. Let's see how we will do this. So now I'm going to demonstrate
+8:58
+how rotary positional encoding works in practice through a visual example. So
+9:04
+for the purposes of demonstration let's say I have these query vectors right for five tokens. You can also imagine this
+9:10
+to be query or key vectors. So the first query vector is for the it's a four-dimensional vector. The second
+9:17
+query vector is for dog that's four-dimensional vector. The third is for chased another dog. So every token
+9:25
+in my input sequence is now a fourdimensional query vector or you can also think of it as a key vector.
+9:31
+Whatever I'm showing right now for the query vector, the same thing applies to the key vector as well.
+9:37
+So let's say we have five query vectors for the dog chased another dog. Okay.
+9:43
+And for now I'm just going to focus on the first query vector. The operation which we are going to perform on this
+9:49
+first query vector um is the same operation as we are going to perform on
+9:54
+the later tokens as well. So I'm just going to show this operation on my first
+9:59
+vector right now which comes at position number one. Which comes at position number one.
+10:06
+All right. So in rotary positional encoding what is done is that we form
+10:11
+two groups. In my first group I take this first value which is x1 and I take
+10:16
+my second value which is x2. So this is group number one. And in my second group I take x3 and x4. That's my group number
+10:25
+two. All right. So now let us look at the first group which is x1 and x2. So
+10:30
+we take the first two indexes which is x1 and x2. we form a vector out of these. So if you look at this this plot
+10:37
+now take a look at this vector. Now this is a vector whose x coordinate is x1 and
+10:43
+whose ycoordinate is x2. That's my original vector without adding any positional encoding. Right? Now what we
+10:50
+do to this vector is that we want to inject positional encoding value. Right? We want to inject some information about
+10:57
+the position. So to do that we are going to rotate this vector by an angle of theta. We are going to rotate this
+11:03
+vector by an angle of theta. And what is theta? My theta is my frequency multiplied by my position. And my
+11:10
+frequency is 1 upon 10,000 to 2 I / D. That's the exact same frequency which we
+11:17
+have seen over here. 1 / 10,000 to 2 I divided by D multiplied by the position.
+11:24
+That's going to be my theta. So if I write down my theta, my theta is
+11:29
+going to be position divided by 10,000 raised to 2 I divided by D. Okay. And
+11:38
+what is P? P is the position for the first token. So this is going to be 1. What is I? For the first two tokens, I'm
+11:45
+going to use index equal to zero. And for the second two tokens, I'm going to use index equal to 1.
+11:53
+So I'm just going to rotate it by theta. Right? So what will be my new x1
+11:59
+dash? My new x1 dash will just be my new vector over here. xcoordinate of that
+12:06
+new vector. And my x2 dash will be the y-coordinate of my new vector. That is
+12:12
+how I get x1 dash and that is how I'm going to get x2 dash.
+12:17
+Okay. So let me repeat what we have done over here. We form a vector out of the first two x1
+12:25
+and x2. That's this vector over here. And we are going to rotate this vector by an angle of theta. We are going to
+12:33
+rotate this vector by an angle of theta. Where theta is going to be omega i into p where omega i is 1 upon 10,000 to 2 i
+12:41
+divided by d. So the angle with which I rotate this vector is going to be
+12:48
+encoded by a position. It's going to depend on two things. It's going to depend on the position and it's going to
+12:54
+depend on the index. Okay. So what is this index over here? As we have seen previously
+13:01
+um every positional encoding vector will have the index equal to um what's the
+13:08
+embedding dimension. So the index goes from zero to the embedding dimension and
+13:13
+the position p goes from zero to the context size. In the current case what we have chosen my
+13:20
+number of uh the number of positions or the number
+13:25
+of tokens in the input sequence are equal to five and the dimension I'm choosing is equal to four. The dimension
+13:31
+I'm choosing is equal to four. So this I is such that this I is such that for the
+13:37
+first two indexes it's equal to zero and for the later two indexes it's equal to one for the two later two indexes after
+13:44
+that it will be equal to two etc. So there will be groups of two each.
+13:50
+Um okay so x1 and x2 that's x1 and x2 that's my first pair. I rotate it by an
+13:57
+angle theta and I get my x1 dash. So what is x1 dash? X1 dash is now the X coordinate of my rotated vector. X2 dash
+14:04
+is the Y-coordinate of my rotated vector. That's how I get my new that's
+14:10
+how I get my new values which are X1 dash and X2 dash. So do you observe something over here? One thing to note
+14:17
+here is that I added or I injected information about the position which is quantified by my theta over here. But
+14:24
+nowhere did I change the magnitude of the original vector. Right? If you take a look at the original vector here, I
+14:30
+just have I have rotated it. So the magnitude of the new vector is going to be unchanged. That's going to be the
+14:36
+same. That's how I get my x1 dash and x2 dash. And this is the same operation which we do for the third index and the
+14:43
+fourth index. So for the third index and the fourth index, you see x3 and x4 that
+14:48
+forms a vector over here x3 and x4. That's this vector. And this vector, I'm
+14:54
+going to take this vector and I'm going to rotate this vector also. now and what will be the angle uh I'm
+15:02
+going to rotate this vector also and what will be this angle with which this
+15:08
+vector is now rotated that is given by same formula omega I into P. So P
+15:13
+remains the same because both of these X1 X2 X3 X4 are for the first token but what changes is I. So I was zero for X1
+15:21
+and X2, right? I is going to be one for X3 and X4. Uh so then I'm going to rotate this
+15:28
+and I get my new vector whose X coordinate is going to be X3 dash and whose Y coordinate is going to be X4
+15:34
+dash. So that's how I get my X3 dash and X4 dash. Again, the important thing to
+15:39
+note here is that the magnitude although X3 dash is different than X3, X4 dash is
+15:44
+different than X4. That's fine. But the magnitude of this new vector, the magnitude of this new vector is the same
+15:51
+as the original vector. The magnitude of x3 x4 is the same as the magnitude of the vector x3- x4 dash. Which is these
+15:57
+two vectors, they have the same magnitude. That's the key point to note over here. So now all of this is shown
+16:04
+in one diagram over here. If you see what is done is that you take the original query vector or you take any
+16:11
+query or the key vector and you look at a particular position and you split it
+16:17
+into groups. Right? Now two two indexes together will form one vector and you
+16:23
+rotate you rotate you rotate that vector you rotate that vector you rotate that vector by some
+16:30
+angle and that angle with which we rotate every vector encodes something about the position because that angle is
+16:36
+given by P divided by 10,000 to 2 I divided by D. So the higher the position
+16:42
+the higher is this angle going to be and the higher the index the lower the angle
+16:48
+is going to be. So for a given position if you take a look at the for a given position P uh as my index increases the
+16:56
+amount of rotation further decreases. We'll we'll see about that the interpretation in one of the next parts.
+17:03
+But for now this one figure actually summarizes everything which we have done. We take the query vector, we form the first group x1, x2. We rotate it to
+17:10
+get x1 dash, x2 dash. That's my new rotated vector. Then we take the second group x3 x4, I rotate it to get x3 dash
+17:18
+and x4 dash. So my original query or the key vector is this. And my position
+17:23
+encoded query and the key vector is now this. Instead of x1, x2, x3, x4, the values are x1 dash, x2 dash, x3- x4
+17:30
+dash. The very nice thing is that if you take each individual buckets, if you take this bucket x1- x2 dash and x1 x2
+17:38
+and if you project them as vectors, their magnitudes are same. If you take this x3 x4 and x3 dash, x4 dash and if
+17:47
+you project them as vectors, their magnitude magnitudes are also exactly the same. This is one main advantage of
+17:55
+uh rotary positional encoding. In rotary positional encoding, we inject positional information by this rotation,
+18:02
+but we don't add any vector to the query vector. We are just rotating. We effectively rotate parts of the original
+18:09
+query vector and hence maintain its magnitude. Thus avoiding the token embedding polluting issue which we saw
+18:15
+with sinosidal positional encoding. And one more way to visualize this whole thing is that this x1- x2 dash is now uh
+18:24
+my rotation matrix multiplied by my original vector. So that this rotation
+18:29
+matrix just shows how I transform my x1 x2 to give me x1 dash and x2 dash. These
+18:35
+are the rotations. So if you remember in sinosidal positional encoding the reason we have cos and
+18:41
+s the reason we have cos and s is because the relative positional encodings are just rotations of each
+18:47
+other right uh I believe this is the same idea which inspired rotary positional encodings because here also
+18:55
+the very nice thing is that if we figure out that we want to maintain the magnitude what's the best way to
+19:00
+maintain the magnitude the best way to maintain the magnitude is instead of adding something you just rotate
+19:06
+And what's the angle with which I should rotate? The angle with which I should rotate should contain some information
+19:11
+about the position. Right? And in cyanosidal positional encodings, we already have come up with this
+19:17
+magnitude. So the angle with which I rotate depends on the position and depends inversely on the index within a
+19:26
+given position. Again to repeat the position value goes from zero or one to
+19:31
+context size and the index value goes from one to the embedding dimension which is there. That's the whole idea of
+19:38
+rotary positional encoding. Now we are going to see a few more intuitive
+19:43
+details about um this theta I= to omega I theta equal
+19:50
+to omega I into P. And what do we mean by this? Why does this theta depend
+19:56
+directly on the position and why does it depend inversely on this index? Let's see a few intuitive details about that.
+20:02
+But one more thing to note is that this rotation matrix is exactly the same as the one which we saw in sinosidal
+20:08
+positional embeddings. Right, which we saw over here. That's the exact same rotation matrix. Here also we rotated
+20:14
+the matrix by theta and the same rotation matrix is used in rotary
+20:20
+positional encoding as well. So this is how research advances further research right the sinosidal positional encodings
+20:27
+came in this 2017 paper and then the rotary positional encodings were later
+20:32
+derived in 2023 which is 6 years later and here you can see the main they start
+20:37
+out with the same formula which was introduced in the 2017 paper and then
+20:43
+they augmented this um addition to token embeddings with this image. So if you
+20:49
+see this image, it's exactly the same as what we have described. You take the query or the key vectors, you divide it
+20:55
+into into groups of two within one group. So let's say you have one group, you represent it as a vector x1 and x2.
+21:02
+You rotate that vector by some angle theta which is encoded by the position and the index that gives you the new um
+21:09
+that gives it you the new position encoded key position encoded query or the key. So you replace the value of
+21:15
+that group which you had chosen. Then you go to the next group. You replace it again by injecting the position value.
+21:21
+Then you go to the next group etc. You do this for the first query vector which is at position number one. Then you do
+21:27
+this for the second query vector. Then you do it for the third etc. That's how that's the geometrical intuition of
+21:34
+rotary positional encoding. Okay. Okay. So I hope you have understood this much and just another
+21:40
+last point to note is that I'm saying query vectors here but the same encoding which we have shown here can be done for
+21:46
+the key vectors also. Okay. Now let's go to understanding a few more intuitive
+21:51
+details regarding this formula. All right. So if you take a look at this formula over here, you'll
+21:57
+see that the way we inject positional values is only through this theta. So we
+22:03
+need to understand what this intuitively means, right? um omega I so let me actually copy this
+22:11
+let me copy this and bring this down over here to our discussion actually I have already written it down over here
+22:18
+um so that's fine I don't need to copy copy it so let's start understanding the intuition okay the so this is the value
+22:27
+with which we rotate omega i into p so theta is is given by my position theta
+22:34
+is given by my position divided by 10,000 to 2 I divided by D. So it depends on two variables position and
+22:40
+the index. This D is fixed because that's my embedding dimension. So here I have plotted the a circle here which
+22:48
+represents the magnitude of this whole quantity. And here I have shown two variables here. If you go from left to
+22:55
+right the position increases. So the dog chased another dog. This position number one. This is position number two. This
+23:01
+position number three. Position number four and position number five. And if you go from top to bottom, the index is
+23:08
+actually increasing. So this is my lowest index. Index number one, index number two, index number three, and
+23:13
+index number four. So each token I'm assuming as a four-dimensional vector, right? So there are four
+23:19
+indexes. What I want you to see first is that if you take a look at the effect of position, the rotation magnitude which
+23:26
+is omega into P varies directly with the position. Okay? So that is shown here.
+23:32
+Also if you fix any index let's say I fix index number one and as I increase
+23:37
+the position you'll see that the magnitude of the circle or the circle radius increases right this means as the
+23:43
+position increases it leads to larger
+23:48
+rotations. Um so higher positions lead to larger rotations and that's same for all the indexes. If you go to index
+23:55
+number three, uh if you go to index number three and take a look at the rotation magnitude for every position,
+24:01
+you'll see that the rotation magnitude increases because the circle radius increases as the position goes on
+24:07
+increasing. What this shows is that higher positions lead to larger rotations, right? This means that closer
+24:13
+queries have similar positional encodings. So queries which are closer together they will naturally have
+24:19
+similar positional encodings because they have similar P and queries which are farther have different positional
+24:25
+encodings and that makes intuitive sense. This was also mentioned in the
+24:31
+uh paper which introduced rotary positional encoding which is row former. So if you scroll down below
+24:38
+um they mention over here that
+24:44
+okay one can prove that this setting provides a long-term decay property
+24:50
+which means that the inner product will decay with the inner product will decay when relative position increases. This
+24:57
+property coincides with the intuition that a pair of tokens with a long relative distance would should have less
+25:03
+connection. This is the same thing here, right? A pair of query vectors with uh a
+25:09
+pair of query vectors with a long relative distance
+25:14
+um will have very different positional encodings because they have different p values. Whereas a pair of query vectors
+25:21
+which are closer together in position will have similar positional encodings. And that makes intuitive sense to us. So
+25:28
+if you scroll down below you'll see that uh the second intuition which we observe
+25:33
+is that the lower index positional values change fast with position and the higher index positional values change
+25:39
+bit slow with position. Let's see what this means. Right? So if you take a look at the lower indexes you'll see that the
+25:47
+lower indexes the circle radius increases very fast as the position increases. Whereas if you take the
+25:52
+highest index the circle radius does not change too much at all. the circle radius is almost fixed which means that
+25:59
+it's not increasing very fast. So what this shows is that the lower if we take a look at the lower index the rotation
+26:07
+magnitude changes fast with position high frequency and if we take a look at the higher index which is this the
+26:14
+rotation magnitude changes slow with position that means it's a low frequency.
+26:20
+If you remember that's the same conclusion which we had obtained with sinosoidal positional embeddings and binary positional embeddings as well.
+26:27
+What we had observed was that lower indexes oscillates fast between positions higher indexes oscillates slow
+26:33
+between position. And since we are using the same formula in rotary positional encoding, we have the same conclusion
+26:39
+that if you have lower indexes, if you have lower indexes such as
+26:44
+these this or this, we oscillate fast with positions and higher indexes
+26:50
+oscillate very slow with positions. So here we have fast oscillations whereas here we have slow oscillations. What
+26:56
+does this intuitively mean? Um this intuitively means that so lower index
+27:02
+actually lower index oscillates quickly right this ensures that the model captures small shifts. For example, if
+27:09
+we have two sentences I just told her the truth versus I told just her the truth. These are different sentences,
+27:16
+right? I just told her the truth is with respect to time. Recently I told her the truth and I told just her the truth
+27:23
+which means among all the people I have only her I have told the truth. So the lower index fast oscillations captures
+27:29
+the change brought about by varying the position of the word told. So here told comes at position number three and here
+27:35
+it comes at two. So ideally these are very close by positions right. So we
+27:41
+want that index which can change fast across different positions to capture this change and that's why the lower
+27:47
+index oscillations becomes very useful for capturing the small shifts uh in
+27:52
+positions. So I just told her the truth versus I told just her the truth. The word told
+28:00
+uh in different positions changes meaning and lower index frequencies ensure the model captures the small
+28:06
+shifts. So whenever you are learning about positional encodings always try to relate it to some intuition like
+28:13
+this. Uh again when we looked at the first example always ask yourself that why should higher positions lead to
+28:19
+larger rotations? Because words which are closer together in positions they are more likely to be more related to
+28:25
+each other. Right? So that's why their positional encodings value should be similar to each other. Whereas words
+28:31
+which are completely farther apart they should not be that similar. Uh that's why the first point
+28:37
+makes sense. In the second point the lower index oscillates quickly. The higher index oscillates slowly. So since
+28:44
+the lower index oscillates quickly, it can capture if there are some small shifts in position which completely
+28:50
+change the meaning of the sentence. The lower index quick oscillations can capture that. This is also one more
+28:56
+reason why sinosidal uh this formula works very well because the lower indexes capture the the small shifts and
+29:02
+the higher indices capture something different which we'll see now. So we understood what the lower indexes
+29:08
+capture. But if you take a look at the higher higher indexes right which are over here they do not change very fast
+29:14
+with respect to position. So higher index components ensure that even with large position differences the
+29:20
+relationship is preserved. What does this mean? So let's say if you have the sentence Einstein developed the theory
+29:26
+of relativity. This breakthrough reshaped physics. So this breakthrough
+29:32
+refers to the theory of relativity which which has come several words earlier. So
+29:37
+higher index oscillations capture these long range dependencies which means that let's say there is a big sentence right
+29:44
+and there is one uh token at position number one and one token at position number 20 and these are related to each
+29:51
+other. The higher index the higher indexes are good because the higher indexes don't change too much across
+29:57
+these two positions and that's why they might capture the fact that these two
+30:02
+positions are actually related to each other. We cannot rely on the lower indexes for this because the lower
+30:07
+indexes are quickly changing. Right? What if position number one is here, position number 20 is here or
+30:14
+here. Let's say position number 20 is here. They change so much. But the higher indexes they change very their
+30:22
+their frequency is very less. So even for position one and for position 20 they might have similar values. So
+30:29
+higher indexes have low oscillations which retain or capture the relationship
+30:35
+between tokens which are very farther apart. So higher index low oscillations capture long range context dependencies.
+30:42
+That's very important. Okay. So higher index components ensure that even with
+30:48
+large position differences the relationship is preserved. The relationship between tokens is preserved. Whereas if we only rely on
+30:54
+lower indexes, the lower indexes oscillate so much that they have no clue that position one and position 20 are
+31:01
+actually related to each other. So we can rely on the higher indexes for that.
+31:06
+So lower indexes capture something completely different. They capture small shifts in meaning in the same sentence
+31:13
+and higher index oscillations capture long range context dependencies. So rotary positioner encoding actually has
+31:19
+all of this intuition baked within it. We capture fast oscillations. We capture
+31:26
+slow oscillations. Uh we also make sure that higher positions lead to larger
+31:33
+rotations and closer positions lead to small rotations which make intuitive sense. So intuitively rotary positional
+31:40
+encoding makes a lot of sense and more than that it does not change the magnitude of the original query and the
+31:46
+key vectors. And another important point which is the main difference I feel between rotary and sinosidal encodings
+31:52
+is that in cinosodal encodings we actually add the positional encodings in the data processor block whereas in
+31:58
+rotary positional encoding we are taking a look at the multi head attention block and within that we take a look at the
+32:04
+queries and keys. So we don't dilute the semantic information of token embeddings when we take a look at rotary positional
+32:10
+encodings. I hope with this you are clear of the visual understanding of rotary
+32:16
+positional encodings and how they work. This much understanding is enough for us to completely understand how rotary
+32:22
+positional encoding is actually mixed with multi head latent attention. So now that you have reached
+32:29
+this stage where you have understood rotary positional encoding in the next set of lectures we are going to see how
+32:35
+deepsek integrated multi head latent attention with rotary positional encoding. We have seen multi head latent
+32:41
+attention before and now we saw rotary positional encoding. We'll soon see that
+32:46
+the traditional multi head latent attention does not directly mix very well with rotary positional encoding. So
+32:52
+we need to make some changes in the traditional multi head latent attention. Um we'll see why these changes are made.
+33:00
+we will see the intuition behind these changes and then finally see will the most advanced version of the multi
+33:06
+latent attention combined with rotary positional encoding. So thanks a lot for sticking with me for the past three
+33:12
+lectures which were completely on positional encodings. Uh I went into a lot of depth in integer positional
+33:19
+encodings, binary positional encodings, sinosidal and now rotary. I believe this understanding is very important because
+33:25
+if you directly take a look at this paper, it's very difficult to understand what they have exactly done if you don't
+33:31
+know rope or rotary positional encoding. And to know rotary positional encoding, you need to appreciate sinosidal
+33:36
+positional encoding. And to appreciate sinosidal positional encoding, you need to appreciate integer and binary
+33:42
+position encoding. So I hope with these set of three lectures on positional encoding, I have given you enough
+33:47
+information of all of these three types. Uh so thanks everyone. Make notes for
+33:53
+all of these. So now here are all the notes for positional encodings, right? Uh earlier we started with integer
+33:59
+position encoding. Then we saw binary position encoding. Then we went to cinosidal position encoding and finally
+34:05
+now we saw rotary positional encoding. Make notes along with me as you're watching the lectures because concepts
+34:11
+are getting a bit more advanced now. Uh and now finally we are at a stage where we can see one of the most advanced
+34:17
+concepts in introduced in deepseek the multi head latent attention mixed with rotary positional encoding. Once you
+34:23
+understand this concept the rest of what deepseek introduced is slightly at a lower technical level than this but this
+34:29
+is quite complex and for that we needed these all of these lectures so far. Thanks a lot everyone and I look forward
+34:35
+to seeing you in the next lecture.
 
+All
+
+From the series

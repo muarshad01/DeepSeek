@@ -1,105 +1,6 @@
-Hello everyone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. We will continue our journey towards understanding rotary positional
-2:15
-encodings. The reason why we have started to look at rotary positional encodings is
-2:21
-because when deepseek used multi head latent attention, they used a version
-2:26
-which coupled multi head latent attention with rotary positional encoding. So to understand this multi
-2:33
-head latent attention plus rotary positional encoding, it's very important for us to first understand what is
-2:39
-rotary positional encoding. And uh we have divided this
-2:44
-understanding into three parts. In the previous lecture we understood
-2:49
-um the two types of positional encodings integer and binary positional encodings.
-2:54
-In today's lecture we are going to look at sinosidal positional encodings and finally that will set us that will set
-3:02
-the stage for the next lecture which will be on the topic of rotary positional encoding. So let's get
-3:08
-started with today's lecture on sinoidal positional encoding. Before that let's quickly revise what we looked at in the
-3:15
-previous lecture. The first type of encoding we saw is integer position encoding where what we saw was why don't
-3:22
-we just um look at the positions of tokens and encode them with integers. So
-3:29
-if this is the token embedding for a given token, we add a positional embedding vector which is of the same
-3:36
-size as that of the token embedding vector and every value here will
-3:42
-correspond to the particular position. So if this dog comes at position number 200, the position encoding vector for
-3:48
-that token will be 200 200 200 200 repeated eight times based on the
-3:55
-dimensions of the token encoding. This is the simplest type of positional encoding but it leads to a lot of
-4:01
-issues. The major issue with this is that the token embedding values are clustered around zero. These values are
-4:08
-close to zero but these values are very large or they can be very large based on the context size. What that would mean
-4:16
-is that that would completely dilute the semantic knowledge or the semantic information which we derive from token
-4:22
-encoding. Remember token encodings capture information about the meaning of individual words, individual tokens,
-4:29
-right? And I don't want my positional encoding values to be so large that they
-4:34
-completely dilute that meaning. That's one of the major reasons why we did not go ahead
-4:41
-with position or integer positional encoding because integer positional
-4:47
-encoding heavily pollutes the semantic information captured by the token endp points. So ideally we need values which
-4:55
-lie between 0 1 etc. They are in that range. They are not too high for
-5:00
-positional encoding. That naturally led to the second type of position encoding which
-5:06
-
-
-
 ***
+
+* 5:00
 
 is binary position encoding. In binary position encoding what we do is that we look at the token we look at its
 5:12
@@ -887,3 +788,4 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+

@@ -2,130 +2,9 @@
 
 * 5:00
 
-is binary position encoding. In binary position encoding what we do is that we look at the token we look at its
-5:12
-position and we convert it into a binary representation based on the length of the token embedding vector. So since the
-5:19
-token embedding vector is 8 dimensional here we convert it into a binary
-5:24
-representation which has eight bits. So in this case since dog comes at
-5:30
-position 200 it will be represented by 1 1 0 0 1 0 0 0. So these values now are constrained
-5:37
-right they can either be 0 or 1. That solves the issue with respect to binary
-5:43
-positioning. We also did a very interesting exercise where we looked at if you had these
-5:49
-different positions and you did binary encoding for all of these positions. And if you take a very close look at what
-5:57
-happens with every bit here, you'll see that the least significant bit
-6:02
-oscillates the quickest among positions. The most significant bit oscillates the
-6:08
-least quickest or oscillates the slowest. So this last this lowest bit
-6:14
-actually oscillates the fastest. This bit oscillates a bit faster than that. So for example here you see it changes
-6:21
-after every two positions. So the first first bit changes after every one
-6:27
-position. The second bit changes after every two position. The third bit changes after every four positions. So
-6:34
-you see for four positions it's the same and then it changes. So we conclude from here that the lower
-6:41
-indexes oscillate fast between positions and the higher indexes oscillate slow
-6:46
-between positions and that can also be captured by this figure over here. So if
-6:51
-you look at this diagram very closely you'll see that for every position on
-6:56
-the x-axis I have this index which is plotted. So if I have position number 60 there will be eight indexes right index
-7:03
-number one to index number eight. So the lowest index as we saw will oscillate
-7:08
-the fastest whereas as we increase in the index value that index the highest
-7:15
-index will oscillate the slowest. So the lowest index is called as the least significant bit and the highest index is
-7:22
-called as the most significant bit. Um so the key thing to remember is
-7:27
-that the lower indexes change more frequently the higher indexes change
-7:33
-less frequently. This is the same understanding which we'll look at today in cyanosidal positional encoding as
-7:38
-well. So it seems that binary positional encoding solve the range issue, right?
-7:44
-The values are restricted between 0 and one. Uh so why what's the main issue?
-7:50
-The main problem with binary positional or yeah binary position encoding is that
-7:55
-uh if you look at these jumps, they're discrete jumps, right? They go from zero
-8:01
-or one. There is no values in between. And that's not good during pre-training. During pre-training, it becomes very
-8:07
-difficult for the LLM optimization routine to deal with these jumps or
-8:13
-discontinuities. What if we could have a diagram which is similar to this? But
-8:18
-instead of these discontinuities, what if this was made a bit smoother? What if these discontinuities were made a bit
-8:25
-smoother? Which essentially means what if we don't have values which are just
-8:30
-zero or one but what if we have values which are on a continuous spectrum
-8:35
-between 0 and one and that's where the idea of sinosidal positional encoding was born. So let us start exploring this
-8:43
-idea further. Cinosidal positional encodings are designed with the purpose
-8:50
-of solving this discontinuity problem and to make it continuous.
-8:55
-Uh so here are the main learnings from integer positional encodings. The higher indicases change more frequently
-9:02
-suggesting fine grained encoding. Lower indexes change less frequently meaning coarse
-9:07
-encoding. Um also note that integer positional encoding depended on two
-9:13
-factors the position of the token and the index number. So based on this graph
-9:19
-right because we had the position of the token and each to each position had eight indexes here and every index
-9:25
-oscillated differently. So we need to keep in mind the position and we also need to keep in mind the index. These
-9:31
-are the same two factors the position and the index which we'll be looking at during sinosidal positional encoding. So
-9:38
-sinosidal positional encoding what it will do is that it will instead of taking values of either zero or one
-9:45
-we'll make sure that the values are on a continuous spectrum from minus1 to 1. So
-9:51
-instead of being binary representation all the values which I have in my
-9:56
-positional embedding vector are now on a continuous scale. They can be any real value between minus1 and one. How do I
-10:03
-construct these values? These values come from a formula which is given by
-10:08
-this. And this looks like a very scary formula. Don't be scared or intimidated
-10:14
-by this right now. I'm going to explain this formula in a lot of detail today.
-10:19
-Essentially the way to read this formula is that the positional encoding value depends on two factors which we saw. It
-10:25
-depends on the position and it depends on the index. So position is POS and index is I. The way it depends on
-10:32
-position and index is very interesting. If it's an even index then
-10:39
-the values are sign of position divided by 10,000 to 2 I divided by the model
-10:46
-dimension. If it's an odd index then the value for the positional encoding for that index is cosine of position divided
-10:53
-by 10,000 to 2i by the model dimension. So let's say that we are considering for
-10:59
-
-
-
-
-
-
 ***
 
+* 10:00
 
 example um we are considering GPT2 we are considering GPT2 and that has the model
 11:07
@@ -788,4 +667,5 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 

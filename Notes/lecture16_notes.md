@@ -1,107 +1,9 @@
 * 35:00
 
-formula ensure that relative positional encodings are rotations of each other.
-35:45
-Okay. And that makes sure that there is a relation between different positions which the transformer can later
-35:52
-learn. That's why when this formula was released, it actually solves a number of things, right? First, it makes sure that
-35:59
-instead of having this jumpy jumpy values for binary positional encodings,
-36:04
-now the s and cosine values and this 10,000 which is an experimental choice
-36:09
-make my frequency values or not frequency values make my oscillation
-36:14
-smoother, right? So, it helps the LLM stabilization routine. Secondly, my s
-36:22
-and cosine which are there now ensure that um relative position encodings are
-36:27
-just rotations of each other. That's a very important thing to note. Without this formula, it would
-36:34
-have been impossible to extract this fact that relative positional encodings are rotations of each other. So when
-36:41
-this formula was released, when this formula was released u a number of a huge number of
-36:48
-researchers and organizations actually used this to build foundational language
-36:53
-models and that's why it became very popular. Uh one more thing to note is
-36:59
-that rotations ensure that relative ship shifts map to fixed angular differences
-37:04
-which then translate into predictable learnable attention patterns. That just means that we are injecting some
-37:10
-information from our side that the positions are actually related to each other and the transformer later learns
-37:16
-this injected information. So we are talking about cyanosidal positional encodings as if
-37:23
-they solve all of our problems, right? Then why do we even need rotary positional encoding? What's the main
-37:29
-problem with cyanosidal embeddings? Let's see that. Now one of the main issues with sinosidal positional
-37:36
-encodings is that positional embeddings are directly added to token
-37:41
-embeddings. Although the magnitude of the positional embeddings is small, the
-37:47
-very fact that we are adding positional embeddings to token embeddings pollutes the semantic information which is
-37:52
-carried by token embeddings. Ideally, we want the semantic information to be carried by token embeddings to be
-37:58
-preserved when we go into the transformer block. But in sinosidal positional encodings we add the
-38:05
-positional encoding value to the semantics to the semantic information and that actually pollutes the semantic
-38:13
-information. So one major issue is that these encodings are directly added to
-38:19
-token embeddings which pollutes the semantic information carried by token embeddings.
-38:25
-If you carefully look at the attention mechanism, you'll see that the attention
-38:30
-mechanism is that place where the influence of one token on another is
-38:35
-quantified by the queries and the key matrix. Right? You multiply the queries multiplied by the keys transpose and
-38:42
-that gives you the attention scores. This is that place where the position of a token really matters because for one
-38:49
-query I look at all the other keys and I find the attention scores. So instead of
-38:54
-adding the positional embeddings to my token embeddings, can we instead augment
-39:00
-my query and the key vectors itself with positional embeddings? So think about this for a
-39:07
-moment, right? Why do we want to encode positional encodings? Why do we want to do that? Because we want to let my
-39:14
-transformer architecture know that certain tokens are at different position than other tokens. Okay. Uh what do you
-39:22
-mean you want to know? What do what do you mean you want to let your transformer know? It means that when I
-39:27
-compute the context vectors from my token embedding vectors, tokens which are at different
-39:34
-positions should have different context vectors. Okay? To have different context vectors, you need different query and
-39:40
-the key vectors for different positions. Right? Then why don't you make sure that the query and the key values itself the
-39:48
-query and the key vectors itself these vectors change for
-39:55
-different positions which means that can you augment the query and the key vectors
-40:02
-such that their values are different for different
-40:08
-positions. So that's one one thing to note. Okay, that's one realization to
-40:14
-note that uh we don't necessarily need to add things to our token embeddings. We don't
-40:20
-necessarily need to make the changes here. We can make changes in the queries and keys. Second thing to note is that
-40:27
-let's say if I have one vector, right? If I have one vector and I want to
-40:32
-include the information of the position to this vector. Currently, we are just adding another vector to this, right? So
-40:39
-that might change the magnitude of my current vector. Instead of adding another vector to this vector, what if
-40:45
-we just rotate this vector? What if we just rotate this vector? So if you rotate the vector,
-40:52
-individual values will change, but the magnitude of the vector itself will remain the same. That's the second
-40:57
+***
+
+* 40:00
+
 learning. The first the first learning is that instead of making changes in my token embedding by adding positional
 41:04
 embeddings, what if so let's say I have my different tokens here, right? I have five tokens. Token 1 2 3 4 5. Let's say
@@ -205,6 +107,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

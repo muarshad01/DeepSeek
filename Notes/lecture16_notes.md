@@ -94,6 +94,11 @@ and X2, right? I is going to be one for X3 and X4. Uh so then I'm going to rotat
 15:28
 and I get my new vector whose X coordinate is going to be X3 dash and whose Y coordinate is going to be X4
 15:34
+
+
+
+***
+
 dash. So that's how I get my X3 dash and X4 dash. Again, the important thing to
 15:39
 note here is that the magnitude although X3 dash is different than X3, X4 dash is
@@ -188,6 +193,14 @@ came in this 2017 paper and then the rotary positional encodings were later
 20:32
 derived in 2023 which is 6 years later and here you can see the main they start
 20:37
+
+
+
+
+
+
+***
+
 out with the same formula which was introduced in the 2017 paper and then
 20:43
 they augmented this um addition to token embeddings with this image. So if you
@@ -461,5 +474,6 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 

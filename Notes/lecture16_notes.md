@@ -8,93 +8,11 @@
 
 * 15:00
 
+* Note that to include positional information, we don't add any vector to the query vector. 
+* We effectively rotate parts of the original query vector and hence maintain its magnitude. Thus avoiding the token embedding polluting issue which we saw with sinosidal positional encoding.
 
-dash. So that's how I get my X3 dash and X4 dash. Again, the important thing to
-15:39
-note here is that the magnitude although X3 dash is different than X3, X4 dash is
-15:44
-different than X4. That's fine. But the magnitude of this new vector, the magnitude of this new vector is the same
-15:51
-as the original vector. The magnitude of x3 x4 is the same as the magnitude of the vector x3- x4 dash. Which is these
-15:57
-two vectors, they have the same magnitude. That's the key point to note over here. So now all of this is shown
-16:04
-in one diagram over here. If you see what is done is that you take the original query vector or you take any
-16:11
-query or the key vector and you look at a particular position and you split it
-16:17
-into groups. Right? Now two two indexes together will form one vector and you
-16:23
-rotate you rotate you rotate that vector you rotate that vector you rotate that vector by some
-16:30
-angle and that angle with which we rotate every vector encodes something about the position because that angle is
-16:36
-given by P divided by 10,000 to 2 I divided by D. So the higher the position
-16:42
-the higher is this angle going to be and the higher the index the lower the angle
-16:48
-is going to be. So for a given position if you take a look at the for a given position P uh as my index increases the
-16:56
-amount of rotation further decreases. We'll we'll see about that the interpretation in one of the next parts.
-17:03
-But for now this one figure actually summarizes everything which we have done. We take the query vector, we form the first group x1, x2. We rotate it to
-17:10
-get x1 dash, x2 dash. That's my new rotated vector. Then we take the second group x3 x4, I rotate it to get x3 dash
-17:18
-and x4 dash. So my original query or the key vector is this. And my position
-17:23
-encoded query and the key vector is now this. Instead of x1, x2, x3, x4, the values are x1 dash, x2 dash, x3- x4
-17:30
-dash. The very nice thing is that if you take each individual buckets, if you take this bucket x1- x2 dash and x1 x2
-17:38
-and if you project them as vectors, their magnitudes are same. If you take this x3 x4 and x3 dash, x4 dash and if
-17:47
-you project them as vectors, their magnitude magnitudes are also exactly the same. This is one main advantage of
-17:55
-uh rotary positional encoding. In rotary positional encoding, we inject positional information by this rotation,
-18:02
-but we don't add any vector to the query vector. We are just rotating. We effectively rotate parts of the original
-18:09
-query vector and hence maintain its magnitude. Thus avoiding the token embedding polluting issue which we saw
-18:15
-with sinosidal positional encoding. And one more way to visualize this whole thing is that this x1- x2 dash is now uh
-18:24
-my rotation matrix multiplied by my original vector. So that this rotation
-18:29
-matrix just shows how I transform my x1 x2 to give me x1 dash and x2 dash. These
-18:35
-are the rotations. So if you remember in sinosidal positional encoding the reason we have cos and
-18:41
-s the reason we have cos and s is because the relative positional encodings are just rotations of each
-18:47
-other right uh I believe this is the same idea which inspired rotary positional encodings because here also
-18:55
-the very nice thing is that if we figure out that we want to maintain the magnitude what's the best way to
-19:00
-maintain the magnitude the best way to maintain the magnitude is instead of adding something you just rotate
-19:06
-And what's the angle with which I should rotate? The angle with which I should rotate should contain some information
-19:11
-about the position. Right? And in cyanosidal positional encodings, we already have come up with this
-19:17
-magnitude. So the angle with which I rotate depends on the position and depends inversely on the index within a
-19:26
-given position. Again to repeat the position value goes from zero or one to
-19:31
-context size and the index value goes from one to the embedding dimension which is there. That's the whole idea of
-19:38
-rotary positional encoding. Now we are going to see a few more intuitive
-19:43
-details about um this theta I= to omega I theta equal
-19:50
-to omega I into P. And what do we mean by this? Why does this theta depend
-19:56
-directly on the position and why does it depend inversely on this index? Let's see a few intuitive details about that.
-20:02
-But one more thing to note is that this rotation matrix is exactly the same as the one which we saw in sinosidal
-20:08
-positional embeddings. Right, which we saw over here. That's the exact same rotation matrix. Here also we rotated
-20:14
+***
+
 the matrix by theta and the same rotation matrix is used in rotary
 20:20
 positional encoding as well. So this is how research advances further research right the sinosidal positional encodings
@@ -386,6 +304,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

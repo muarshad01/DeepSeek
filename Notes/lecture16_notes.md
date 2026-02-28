@@ -7,116 +7,11 @@
 
 * 20:00
 
-
 * [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)
-
-out with the same formula which was introduced in the 2017 paper and then
-20:43
-they augmented this um addition to token embeddings with this image. So if you
-20:49
-see this image, it's exactly the same as what we have described. You take the query or the key vectors, you divide it
-20:55
-into into groups of two within one group. So let's say you have one group, you represent it as a vector x1 and x2.
-21:02
-You rotate that vector by some angle theta which is encoded by the position and the index that gives you the new um
-21:09
-that gives it you the new position encoded key position encoded query or the key. So you replace the value of
-21:15
-that group which you had chosen. Then you go to the next group. You replace it again by injecting the position value.
-21:21
-Then you go to the next group etc. You do this for the first query vector which is at position number one. Then you do
-21:27
-this for the second query vector. Then you do it for the third etc. That's how that's the geometrical intuition of
-21:34
-rotary positional encoding. Okay. Okay. So I hope you have understood this much and just another
-21:40
-last point to note is that I'm saying query vectors here but the same encoding which we have shown here can be done for
-21:46
-the key vectors also. Okay. Now let's go to understanding a few more intuitive
-21:51
-details regarding this formula. All right. So if you take a look at this formula over here, you'll
-21:57
-see that the way we inject positional values is only through this theta. So we
-22:03
-need to understand what this intuitively means, right? um omega I so let me actually copy this
-22:11
-let me copy this and bring this down over here to our discussion actually I have already written it down over here
-22:18
-um so that's fine I don't need to copy copy it so let's start understanding the intuition okay the so this is the value
-22:27
-with which we rotate omega i into p so theta is is given by my position theta
-22:34
-is given by my position divided by 10,000 to 2 I divided by D. So it depends on two variables position and
-22:40
-the index. This D is fixed because that's my embedding dimension. So here I have plotted the a circle here which
-22:48
-represents the magnitude of this whole quantity. And here I have shown two variables here. If you go from left to
-22:55
-right the position increases. So the dog chased another dog. This position number one. This is position number two. This
-23:01
-position number three. Position number four and position number five. And if you go from top to bottom, the index is
-23:08
-actually increasing. So this is my lowest index. Index number one, index number two, index number three, and
-23:13
-index number four. So each token I'm assuming as a four-dimensional vector, right? So there are four
-23:19
-indexes. What I want you to see first is that if you take a look at the effect of position, the rotation magnitude which
-23:26
-is omega into P varies directly with the position. Okay? So that is shown here.
-23:32
-Also if you fix any index let's say I fix index number one and as I increase
-23:37
-the position you'll see that the magnitude of the circle or the circle radius increases right this means as the
-23:43
-position increases it leads to larger
-23:48
-rotations. Um so higher positions lead to larger rotations and that's same for all the indexes. If you go to index
-23:55
-number three, uh if you go to index number three and take a look at the rotation magnitude for every position,
-24:01
-you'll see that the rotation magnitude increases because the circle radius increases as the position goes on
-24:07
-increasing. What this shows is that higher positions lead to larger rotations, right? This means that closer
-24:13
-queries have similar positional encodings. So queries which are closer together they will naturally have
-24:19
-similar positional encodings because they have similar P and queries which are farther have different positional
-24:25
-encodings and that makes intuitive sense. This was also mentioned in the
-24:31
-uh paper which introduced rotary positional encoding which is row former. So if you scroll down below
-24:38
-um they mention over here that
-24:44
-okay one can prove that this setting provides a long-term decay property
-24:50
-which means that the inner product will decay with the inner product will decay when relative position increases. This
-24:57
-property coincides with the intuition that a pair of tokens with a long relative distance would should have less
-25:03
-connection. This is the same thing here, right? A pair of query vectors with uh a
-25:09
-pair of query vectors with a long relative distance
-25:14
-um will have very different positional encodings because they have different p values. Whereas a pair of query vectors
-25:21
-which are closer together in position will have similar positional encodings. And that makes intuitive sense to us. So
-25:28
-if you scroll down below you'll see that uh the second intuition which we observe
-25:33
-is that the lower index positional values change fast with position and the higher index positional values change
-25:39
-bit slow with position. Let's see what this means. Right? So if you take a look at the lower indexes you'll see that the
-25:47
-lower indexes the circle radius increases very fast as the position increases. Whereas if you take the
-25:52
-
-
-
-
 
 ***
 
+* 25:00
 
 highest index the circle radius does not change too much at all. the circle radius is almost fixed which means that
 25:59
@@ -298,6 +193,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

@@ -60,4 +60,9 @@ $$
 
 * The main idea is to take Query and Key vectors, and to apply the sine and cosine  positional encoding to these vectors.
 
+
+* Why don't we add positional encodings to query and key vectors, which encoded relative token information.
+* If we add posotional encdings at that later stage, we would not pollute the meaning carried by token embeddings.
+* Rotary Positonal Encoding (RoPE) exploit this idea along with the rotation intuition, which we looked at earlier.
+
 ***

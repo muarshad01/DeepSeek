@@ -111,6 +111,8 @@ derived in 2023 which is 6 years later and here you can see the main they start
 
 ***
 
+* 20:00
+
 out with the same formula which was introduced in the 2017 paper and then
 20:43
 they augmented this um addition to token embeddings with this image. So if you
@@ -384,6 +386,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

@@ -1,23 +1,4 @@
-
-
 * 20:00
-
-
-of oscillations now slightly reduces as my index value increases from 1 to 50.
-20:23
-And the last plotting I have done is for I equal to 150. So I go even one step ahead and I plot I equal to 150. I
-20:30
-collect this value for all the different positions and I plot them together. So here you see now the frequency reduces
-20:37
-by huge amount. So if you go from i = 1 to i = 50 to i = 150. What is it that
-20:46
-you notice? The main thing which you notice is that lower indices oscillate fast
-20:52
-
-
-
-***
-
 
 between positions. Higher indexes oscillate slow between positions. That is exactly what we have seen for binary
 21:00
@@ -103,6 +84,15 @@ there with binary positional encodings. They are smooth, continuous and differen
 25:14
 What that helps us is that the smooth continuous and differentiable nature which is there which you see in these
 25:20
+
+
+
+
+
+***
+
+* 25:00
+
 plots that helps my LLM training routine. That was one of the major issues with binary positional encoding.
 25:27
 So you might still be thinking right all of this now seems fine but one thing is still unclear for me and that thing is u
@@ -193,6 +183,12 @@ Right? So that will be the positional encoding value at position number three. T
 30:04
 corresponds to sin of theta. So it's at positional encoding at position 2. And
 30:11
+
+
+***
+
+* 30:00
+  
 x1 corresponds to cos theta. So it's positional encoding for a position or i equal to 3 for index
 30:19
 equal to two for index equal to 3 and here we have index equal to two for y1
@@ -500,6 +496,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

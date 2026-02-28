@@ -24,7 +24,7 @@
 | __RoPE__ |---|---|
 | [Lecture 14 - Integer and Binary Positional Encodings (I&BPE) - Journey towards Rotary Positional Encodings (RoPE)](https://www.youtube.com/watch?v=rP0CoTxe5gU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes14](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture14_notes.md) | Feb 26, 2026 |
 | [Lecture 15 - Sinusoidal Positional Encodings (SinPE) - What’s with the weird sin-cos formula?](https://www.youtube.com/watch?v=bQCQ7VO-TWU&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes15](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture15_notes.md) | Feb 26, 2026 |
-| [Lecture 16 - Rotary Positional Encodings (RoPE) - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture16_notes.md)| |
+| [Lecture 16 - Rotary Positional Encodings (RoPE) - Explained Visually](https://www.youtube.com/watch?v=a17DlNxkv2k&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes16](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture16_notes.md) | Feb 28, 2026|
 | [Lecture 17 - How DeepSeek exactly implemented Latent Attention - MLA + RoPE](https://www.youtube.com/watch?v=m1x8vA_Tscc&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes17](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture17_notes.md)| |
 |__MoE__|---|---|
 | [Lecture 18 - Mixture of Experts (MoE) Introduction](https://www.youtube.com/watch?v=v7U21meXd6Y&list=PLPTV0NXA_ZSiOpKKlHCyOq9lnp-dLvlms)|  [Notes18](https://github.com/muarshad01/DeepSeek/blob/main/Notes/lecture18_notes.md)| |
@@ -97,5 +97,7 @@
 | Jun 2024 | [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
 | Dec 2024 | [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
 | Jan 2025 | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
+|---|---|
+| 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)|
 
 ***

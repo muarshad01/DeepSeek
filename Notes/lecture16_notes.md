@@ -5,22 +5,6 @@
 
 ***
 
-the matrix by theta and the same rotation matrix is used in rotary
-20:20
-positional encoding as well. So this is how research advances further research right the sinosidal positional encodings
-20:27
-came in this 2017 paper and then the rotary positional encodings were later
-20:32
-derived in 2023 which is 6 years later and here you can see the main they start
-20:37
-
-
-
-
-
-
-***
-
 * 20:00
 
 out with the same formula which was introduced in the 2017 paper and then
@@ -296,6 +280,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

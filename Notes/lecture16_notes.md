@@ -1,115 +1,7 @@
-***
-
-* 5:00
-
-***
-
-* 10:00
-
-***
-
-* 15:00
-
-encoding. You see only three paragraphs where they introduce these two these two
-15:21
-functions. How to find the positional encoding values at different indices using the s and the cosine functions. So
-15:29
-this is a these are three paragraphs over here right but to understand it we need to devote this full lecture towards
-15:35
-it. So first let's actually start exploring these let's start exploring this formula and let's see whether it
-15:42
-makes sense or not. First we see that it's s and cosine right? So that's why the values lie on a continuous spectrum
-15:48
-between minus1 and 1 that that much is obvious. But where does this why do we
-15:53
-have 10,000 to 2i by d model? Let's see. So let us start by visualizing this
-16:00
-formula. The best way to understand whether this formula works or not is to start visualizing it. So we are going to
-16:07
-use GPT2 and we are going to use the D model equal to 768. Now GPT2 let's say the
-16:15
-model dimension is 768. What does this model dimension decide? This decides the
-16:21
-range of my indexes. So if the model dimension is 768, my index will go from I=0 till I =
-16:28
-767. And what else do I need? I need to check how many positions or what values this POS
-16:35
-can take. Right? And remember what will that depend on? Pause this video for a moment here if
-16:41
-you want to think about that the position will depend on the context size. So GPT2 had a context size of 1024
-16:50
-which means that the position of any token which I choose can lie between 1
-16:55
-or you can say 0 to 1023 or if it starts from 1 it can lie between 1 to
-17:01
-1024. There will be no token whose position is 1025 because it will be out of my
-17:07
-context size. Right? So I my I goes from 0 to 767 which is the index and my
-17:14
-position goes from 1 1 to 1 0 to4 right. These are the two variables which we
-17:20
-always deal with and those are the same variables we dealt with when we looked at the uh binary position encoding.
-17:27
-Remember in the binary position encoding we had the position on the x-axis and we have
-17:33
-the index on the y-axis. So let me assume the D model equal to
-17:38
-768. So the range and the context size is 1024. So range of position variable
-17:44
-is 1 to 1024. And if my I actually starts from 1, this can be 1 to 768. It
-17:49
-depends on your convention. So the I the range of I variable I'm assuming to go from 1 to 768. Right? Now what we can
-17:57
-easily do is that we can write a very simple code to actually plot um uh to
-18:03
-fix to fix a particular I. So we can fix a particular I over here. Uh let's say I
-18:10
-fix a particular index and then plot the value of the positional encoding for
-18:15
-different positions. Right? So for i= 1. So this is my i = 1 now. And you'll see
-18:23
-on the x-axis I have my different positions. And what am I exactly plotting over here? I'm I'm looking at
-18:29
-this thousand different positions and I'm plotting their low lowest significant bit. I'm plotting the lowest
-18:37
-significant bit of my thousand positions. What does that mean? Remember that now every position let's say I have
-18:44
-position number one. I have position number one that will be a 768 dimensional vector.
-18:52
-I have my position number two that will be a 768 dimensional vector. Correct? Similarly, if you go right till the very
-18:59
-end, I have position number 1024. So, this will be
-19:05
-1024 and it will have 768 different values or 768 different indexes. All of
-19:12
-these will have 768 different indexes. What we are plotting here is the lowest. So, if the lowest index starts from
-19:19
-here, this is I equal to 1. We are plotting the last index for all of these
-19:24
-for all of these positions. And what have we learned before? We learned before that um what was the biggest
-19:31
-learning for for us? Our biggest learning was lower indexes change more frequently and higher indices change
-19:38
-less frequently across positions. Let's see whether that happens here also. What we are doing here is that I'm just
-19:44
-collecting the index equal to one values for all positions and I'm plotting it. So here you see how quickly the lower
-19:51
-indexes are oscillating. It's almost it's extremely quick, right? And the reason it's so quick is because this
-19:57
-will oscillate after every position. After every one position, it will immediately oscillate. That's why you
-20:02
-see so many oscillations over here. Now what I've done is that I also go a bit deeper and I say if I equal to
-20:09
-50, I have also collected all the values for I equal to 50 and I plotted them together. So here you see the frequency
-20:16
 
 
+* 20:00
 
-
-
-
-
-***
 
 of oscillations now slightly reduces as my index value increases from 1 to 50.
 20:23
@@ -608,6 +500,7 @@ fully understand how deepsek integrated multi head latent attention with rope.
 So thanks a lot everyone. uh make detailed notes as you follow along and I look forward to seeing you in the next
 46:18
 lecture.
+
 
 
 

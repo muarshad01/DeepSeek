@@ -13,111 +13,19 @@
 
 * 25:00
 
-highest index the circle radius does not change too much at all. the circle radius is almost fixed which means that
-25:59
-it's not increasing very fast. So what this shows is that the lower if we take a look at the lower index the rotation
-26:07
-magnitude changes fast with position high frequency and if we take a look at the higher index which is this the
-26:14
-rotation magnitude changes slow with position that means it's a low frequency.
-26:20
-If you remember that's the same conclusion which we had obtained with sinosoidal positional embeddings and binary positional embeddings as well.
-26:27
-What we had observed was that lower indexes oscillates fast between positions higher indexes oscillates slow
-26:33
-between position. And since we are using the same formula in rotary positional encoding, we have the same conclusion
-26:39
-that if you have lower indexes, if you have lower indexes such as
-26:44
-these this or this, we oscillate fast with positions and higher indexes
-26:50
-oscillate very slow with positions. So here we have fast oscillations whereas here we have slow oscillations. What
-26:56
-does this intuitively mean? Um this intuitively means that so lower index
-27:02
-actually lower index oscillates quickly right this ensures that the model captures small shifts. For example, if
-27:09
-we have two sentences I just told her the truth versus I told just her the truth. These are different sentences,
-27:16
-right? I just told her the truth is with respect to time. Recently I told her the truth and I told just her the truth
-27:23
-which means among all the people I have only her I have told the truth. So the lower index fast oscillations captures
-27:29
-the change brought about by varying the position of the word told. So here told comes at position number three and here
-27:35
-it comes at two. So ideally these are very close by positions right. So we
-27:41
-want that index which can change fast across different positions to capture this change and that's why the lower
-27:47
-index oscillations becomes very useful for capturing the small shifts uh in
-27:52
-positions. So I just told her the truth versus I told just her the truth. The word told
-28:00
-uh in different positions changes meaning and lower index frequencies ensure the model captures the small
-28:06
-shifts. So whenever you are learning about positional encodings always try to relate it to some intuition like
-28:13
-this. Uh again when we looked at the first example always ask yourself that why should higher positions lead to
-28:19
-larger rotations? Because words which are closer together in positions they are more likely to be more related to
-28:25
-each other. Right? So that's why their positional encodings value should be similar to each other. Whereas words
-28:31
-which are completely farther apart they should not be that similar. Uh that's why the first point
-28:37
-makes sense. In the second point the lower index oscillates quickly. The higher index oscillates slowly. So since
-28:44
-the lower index oscillates quickly, it can capture if there are some small shifts in position which completely
-28:50
-change the meaning of the sentence. The lower index quick oscillations can capture that. This is also one more
-28:56
-reason why sinosidal uh this formula works very well because the lower indexes capture the the small shifts and
-29:02
-the higher indices capture something different which we'll see now. So we understood what the lower indexes
-29:08
-capture. But if you take a look at the higher higher indexes right which are over here they do not change very fast
-29:14
-with respect to position. So higher index components ensure that even with large position differences the
-29:20
-relationship is preserved. What does this mean? So let's say if you have the sentence Einstein developed the theory
-29:26
-of relativity. This breakthrough reshaped physics. So this breakthrough
-29:32
-refers to the theory of relativity which which has come several words earlier. So
-29:37
-higher index oscillations capture these long range dependencies which means that let's say there is a big sentence right
-29:44
-and there is one uh token at position number one and one token at position number 20 and these are related to each
-29:51
-other. The higher index the higher indexes are good because the higher indexes don't change too much across
-29:57
-these two positions and that's why they might capture the fact that these two
-30:02
-positions are actually related to each other. We cannot rely on the lower indexes for this because the lower
-30:07
+* Higher index components ensure that even with large position differences the relationship is preserved.
 
+```
+Einstein developed the theory of relativity. This breakthrough reshaped physics.
+```
 
-
-
+* "This breakthrough" refers to "the theory of relativity", several words earlier.
+* So, higher index oscillations capture these long-range context dependencies.
 
 ***
 
-indexes are quickly changing. Right? What if position number one is here, position number 20 is here or
-30:14
-here. Let's say position number 20 is here. They change so much. But the higher indexes they change very their
-30:22
-their frequency is very less. So even for position one and for position 20 they might have similar values. So
-30:29
-higher indexes have low oscillations which retain or capture the relationship
-30:35
-between tokens which are very farther apart. So higher index low oscillations capture long range context dependencies.
-30:42
-That's very important. Okay. So higher index components ensure that even with
-30:48
-large position differences the relationship is preserved. The relationship between tokens is preserved. Whereas if we only rely on
-30:54
-lower indexes, the lower indexes oscillate so much that they have no clue that position one and position 20 are
-31:01
+* 30:00
+
 actually related to each other. So we can rely on the higher indexes for that.
 31:06
 So lower indexes capture something completely different. They capture small shifts in meaning in the same sentence
@@ -193,6 +101,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

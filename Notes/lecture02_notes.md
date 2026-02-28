@@ -1,6 +1,6 @@
 
 #### What is DeepSeek
-* DeepSeek is a Chinese company, which builds large language models (LLMs)
+* DeepSeek is a Chinese company, which builds Large Language Models (LLMs)
 *
 *
 * and uh before we dive any deeper first let me give you a quick overview
@@ -743,4 +743,5 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 

@@ -1,24 +1,9 @@
 
-0:05
-hello everyone and welcome to this next lecture in the build deep seek from
-0:10
-scratch Series today my main agenda is to cover three things first we are going
-0:17
-to look at what exactly is deep seek second we are going to look at what
-0:24
-makes deep seek so special and why is everyone talking about it what are the
-0:29
-techniqu details which make deep seek so special and the third thing which we are
-0:34
-going to look at is what is the plan in this lecture series what we are going to
-0:41
-learn and what is the sequence in which we are going to learn about different
-0:46
-topics so let's get started uh first what is deep seek
-0:52
-essentially deep seek is a Chinese company which builds large language
-0:58
-models and uh before we dive any deeper first let me give you a quick overview
+#### What is DeepSeek
+* DeepSeek is a Chinese company, which builds large language models (LLMs)
+*
+*
+* and uh before we dive any deeper first let me give you a quick overview
 1:05
 of what large language models essentially are all of you would have interacted
 1:11
@@ -758,3 +743,4 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+

@@ -7,7 +7,7 @@
 
 * 20:00
 
-* [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)
+* [RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)
 
 ***
 
@@ -23,3 +23,4 @@ Einstein developed the theory of relativity. This breakthrough reshaped physics.
 * So, higher index oscillations capture these long-range context dependencies.
 
 ***
+

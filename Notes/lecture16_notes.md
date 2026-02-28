@@ -1,105 +1,8 @@
-e, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to the lecture in the build deepseek from
-2:08
-scratch series. Today we are going to learn about rotary positional encoding.
-2:14
-So if you remember in the previous lectures we have started looking at different types of positional encodings.
-2:20
-In particular in the last lecture we have taken a detailed look at sinosidal positional encoding and in the lecture
-2:26
-before that we have taken a look at integer and binary position encoding. So
-2:31
-you might be thinking why are we spending this time on positional encoding in a deepseek from scratch
-2:38
-series. The main reason is that if you'll take a look at the deepseek paper, they have this multi-head latent
-2:45
-attention mechanism, right? We have already covered the most basic version of the
-2:51
-MLA. But deepseek R1 and Deepseek V3 which were released in
-2:56
-2025, they combine multi head latent attention with a special type of positional embedding which is called as
-3:03
-the rotary positional encoding. If you see over here, the MLA is combined with
-3:08
-rotary positional encoding. So without understanding rotary positional encoding, it's impossible for us to
-3:14
-understand how it's combined with multi head latent attention. And that's why we have been spending the past few lectures
-3:20
-on understanding different types of positional encoding. Now we have built up sufficient knowledge to finally
-3:27
-tackle what exactly is rotary positional encoding. So let's get started with
-3:32
-today's lecture. If you recall towards the end of the previous lecture, we saw some limitations with sinosidal
-3:39
-embeddings. One major limitation was in sinosidal embeddings, we added the
-3:45
-positional encoding values directly to the token embedding, right? Or token encoding. And we know that the token
-3:51
-encoding essentially captures the semantics. So by adding an information
-3:56
-about the position directly to the semantics, we are polluting the semantic information carried by the token
-4:03
-embeddings. Ideally what I want is the follows. Right? So let's take a look at
-4:08
-the um entire LLM architecture and I'm going
-4:14
-to copy this and paste it over here. Right? This is the entire LLM architecture. Currently if you see what
-4:21
-we are doing with sinosidal position encoding is that we are adding we are adding token encodings to the positional
-4:27
-encodings. So here is where the positional embeddings or positional encodings come into the picture. Ideally
-4:33
-I don't want this. Ideally I want my token embeddings to be passed unfiltered
-4:38
-to the transformer block so that their semantic meaning is not diluted. And
-4:44
-then the question which we asked towards the end of previous lecture is that can we somehow inject information about the
-4:50
-token position in the attention mechanism itself. Instead of adding the positional embeddings to the token
-4:56
-embeddings in this first data prep-processing step, why don't we include information about the positional
-5:02
-embedding in the multi head attention mechanism? And that's where rotary positional encoding idea is born.
-5:10
+
+***
+
+* 5:00
+
 So what we saw in the previous lecture was that if you take a look at the multi
 5:16
 head attention mechanism right the multi head attention mechanism consists of finding the attention scores. So we have
@@ -659,3 +562,4 @@ to seeing you in the next lecture.
 All
 
 From the series
+

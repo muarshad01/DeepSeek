@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ssh-add -k ~/.ssh/id_rsa_laptop
+ssh-add -k ~/.ssh/id_rsa_laptop
 
 clear
 

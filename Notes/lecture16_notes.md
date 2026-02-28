@@ -107,6 +107,14 @@ bit slow with position. Let's see what this means. Right? So if you take a look 
 25:47
 lower indexes the circle radius increases very fast as the position increases. Whereas if you take the
 25:52
+
+
+
+
+
+***
+
+
 highest index the circle radius does not change too much at all. the circle radius is almost fixed which means that
 25:59
 it's not increasing very fast. So what this shows is that the lower if we take a look at the lower index the rotation
@@ -189,6 +197,13 @@ these two positions and that's why they might capture the fact that these two
 30:02
 positions are actually related to each other. We cannot rely on the lower indexes for this because the lower
 30:07
+
+
+
+
+
+***
+
 indexes are quickly changing. Right? What if position number one is here, position number 20 is here or
 30:14
 here. Let's say position number 20 is here. They change so much. But the higher indexes they change very their
@@ -280,6 +295,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

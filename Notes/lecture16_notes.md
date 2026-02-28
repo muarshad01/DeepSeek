@@ -1,11 +1,3 @@
-* 5:00
-
-***
-
-* 10:00
-
-***
-
 * 15:00
 
 * Note that to include positional information, we don't add any vector to the query vector. 
@@ -304,6 +296,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

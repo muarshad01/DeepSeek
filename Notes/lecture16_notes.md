@@ -1,110 +1,9 @@
+* 5:00
 
 ***
 
-* 5:00
+* 10:00
 
-So what we saw in the previous lecture was that if you take a look at the multi
-5:16
-head attention mechanism right the multi head attention mechanism consists of finding the attention scores. So we have
-5:23
-the query matrix and we have the key matrix the queries is multiplied with the keys transpose to get my attention
-5:30
-scores. So it is this mechanism. It is the multi head attention mechanism where
-5:36
-we take into account the position of different tokens and find the attention scores. So why don't we add the
-5:42
-positional information or why don't we inject positional information into these
-5:48
-vectors? Why don't we inject positional information into the query vectors and the key vectors? That's the first
-5:54
-question. The second question which we asked in the end of the previous lecture was that if you see the token embeddings
-6:02
-are just added to the positional embeddings right the token embeddings are added to the positional embeddings
-6:07
-over here in this step which has also been shown over here the token embeddings are added to the positional
-6:13
-embeddings which changes the magnitude of the token embedding itself which is not good ideally what I want is I don't
-6:20
-want the magnitude of the original vector to change so let's say this is my original query vector instead of adding
-6:27
-another vector to it. So instead of adding another vector and forming a new vector why don't I rotate this
-6:34
-vector if I want to capture information or if I want to inject information about the position why don't I take a query
-6:41
-vector or the key vector and simply rotate it by an angle theta to inject the information about position. So if a
-6:48
-token has a higher position I'll rotate it by a different angle. If it has a uh
-6:53
-or if it's if it has a position which is smaller or position index or it's at a
-6:58
-lower position, I'll rotate it by a smaller angle. Essentially, the angle will quantify some information about my
-7:05
-position, but the magnitude of the vector will not change. Since I'm just doing the rotation, the magnitude of the
-7:11
-query vector or the key vector is not going to change. That will make sure that my original vector's magnitude
-7:18
-remains the same. So there are these two ideas with which we start the today's lecture. First instead of adding the
-7:25
-positional embedding in the data prep-processing block over here why don't I add it in the attention
-7:30
-mechanism in particular why don't I modify the query and the key vectors. Second instead of just adding my
-7:37
-positional encoding vector to the query and the key vector why don't I just rotate these vectors so that the
-7:42
-magnitude of the original vector remains unchanged. With these two ideas, we start our lecture today on understanding
-7:48
-rotary positional encoding. Now, if you understand rotary positional encoding, you'll never forget
-7:55
-it because it's a very visual concept. But if you directly go into the mathematics, it might sound hard or even
-8:01
-intimidating or scary at first. So, I'm going to try to make this lecture as visual as possible. Okay, let's get
-8:08
-started. So the main idea of rotary positional encoding is to take my query
-8:14
-and the key vectors and to apply sinosidal positional encoding to these vectors. What that means is that in the
-8:22
-previous lecture we saw that sinosidal positional encoding has this formula right where essentially if you if you
-8:30
-scroll down yeah this is the formula where the even indices of any given position are given by a sign value and
-8:38
-the odd indices of any any given position are given by the cosine value. So what if we use this same formula but
-8:46
-now instead we apply it to the query and the key vectors and instead of adding
-8:51
-this to the vector we are going to do a rotation. Let's see how we will do this. So now I'm going to demonstrate
-8:58
-how rotary positional encoding works in practice through a visual example. So
-9:04
-for the purposes of demonstration let's say I have these query vectors right for five tokens. You can also imagine this
-9:10
-to be query or key vectors. So the first query vector is for the it's a four-dimensional vector. The second
-9:17
-query vector is for dog that's four-dimensional vector. The third is for chased another dog. So every token
-9:25
-in my input sequence is now a fourdimensional query vector or you can also think of it as a key vector.
-9:31
-Whatever I'm showing right now for the query vector, the same thing applies to the key vector as well.
-9:37
-So let's say we have five query vectors for the dog chased another dog. Okay.
-9:43
-And for now I'm just going to focus on the first query vector. The operation which we are going to perform on this
-9:49
-first query vector um is the same operation as we are going to perform on
-9:54
-the later tokens as well. So I'm just going to show this operation on my first
-9:59
-vector right now which comes at position number one. Which comes at position number one.
-10:06
-All right. So in rotary positional encoding what is done is that we form
-10:11
-two groups. In my first group I take this first value which is x1 and I take
-10:16
-my second value which is x2. So this is group number one. And in my second group I take x3 and x4. That's my group number
-10:25
-two. All right. So now let us look at the first group which is x1 and x2. So
-10:30
-we take the first two indexes which is x1 and x2. we form a vector out of these. So if you look at this this plot
-10:37
 now take a look at this vector. Now this is a vector whose x coordinate is x1 and
 10:43
 whose ycoordinate is x2. That's my original vector without adding any positional encoding. Right? Now what we
@@ -562,4 +461,5 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 

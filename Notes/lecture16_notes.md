@@ -4,100 +4,10 @@
 
 * 10:00
 
-now take a look at this vector. Now this is a vector whose x coordinate is x1 and
-10:43
-whose ycoordinate is x2. That's my original vector without adding any positional encoding. Right? Now what we
-10:50
-do to this vector is that we want to inject positional encoding value. Right? We want to inject some information about
-10:57
-the position. So to do that we are going to rotate this vector by an angle of theta. We are going to rotate this
-11:03
-vector by an angle of theta. And what is theta? My theta is my frequency multiplied by my position. And my
-11:10
-frequency is 1 upon 10,000 to 2 I / D. That's the exact same frequency which we
-11:17
-have seen over here. 1 / 10,000 to 2 I divided by D multiplied by the position.
-11:24
-That's going to be my theta. So if I write down my theta, my theta is
-11:29
-going to be position divided by 10,000 raised to 2 I divided by D. Okay. And
-11:38
-what is P? P is the position for the first token. So this is going to be 1. What is I? For the first two tokens, I'm
-11:45
-going to use index equal to zero. And for the second two tokens, I'm going to use index equal to 1.
-11:53
-So I'm just going to rotate it by theta. Right? So what will be my new x1
-11:59
-dash? My new x1 dash will just be my new vector over here. xcoordinate of that
-12:06
-new vector. And my x2 dash will be the y-coordinate of my new vector. That is
-12:12
-how I get x1 dash and that is how I'm going to get x2 dash.
-12:17
-Okay. So let me repeat what we have done over here. We form a vector out of the first two x1
-12:25
-and x2. That's this vector over here. And we are going to rotate this vector by an angle of theta. We are going to
-12:33
-rotate this vector by an angle of theta. Where theta is going to be omega i into p where omega i is 1 upon 10,000 to 2 i
-12:41
-divided by d. So the angle with which I rotate this vector is going to be
-12:48
-encoded by a position. It's going to depend on two things. It's going to depend on the position and it's going to
-12:54
-depend on the index. Okay. So what is this index over here? As we have seen previously
-13:01
-um every positional encoding vector will have the index equal to um what's the
-13:08
-embedding dimension. So the index goes from zero to the embedding dimension and
-13:13
-the position p goes from zero to the context size. In the current case what we have chosen my
-13:20
-number of uh the number of positions or the number
-13:25
-of tokens in the input sequence are equal to five and the dimension I'm choosing is equal to four. The dimension
-13:31
-I'm choosing is equal to four. So this I is such that this I is such that for the
-13:37
-first two indexes it's equal to zero and for the later two indexes it's equal to one for the two later two indexes after
-13:44
-that it will be equal to two etc. So there will be groups of two each.
-13:50
-Um okay so x1 and x2 that's x1 and x2 that's my first pair. I rotate it by an
-13:57
-angle theta and I get my x1 dash. So what is x1 dash? X1 dash is now the X coordinate of my rotated vector. X2 dash
-14:04
-is the Y-coordinate of my rotated vector. That's how I get my new that's
-14:10
-how I get my new values which are X1 dash and X2 dash. So do you observe something over here? One thing to note
-14:17
-here is that I added or I injected information about the position which is quantified by my theta over here. But
-14:24
-nowhere did I change the magnitude of the original vector. Right? If you take a look at the original vector here, I
-14:30
-just have I have rotated it. So the magnitude of the new vector is going to be unchanged. That's going to be the
-14:36
-same. That's how I get my x1 dash and x2 dash. And this is the same operation which we do for the third index and the
-14:43
-fourth index. So for the third index and the fourth index, you see x3 and x4 that
-14:48
-forms a vector over here x3 and x4. That's this vector. And this vector, I'm
-14:54
-going to take this vector and I'm going to rotate this vector also. now and what will be the angle uh I'm
-15:02
-going to rotate this vector also and what will be this angle with which this
-15:08
-vector is now rotated that is given by same formula omega I into P. So P
-15:13
-remains the same because both of these X1 X2 X3 X4 are for the first token but what changes is I. So I was zero for X1
-15:21
-and X2, right? I is going to be one for X3 and X4. Uh so then I'm going to rotate this
-15:28
-and I get my new vector whose X coordinate is going to be X3 dash and whose Y coordinate is going to be X4
-15:34
-
-
-
 ***
+
+* 15:00
+
 
 dash. So that's how I get my X3 dash and X4 dash. Again, the important thing to
 15:39
@@ -474,6 +384,7 @@ to seeing you in the next lecture.
 All
 
 From the series
+
 
 
 

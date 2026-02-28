@@ -1,120 +1,15 @@
-
 #### What is DeepSeek
 * DeepSeek is a Chinese company, which builds Large Language Models (LLMs)
-*
-*
-* and uh before we dive any deeper first let me give you a quick overview
-1:05
-of what large language models essentially are all of you would have interacted
-1:11
-with chat GPD right I can go to um chat GPD right now and let's say I can ask
-1:18
-that make make a travel plan for me to visit
-1:27
-Italy and then chat G PT will come up with this travel plan this is a large
-1:33
-language model but one thing to keep in mind is that at the heart of it what a large
-1:40
-language model is is that it's an engine which takes in a sequence of words and
-1:46
-then it gives a probability of what's the most likely next
-1:53
-token and when such tokens are aggregated together it forms sentences
-1:59
-such as what we see here right now so essentially large language models
-2:04
-are probabilistic engines for predicting the next token this is the first thing to keep in mind here's a simple code
-2:11
-which I wrote to demonstrate that the models and their prediction are probabilistic in nature so for example
-2:19
-if the sentence is after years of hard work your effort will take you and we
-2:24
-have to complete this sentence I used the open API key and I um ran this code
-2:32
-which predicts the top 10 tokens and their probabilities so although the
-2:38
-output will be two which is essentially or which essentially implies that the next token
-2:44
-is two after years of hard work your effort will take you two but you will
-2:49
-see that there is also some amount of probability which is assigned to tokens like far places where
-2:55
-Etc so although you see these answers over here and they look deterministic it
-3:01
-seems that Chad GPT is very confident in giving these answers just keep in mind
-3:07
-that underneath for every single token there is a probability and we choose the next token with the highest probability
-3:14
-usually the distribution of the next token probabilities looks something like this on a log log scale it looks
-3:20
-something like this the first token generally has very high probability in the case of confident predictions and
-3:27
-then the and then the probability just just keeps falling down all right so that's the key idea
-3:34
-behind what large language models are and then what exactly is this large
-3:39
-behind large language models to put it simply no one really has an exact definition of what large is but
-3:47
-essentially there is a scaling law with size the first paper which kind of figured this out was the gpt3 paper let
-3:54
-me quickly show that paper to you so here's the gpt3 paper which was titled language models are few short Learners
-4:02
-where the authors essentially proved that if you increase the model size to something as high as 175 billion
-4:10
-parameters for both one shot and few short learning the model performance essentially dramatically improves I
-4:17
-believe that this was when we truly crossed the size barrier from 1.3 billion parameters to 13 billion
-4:24
-parameters to ultimately 175 billion parameters
-4:30
-and once this size barrier is crossed we start seeing wonderful properties of large language
-4:35
-models so this was gpt2 gpt2 the largest model had around 1.5 billion parameters
-4:43
-gpt3 the largest model had around 175 billion parameters and in general years
-4:50
-a paper which was published in nature right about neural networks and size so
-4:56
-from the 1950s to 2020 you can see that there is an exponential increase in the
-5:03
-
 
 ***
 
-number of parameters which we are using and recently you see the orange dots are more this is because language models
-5:10
-have really dominated the uh size space so essentially
-5:15
-language models and their size has been drastically increasing and we have reached about 1 trillion right now so
-5:22
-look at this straight line here which I've shown by this red arrow so the
-5:27
-y-axis is in log scale so this is an exponential scaling law which means that the size of the language models is
-5:35
-increasing exponentially why do we really care about size so much and why do we
-5:41
-increase the size well because people have seen that as you keep on increasing
-5:47
-the size of language models You observe something called emergent Behavior or emergent properties these are
-5:54
-essentially properties uh which are not present in smaller models
-6:00
-but they are present in larger models so for example if you see all of these tasks here such as performing
-6:07
-arithmetic um word unscrambling tasks Etc all of these tasks you see there is
-6:12
-a pickup point in all of these and on the x-axis you can think of this as computational power or roughly
-6:19
-equivalent to the model size so if the model size increases Beyond a certain point we have this pickup point so the
-6:27
-model suddenly starts learning about new things the model starts developing these magical awesome properties although the
-6:34
-model is trained simply on the next token prediction task as the size of the llm goes on increasing after a specific
-6:42
-size after a specific size the model can do these wonderful Properties or rather
-6:48
-the model shows these wonderful properties like could be translation summarization grammar checking Etc and
-6:55
+* 5:00
+
+#### Emergent Properties
+* An ability is emergent if it is not present in smaller models but is present in larger models.
+
+
+
 that's why we are in a race to build larger and larger and larger models companies like open AI anthropic have
 7:02
 even publicly said that they are just chasing size at this moment because there is still some hope that maybe
@@ -743,5 +638,6 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 
 

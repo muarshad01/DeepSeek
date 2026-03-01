@@ -41,7 +41,7 @@ $$
 \begin{aligned}
 \text{Attention ~Score} &= Q \times K^T \\
                         &= [Q_C : Q_R] [K_C:K_R]^{T}\\
-                        &= Q_CK_C^T + K_R^T
+                        &= \underbrace{Q_CK_C^T}_{Ratain old magic MLA} + K_R^T
 \end{aligned}
 $$
 
@@ -874,6 +874,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

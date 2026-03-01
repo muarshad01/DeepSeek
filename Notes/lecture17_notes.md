@@ -16,6 +16,15 @@ $$
 
 * 10:00
 
+$$
+\begin{aligned}
+\text{Attention ~Score} &= Q \times K^{T} \\
+                        &= R_{pos}(XW_Q) \times R_{pos}(W_{UK} \times C_{KV})^{T}\\
+                        &= R_{pos}(XW_Q) \times R_{pos}(\underbrace{W_{UK}^{T} \times (XW_{DKV})^{T}}_{We ~need ~to ~recomput~keys~for~all~tokens}) \\
+\end{aligned}
+$$
+
+
 x1 dash x2 dash x3 dash and x4 dash is dependent on the position is dependent
 10:15
 on the position of my query vector because the rotations which will happen for this x1 and x2 will be different
@@ -1029,4 +1038,5 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 

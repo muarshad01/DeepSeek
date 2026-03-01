@@ -37,7 +37,13 @@ $$
 
 #### Decoupled RoPE
 
-
+$$
+\begin{aligned}
+\text{Attention ~Score} &= Q \times K^T \\
+                        &= [Q_C : Q_R] [K_C:K_R]^{T}\\
+                        &= Q_CK_C^T + K_R^T
+\end{aligned}
+$$
 
 part which does not have rotary positional encoding at all. So we decoupled rotary positional encoding
 20:15
@@ -868,6 +874,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

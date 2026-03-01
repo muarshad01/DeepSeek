@@ -69,6 +69,8 @@ $$
 
 * 40:00
 
+$$Q_C = X(W_{DQ}W_{UQ}W_{UK}^T)$$
+
 denoted by UT over here but what we have done on the whiteboard right now is I have visually shown you uh just on this
 40:18
 simple whiteboard that how We can go from step number 9 to step number 10 11
@@ -520,6 +522,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

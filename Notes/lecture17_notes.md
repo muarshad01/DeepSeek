@@ -75,98 +75,11 @@ $$Q_C = X(W_{DQ}W_{UQ}W_{UK}^T)$$
 
 * 50:00
 
-first thing we have to do is compute CQ which is down project the input embedding by multiplying with WDQ.
-50:34
-That's exactly what we are going to do. We are going to uh take my input embedding vector for bride which is 1a
-50:40
-8. We are going to multiply it with wtq which is 8x4. Four is DC uh DCash which
-50:47
-is the latent down projection which we also saw over here. Latent down projection in the
-50:54
-query space. So my CQ will be 1x4 and I will multiply it with WQR which is 4x8.
-51:00
-That will give me my 1x8 vector the query vector for the new token. and I'm
-51:06
-going to apply rotary positional encoding to it which gives me my QR. We don't need to cache this at all because
-51:12
-that's the query vector for the new token and I have my uh KR updated KR
-51:17
-cache which is 5A 8. So to get the attention scores for bright in this second path we just multiply the query
-51:24
-vector QR 1 by 8 multiplied by updated KR cache transpose. So multiplied by 5
-51:30
-comma 8 transpose. So this will be 1a 5 that will be the attention scores for
-51:36
-bride computed through the second pathway. So through the first pathway the attention scores for bride is 1a 5.
-51:42
-Through the second pathway also the attention scores for bright is 1a 5. Then we are what we are going to do is
-51:48
-we are going to add these two vectors together and that is going to give me my resultant attention scores 1a 5. So if
-51:54
-you zoom out and take a look at this entire calculation, there are only two things which we need to cache. For the
-52:00
-attention scores path one, we only need to cache my CKV which has the dimension
-52:06
-equal to DC. And in my attention space number
-52:11
-two, I only actually need to cach KR. And since we are actually only repeating
-52:17
-in the KR, we are repeating across heads. I only need to cach DHR. I don't need to cache for multiple heads. I just
-52:24
-need to cache for one head DHR. So the total dimensions which I'm
-52:30
-actually caching is DC plus DHR. I believe the reason they share the
-52:37
-values in the KR across multiple heads is so that we can reduce the computational memory because when we
-52:43
-ultimately see the KV cache size it will be dependent on DC and DHR. So actually if different values were there across
-52:49
-heads the total dimensions which we will need to cache would have become DC plus NH into DHR. But now since we are
-52:57
-sharing it across heads it will just become DC plus DHR. So once we only cach the CKV and
-53:05
-the KR we get the resultant attention scores that's 1A 5 and we already have
-53:10
-the updated KV cache 5A 4. We multiply it with Wuv 4A 8. That gives us the VC
-53:17
-which is the values. And then we multiply the resultant attention scores with the values. And that gives me my
-53:23
-context vector for bright which is 1a 8. And for the next token prediction I only
-53:29
-need the context vector for my last token. So this ultimately gives me my next token prediction. Right? So right
-53:36
-now in this section what we saw is what happens when a new token comes in. When a new token comes in we have two
-53:41
-pathways. First pathway I use my absorption trick. I get the attention scores and I only need to cach CKV. The
-53:50
-second pathway I get the Q I get the KR. I cash it. I get the QR and I multiply
-53:57
-QR multiplied by KR transpose and I get my attention scores for bride through the second pathway. Then what I'm going
-54:03
-to do is that I'm going to add these two attention scores and that gives me my resulting attention scores for bride.
-54:10
-That's a 1a 5 vector. Then these are the resultant attention
-54:15
-scores for bright. Then we already have the updated KV cache, right? And we have already found and we have already have
-54:23
-the Wuv. So we multiply the KV cache with W UV to get my
-54:29
-updated values ve values matrix which is 5A 8 and the attention scores will be
-54:34
-multiplied with the values matrix and that gives me a 1x8 vector which is the context vector for
-54:40
-bright that's it and this context vector is then used for the next token prediction task. This is the whole
-54:47
-pipeline uh which is there for new inferences of
-54:52
-tokens. And the beauty of this pipeline is that we are definitely reducing the cache size as we'll come to later. But
-54:59
-throughout this entire pipeline, we are not sharing information across heads. Right? In the left hand side, we are not
-55:05
-sharing any information across heads. In the right hand side, the only place where where we are sharing information
-55:10
-is here. uh the only place we are sharing information is KR. So that's why memory
-55:18
+***
+
+* 55:00
+
+
 is reduced through the KV cache size but performance is also maintained because we are not sharing too much information
 55:24
 across heads. Now what we can do is let's come to the last part where we actually
@@ -336,6 +249,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

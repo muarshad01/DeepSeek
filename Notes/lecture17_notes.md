@@ -1,195 +1,21 @@
- everyone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. Nvidia AI follows a very similar
-0:28
-principle and philosophy to that of us. Let me show you how. So here's the
-0:33
-website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we are going to learn how Deepseek V3 and Deepseek R1
-2:16
-actually implemented an advanced version of multi head latent attention in which
-2:22
-they integrated multi head latent attention or MLA with rotary positional
-2:29
-encodings. In the previous lectures we have studied about latent attention and
-2:34
-we have also studied about rotary positional encodings. So in this lecture I'm going to assume that you are aware
-2:41
-of these two concepts. If you have not seen the lectures corresponding to these two concepts, please go back and revise
-2:48
-these lectures because they'll be needed in today's lecture. So let's get started. If you
-2:55
-take a look at Deepseek version 2, so Deepseek V2 paper and if you scroll down
-3:01
-below, they have a section on architecture in which they start explaining about latent attention. In
-3:07
-section 2.1.2 they mention something which is called low rank key value joint
-3:12
-compression and this is the basic version of multi head latent attention which we have seen in one of the
-3:18
-previous lectures. This is the basic MLA schematic. So let me just write it down
-3:25
-over here. This is the basic
-3:30
-MLA. Okay. Now this is not the actual latent attention mechanism which they
-3:37
-used to train um their version 3 and even the deepseek R1 model which became
-3:43
-so popular in 2025. So in the same deepseek version two paper they have a
-3:49
-section called 2.1.3 which is called as decoupled rotary position embedding. Here is where
-3:56
-they actually explain how they adapted the latent attention mechanism to
-4:01
-include rotary position embedding and they have shown a bunch of formulas over here. So this is in
-4:08
-deepseek version two paper. If you go to deepsek version 3 the they directly
-4:14
-explain the multi head latent attention with rotary positional encoding. They don't explain the two types. They don't
-4:20
-even explain the basic version. They directly start with the advanced version. So if you start reading the
-4:26
-deepseek V3 paper directly it's very difficult to understand these formulas
-4:31
-right there is formula number 1 2 3 4 5 there are so many symbols over here
-4:37
-there are so many dimensions and it's really impossible to figure out what exactly is going on so many blog posts
-4:45
-and so many articles which I've seen directly start with this formula which are very difficult to understand there
-4:51
-are many dimensions to unpack over here and so it It is my aim in this lecture
-4:56
-to explain you the nuts and bolts of what exactly happens behind these
-5:01
-formula so that when you go back and read the paper again it'll be so much more easier for you to understand. So
-5:09
-let's get started with today's lecture. Um okay first I want to come
-5:16
-back to why do we need to adapt the latent attention mechanism to include rotary
-5:22
-positional encodings. So let's start the lecture with that. And to understand that we have to understand why latent
-5:29
-attention actually works. So if you see this schematic which we have seen earlier in latent attention the input
-5:36
-embedding is multiplied by this WDKV matrix which projects my input vectors
-5:42
-into a latent dimension. Um and in latent attention in multi head latent attention we only need
-5:49
-to cache this latent matrix and the reason this caching works
-5:55
-is because latent attention implements something which is called as an absorption trick. So if you calculate
-6:02
-the attention scores it will be queries multiplied by the keys transpose. So queries can be represented as X * W cq
-6:09
-which is the trainable weight matrix and keys can be represented
-6:15
-as if you see over here the keys are cv multiplied by
-6:20
-wuk. So the keys can be represented the keys transpose is wrpose multiplied by
-6:27
-wdvrpose multiplied by xrpose. So the main thing which I want you to
-6:33
-focus here is that in the latent attention mechanism these two matrices are absorbed into one single matrix. So
-6:40
-WQ into W UK transpose becomes one single matrix and then what remains is X
-6:47
-* W DKV transpose and only this needs to be cached. This is called as the
-6:52
-absorption trick. Whenever a new query comes in it's multiplied with WQ and
-6:58
-also W UK transpose. Both of these matrices are fixed at training time. So we we don't need to cache them or
-7:04
-compute them again. The only thing which needs to be cached is the latent
-7:09
-matrix of the inputs. So this is the main thing which
-7:15
-you need to understand uh in latent attention and why it really works. If
-7:20
-you have not gone through the multi latent attention mechanism, please go through that because there we cover this
-7:25
-absorption trick in a lot of detail. So for the latent attention to work, we
-7:31
-need this WQ and W UK transpose to be together so that they can be multiplied
-7:36
-and absorbed into one matrix. Keep that in mind. Now imagine that we want to
-7:45
-um add rotary positional encodings to my queries and my keys. So let's say I want to do the exact same absorption trick in
-7:53
-latent attention but I want my queries uh but I want my queries to be um added
-8:00
-or I want my queries to be injected with rotary positional encoding. So I'm calling this r pause which is rotary
-8:06
-positional and this is my queries x * wq and I also want my keys to be injected
-8:12
-with rotary positional encodings. So the keys matrix which is this I apply rotary positional encoding. So let me just
-8:20
-brush up your understanding of what exactly happens in a rotary positional encoding. Let's say we are looking at
-8:28
-one particular queries or the keys vector at a given position. We divide
-8:34
-that into groups of two and then each group of two is rotated to form another
-8:40
-vector. So for example here we have two groups x1 x2 and x3 x4 and this is the
-8:46
-first position or this is the first query vector. What happens is this x1
-8:51
-x2 x1 x2 which was my original vector here is rotated to form x1- x2 dash. Then x3 x4
-9:02
-which was my original vector is rotated to form x3- x4 dash. And so if my
-9:07
-original query values were or my original query vector was x1 x2 x3 x4.
-9:13
-Now when we apply rotary positional encoding it becomes x1 dash x2 dash x3
-9:18
-dash x4 dash. So if you apply rope to x1 x2 x3 and x4 it becomes x1 dash x2 dash
-9:29
-x3 dash and x4 dash. So whenever I'm going to use this rope operation or rope
-9:36
-operation in my um um description later on over here. So when I use R pause,
-9:42
-this is same as the rope operation which I showed above. So when I use R pause or
-9:49
-rope, this is what's going to happen, right? We take in the full vector. We
-9:55
-divide it into bunch of we divide it into bunch of twos and then we rotate each vector based on its index. So the
-10:03
-key thing to understand here is that this transformation from x1 x2 x3 x4 to
-10:09
+#### The Absorption Trick
+
+$$
+\begin{aligned}
+\text{Attention ~Score} &= Q \times K^{T} \\
+                        &= XW_Q \times (W_{UK} \times C_{KV})^{T}\\
+                        &= XW_Q \times (W_{UK}^{T} \times W_{DKV}^{T} \times X^{T} )\\
+                        &=\underbrace{X(W_QW_{UK}^{T})}_{Fixed ~at ~training  ~time}~\underbrace{(XW_{DKV})^{T}}_{This ~needs ~to ~be ~cached.}
+\end{aligned}
+$$
+
+* $$X(W_QW_{UK}^{T})$$: Absorted Query. Fixed at training time (only compute once).
+* $$(XW_{DKV})^{T}$$: This needs to be cached.
+
+***
+
+* 10:00
+
 x1 dash x2 dash x3 dash and x4 dash is dependent on the position is dependent
 10:15
 on the position of my query vector because the rotations which will happen for this x1 and x2 will be different
@@ -1203,3 +1029,4 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+

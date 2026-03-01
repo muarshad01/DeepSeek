@@ -79,103 +79,11 @@ $$Q_C = X(W_{DQ}W_{UQ}W_{UK}^T)$$
 
 * 55:00
 
+***
 
-is reduced through the KV cache size but performance is also maintained because we are not sharing too much information
-55:24
-across heads. Now what we can do is let's come to the last part where we actually
-55:29
-compare the KV cache size across all the variants of the attention mechanism
-55:35
-which we have seen so far. So here's the KV cache memory size comparison. Remember the whole thing started with
-55:42
-reducing the KV cache memory size but at the same time we want to maintain the performance right. So the original KV
-55:48
-cache size in multi head attention was 2 * 2 multiplied by LB SNH. What are these different things?
-55:55
-This h is my uh attention head dimension. N is the number of attention
-56:00
-heads. S is the number of um S is the context length. B is the
-56:07
-batch size. L is the number of transformer layers. I'm assuming a 16
-56:13
-bit representation for each parameter. So we have two bytes over here. And the reason this one more two is there is
-56:20
-because we have a k cache and we have a vcache. So k and v. So that's why for the original multi attention it's this
-56:26
-much memory size. What MQA and GQA tried to do is that they tried to share values
-56:32
-across heads. So what that did is that instead of having this n in multi
-56:38
-multiquery attention we get rid of the number of attention heads completely. So that saves my memory size a lot but that
-56:44
-degrades my performance by a huge amount because uh my value my different my
-56:50
-content is shared across different heads. So the diversity is not there in the attention scores and my models just
-56:57
-don't perform well on various evaluation benchmarks. Even GQA if you see they
-57:02
-they are better than MQA because instead of sharing values or instead of replicating values across all heads they
-57:08
-divide it into groups. So each group has the same or one group then second group
-57:14
-third group fourth group etc. So each group has the same value but different groups have different value among one
-57:19
-group all attention and share the same value. It's a bit better than MQA but still the performance is not quite good.
-57:27
-So if you see actually uh in appendix D1 I think in the deepsek
-57:34
-paper they have a comparison between um MQA, GQA and multi head attention the
-57:41
-deepseek paper and here you'll see that MQA and GQA perform much worse on all
-57:47
-these MMLU benchmarks CMMLU benchmark they perform much worse than the multi head attention. So although the KV cache
-57:54
-size is reduced for MQA and GQA their performance is not good at all. So ideally we wanted something which
-58:01
-maintains the performance and reduces KV cache size and that's where MLA plus rope comes into the picture. Right? The
-58:08
-last MLA which we saw that was the basic latent attention mechanism. What it did is we don't need to now save two values
-58:15
-for K and V. So one two is gone here. We only need to save the latent KV cache. Secondly, instead of saving the keys and
-58:23
-the values, we only need to save my latent matrix, right? So instead of this
-58:28
-N into H, we just have DL over here, which is the
-58:33
-um which is the dimensions of my latent matrix. So this is
-58:40
-the memory size formula for the multi head latent attention. And we saw that this is significantly lower than the
-58:47
-multi head attention but it also maintains good performance with MLA plus rope. The thing which we saw today the
-58:54
-only thing which is modified in this formula is instead of just having the latent CKV which we saw over here CKV is
-59:02
-being cached that much is fine but along with CKV we are also caching DHR right
-59:07
-why why we are caching DHR because that's KR and we only need to cache it for one head since it's replicated
-59:14
-across different heads so the memory size is now DL plus DHR and in the
-59:20
-original DeepS paper they use DL to be 4 * H where H is the attention dimension
-59:25
-which they have and DHR they used HX2 where H is the original attention head
-59:31
-dimension so that's DH so DHR they used H by 2 and DL they
-59:38
-used 4* DH so if you now divide MHA divided by
-59:43
-MLA plus rope you'll get that MHA is higher by a factor of 2 into NH divided
-59:49
-by DL plus DHR Right? So that will be 2 into n into h divided by 9 h by 2. So
-59:56
-this will give you 4 n by 9 and n which is the number of attention heads which
-1:00:01
-was used in deepsek that is equal to 128. So in deepsek if you compare multi
-1:00:07
-head attention with latent attention plus rope you'll see that multi head attention is takes 57 times more memory
-1:00:14
-requirements as compared to MLA plus rope. So latent attention plus rope actually saves the memory capacity as is
-1:00:21
+1:00:00
+
+
 shown over here u by 57 times. So this is 9x2 HL. Where does this 9x2 come
 1:00:27
 from? So DC is what we are calling DL over here that's 4 * H or 4 * DH and DHR
@@ -249,6 +157,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

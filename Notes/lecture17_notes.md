@@ -24,6 +24,15 @@ $$
 \end{aligned}
 $$
 
+* This will significantly hinder inference efficiency.
+* Note: $$W_QW_{UK}$$ can't be directly absored.
+
+***
+
+* 15:00
+
+
+
 
 x1 dash x2 dash x3 dash and x4 dash is dependent on the position is dependent
 10:15
@@ -1038,6 +1047,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

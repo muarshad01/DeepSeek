@@ -56,7 +56,14 @@ $$
 
 * 30:00
 
-
+|||
+|---|---|
+|$$d$$||
+|$$d_{C}$$||
+|$$d_{C}^{/}$$||
+|||
+|||
+|||
 
 we do is we take this same matrix and we extend it across two heads. So I copy it across the two heads which I have and
 30:11
@@ -699,6 +706,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

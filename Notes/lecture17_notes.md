@@ -20,7 +20,7 @@ $$
 \begin{aligned}
 \text{Attention ~Score} &= Q \times K^{T} \\
                         &= R_{pos}(XW_Q) \times R_{pos}(W_{UK} \times C_{KV})^{T}\\
-                        &= R_{pos}(XW_Q) \times R_{pos}(\underbrace{W_{UK}^{T} \times (XW_{DKV})^{T}}_{We ~need ~to ~recomput~keys~for~all~tokens}) \\
+                        &= R_{pos}(XW_Q) \times R_{pos}(\underbrace{W_{UK}^{T} \times (XW_{DKV})^{T}}_{We ~need ~to  ~recompute ~keys ~for ~all ~tokens}) \\
 \end{aligned}
 $$
 
@@ -1038,5 +1038,6 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 

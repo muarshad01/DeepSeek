@@ -45,122 +45,14 @@ $$
 \end{aligned}
 $$
 
-part which does not have rotary positional encoding at all. So we decoupled rotary positional encoding
-20:15
-from my original latent attention mechanism. Okay. So now we are going to
-20:20
-see the practical implementation of how um decoupled root positional encoding
-20:26
-works. What are the matrices which are involved? In particular, we are going we are going to go through all of these
-20:32
-steps 1 2 3 4 5 6 7 8 9. We are going to going to go through all of the steps of
-20:38
-matrix multiplication on a whiteboard so that you can completely visualize it. So let's get started with that
-20:44
-part. All right. So for now what I want you to do is just forget about these
-20:50
-mathematical formula and let's just focus on what is written on the whiteboard and later we'll come back and
-20:56
-check whether it makes sense with all those formulas which are given. Right? So the what I've done here is that I
-21:03
-have provided a visual schematic of how um the decoupled rope works and you can
-21:08
-see that I've split it into two parts right um there is a part on the left there is this let me actually do this
-21:15
-with the black ink there is a part on the left which is part number one and there is a part on the right which is
-21:21
-part number two so part number one which I'm going to show here is no rotary
-21:26
-positional encoding and part number two which is on the Right? That is where the
-21:31
-rotary positional encoding part is done. So that's why it's decoupled. It's very easy to explain this in two sections
-21:37
-because both of these sections work separately. So what I'm going to do, I'm going to zoom in on the left hand side
-21:42
-for now and just forget about the right hand side completely. On the left hand side, what I'm going to do is that I'm
-21:48
-not going to apply rotary positional encoding at all. Uh we are going to proceed just like we did in the original
-21:54
-latent attention with small changes which I'll explain to you. Okay, so
-22:00
-let's get started. The tokens which we have is the next day is let's say we have four tokens. The first thing which
-22:06
-we have to decide is the number of dimensions and that is denoted as D in the main deepseek paper. In this case my
-22:12
-D is equal to 8. Good. Great. So we have four tokens each with dimensions of
-22:18
-eight. The second thing which we have to decide here is my number of attention heads. So, NH is equal to 2 and my DH is
-22:28
-equal to four. Right? So, NH is essentially number of attention heads
-22:34
-and DH is the dimension corresponding to each head that will be equal to four. So, the first step which I do is that I
-22:41
-take my input embedding matrix and I have to project it into the latent space. So, we multiply it with the WD KV
-22:47
-matrix and the second dimension here is very important because that's my latent dimension. This dimension actually
-22:54
-determines the size of my KV cache, my latent KV cache and it's denoted by DC
-22:59
-in the deepsek paper. So I'm I'm just assuming this value to be equal to four over here. So if you take the 4x8 matrix
-23:08
-and if you multiply it with a 8x4 matrix, you get a matrix which is denoted as CKV in the original Deep Seek
-23:14
-paper. This is the one which I've shown with a black dotted box because this
-23:20
-matrix is the latent KV matrix which is cached eventually only this is cached.
-23:25
-This is my 4x4 matrix and the number of columns here is equal to DC and the number of rows is equal to the number of
-23:32
-tokens. Okay. Then what I do is that I'll multiply it with two matrices W U K
-23:38
-and W UV. That will give me my keys matrix which is KC and that will give me
-23:45
-my values matrix which is VC. Remember the dimensions of the keys and the values matrix are D which is the
-23:51
-original dimension which we started with and the dimensions of W U K and W UV are
-23:58
-DC comma D. Okay. So this is how we get KC and
-24:04
-VC. So this is just one one part of uh what I'm showing on the left hand side
-24:10
-where we get the keys and the values. But there is a second part in which we get the queries. And this is where there
-24:17
-is one small change with respect to what we saw earlier. Earlier what we saw is that we just take the by earlier I mean
-24:25
-in the previous lecture. We just take the input embedding matrix and we multiply it with WQ. That's what we saw
-24:31
-earlier, right? we take the input embedding matrix and we multiply it with WQ. But actually in deepseek what they
-24:37
-did is they took the input embedding matrix and then they down projected it
-24:43
-into a lower dimension. The matrix which they used to do that is called as WDQ and its
-24:49
-dimension which they denoted was DC dash. Now for the sake of simplicity DCash I'm assuming to be same as DC
-24:57
-which is equal to 4. But DCdash is another lower dimension where the queries matrix are projected into a
-25:03
-lower dimension. So when my inputs embedding matrix is multiplied with WDQ,
-25:08
-I get a matrix which is called as CQ that is the queries matrix in the lower
-25:14
-dimensional space and this will be a 4x4 matrix. And then we take this lower
-25:19
-dimensional query vector CQ and then we upro it back into the input dimension.
-25:26
-So w UQ up projects my CQ back into the dimension D. So its dimensions are 4x8.
-25:33
-So when CQ is multiplied with W UQ that gives me my QC whose dimensions are 4x8.
-25:40
-So on the left hand side the final three matrices which we have are KC, VC and QC
-25:46
-queries, keys and the values where root positional encodings are not applied. This is the same schematic which we saw
-25:53
-in the latent attention done in the earlier lecture. The only difference here or the only difference in our
-25:59
-current lecture is instead of directly multiplying it with WQ, what we are currently doing is that
-26:05
-we down project it to get this CQ matrix and then we up project it again to get
-26:11
+* $$W_Q \to W_{DQ} \to W_{UQ}$$
+
+***
+
+* 25:00
+
+
+
 my ultimately to get my QC. And why is this down projection and up projection
 26:17
 done? So deepse they mention in their paper that this saves the activation memory during the training type. So it
@@ -874,6 +766,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

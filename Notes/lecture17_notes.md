@@ -31,193 +31,14 @@ $$
 
 * 15:00
 
+***
+
+* 20:00
+
+#### Decoupled RoPE
 
 
 
-x1 dash x2 dash x3 dash and x4 dash is dependent on the position is dependent
-10:15
-on the position of my query vector because the rotations which will happen for this x1 and x2 will be different
-10:21
-from the rotations which happen for these two because these two are at different positions. That's one of the
-10:27
-key things to understand. Right? So this r pause function is dependent on the position of the vector. It's position
-10:38
-dependent. This is the second understanding. The first understanding in today's lecture is that we need WQ
-10:45
-and W UK transpose to be absorbed. Second understanding is that whenever I'm showing R pause here, it means that
-10:51
-we take this vector, we break it down into chunks of two and then we rotate
-10:57
-every chunk. um and the amount of rotations for every query vector and
-11:03
-every key vector depend on its position. So this r is position dependent.
-11:09
-The main issue which happens now is that let's say um so let's say now instead of
-11:17
-multiplying directly xw multiplied by this hole you are now multiplying r of x
-11:24
-r pause applied to xwq multiplied by the rotation applied to all of this. The main problem which happens if
-11:32
-you try to use the original version of the latent attention is now this WQ and
-11:37
-W UK transpose cannot be absorbed. Why cannot they be absorbed?
-11:43
-Because there is another rotary positional encoding function which lies in the
-11:48
-middle and this rotary positional encoding function is position dependent.
-11:53
-So we cannot directly absorb WUK multiplied by W UK transpose because
-11:59
-this R pause depends this R pause changes according to which position we are looking at. So it these two matrices
-12:07
-cannot directly be absorbed and that is one of the main issues of directly using latent
-12:13
-attention with rotary positional encodings. If WQ and Wuk transpose cannot be absorbed it defeats the
-12:20
-purpose of latent attention. Another issue which happens is that if these two cannot be absorbed then it means that we
-12:26
-need to recomputee the keys for all the tokens during inference. The advantage which we got
-12:33
-before was that we did not need to recomputee the keys right because this WK was already absorbed into WQ and what
-12:41
-remained was the latent KV cache which I'm already caching. So I didn't don't need to recomputee my keys separately.
-12:48
-But here the issue is that uh since the R pause or the rope rotary positional
-12:54
-encoding which you are applying depends on the position we need to compute the keys matrix recomp compute the keys for
-13:01
-all of my tokens during inference because this R pause depends on my token position. I cannot simply absorb WQ and
-13:09
-W transpose. I need to recomputee these keys during inference and that will
-13:14
-significantly hinder my inference efficiency. In fact, it defeats the purpose of latent attention. The main
-13:20
-advantage comes from my absorption trick WQ and Wuk being absorbed together. Now,
-13:26
-that cannot be done. So, I'll need to recomputee my keys matrix for all the tokens during inference. That increases
-13:33
-my inference costs and that significantly restricts my inference efficiency. So if you look at the a
-13:41
-deepseek paper, if you look at the deepseek version two, what they have written over here is
-13:46
-that rotary positional encoding is incompatible with key value compression.
-13:52
-To be specific, rotary positional encoding is position sensitive for both keys and queries. If we apply rotary
-14:00
-positional encodings, WUK cannot be absorbed into WQ anymore during
-14:05
-inference. So this sentence W cannot be absorbed anymore into WQ essentially
-14:11
-refers to this part WQ and W UK cannot be absorbed right uh and uh and this is because a
-14:21
-rope matrix will lie between WQ and W UK as we have as we have shown over here
-14:28
-this R pause lies between WQ and WK so they cannot be absorbed into one
-14:33
-matrix and as a result we must compute the keys for all the tokens
-14:39
-uh during inference which significantly hinder the inference efficiency. That's the main
-14:47
-problem. So we cannot directly use the latent attention which you earlier saw
-14:52
-if we want to use rotary positional encoding. And why do we want to use rotary positional encoding? Because as
-14:58
-we have seen before rotary positional encoding gives us a lot of advantages compared to uh sinosoidal positional
-15:04
-encoding. In rotary positional encoding we don't add anything to the token embeddings. We don't contaminate the
-15:10
-semantic information given by the token embedding. We operate at the query and the key level which is much better. So
-15:17
-here's the problem which is faced right. The problem is that I want to use my
-15:23
-latent attention mechanism which is so powerful but at the same time I want to integrate rotary positional encoding
-15:30
-also into my queries and the keys. So I want my absorption trick to still remain
-15:35
-relevant. So what do I do in this case? How do I solve? How do I get both of
-15:40
-these objectives to be attained? What are the two objectives? I want to use my absorption trick and I want to include
-15:47
-rotary positional encoding. How do I make both of these things to be possible? And the solution which DeepC
-15:55
-came up with is actually pretty simple and straightforward. It's called as decoupled rope. So decoupled rope. If you take a
-16:03
-look at the uh formula over here, it does seem very complex and it's very
-16:08
-difficult to actually understand u what's really going on here. And if
-16:14
-you also take a look at the schematic which they have. So they actually propose a schematic. Um and if you take a look at
-16:22
-this schematic, this schematic also looks quite complex. It's there are so many symbols here. There is this KT
-16:29
-apply rope apply rope latent latent. It's it's difficult to understand what's going
-16:34
-on. But the trick is actually pretty simple. What deep said is that all right
-16:41
-if I cannot absorb my WQ and W
-16:47
-transpose with rotary positional encodings why don't I simply break down
-16:53
-my latent attention into two parts so for example let's say we are going to come to attention scores eventually
-16:59
-right we are going to do queries multiplied by the keys transpose so let's say I compute two set of queries
-17:08
-and I compute two sets of keys. The first is QC QR which are the
-17:14
-two sets of queries and the second set of keys and the two sets of keys are KC and KR. What is this QC and QR? QC is
-17:23
-basically my original version of latent attention without any rope applied to the queries. So this is without any rope
-17:31
-or rotary positional encoding applied. That's it. And this QR this is where I
-17:37
-will I will come up with new vectors. I will create a new query matrix and I
-17:43
-will add rotary positional encodings to only that query matrix. So if you think about it now my total query matrix which
-17:50
-is over here is composed of two query matrices. One query matrix is where rotary positional encoding is not
-17:56
-applied that is QC and one pos and one query matrix where rotary positional is applied that is QR. Similarly, KC is my
-18:03
-keys matrix where rotary positional encoding is not applied and KR is my keys matrix where rotary positional
-18:09
-encoding is applied. So now my Q is the
-18:14
-concatenation of these two and my K is the concatenation of these two. Right? So if I'm going to take a dotproduct of
-18:20
-queries multiplies by key transpose this can also be written as QC multiplied by KC transpose and QR multiplied by KR
-18:28
-transpose. So now if you see QC multiplied by KC transpose here we are not using rotary positional encodings at
-18:36
-all right. So the absorption trick will hold for this the absorption trick will still
-18:42
-work. So the main aim of multi head latent attention which you started with which is achieved through the absorption
-18:48
-trick that still works here because rotary positional encoding is not applied and in this case the absorption
-18:53
-trick will not work and that's fine for me. I'll do those extra computations. So I'll do some amount of extra
-18:59
-computations and I will not use the absorption trick over here but at least the absorption trick is used for a part
-19:06
-of my attention scores calculation. So this is the trade-off which we make. We
-19:12
-increase the number of computations by adding these QR and KR matrix. We add new matrices where rope is applied and
-19:19
-those are new computations for us. That's fine. But we retain the old magic. So let me write here. We retain
-19:27
-the old magic of MLA on QC and KC because here the rotary
-19:32
-positional encoding is not applied. So the absorption trick does work here. And it sounds like cheating, right? You
-19:38
-cannot figure out how to do something so that you so you just break it into two parts. One first part you don't do
-19:44
-rotary positional encoding. One second part you do rotary positional encoding and you figure out a way to bring these
-19:50
-two together. So in the rest of the lecture now I'm going to explain how decoupled rope
-19:56
-actually looks like but until now I wanted to give you an intuition of what deep did and I hope now you understand
-20:02
-why it is called as decoupled. The reason it's called as decoupled rotary positional encoding is that we have one
-20:09
 part which does not have rotary positional encoding at all. So we decoupled rotary positional encoding
 20:15
 from my original latent attention mechanism. Okay. So now we are going to
@@ -1047,6 +868,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

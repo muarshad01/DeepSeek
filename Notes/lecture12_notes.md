@@ -85,7 +85,7 @@ $$
 $$
 \begin{aligned}
 \text{Attention ~Score} &= Q \times K^{T} \\
-                        &= XW_Q \times (W_{UK}^{T} \times C_{KV}^{T} )\\
+                        &= XW_Q \times (W_{UK} \times C_{KV})^{T}\\
                         &= XW_Q \times (W_{UK}^{T} \times W_{DKV}^{T} \times X^{T} )\\
                         &=X(W_QW_{UK}^{T}) (XW_{DKV})^{T}
 \end{aligned}
@@ -169,6 +169,7 @@ $$
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***
+
 
 
 

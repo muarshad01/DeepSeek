@@ -60,7 +60,7 @@ $$
 |---|---|
 |$$d$$||
 |$$d_{C}$$||
-|$$d_{C}^{/}$$||
+|$$d_{C}^{'}$$||
 |$$d_h^R$$||
 |$$n_h$$||
 |||
@@ -706,6 +706,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

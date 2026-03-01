@@ -52,79 +52,12 @@ $$
 * 25:00
 
 
+***
 
-my ultimately to get my QC. And why is this down projection and up projection
-26:17
-done? So deepse they mention in their paper that this saves the activation memory during the training type. So it
-26:24
-turns out that down projecting the queries matrix into a smaller matrix reduces the activation memory or memory
-26:30
-requirements during training time and it's also seems to lead to a better performance. So there are two additional
-26:36
-matrices WDQ and WUQ. Okay. And this gives me my KC VC and QC. Rotary
-26:43
-positional encoding is not applied here. That's part number one on the left hand side. And now we come to part number two
-26:50
-on the right hand side of my illustration here. This is where we are going to add new matrices. By adding new
-26:57
-matrices, what I mean is that I want to take my same input embedding matrix and I want to construct new queries and the
-27:05
-keys. Why do I want to construct new queries and the keys? Because I want to construct this QR. I want to construct
-27:12
-QR and KR because I will ultimately apply rotary positional recording to those matrices. Right. Um, so first let
-27:20
-me show you how the keys is constructed. So you take the input embedding matrix
-27:25
-and you multiply it with a matrix which is called as W KR. So take a look at W KR very closely.
-27:33
-The number of rows of W KR is equal to 8 because that's the same as my dimensions
-27:38
-over here. But take a look at the number of columns of W KR. The columns of W KR
-27:44
-are DHR. What are DHR? Remember I am creating new matrices right? So I want
-27:49
-to decide the dimensions in which these uh these new vectors will lie and if I
-27:57
-have two heads so nh is equal to two right dhr is going to be the dimension
-28:02
-of each head in this new space where I'm going to apply rotary positional encoding. So for example the ultimately
-28:09
-the KR and the QR which I have they will have a dimension of NH into
-28:17
-DHR. So both QR and KR will ultimately have the dimensions of NH into DHR. So I
-28:24
-want these new matrices to have these dimensions where DHR DHR is the
-28:29
-dimensions of each head in my new space where I'm going to apply rotary positional encoding and NH is the number
-28:36
-of attention heads. So here what we are actually doing is that W KR has
-28:42
-dimensions equal to DHR. So we are actually going to share the same uh
-28:49
-trainable keys matrix WKR across all the heads. So that's why it has the
-28:56
-dimension of DHR and not NH into DHR. If we are using different WKR for different
-29:02
-heads, the dimensions of WKR would actually have been NH into DHR. But I'm using only DHR over here. And the key
-29:11
-thing to understand here is Deepse seek also mention over here. they have a shared key across all the heads which
-29:18
-carry the rotary positional embedding component. So that's what I'm illustrating here. The dimensions of W
-29:24
-KR DHR and not the attention heads into DHR. We are going to use the same
-29:30
-weights across all the heads only for the keys. Right? So we take the input
-29:35
-embedding matrix which is actually 4x8 and you multiply it with W KR and that
-29:40
-gives you a 4x4 matrix. Correct? You apply rotary positional encoding to this
-29:45
-4x4 matrix. So this is where rotary positional encoding is applied. And remember rotary positional encoding
-29:51
-preserves my dimension. So after applying rotary positional encoding I get a matrix which is 4x4. Right? But
-29:57
-this has only dimensions equal to four. That is not good. I want to extend it across all my heads. Right? So then what
-30:04
+* 30:00
+
+
+
 we do is we take this same matrix and we extend it across two heads. So I copy it across the two heads which I have and
 30:11
 that will ultimately give me the dimensions of 4, 8 and that is my KR. So
@@ -766,6 +699,7 @@ this lecture but I hope it was worth it and I hope all of you have really unders
 rotary positional encoding was implemented by deepseek. Thanks a lot everyone and I look forward to seeing
 1:04:12
 you in the next lecture.
+
 
 
 

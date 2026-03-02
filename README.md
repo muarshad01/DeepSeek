@@ -112,3 +112,7 @@
 | [(4) DeepSeek V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
 
 ***
+
+#### Ohter
+
+* [A Visual Guide to Mixture of Experts (MoE) in LLMs](https://www.youtube.com/watch?v=sOPDGQjFcuM)

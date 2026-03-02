@@ -14,6 +14,14 @@
 
 * 10:00
 
+* In a Mixture of Experts (MoE) model, we have multiple neural networks called "experts" in the transformer block.
+
+#### What is the need to add multiple experts?
+* There are two main advantages:
+1. Adding multiple experts allow models to be pre-trained with far less compute compared to a dense model (without experts).
+2. Allows much faster inference compared to a dense model (without experts)
+
+
 
 having only one neural network over here
 10:14
@@ -1020,6 +1028,7 @@ the deepseek architecture rests. Thanks
 everyone and I look forward to seeing
 29:56
 you in the next lecture.
+
 
 
 

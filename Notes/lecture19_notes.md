@@ -89,6 +89,12 @@ right? The first row corresponds to first token which is the the second row corr
 10:14
 second token which is next. The third row corresponds to the third token which is day and the fourth row corresponds to
 10:20
+
+
+
+
+***
+
 is and 8 is just the dimension of the input which is retained. Similarly, when the input embedding matrix passes
 10:26
 through my second neural network E2, I get my expert output matrix number two
@@ -195,6 +201,16 @@ weightage to E2. So I need to decide two things. I need to decide which experts 
 15:43
 the first thing which I have to decide and the second thing I have to decide is how much weightage to each
 15:51
+
+
+
+
+
+
+
+
+***
+
 expert how much weightage to be given to each expert and this these two questions
 15:57
 I have to address basically for all of my input tokens and there is only one
@@ -622,5 +638,6 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 

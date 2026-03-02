@@ -22,9 +22,7 @@
 2. Allows much faster inference compared to a dense model (without experts)
 
 
-
 * In a dense model, every input token passes through all the parameters(i.e., all layers and neurons).
-
 * In contrast, a Mixture of Experts (MoE) model has multipe "experts" (think of them as sub-networks or feedforward layers), but only a small subset (e.g.,2 out of 64) are activated for any given input.
 
 ### Sparsity
@@ -33,234 +31,14 @@
 
 ***
 
+* 15:00
+
+***
+
+* 20:00
 
 
-sparity factor of 1x4
-15:17
-which is 25. So for every token in this
-15:20
-input sequence, it will be routed to
-15:22
-only one of the four experts and then we
-15:25
-get the output that reduces my
-15:28
-pre-training or the uh inference uh
-15:32
-time. So this whole idea of sparity and
-15:35
-mixture of experts was not novel. It was
-15:37
-introduced in 1992 paper actually 1991
-15:41
-paper which I showed you at the start of
-15:43
-this lecture. But they used it for a
-15:46
-very new uh task. What they showed was
-15:49
-that they used this idea of picture of
-15:51
-experts
-15:53
-uh for the task of war discrimination.
-15:55
-So they used this wel discrimination
-15:57
-task and they showed that this can be
-16:00
-achieved not by one neural network but
-16:02
-by multiple neural networks and by
-16:04
-selecting the neural networks in a
-16:06
-sparse manner. So they have a figure
-16:09
-here. You see this is a really important
-16:12
-figure because what we are going to see
-16:14
-eventually in the mathematics of mixture
-16:16
-of experts is the same thing. So we have
-16:20
-borrowed this concept which was
-16:22
-innovated around 30 to 35 years back
-16:24
-which again highlights the power of
-16:26
-doing research and how research
-16:28
-accumulates across multiple years and
-16:30
-helps us. So we really stand on the
-16:32
-shoulder of
-16:34
-giants right. So they have used mixture
-16:36
-of experts uh for wavel recognition and
-16:40
-for wavel identification and they have
-16:42
-clearly seen that based on the
-16:43
-particular
-16:46
-wavel is actually
-16:49
-activated. So they show that
-16:52
-um based on the input there is a
-16:55
-specific expert which is routed to that
-16:58
-input. All the experts are not used for
-17:00
-every input and which is the whole idea
-17:02
-of sparity and they tested it with four
-17:05
-experts, eight experts
-17:07
-etc. And if you take a look at the
-17:09
-abstract, let's read out the abstract.
-17:11
-We present a new supervised learning
-17:13
-procedure for systems composed of many
-17:15
-separate networks each of which learns
-17:18
-to handle a subset of the complete set
-17:20
-of training cases. Uh which means that
-17:22
-each expert is specialized in some sort
-17:25
-of a
-17:26
-task. it. Therefore, we demonstrate that
-17:29
-the learning procedure divides up a
-17:31
-world discrimination task into
-17:32
-appropriate subtasks each of which can
-17:35
-be solved by a very simple expert
-17:37
-network. So, let's say if you have a
-17:39
-task which is a complex task it is
-17:41
-divided into subtask and each of these
-17:43
-subtask is performed by a separate
-17:45
-neural network right. So not we don't
-17:48
-need a one giant network. It's split
-17:50
-into multiple smaller network and each
-17:52
-of these expert networks does a specific
-17:56
-task.
-17:58
-Um there is a thing called a selector or
-18:01
-a gating network which basically selects
-18:03
-which expert to use for the given token.
-18:06
-We'll come to the mathematics later. For
-18:08
-now just remember that for every token
-18:10
-we don't have all the experts which are
-18:12
-activated but only a selected set of
-18:14
-experts which is the whole idea of
-18:17
-sparity. Out of this lecture if there is
-18:19
-one takeaway you should have is the
-18:21
-concept of
-18:23
-sparity.
-18:25
-Um all right now what I want to show you
-18:28
-is that I want to show you what do these
-18:30
-experts really learn. So I've been
-18:32
-telling you that the experts specialize
-18:34
-in certain type of tasks. Right. So you
-18:36
-might be curious for a language modeling
-18:39
-uh for a language modeling example what
-18:41
-do these experts really learn. So if you
-18:44
-take a look at this paper this is called
-18:46
-STM OE
-18:48
-um designing stable and transferable
-18:51
-sparse expert models and uh this was
-18:55
-published in 2022. It's one of the most
-18:57
-famous mixture of experts paper. And if
-18:59
-you scroll down below
-19:02
-uh if you reach towards the end here
-19:05
-they have a table number 13 where they
-19:08
-actually show what the different experts
-19:11
-are learning. So here the layer
-19:13
-corresponds to the transformer block. So
-19:15
-if you look at layer number two you see
-19:17
-that the experts in this layer are
-19:20
-learning the punctuation. So whenever
-19:22
-there is a punctuation uh in the input
-19:25
-sequence that is routed to this partic
-19:26
-these particular experts who are trained
-19:28
-to understand punctuation. So this
-19:31
-column is routed tokens which means that
-19:33
-whenever we have a punctuation it will
-19:35
-be routed to these experts in layer two.
-19:38
-Similarly if you look at conjunctions
-19:40
-and articles the the and if etc that's
-19:45
-routed to experts in layer number three
-19:47
+
 and let's say layer number six. If there
 19:50
 are verbs such as falling, identified,
@@ -790,6 +568,7 @@ the deepseek architecture rests. Thanks
 everyone and I look forward to seeing
 29:56
 you in the next lecture.
+
 
 
 

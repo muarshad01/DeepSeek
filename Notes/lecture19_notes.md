@@ -1,117 +1,10 @@
-yone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. Nvidia AI follows a very similar
-0:28
-principle and philosophy to that of us. Let me show you how. So here's the
-0:33
-website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we are going to continue our journey towards
-2:14
-understanding the mixture of experts model. To give you a recap of what we did in
-2:20
-the previous lecture. In the previous lecture, we saw that in the normal transformer architecture, there is one
-2:26
-feed forward neural network. And whenever an input token of a certain
-2:32
-dimension goes into the feed forward neural network, it's an expansion contraction neural network. So it has
-2:38
-one hidden layer which has four times the number of dimensions of the input token. Uh so this first is the expansion
-2:45
-layer and then we have a contraction layer which projects the expanded dimension back into the original
-2:51
-dimension. We saw that the main idea of mixture of experts is to take this simple architecture of the feed forward
-2:58
-neural network and replace it with multiple neural networks. So if we have four such neural networks then we say
-3:05
-that there are four such experts. So you might be thinking okay why are we doing this? So
-3:11
-why are we unnecessarily complicating the mechanism by adding four neural networks instead of one? The main
-3:18
-advantage of mixture of experts is that mixture of experts um allows the pre-training to be done with far less
-3:25
-computational capacity which means that pre-training is done in a much more faster manner and inference is also done
-3:32
-in a much more faster manner and the reason mixture of experts is able to achieve that is through a
-3:38
-simple concept which is called as sparsity. So the main idea of sparity is that
-3:46
-let's say if there are four experts right and whenever a group of tokens comes in as an input to these multiple
-3:53
-experts not all of these experts will be activated. So in this particular case you can see that expert one expert 2 and
-4:00
-expert 3 are deactivated and only expert number four is activated. This means
-4:05
-that whenever a token comes in it is not routed to all of the experts. it is routed selectively to only certain
-4:13
-experts. This further implies that during the pre-training process and also during inference all the experts don't
-4:20
-need to be active at the same time. Depending on the type of token certain
-4:25
-set of specialized experts are activated and this concept of not
-4:31
-activating all the experts is called as sparity. Sparity is one of the main
-4:37
-ideas behind mixture of experts. And in today's lecture we are going to see how sparsity is implemented
-4:43
-uh mathematically. So how mixture of experts works with a hands-on example. That's what we are going to see today.
-4:49
-In the previous lecture we also looked a bit at interpretability. So it turns out
-4:55
-that every expert essentially learns something new. So for example there might be an expert in a given transform
-5:01
-layer which is specialized in punctuation. Which means that whenever the input consists of the punctuation
-5:09
-token, either of these tokens, it's routed to these specialized experts. Whenever the input consists of
-5:16
-let's say verbs, it's routed to these tokens. Wherever the input consists of let's say visual descriptions, it's
-5:22
-routed to these experts. So depending on the token, we
-5:28
-select which experts the token should be routed to. and that reduces my pre-training
-5:34
-time and that also accelerates my inference. This is the main idea behind mixture of experts. One more thing which
-5:41
-we saw is that there are multiple transformer blocks, right? And each of the transformer block has different
-5:47
-experts. So for a given token, it does not necessarily mean that if expert
-5:53
-number one is activated in the first transformer block, the same expert is activated in the second transformer
-5:58
+* FFNN - (Expansion, Contraction) network
+* MoE - Multiple NNs
+
+***
+
+5:00
+
 block. row for a given token there might be different experts activated in different transformer blocks. So let's
 6:05
 say in the first transformer block this is the uh expert which learns about um
@@ -729,4 +622,5 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 

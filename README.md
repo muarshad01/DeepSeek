@@ -101,3 +101,14 @@
 | 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)|
 
 ***
+
+
+| MoE Papers ||
+|---|---|
+| [(1) 1991 paper on Mixture of Experts](https://www.cs.toronto.edu/~fritz/absps/jjnh91.pdf)||
+| [(2) ST-MoE paper (2022)](https://arxiv.org/pdf/2202.08906)||
+| [(3) DeepSeek MoE (Jan 2024)](https://arxiv.org/pdf/2401.06066)||
+| [(3) DeepSeek V2 (June 2024)](https://arxiv.org/pdf/2405.04434)||
+| [(4) DeepSeek V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
+
+***

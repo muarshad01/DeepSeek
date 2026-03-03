@@ -140,6 +140,14 @@ given to each expert also. So now I know which experts to select for every token
 35:51
 which two experts to select for every token and how much weightage to be given to each expert. Once I know these two
 35:57
+
+
+
+
+
+
+***
+
 values, then I can go back to the start and then I can look at these expert output matrices again for every token.
 36:04
 Now what I have to do is that I have to first know which two expert output matrices will be activated. If the token
@@ -183,6 +191,7 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 
 

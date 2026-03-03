@@ -19,7 +19,7 @@
 * __Step-3__: To do the merging, we use a mathod called "load balancing".
 * __Sparsity__: How many experts will be active for each token?
 * Every token will be sent. to a selected nymber of experts. This is called "load balancing".
-* __Step-4__:
+* __Step-4__: How much weitage needs to be given to each expert? This is decided by __routing mechanism__.
 * __Step-5__:
 * __Step-6__:
 * __Step-7__:
@@ -657,6 +657,7 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 
 

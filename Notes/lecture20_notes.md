@@ -20,248 +20,22 @@ $$CV = \frac{Standard ~Devivation (\sigma))}{mean(\mu)}$$
 
 $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 
+* Addition of this loss term will ensure that the expert importance is uniformly distributed among different experts.
 
 ***
 
 * 15:00
 
-* __Step 9__: 
+* __Step 9__:  Load Balancing
+* While the previously disccused importance loss is useful, assigning equal importance to experts doesn't necessarity lead to uniform token routing.
+
+* If the tokens sent to each expert is non-uniform, it can lead to high memory and a reduced MoE performance.
+
+***
+
+* 20:00
 
 
-at all of these importance values, you'll see that expert number three
-10:18
-carries the most importance and expert number two carries the least importance. Why is this the case? Because expert
-10:25
-number three has of course more tokens routed to it with overall higher probabilities and expert number two has
-10:31
-only two tokens routed to it with overall lesser probabilities. That's why expert number three is more
-10:38
-important than expert number two and also expert number one. Okay. So this is the concept of
-10:44
-expert importance and this intuitive terminology of expert importance is
-10:50
-exactly what we are going to utilize to calculate this auxiliary loss term. Right? So ideally what do I want? I want
-10:59
-a balanced model. Right? I want a balanced I want a balanced mixture of
-11:04
-experts model. And what does having a balanced mixture of experts model mean? It means
-11:11
-that all of the experts which I have all of the experts such as E1, E2, E3
-11:17
-roughly all of these experts should have equal importance. It should not be the case
-11:23
-that one of these experts has a huge amount of importance and another expert is completely neglected. If an expert is
-11:30
-completely neglected, it means that no token will be routed to that expert and we don't want such a situation. What
-11:37
-will happen if no token is routed to an expert? That token will that expert will sit completely idle and that expert will
-11:44
-not learn anything. This leads to inefficient training and it also leads to inefficient inference. So ideally
-11:52
-what I want is that these expert importance values I want these values to
-11:57
-be roughly similar for all of my experts. So what we are going to do is
-12:03
-that we are going to penalize the mixture of experts model if the expert importance scores have a lot of
-12:10
-variation this because this would mean that some experts are more important than others. So essentially what we are
-12:17
-going to do is that we are going to construct a loss. We are going to construct a loss term. That loss term
-12:23
-will be very high if so this loss term will be high if E1, E2 and E3 have a lot
-12:32
-of variation which means they are very different from each other and that loss term will be low if E1, E2 and E3 are
-12:39
-roughly similar to each other. So what I'm going to do is that I'm going to track a quantity which is called as the
-12:46
-coefficient of variation. Coefficient of variation is a statistical concept and
-12:51
-it's given by the simple formula. You just take the standard deviation and you divide by the mean. That's g that gives
-12:57
-you this quantity which is called as CV or coefficient of variation. So what I'm going to do now is that I have three
-13:04
-values right? Expert importance of E1 is 1.4. Expert importance of E2 is 1 and
-13:10
-expert importance of E3 is equal to 1.6. I'm going to use these three values and
-13:16
-I'm going to find the coefficient of importance of these three. How will you do this? You will first find the
-13:21
-standard deviation of these three values. You'll find the mean of these and you will divide the standard
-13:26
-deviation by the mean. If this value is higher, it means the coefficient of variation is very high and the values
-13:33
-are very different from each other. If this value is low, it means the coefficient of variation is low and the
-13:39
-values are roughly similar to each other. And what you actually want is you want
-13:44
-these values to be similar to each other so that the coefficient of variation is smaller. So we are going to define the
-13:52
-auxiliary loss term and that loss term is the scaling factor which is lambda into the coefficient of variation whole
-13:59
-squared. So my auxiliary loss my auxiliary loss I'm going to
-14:05
-define as lambda uh which is my scaling factor. It's a hyperparameter which we
-14:10
-need to fix multiplied with the coefficient of variation whole squared. So higher the coefficient of
-14:17
-variation higher is going to be my auxiliary loss and lower the coefficient of variation lower is going to be my
-14:23
-auxiliary loss. And so this auxiliary loss term is the term which I'm going to
-14:28
-add to the LLM training loss. So the LLM training loss is
-14:35
-originally defined for the next token prediction, right? And this can be a categorical cross entropy loss,
-14:41
-perplexity loss etc. We are going to add the auxiliary loss term to this. And the
-14:46
-amount of importance which needs to be given to the auxiliary loss is quantified by this hyperparameter which
-14:52
-is lambda. And this CV here is of course coefficient of variation. So in my
-14:58
-particular case the coefficient of variation turns out to be.187.
-15:04
-uh so we add the below terms to our LLM loss and that is the scaling factor multiplied by with the coefficient of
-15:11
-variation whole square. So what will this do? Addition of this loss term will actually ensure
-15:18
-that the expert importance is uniformly distributed among different experts. If
-15:24
-the expert importance is uniform across experts, the coefficient of coefficient of variation will naturally be small and
-15:31
-that would mean that experts have relatively u similar importance
-15:37
-values. Um so this is the first concept which I wanted to teach you today and that's the concept of auxiliary loss.
-15:44
-Auxiliary loss was implemented in mixture of experts so that all the experts which I have have relatively
-15:51
-similar importance. And what is importance? Importance is essentially we
-15:56
-look at the probability of the tokens uh probability of ex one expert
-16:02
-receiving the tokens and then we add all those together. Okay. Uh that's essentially
-16:09
-what quantifies the uh expert importance. And I want these expert importance to be roughly similar to each
-16:15
-other. So that I have a balanced uh mixture of experts model. That's the
-16:21
-first concept which is the concept of auxiliary loss. The second concept which I want to teach all of you today is
-16:27
-something which is called as load balancing. So it turns out that just having or just minimizing the auxiliary
-16:33
-loss is not enough to make sure that the u load is balanced across different
-16:40
-experts. we need to do one more thing and that is called as load balancing. So
-16:45
-while the previously discussed token expert importance is useful assigning
-16:51
-equal importance to experts does not necessarily lead to uniform token routing and this is a key concept.
-16:58
-Assigning equal Assigning equal importance to
-17:07
-tokens does not necessarily mean or does not necessarily mean uniform token
-17:13
-routing. And let me show this to you with a very simple example. Let's say we have those same
-17:20
-four experts or this example which I'm showing you right now is not necessarily a concrete example but it helps
-17:26
-illustrate the point. So when you take a look at the example, you'll see that the rows here do not sum
-17:32
-up to one, which they ideally should. But I'm just using this example to clarify this point that expert
-17:39
-importance is very very different than uh expert importance is very different
-17:44
-than uniform token routing. So let's say if you take a look at these two experts, right? If you take a look at expert
-17:51
-number one and expert number two and what I'm going to do is that first let me calculate the expert importance. What
-17:57
-do we do to calculate expert importance? We look at the columns and we add the column entries together. Right? So if
-18:04
-you look at the first column right now and you add all the entries, this sums up to one. So the expert importance for
-18:10
-expert number one is one. And if you look at the second column now and if you add all the entries of the second
-18:16
-column, these entries also sum up to one. Uh so the expert importance values of
-18:22
-expert one and expert number two are both equal to one. But take a look at
-18:28
-the tokens which are routed to these experts. Right? Expert number one has only one token which is routed to it.
-18:34
-This token number one. And for token number two, token number three and token number four are not at all routed to
-18:40
-expert number one. Whereas expert number two has four tokens routed to it. Token one, token two, token three and token
-18:47
-number four. This clearly illustrates the point that expert number one only has one token but
-18:55
-expert two is essentially hogging all the limelight. All the tokens are going
-19:00
-to expert number two but the expert importance is same for all for both these tokens.
-19:06
-So that clearly shows that just looking at the expert importance and making the expert importance same for different
-19:13
-experts will not make sure that the tokens are routed uniformly to different experts. We need to have some other uh
-19:21
-metric and that metric is calculated through something which is called as the load balancing
-19:27
-loss. So as I've mentioned over here if you add up the probability scores for both the experts both would sum up to
-19:35
-one. Hence both the experts have equal importance. Right? However, expert one
-19:40
-has fewer tokens routed with higher confidence. Whereas expert number two
-19:45
-has many more tokens routed to it but with far lower confidence. Right? Because the probability of tokens being
-19:51
-routed here is [Music] 0.25. Uh so what would be the issue if
-19:57
-the tokens which are routed to experts are non-uniform. So if the tokens which are sent to each
-20:03
-expert is non-uniform it can lead to a high memory usage and a reduced mixture of experts
-20:10
-performance. Um and as a result what we want to do is that we want to make sure the load of every expert is balanced.
-20:18
-And what do we mean the load of every expert? It means the number of tokens which are received by every expert that
-20:23
-needs to be balanced across the different experts. And that's why we implement something which is called as
-20:29
-the load balancing. To do load balancing there are essentially two things which we need to
-20:34
-calculate. The first thing which we will calculate is the probability that the router will choose a given expert and
-20:40
-this is called as pi. So the first thing which we'll have to calculate is the probability that the
-20:47
-router will select a given expert. And to do this calculation it's pretty
-20:53
-simple because we will just we are just going to use the expert importance scores. So for these three experts,
-20:59
-expert one, expert one, expert number two, and expert number three, the expert importance values are 1.4, 1.0, and 1.6.
-21:08
-Correct? So the probability that the router will select every expert
-21:13
-um or the probability that the router will select an expert for a given token is just going to be for expert number
-21:20
-one, it's 1.4 divided by 4. For expert number two, it's 1 divided by 4. And for
-21:26
-expert number three, it's 1.6 divided by 4. The reason we're dividing by four is because we want to have a probability,
-21:33
-right? So the probability that my router is going to choose expert number one is 1.4 divided by 4,
-21:39
-that's.35. The probability that the router is going to choose expert number two is 1 divided by 4. That's 25. And
-21:48
-the probability that the router will choose expert number three is actually
-21:53
-1.6 6 / 4 which is 04. So if you add these three it will sum up to
-21:59
-1. So it is important for all of you to intuitively know what pi means. So P1 P1
-22:07
-actually denotes the probability that the router will choose expert one. P2
-22:12
-denotes the probability that the router will choose expert 2 and P3 denotes the probability that the router is going to
-22:18
-choose expert number three. uh and these three probabilities add up to
-22:24
-one. Along with these probabilities, we are also going to find one more quantity
-22:29
-and that quantity is essentially the fraction of tokens which are dispatched to each
-22:34
 expert. And this is the most important quantity which needs to be calculated
 22:39
 along with the probability. Now let me illustrate why we calculate this quantity with a simple example. Let's
@@ -639,6 +413,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

@@ -10,8 +10,13 @@
 
 * 10:00
 
+* __Expert Importance__
+* Balanced MoE model: All experts should have equal importance
 
+* We should penalize the MoE model if the expert importance score have a lot of variation. This would mean that some experts are too important than others.
+* The mathematical quantity, which will help us do this is __Coefficient of variation (CV)__.
 
+$$CV = \frac{Standard ~Devivation (\sigma))}{mean(\mu)}$$
 
 * __Step 9__: 
 
@@ -628,6 +633,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

@@ -16,7 +16,9 @@
 * __Step-1__: We start with an input matrix of size (4,8) as below.
 * __Step-2__: When we pass the input matrix throught these three experts, we get three output expert matrices.
 * The challenge is how to merge these three expert output matrices such that we get a resulting output (4,8) matrix
-* __Step-3__:
+* __Step-3__: To do the merging, we use a mathod called "load balancing".
+* __Sparsity__: How many experts will be active for each token?
+* Every token will be sent. to a selected nymber of experts. This is called "load balancing".
 * __Step-4__:
 * __Step-5__:
 * __Step-6__:
@@ -655,6 +657,7 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 
 

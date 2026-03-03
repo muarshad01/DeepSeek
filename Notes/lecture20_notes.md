@@ -94,6 +94,13 @@ sometimes what can happen is if some experts get chosen or selected a lot of
 5:03
 times while other experts are not utilized at all. It leads to inefficient learning and our performance is not as
 5:11
+
+
+
+
+
+***
+
 optimal as expected. Ideally we want all of our experts to be helping. We want
 5:17
 all of our experts to be contributing. So if we look at the entire data set and
@@ -805,4 +812,5 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 

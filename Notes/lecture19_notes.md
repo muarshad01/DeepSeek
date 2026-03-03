@@ -19,120 +19,22 @@
 * __Sparsity__: How many experts will be active for each token?
 * Every token will be sent. to a selected nymber of experts. This is called "load balancing".
 * __Step-4__: How much weitage needs to be given to each expert? This is decided by __routing mechanism__.
+
+
+***
+
+* 25:00
+
+* 
 * __Step-5__:
 * __Step-6__:
 * __Step-7__:
 
+
 ***
 
-* 20:00
+* 30
 
-
-
-one. What this will help me is that it will help me make interpretable statements like if the second row sums
-20:18
-up to one, I can say that when next is the input give 80% weightage to E1 and 10
-20:25
-20% weightage to E3. Let's see. Um, right now I cannot do that because these
-20:31
-are just random numbers, right? I cannot just assign percentage or probability values to each of these rows. So to do
-20:39
-that, we have to so to put that in mathematical context, what we have to do is that we have to normalize the rows of
-20:45
-the resulting matrix so that each row sums up to one. And uh I'm going to or
-20:51
-you can pause the video for a moment here and think about which is the technique which you usually use to make
-20:58
-this normalization. If you are given a certain set of elements, right? If you are given a certain set of elements like
-21:04
-5 1 2 3 4 5. What is that operation which you will perform on these set of
-21:10
-elements so that all of these values sum up to one and each value will be between 0 and one.
-21:17
-You can pause this video to think about this. But the operation which you do on these elements is the softmax operation.
-21:23
-Which means that each element will be now replaced with let's say the first element is x1. The first element will be
-21:29
-replaced with e to x1 divided by summation of e to x1 + e to x2 plus dot
-21:36
-dot dot e to x6. The first element will be replaced by this. The second element
-21:42
-will be replaced with e to x2 divided by this summation. Similarly, the last element will be replaced with e to x6
-21:49
-divided by this summation. That will ensure that all of these values will now
-21:54
-sum up to one and each of them will also lie between 0 to 1. This is the softmax
-21:59
-operation which we are going to implement over here. So what we essentially want to do is that we want to achieve two things. I want to make
-22:06
-sure that the experts which are not selected those values are zero and for the experts which are selected those
-22:12
-values sum up to one. So to do that what I'm first going to do before applying softmax whatever values are not selected
-22:20
-I'm going to replace them with negative infinity. So here I replace a negative infinity here I'm going to replace with
-22:26
-negative infinity here I'm going to replace with negative infinity and here I'm going to replace with negative
-22:32
-infinity and then I'm going to do soft max. Why am I replacing with negative infinity? Because when you do soft max
-22:39
-you use the exponential operation right and an exponent of negative infinity is going to be zero. So when I apply soft
-22:46
-max to these values which are now replaced with negative infinity all of these values which are negative infinity
-22:52
-are going to be replaced with zero. That's the power of the softmax
-22:58
-operation. Right? This is the first thing which softmax achieves. The second thing with softmax achieves is that
-23:04
-every row if you look at the experts chosen in every row they will sum up to one. So if you look at the first row
-23:11
-right now you can say that give 60% weightage to E2 and give 40% weightage to E3. When the first token is
-23:18
-considered next when the sec the the when the second token is considered which is next give 90% importance to E1
-23:26
-give 10% importance to E3. When the third token is considered the uh day,
-23:32
-give 40% importance to E2 and 60% importance to E3. And when the fourth
-23:37
-token is considered is give 50% importance to E1 and 50% importance to E3. So now we have answered this second
-23:45
-question over here. Remember we started with two questions, right? Which two experts and how much weightage to each
-23:50
-expert? We have answered this second question. How do we know how much weightage to be given to each expert?
-23:56
-Basically we just look at these softmax values and we know how much weightage to
-24:01
-be given to every expert. So this is how the uh expert selector matrix actually
-24:07
-helps us answer these two questions. The expert selector matrix helps me to understand which which experts I need to
-24:15
-route every token to and how much weightage do I need to give to each expert. So now we are at a stage where
-24:24
-uh we uh we have now we are at a stage where we have
-24:30
-these input tokens. We have these input tokens which we started with and I know
-24:36
-which expert each of these input tokens needs to be routed to and how much weightage needs to be given to every
-24:42
-expert where the tokens are routed to. I know that. Now can I think about answering this question? Remember I
-24:49
-started this hands-on demonstration by saying that I have to take my three matrices
-24:54
-and I have to somehow merge them together into a 4x8 matrix. Now you have two additional
-25:00
-pieces of information. You know every token which two experts are it's going to be routed to and how much weightage
-25:07
-needs to be given to those experts. Now can you think about how you can use this
-25:13
-information to basically merge these three output matrices into just one
-25:19
-matrix. Again you can pause this video for a moment here and think about how you can use this information to solve
-25:25
-this merging question which we started
-25:32
-with. Okay. So we are at step number five. Now once we have the expert selector weight matrix we can merge the
-25:38
-three expert output matrices which we saw in step number two. Here we have to merge these three expert output matrices
-25:47
 so that it leads to one matrix right uh by assigning weight
 25:53
 factors. So now somehow intuitively you must already start thinking that I have
@@ -372,6 +274,7 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 
 

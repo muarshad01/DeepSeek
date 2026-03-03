@@ -1,105 +1,10 @@
-, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. Nvidia AI follows a very similar
-0:28
-principle and philosophy to that of us. Let me show you how. So here's the
-0:33
-website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music] below. Hello everyone and welcome to
-2:05
-this lecture in the build deepseek from scratch series. Today we continue our
-2:11
-journey in understanding mixture of experts. Our main aim today is to learn about two
-2:18
-things which are implemented in the mixture of experts modeling to make sure that every token is routed to experts in
-2:26
-a balanced manner and all the experts are essentially utilized. One such method is called as auxiliary loss and
-2:34
-the second method is called as load balancing. Today we are going to learn about both
-2:40
-of these methods which are very commonly implemented in mixture of experts. First let me quickly recap what
-2:47
-all we have seen so far. In the first lecture on mixture of experts, we understood the introduction regarding
-2:54
-how mixture of experts is essentially used in this feed forward neural network
-2:59
-of the transformer block. And we also understood the intuition behind mixture of experts.
-3:05
-This whole idea of sparity. So every token is not routed to all of the experts but only a select set of
-3:13
-experts. And in the previous lecture we saw a hands-on demonstration of how mixture of experts is actually
-3:20
-implemented from scratch. We saw something which is called as top K load
-3:25
-balancing which means that every token is routed to only a select set of top K
-3:30
-experts to implement sparity. And the second concept which we saw is that of the routing mechanism.
-3:38
-Um so the main idea of the routing mechanism is that the input matrix is
-3:43
-essentially multiplied by the routing matrix and we get something which is called as the expert selector weight
-3:50
-matrix. And this expert selector matrix helps us to do two things. It helps us
-3:55
-to understand which which among the three experts in this case to route to every token or to route for every token.
-4:03
-And the second thing it helps us understand is how much weightage we need to give to each expert whenever a token
-4:10
-is routed to it. We learned about these steps in the previous lecture. So if you are unsure about this, please go back
-4:17
-and revise the previous two lectures on mixture of experts. Today we are going to directly start from step number eight
-4:24
-over here which is called as auxiliary loss. Now what exactly is auxiliary loss
-4:30
-and why do we need it? So let us start understanding regarding this. In mixture of experts models, the routing mechanism
-4:38
-essentially selects a subset of experts. As we have seen for every token we see
-4:44
-we select a subset of experts which the token is routed towards. Until now whatever we have seen
-4:51
-so far we have not implemented a mechanism which makes sure that this routing is balanced. Which means that
-4:58
-sometimes what can happen is if some experts get chosen or selected a lot of
-5:03
-times while other experts are not utilized at all. It leads to inefficient learning and our performance is not as
-5:11
-
-
-
-
+* There are two major issue with MoE models, which we are going to look at in Steps 8 & 9.
+* __Step 8__: Auxiliary loss version 1
+* __Step 9__: 
 
 ***
+
+* 5:00
 
 optimal as expected. Ideally we want all of our experts to be helping. We want
 5:17
@@ -812,5 +717,6 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 

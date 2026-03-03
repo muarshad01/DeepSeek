@@ -25,108 +25,17 @@
 
 * 25:00
 
-* 
 * __Step-5__:
-* __Step-6__:
-* __Step-7__:
 
 
 ***
 
-* 30
+* 30:00
 
-so that it leads to one matrix right uh by assigning weight
-25:53
-factors. So now somehow intuitively you must already start thinking that I have
-25:59
-these weight factors. So somehow I have to look at every token. I have to assign weight factors to my expert output
-26:05
-matrices uh and might and I might probably need to do some additions. Um that's exactly
-26:12
-what we are going to do. So now let me explain to you how the merging is done for every token which we are
-26:18
-considering. Okay. So we are going to start looking at the first token which is equal to the. Okay. So what do we
-26:25
-know when we look at the I know that I have to select just E2 and E3 right and
-26:31
-I have to give 60% importance to E2 40% importance to E3 so when I go to the
-26:37
-expert output matrices right now let's look at these expert output matrices right and I have to only look at E2 and
-26:43
-E3 for the so let me rub this over here and rub all the
-26:50
-unnecessary things okay so I am only looking at the right now and what we
-26:55
-have seen so far is that we have to only look at uh experts two and experts three. So I have to only look at expert
-27:02
-output two and expert output three. Furthermore, since I'm only looking at the I should look at only the first row
-27:08
-of expert output two and first row of expert output three. How do I merge these first rows to give me one final
-27:17
-row? For that what I'm going to do is that I'm going to use the weightage. Remember what we saw for the gives give
-27:24
-60% weightage to E2 and 40% weightage to E3. So what we are going to do is that
-27:30
-this row this row I'm going to multiply with 6 and this row I'm going to be
-27:36
-multiplying with 04 and I'm going to be adding these two rows together and that
-27:41
-will give me 1x8 matrix that will be the merged or 1x8
-27:48
-row 1x8 vector that will be the output vector for the and similarly I will do
-27:56
-for all of the tokens. Let me explain this again because I have a different schematic below which
-28:01
-explains this. Okay. So let's look at the first token. The to see the
-28:07
-activated weight activated experts of the first token. We look at the first row of the expert selector weight
-28:13
-matrix. We look at the first row of the expert selector weight matrix and we see that experts two and experts three are
-28:20
-activated with weights of 6 and 4. As a result in this output, we are only going
-28:27
-to look at expert output two and expert output three because only E2 and E3 are activated for this highlighted token.
-28:34
-Then what we are going to do is that we are going to multiply this first row over here. Why the first row? Because
-28:40
-the first row corresponds to the first token. We are going to multiply the first row over here with 6. We are going
-28:47
-to multiply the first row over here with 04 because 40% weightage to E3 and 60%
-28:53
-weightage to E2. And we are going to add all of this together. So the mixture of
-28:59
-experts layer prediction for the first token is this final vector which is my 1x8 vector right now. That's how the
-29:07
-mixture of experts prediction works for any given token. You look at the token.
-29:12
-Here are the steps to be followed. You look at the token. You look at the expert selector weight matrix and you
-29:18
-look at which two experts are activated and how much weightage needs to be given to the two experts. Once you know that
-29:24
-you then go to the expert output matrices which we started this demonstration with. You look at those
-29:31
-two experts which are activated which are expert output two and expert output three. You look at only the first row of
-29:36
-this because I'm looking at the first token currently. You multiply the expert
-29:42
-output two first row with 6 and expert output three first row with 0 4 and you
-29:47
-will add these together and then you get one vector which is 1x8 and that's the prediction vector for the first
-29:54
-token. Let's do an exercise now for how the second token prediction is calculated and if you want to pause this
-30:01
-video here you can think about it on your own. Okay. So now the
-30:07
-second to calculate the second token prediction what I have to first do
-30:12
-remember the first step is to look at the expert selector weight matrix. I look at the expert selector weight
-30:17
-matrix for the second token next and I see that only experts E1 and E3 are
-30:23
-activated. I have to give a weightage of 0.9 to E1 and.1 to E3. Okay. Then what
-30:29
-I'll do is that I'll go to the expert output
-30:35
+* __Step-6__:
+* __Step-7__:
+
+
 uh I'll go to the expert output matrices and I'll see that um or maybe I should
 30:40
 do this over here. Okay, I go to the expert output matrices and I see that only E1 and E3
@@ -274,6 +183,7 @@ important for us to first develop a foundation and understand what mixture of ex
 today's lecture served as the foundational building block for that. Thanks everyone and I look forward to
 38:08
 seeing you in the next lecture.
+
 
 
 

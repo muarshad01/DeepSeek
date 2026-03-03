@@ -1,5 +1,13 @@
 * There are two major issue with MoE models, which we are going to look at in Steps 8 & 9.
-* __Step 8__: Auxiliary loss version 1
+
+#### __Step 8__: Auxiliary loss version
+* In MoE models, the routing mechanism selects a subset of experts for each input.
+* If some experts are chosen too often while others are underutilized,  it leads to inefficient learning and potential performance bottleneck.
+* An auxiliary loss term is added to main training loss to penelize imbalanced expert selection, pushing the routing functin toward a more uniform distribution.
+* To calcuate the auxiliary loss, we first start with expert selector weight matrix, which consistes of the experts assigned to every token and the probabilities assigned to every expert.
+
+
+
 * __Step 9__: 
 
 ***
@@ -717,6 +725,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

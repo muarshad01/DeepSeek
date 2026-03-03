@@ -6,114 +6,17 @@
 * An auxiliary loss term is added to main training loss to penelize imbalanced expert selection, pushing the routing functin toward a more uniform distribution.
 * To calcuate the auxiliary loss, we first start with expert selector weight matrix, which consistes of the experts assigned to every token and the probabilities assigned to every expert.
 
+***
+
+* 10:00
+
+
 
 
 * __Step 9__: 
 
 ***
 
-* 5:00
-
-optimal as expected. Ideally we want all of our experts to be helping. We want
-5:17
-all of our experts to be contributing. So if we look at the entire data set and
-5:23
-if we look at all the experts, I want all of my experts to be active somewhere. I don't want some experts to
-5:30
-be overutilized and I don't want some experts to be
-5:35
-underutilized. So to make sure that imbalanced expert selection is not
-5:40
-there, we add a term which is called as the auxiliary loss term. So when the LLM
-5:46
-is trained all of us know that the main task of a large language model is the next token prediction and we have the
-5:53
-training loss at that time. Now to make sure that the selection of
-5:59
-experts is balanced, an auxiliary loss term is added to the main training loss
-6:05
-term. And this penalizes imbalanced expert selection and it pushes the
-6:10
-routing function towards a more uniform distribution. Towards a more uniform distribution of what? Towards the more
-6:17
-uniform distribution of where the tokens are routed to. So let's say at the end
-6:22
-of all the routing you look at all the experts. Ideally you want to see uh
-6:28
-every expert processing similar number of tokens. Ideally that's the balance
-6:35
-distribution. So now let me illustrate step by step to all of you how the auxiliary loss is actually calculated.
-6:42
-So to start understanding how the auxiliary loss is actually calculated,
-6:47
-we start looking at the expert selector weight matrix. And to give you a recap
-6:52
-of what this expert selector weight matrix means, every row illustrates the experts which are
-6:59
-assigned to that particular token. So if you look at row number one, what it
-7:04
-tells me is that token number one will be routed only towards experts number two and experts number three and a
-7:10
-weightage of 6 needs to be assigned to expert 2 and a weightage of 04 needs to
-7:15
-be assigned to expert 3. Similarly token number two needs to be routed towards
-7:21
-expert one and expert 3 and a weightage of.9 will be assigned to expert one and
-7:26
-a weightage of 0.1 will be assigned to expert 3. Token number three will be routed towards expert 2 and three with
-7:33
-weightages of 0 4 and 6 respectively. And token number four will be routed
-7:38
-towards expert 1 and expert 3 with weightages of.5 and.5
-7:44
-respectively. So what I want to ask all of you here is that what does every column here in the expert selector
-7:50
-weight matrix denote? And you can pause this video for a while to think about this. What does every column in the
-7:56
-expert selector weight matrix denote? So the answer to this question is that
-8:02
-every column essentially is for one particular expert. So the first column is for first
-8:08
-expert, second column is for second expert, third column is for third expert. So if you look at the first
-8:14
-column, it contains the probabilities with which tokens are routed towards expert number
-8:20
-one. So 0 is the probability of token one being routed to E1. 0.9 is the
-8:26
-probability of token 2 routed to E1. 0 is the probability of token 3 routed to
-8:32
-E1 and 0.5 is the probability of token 4 routed to E1. So now if I want to ask you the
-8:40
-question that what is the total probability or if
-8:45
-you were to uh calculate a quantity which is called as expert importance.
-8:52
-expert importance, what will be the total expert importance for expert number one
-9:00
-intuitively. So if you were to calculate the total expert importance for expert number one, you will actually look at
-9:07
-all of these probabilities and you will add them together. So if you add 0 +.9 +
-9:14
-0 +.5, it will give you an answer of 1.4.
-9:19
-So a summation of all of these values indicates how much importance is given
-9:24
-to that particular expert when you consider all of the tokens. Similarly, what we are going to do here is is that
-9:31
-I'm going to add the values. So I'm going to add the values of column number
-9:36
-one and that leads me to value of 1.4. That's the expert importance of expert
-9:42
-number one. If I look at second column that is E2. And if I add all the entries
-9:48
-of the second column that will be 6 + 04 that will be equal to 1. This will be
-9:54
-the expert importance of E2. And now if I look at the column number three and I
-10:00
-add all the entries of column number three that will be 4 +.1 + 6 +.5. So
-10:07
-that will be 1.6. This will be the expert importance of E3. So if you look
-10:13
 at all of these importance values, you'll see that expert number three
 10:18
 carries the most importance and expert number two carries the least importance. Why is this the case? Because expert
@@ -725,6 +628,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

@@ -20,9 +20,13 @@ $$CV = \frac{Standard ~Devivation (\sigma))}{mean(\mu)}$$
 
 $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 
-* __Step 9__: 
 
 ***
+
+* 15:00
+
+* __Step 9__: 
+
 
 at all of these importance values, you'll see that expert number three
 10:18
@@ -635,6 +639,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

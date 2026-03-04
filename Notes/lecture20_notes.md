@@ -81,70 +81,14 @@ $$Tokens ~per ~batch = Batch ~size \times Sequence ~Length \times Top-k$$
 
 * 40:00
 
-factor. Okay. So now once you learn all of this ultimately it's important to
-40:11
-understand the key advantages of mixture of experts. So if you have 32 64 128
-40:17
-experts you you get a speed up of five to seven times. That's normal to see with mixture of experts. You get the
-40:23
-training time speed up of a huge amount if you use mixture of experts versus if you do not use mixture of
-40:30
-experts. Uh so unlike dense models where all the parameters are used for every input, MOE only activates a subset of
-40:37
-experts and uh what this does is that it reduces the number of active parameters per forward pass and that leads to lower
-40:45
-operations per step and it also leads to reduced memory footprint allowing for larger models without too much increase
-40:52
-in costs. So this one figure over here sums up the advantages of mixture of experts. Right? It gives a huge amount
-40:58
-of speed up as compared to if we do not use a mixture of experts model. In the previous lecture step one
-41:05
-to step seven that covers the main mechanism of mixture of experts. But without understanding step uh step
-41:11
-number eight, step number nine uh and the expert capacity which was
-41:17
-step number 10, it is impossible to understand the deepseek innovations which came because if you look at the
-41:23
-deepseek innovations, the major innovations is something called auxiliary loss loss load balancing and
-41:29
-you would not be able to understand this innovation if you don't understand what load balancing is.
-41:35
-uh so that's why we have to cover this lecture where I go through all of these concepts and then we are also going to
-41:41
-look at other deepseek innovations like uh shared experts and the final
-41:46
-innovation is fine grain expert segmentation uh we are going to look at all of these
-41:52
-deepseek innovations in the coming lectures so stay tuned make notes while I'm explaining these lectures so that
-41:58
-you understand these lectures in a much in a much much better manner uh it is
-42:04
-very hard to find videos which talk about these things in a lot of detail because these are not easy concepts such
-42:10
-as uh auxiliary loss or load balancing but I want to show you everything from
-42:15
-scratch and that's why I'm showing everything like this on a whiteboard. Thanks everyone. In the next lecture
-42:22
-we'll be embarking we'll be embarking on a journey to understand the deepseek
-42:27
-innovations in the mixture of experts modeling. So thanks a lot and I look forward to
-42:33
-seeing all of you in the next lecture.
+* Unlike dense models where all the parameters are used for every input, MOE only activates a subset of
+experts (e.g., 1 or 2 per token). This reduces the number of active parameters per forward pass, leading to:
+1. Lower FLOPS
+2. Reduced memory footprint, allowing for larger models without too much increase in costs.
 
+#### DeepSeek Innovation
+* __DeepSeek Innovation 1__: Auxiliary Loss Free Load Balancing
+* __DeepSeek Innovation 2__: Shared Experts
+* __DeepSeek Innovation 3__: Fine-grained Expert Segmentation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+***

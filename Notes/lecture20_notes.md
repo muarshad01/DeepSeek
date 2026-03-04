@@ -66,6 +66,19 @@ $$Expert ~Capacity = \frac{Tokens ~per ~Batch}{Number ~of ~Experts} \times Capat
 
 * 35:00
 
+$$Tokens ~per ~batch = Batch ~size \times Sequence ~Length \times Top-k$$
+* Top-k: Number of experts choses for each token (load balancing)
+
+* Capacity factor is a scaling factor (typically > 1) to allow some flexibility.
+
+* If capacity factor = 1, each expert gets an even split of tokens.
+* If capacity factor > 1, each expert can handle more than its fair share, allowing load balancing.
+* If capacity factor < 1, some tokens may get dropped if all experts are full.
+
+* When expert capacity is excedded, excess tokens are eiter dropped or handles by another expert (depending on the implementation).
+
+* 
+
 
 35:13
 number of experts. So if I have thousand if I have thousand tokens per batch if I
@@ -162,6 +175,13 @@ where uh load balancing comes into the picture and expert capacity just limits t
 39:58
 maximum number of tokens one particular expert can handle through this capacity
 40:05
+
+
+
+***
+
+
+
 factor. Okay. So now once you learn all of this ultimately it's important to
 40:11
 understand the key advantages of mixture of experts. So if you have 32 64 128
@@ -211,6 +231,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

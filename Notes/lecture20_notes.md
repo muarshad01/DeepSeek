@@ -56,6 +56,12 @@ $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 * By minimizing the auxiliary loss, you mathematically enforce the model to distribute tokens proportionally to how much each expert is valued or "trusted", resulting in more efficient and balanced use of the MoE architecture.
 *
 
+
+* __Step 10__:  Capacity Factor
+* Problem: Expert Imbalance
+
+$$Expert ~Capacity = \frac{Tokens ~per ~Batch}{Number ~of ~Experts} \times Capatiy ~Factor$$
+
 experts. And in the case of load balancing, of course, we take a look at the expert importance through PI, but we
 33:16
 also multiply it with FI, which are the fraction of tokens which is routed to each expert. And this is the quantity
@@ -237,6 +243,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

@@ -62,43 +62,11 @@ $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 
 $$Expert ~Capacity = \frac{Tokens ~per ~Batch}{Number ~of ~Experts} \times Capatiy ~Factor$$
 
-experts. And in the case of load balancing, of course, we take a look at the expert importance through PI, but we
-33:16
-also multiply it with FI, which are the fraction of tokens which is routed to each expert. And this is the quantity
-33:22
-which we try to minimize. This makes sure that the uh PI
-33:29
-is uniform. So expert importance will be similar. But it also makes sure that tokens are routed uniformly across
-33:37
-experts. Now the introduction of this load balancing loss presents some other challenges which DeepS seek tried to
-33:43
-solve and they made one very major change in the load balancing loss which we are going to see in one of the
-33:49
-subsequent lectures. But to understand that lecture, it's very important for all of you to understand load balancing
-33:55
-loss and auxiliary loss. The last concept which we are going to look at today is something which is called as
-34:01
-the capacity factor. So let's start understanding about this now. So one more guard rail which we can
-34:09
-implement to make sure that uh u to some expert does not hog all the limelight or
-34:16
-some expert does not get a huge number of tokens like in this case which we saw this expert was getting all the tokens
-34:22
-right to avoid this we can also implement something which is called as the capacity
-34:27
-factor. So let's say we have not in included capacity factor and something
-34:33
-like this happens right the next day is and if these tokens are all routed to one expert that's not a good sign for us
-34:41
-because it means that expert number two and expert number three are not getting any of the tokens. So we introduce
-34:47
-something called as the expert capacity or the capacity factor and that's given by this formula. So expert capacity is
-34:54
-tokens per batch divided by number of experts into the capacity factor. So
-34:59
-expert capacity just means how many maximum number of tokens one particular expert can handle. If capacity factor is
-35:07
-equal to one then it just means the number of tokens every expert can handle is the tokens per batch divided with the
+***
+
+* 35:00
+
+
 35:13
 number of experts. So if I have thousand if I have thousand tokens per batch if I
 35:20
@@ -243,6 +211,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

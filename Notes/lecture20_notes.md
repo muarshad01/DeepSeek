@@ -43,6 +43,8 @@ $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 
 ***
 
+* 30:00
+
 gives me a total load balancing loss of 0.0101. This is the loss which I try to
 30:58
 minimize. Now you might be thinking based off this formula that how would minimizing this loss actually help us.
@@ -266,6 +268,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

@@ -45,48 +45,17 @@ $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 
 * 30:00
 
-gives me a total load balancing loss of 0.0101. This is the loss which I try to
-30:58
-minimize. Now you might be thinking based off this formula that how would minimizing this loss actually help us.
-31:05
-So mathematically this loss is minimized when the product f_subi into pi is minimized across all the experts. Right?
-31:13
-So the product will be minimal when both f_subi and pi are simultaneously low.
-31:19
-And what would mean when fi and pi are simultaneously low? If fi and pi are
-31:24
-simultaneously low, it just means that I'm getting to a more uniform distribution. Whereas if one of fi and
-31:31
-pi if f_si is very high, pi is very low, the to the distribution is not very uniform and so this loss will be very
-31:38
-high. So minimizing this loss is actually pushing me
-31:44
-uh so minimizing this loss is actually pushing me to reduce the overall imbalance uh between the assigned
-31:50
-importance and the actual routing. So what this minimization of the loss
-31:56
-term actually does is that it makes sure that uh my importance expert importance
-32:02
-and my routing are aligned with each other. Which means that whenever the expert importance is high, I'm also
-32:08
-routing my tokens there. Whenever the export expert importance is low, I'm als I'm routing less number of tokens over
-32:15
-there. So I just want my FI and PI to be aligned with each other and also simultaneously lower together. When fi
-32:22
-and pi is lower together, it means that my distribution is becoming more uniform. And when fi and pi are more
-32:29
-aligned to each other, it means that experts with higher importance handle more tokens. Experts with lower
-32:36
-importance handle less tokens. And so there is no mismatch. Overall this increases
-32:41
-uh more uh it increases the stability during training and uh this also leads
-32:49
-to a more efficient and balanced use of the mixture of experts architecture. Okay. So I hope you have understood the
-32:56
-difference between these two terminologies. Auxiliary loss is something which is completely different than the load balancing. In auxiliary
-33:04
-loss, we just look at the expert importance and we make sure the expert importance are equal among the different
-33:10
+* In other words, minimizing this loss encourages:
+* Experts with high importance (p_i) to potentially handle more tokens, this increasing f_i.
+* Experts with low importance to handle proportionally fewer tokens, decreasing mismatch.
+
+* This alignment reduces overall imbalance between assigned importance (probability) and actual routing (disptach).
+
+
+
+* By minimizing the auxiliary loss, you mathematically enforce the model to distribute tokens proportionally to how much each expert is valued or "trusted", resulting in more efficient and balanced use of the MoE architecture.
+*
+
 experts. And in the case of load balancing, of course, we take a look at the expert importance through PI, but we
 33:16
 also multiply it with FI, which are the fraction of tokens which is routed to each expert. And this is the quantity
@@ -268,6 +237,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

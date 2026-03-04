@@ -34,7 +34,12 @@ $$Auxiliary ~Loss = \lambda \times (CV)^2$$
 ***
 
 * 20:00
+* P1
+* P2
+* P3
+* The next step is to calculate the fraction to tokens dispatched to each expert.
 
+* $$Load ~Balancing ~Loss = Scaling ~Factor \times ~Number ~of ~Experts \times \sum_{i=1}^{num-experts}f_ip_i$$
 
 expert. And this is the most important quantity which needs to be calculated
 22:39
@@ -413,6 +418,7 @@ we'll be embarking we'll be embarking on a journey to understand the deepseek
 innovations in the mixture of experts modeling. So thanks a lot and I look forward to
 42:33
 seeing all of you in the next lecture.
+
 
 
 

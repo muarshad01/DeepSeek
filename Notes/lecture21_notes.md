@@ -22,6 +22,8 @@
 
 * 20:00
 
+$$b_i = b_i + u \times sign(load ~violation ~error)$$
+
 
 violation is minus 1.33 which is negative. Okay. Now once we capture the load violation
 20:25
@@ -656,6 +658,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

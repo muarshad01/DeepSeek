@@ -8,92 +8,9 @@
 
 * 5:00
 
-
-until step number seven. In the previous lecture we looked at balancing
-5:50
-techniques. So we want to ensure that ultimately when we look at all the
-5:56
-experts we want all experts to be operational. We don't want that one expert hog the limelight and one expert
-6:04
-received all the tokens. That's not what we want. We actually want all the experts to participate. So if you look
-6:11
-at every expert towards the end, every expert should on an average receive equal number of
-6:17
-tokens. That's called as a balanced um balanced mixture of experts model. And
-6:23
-to do that we saw couple of different things. First we saw something which is called as the auxiliary loss. where we
-6:30
-quantified the expert importance. So we found the importance of every expert based on the probability summation of
-6:36
-tokens routed to that expert and then based on the expert importance we
-6:42
-obtained the coefficient of variation which is the standard deviation divided by the mean and then we added this
-6:48
-auxiliary loss factor to the overall loss. So higher the auxiliary loss it means higher the coefficient of
-6:54
-variation which is not good because then one expert will be assigned more importance compared to other
-7:00
-experts. Then we saw that this term was not enough uh to make sure
-7:06
-that tokens are routed uniformly to different experts. So then we introduce
-7:12
-some a term which is called as load balancing and the load balancing loss essentially was defined by this scaling
-7:18
-factor multiplied by the number of experts and then for every experts we have two terms FI and
-7:25
-PI. This FI denotes the fraction of tokens sent to a particular expert I and
-7:32
-PI denotes the fraction of probability which is allocated to that expert I. Now
-7:38
-minimizing this loss, it turns out that minimizing this loss gets us a balance
-7:43
-in terms of the fact that if a token if a expert has more importance more number
-7:49
-of tokens will be routed to it. If a expert has less importance less number of tokens will be routed to it. So there
-7:56
-will be that proportionality between FI and BI. So
-8:02
-what minimizing this loss what it does is that um it allows experts with higher
-8:09
-importance to handle proportionately more tokens and it allows experts with lower importance to handle
-8:15
-proportionately fewer tokens. So by minimizing this second loss which
-8:21
-is called as the load balancing loss, we mathematically enforce the model to distribute tokens proportionally to how
-8:28
-much the expert is valued or trusted and that leads to a more balanced use of the mixture of experts
-8:34
-architecture. We also saw something called as the capacity factor which limits the number of tokens every expert
-8:40
-can handle. Okay. So today the key thing which we are going to uh remember is the
-8:48
-second loss which is called as the load balancing loss and there are
-8:53
-these terminologies fib. If you don't remember this it's fine but just remember that the load balancing loss is
-9:00
-added as a extra term to the total pre-training language loss which we
-9:05
-already have when predicting the next token. Today we are going to learn about the innovations which deepseek
-9:12
-implemented to deal with these losses. So Deepseek actually what it did was the
-9:18
-the whole mixture of experts literature was happening and like Deepseek did with
-9:25
-so many other innovations which they have. They took this mixture of experts innovation and then they built on top of
-9:32
-it which means they took all these loss terms which we have been seeing. They modified these loss terms to make it
-9:37
-more efficient. And today we are going to see three main innovations which DeepS seek implemented. The first is
-9:44
-something which is called as auxiliary loss free load balancing. The second is
-9:49
-called as shared experts and the third
-9:54
-innovation is called as fine grain expert segmentation. We are going to look at all of these three innovations
-10:00
-
 ***
 
+* 10:00
 
 today. But first let me give you a bit of history before looking at these innovations. The first major paper which
 10:08
@@ -918,5 +835,6 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 

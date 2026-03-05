@@ -24,103 +24,9 @@
 
 $$b_i = b_i + u \times sign(load ~violation ~error)$$
 
-
-violation is minus 1.33 which is negative. Okay. Now once we capture the load violation
-20:25
-error for the different experts then we introduce a terminology which is called as
-20:30
-bias. Now this bias is a term which is introduced as zero for every
-20:36
-expert and then it's updated and then it's updated per iteration for every
-20:43
-expert. So here is how the bias term is updated. Right? So bias term is equal to
-20:49
-the bias term plus u which is a predefined constant multiplied with the
-20:54
-sign of the loadation error which means that if it's if the loadation error is
-21:00
-positive then this will be b i is equal to b i + u and if the loadation error is
-21:06
-negative it will be b i is equal to b i minus u. Now we have already seen when is the loadation error
-21:13
-positive when it's underloaded right. So expert one and two were underloaded here and the loadation was
-21:20
-positive. So for experts one and two the bias will be increased. For experts one
-21:26
-and two the loadation error will be positive. Experts one and two and for
-21:32
-expert number three bias will be decreased because this expert is already
-21:39
-overloaded. Uh so the above formula ensures that if an expert has a heavy load, we will reduce its bias otherwise
-21:46
-we'll increase it. For example, expert number three, it has a heavy load, right? It's overloaded. Its load
-21:52
-violation is negative. So we are going to reduce its bias. Whereas experts one
-21:58
-and two, they have a load violation of positive. They are underloaded. So we
-22:03
-are going to increase the bias of experts one and expert two. Then what do we do with this bias term? Once we have
-22:10
-this bias term so first of all I've shown this in visual format for experts
-22:16
-one and two these are underloaded so we increase the bias and for expert three
-22:21
-this is overloaded so we are going to reduce its bias all right now where is
-22:28
-this increase and decrease actually implemented so remember after we
-22:35
-multiply the input matrix with the routing matrix we get a matrix like this. So if you take a look at our
-22:41
-earlier steps which we implemented in the mixture of experts model, we multiply the input matrix with the
-22:47
-routing matrix and we get this expert selector matrix, right? This expert selector matrix is where this bias term
-22:54
-is actually added. So you have this expert selector matrix, right? And then we adjust this
-23:01
-with the bias term, which means that experts one and experts two, we now add
-23:06
-a bias term. See because these experts are experts one and experts two are
-23:12
-underloaded. So we are increasing the bias term. So for these experts we add a
-23:17
-plus b term. We add a plus bc to all the numbers which were previously there we add a plus b. And to expert number three
-23:25
-we add a negative term which means we subtract we subtract from
-23:31
-this. So my final numbers will become will increase for experts one and two
-23:36
-and will decrease for expert number three. So since experts one and two are
-23:41
-underloaded adding the bias term will make sure that the value of expert one and two will increase. This will
-23:49
-increase the probability of these experts being chosen by the router. That's the most important thing. So
-23:54
-experts one and experts two are
-24:00
-underloaded are underloaded. So we add the
-24:07
-bias and we increase the probability of being chosen by the
-24:19
-router. Whereas for expert number three it's overloaded. So it goes in the other
-24:24
-direction. So expert number three is overloaded. So we reduce the
-24:33
-bias and we decrease we decrease the probability of this expert being chosen
-24:40
-by the
-24:45
-router. So expert 3 is overloaded. So subtracting the bias term will make sure
-24:50
-that the values of expert 3 will decrease like this and this will
-24:55
-decrease the probability of this expert being chosen by the router. So you see what is happening
-25:01
-
-
-
 ***
 
-
+* 25:00
 
 
 here. The experts to which more number of tokens are routed like expert number
@@ -227,6 +133,15 @@ likely token assigned to a specific expert will be likely to cover diverse knowl
 30:41
 expert will intend to assemble vastly different types of knowledge in its parameters which are hard to be utilized
 30:48
+
+
+
+***
+
+* 30:00
+
+
+
 simultaneously. So what they mentioned was models had limited number of experts. So let's say experts were of
 30:55
 the order of 8 to 16, eight experts, right? So if I only have eight experts
@@ -658,6 +573,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

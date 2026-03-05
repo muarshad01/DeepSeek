@@ -113,6 +113,14 @@ that the values of expert 3 will decrease like this and this will
 24:55
 decrease the probability of this expert being chosen by the router. So you see what is happening
 25:01
+
+
+
+***
+
+
+
+
 here. The experts to which more number of tokens are routed like expert number
 25:06
 three we decrease the bias term from these values so that it gets less tokens
@@ -648,6 +656,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

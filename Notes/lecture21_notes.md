@@ -12,112 +12,6 @@
 
 * 10:00
 
-today. But first let me give you a bit of history before looking at these innovations. The first major paper which
-10:08
-implemented many of these innovations was deepseek ME which is deepseek
-10:13
-mixture of experts that came out in January 2024. This paper implemented two
-10:18
-innovations which I discussed right now. Innovation number two which is shared experts and innovation number three
-10:24
-which is fine grained expert segmentation. These two innovations were implemented by Deepseek in their version two paper
-10:31
-which came out in June 2024. And in January of 2025, there was
-10:37
-the version three paper which led to the whole Deepseek revolution. Here those two innovations were still implemented.
-10:43
-The fine grain expert segmentation and shared experts was still implemented. But there was one more innovation which
-10:50
-was implemented specifically in this paper and that innovation which and that
-10:55
-innovation is called auxiliary loss free loss free load balancing. This was not implemented in version two but this was
-11:02
-implemented in version three. So we are going to start looking at this innovation initially and then we are
-11:08
-going to look at innovation 2 and innovation 3. So let's start looking at the first deepseek innovation in the
-11:14
-mixture of expert space and that's auxiliary loss free lossfree load
-11:20
-balancing. So let's start with the first deepseek innovation auxiliary loss free
-11:27
-load balancing. So this innovation starts from the step number nine. In step
-11:34
-number nine, we saw this load balancing loss, right? Which had this fraction of
-11:42
-tokens sent to expert I fi and the probability allocated to every expert pi. This was the load balancing
-11:49
-loss. Now this loss was successful because it helps to
-11:56
-maintain load balance in expert models. But the main issue with this loss is that this loss is actually added to the
-12:03
-training loss. So let's say I have my training loss for the next token prediction and I use this scaling factor
-12:11
-times the number of experts time sigma fi pi that's my load balancing loss
-12:17
-correct the main issue is that this loss actually interferes with my training
-12:22
-loss because if you look at both of these losses they lead to they denote fundamentally different things right my
-12:29
-training loss denotes how well I'm doing on the next token prediction Whereas this loss encapsulates the
-12:37
-information of balance between my different experts and whether tokens are routed uniformly to experts etc. So both
-12:45
-of these losses mean fundamentally different things and adding them both together and then taking the gradients
-12:51
-and back propagation is very inefficient. So use of this loss helps
-12:57
-maintain load balance in expert models. That's the advantage. But this loss also acts as a regularization term that
-13:04
-interferes with language modeling. For example, if the scaling factor, let's
-13:10
-say if the scaling factor is very small, then this term is almost negligible. Right? So if the scaling factor is small
-13:16
-or absent, uh this term is almost negligible and we won't have good expert utilization. So
-13:22
-then the mixture of experts model will be almost useless. Whereas if lambda is
-13:28
-very high, if lambda is very high then we'll it what it means is that it degrades the model performance.
-13:36
-So if lambda is very high, we'll give more importance to this loss compared to this first loss. So we'll not have good
-13:42
-performance on the next token prediction task if lambda is high. So if lambda is low, we still have a problem because
-13:49
-then the mixture of experts model won't be balanced. And if lambda is high, we still have a problem because then my uh
-13:56
-next token prediction loss will be very low. So the main issue is that balancing
-14:05
-it's difficult to balance experts effectively without compromising training quality. That's the main thing.
-14:11
-If we go to balance the experts, the training quality will be reduced. So if this quality increases which means if my
-14:18
-mixture of experts model is to be more balanced lambda needs to be higher and then that will affect my training
-14:24
-quality and that's a big trade-off over here which means that adding this term over here is reducing my training
-14:31
-quality and deepseek noticed that problem and this is where they
-14:36
-implemented something which is called as lossfree balancing lossree balancing which meant
-14:43
-that they completely completely got rid of this term. They got they completely got rid of the second term and they just
-14:51
-had one term in the training loss which is the next token prediction
-14:56
-task. So then you might be thinking that if deepseek completely got rid of this
-15:03
-second term then how did they implement load balancing? How did we make sure
-15:08
-that every expert handles relatively equal amount of
-15:14
-tokens and how do we get a balanced mixture of experts model? So they implemented a different
-15:22
-technique. They implemented a different method that enforces load balance
-15:28
-without using additional gradients from this loss. So they did not have this loss at all. So we did not have to take
-15:34
-gradients during back propagation. So let's see the technique which they used to implement load balance. So D6 still
-15:40
-
-
 ***
 
 * 15:00
@@ -836,6 +730,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

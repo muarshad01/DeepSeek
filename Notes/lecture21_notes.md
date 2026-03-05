@@ -105,6 +105,16 @@ and load violation for expert 3 is minus 1.33. So for expert one load violation
 20:10
 is expert one and two it's 67 which is positive and for expert three the load
 20:18
+
+
+
+
+
+***
+
+* 20:00
+
+
 violation is minus 1.33 which is negative. Okay. Now once we capture the load violation
 20:25
 error for the different experts then we introduce a terminology which is called as
@@ -730,6 +740,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

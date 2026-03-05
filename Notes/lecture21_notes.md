@@ -1,114 +1,12 @@
-my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. In Nvidia AI follows a very
-0:27
-similar principle and philosophy to that of us. Let me show you how. So here's
-0:33
-the website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we are going to understand the main innovations which
-2:15
-deepseek implemented in the mixture of experts architecture. Until now we have seen
-2:21
-three lectures in mixture of experts. In the first lecture, we looked at the mixture of experts
-2:28
-um introduction and how we replaced the feed forward neural network in the
-2:34
-traditional transformer architecture with a bunch of neural networks which were called as
-2:40
-experts. That's that was the first thing which we saw in the first lecture on mixture of experts. Then we also looked
-2:47
-at the intuition behind why mixture of experts really works. mixture of experts
-2:53
-drastically improves the pre-training efficiency and also the inference efficiency and one main reason for this
-3:00
-is the concept of sparsity. We saw that when we look at
-3:07
-every individual token, it's not really routed to all the experts, but it's routed only to a fraction or a subset of
-3:15
-the experts. And that's really called as a sparse model where if you have four
-3:20
-experts, maybe only one expert is activated for every token. So sparity is
-3:26
-one of the main ideas behind which mixture of experts really operates.
-3:31
-Then in the second lecture we saw the step-by-step procedure through which mixture of experts is implemented. We
-3:38
-first take the input matrix and we multiply it with the routing matrix. That gives us the expert selector
-3:45
-matrix. Then we decide how many experts need to be routed to each for each token
-3:51
-and that's called as top K. So if top K is equal to two, we select two experts
-3:57
-for every token. The way these experts are selected are based on the values of the expert selector matrix. So if you
-4:05
-look at every row here that corresponds to the experts to which every token is routed. So the first token will be
-4:12
-routed to these two tokens. The second token will be routed sorry the first token will be routed to these two
-4:17
-experts. Second token will be routed to these two experts etc.
-4:22
-So we take the expert matrix and then we apply soft max and that gives us the
-4:28
-expert selector weight matrix where if you look at every row it adds up to one.
-4:34
-So the value each value corresponds to a probability with which that token is routed to that particular expert.
-4:42
-Uh so that is how what we ultimately do is that we use these probabilities as uh weight as
-4:50
-weights and then based on any given token we first look at which experts is
-4:56
-it routed to and then we use these waiting factors we use these waiting factors or these weight factors to add
-5:05
-the three outputs. So we have three experts. So there are three expert outputs since there are three neural
-5:11
-networks. And then for every token based on the experts it's routed to and based on the waiting factor we use a weighted
-5:18
-summation and get the final output vector for every token. All these output
-5:24
-vectors are then aggregated together and then we get the resultant output for the input. So if the input is
-5:32
-4a 8 the output is also 4a 8 but now it's a cumulative sum of three neural
-5:38
-network output instead of just one neural network output. That's the main idea of mixture of experts which we saw
-5:45
+
+#### DeepSeek Innovation
+* __DeepSeek Innovation 1__: Auxiliary Loss Free Load Balancing
+* __DeepSeek Innovation 2__: Shared Experts
+* __DeepSeek Innovation 3__: Fine-grained Expert Segmentation
 
 ***
 
+* 5:00
 
 
 until step number seven. In the previous lecture we looked at balancing
@@ -1020,4 +918,5 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 

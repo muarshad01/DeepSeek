@@ -106,6 +106,11 @@ vectors are then aggregated together and then we get the resultant output for th
 5:38
 network output instead of just one neural network output. That's the main idea of mixture of experts which we saw
 5:45
+
+***
+
+
+
 until step number seven. In the previous lecture we looked at balancing
 5:50
 techniques. So we want to ensure that ultimately when we look at all the
@@ -188,6 +193,10 @@ called as shared experts and the third
 9:54
 innovation is called as fine grain expert segmentation. We are going to look at all of these three innovations
 10:00
+
+***
+
+
 today. But first let me give you a bit of history before looking at these innovations. The first major paper which
 10:08
 implemented many of these innovations was deepseek ME which is deepseek
@@ -292,6 +301,12 @@ without using additional gradients from this loss. So they did not have this los
 15:34
 gradients during back propagation. So let's see the technique which they used to implement load balance. So D6 still
 15:40
+
+
+***
+
+
+
 implemented load balance without the loss
 15:47
 term and I'll show you how they implemented this. This thing which they
@@ -1005,3 +1020,4 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+

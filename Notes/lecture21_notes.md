@@ -16,99 +16,7 @@
 
 * 15:00
 
-
-implemented load balance without the loss
-15:47
-term and I'll show you how they implemented this. This thing which they
-15:52
-implemented is shown in a very small section. Uh this is a section which is
-15:58
-called as auxiliary loss free load balancing and it's equation number 16. In just two paragraphs they explain this
-16:05
-innovation which they have but I'm going to try to explain to you in as much detail as possible. Okay. So let's say
-16:13
-we have the expert selector weight matrix which I showed you before. Right? So what this expert selector weight
-16:19
-matrix tells me is that if my first token comes in, this is my first token. So let me first of all reduce the
-16:25
-thickness a bit and change the color. If my first token comes in, it's routed
-16:30
-to expert 2 and expert 3 with probabilities 6 and 04. If my second token comes in, it's routed to expert
-16:37
-one and expert three. If my third token comes in, it's routed to expert two and expert three. If my fourth token comes
-16:44
-in, it's routed to expert number one and expert number three. Okay. So the
-16:50
-first in this technique implemented by Deepseek load balance without loss.
-16:56
-First thing we can do is we have to find the average load. We have to find the average load
-17:04
-per expert. Or let me call it average token
-17:09
-load per expert. What this means is what are the
-17:14
-average number of tokens which are routed to every expert. So first for that we have to see the tok total number
-17:21
-of tokens which are routed. Right? So first token uh total number of tokens
-17:26
-routed. So first expert has how many tokens routed? One and two. Second token
-17:32
-second expert has how many tokens routed? 1 and two which is two. And third expert has how many tokens which
-17:38
-are routed to it? 1 2 3 and four. So four tokens. So overall the total number
-17:43
-of tokens which are routed to these three experts is 2 + 2 + 4 that is eight
-17:49
-tokens. So eight tokens are routed to these three experts. So what is the average number of tokens which are
-17:55
-routed per expert? That is just 8 divided by 3 which is equal to 2.67. So the average token load per
-18:02
-expert is 2.67. Okay. Now based on the average load per expert we can find out whether
-18:10
-a given expert is overloaded or underload. So for example if you look at the first expert right how many tokens
-18:17
-are routed to it? two tokens are routed to it and my average load per expert is 2.67. So this expert is actually
-18:25
-underloaded underloaded by an amount of 2.67 which is the average token load per
-18:30
-expert minus 2 which is 67. This means that it actually has a
-18:35
-capability of handling 2.67 tokens but only two tokens are routed to it which
-18:41
-means it's underloaded by an amount of 67. Similarly, if you take a look at the
-18:47
-second expert now, only two tokens are routed to it. So, the second expert is also underloaded by an amount of 2.67
-18:54
-minus 2, which is 67. And if you look at the third expert, however, the third
-18:59
-expert has four tokens routed to it. So, the third expert is actually overloaded
-19:05
-because the number of tokens here are higher than the average load per expert, which is 2.67.
-19:10
-And what's the amount by which the third expert is overloaded? That amount is 2.67 - 4 which is -
-19:18
-1.33. So to get the amount of overload or underload, we just take the average token load per expert and subtract the
-19:26
-number of tokens which are routed to that expert. So the third expert is overloaded right now and my first two
-19:32
-experts are underloaded. So as seen in the figure above we see
-19:38
-that experts one and two are underloaded and expert 3 is overloaded. Then what we do is that we find the load violation
-19:45
-and we have already found out the load violations in this figure. Right? The load violations is
-19:52
-just the difference between the number of tokens routed and the average token
-19:57
-per expert. So the load violation for expert 1 and 2 is 67 which is positive
-20:03
-and load violation for expert 3 is minus 1.33. So for expert one load violation
-20:10
-is expert one and two it's 67 which is positive and for expert three the load
-20:18
-
-
-
-
+* __DeepSeek Innovation 1__: Auxiliary Loss Free Load Balancing (Equation 16)
 
 ***
 
@@ -740,6 +648,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

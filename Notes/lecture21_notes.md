@@ -120,6 +120,7 @@ gradients during back propagation. So let's see the technique which they used to
 
 ***
 
+* 15:00
 
 
 implemented load balance without the loss
@@ -835,6 +836,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -43,6 +43,8 @@ $$b_i = b_i + u \times sign(load ~violation ~error)$$
 
 ***
 
+* 35:00
+
 experts? What if we have shared experts and this shared experts would
 35:14
 contain all of the common knowledge which is needed and along with the shared experts we again have the specialized experts. So for specialized
@@ -139,6 +141,16 @@ because the ultimate dimension needs to remain the same. So computational cost d
 40:16
 cost does not increase because my number of model my model size remains the same. Ultimately I'm just having a huge number
 40:23
+
+
+
+
+
+***
+
+* 40:00
+
+
 of neural networks now instead of low number of neural networks and the dimension of each neural network here is
 40:29
 lesser than the let's say the original dimension and this idea of having more
@@ -392,6 +404,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -66,94 +66,11 @@ $$b_i = b_i + u \times sign(load ~violation ~error)$$
 * 45:00
 
 
-dense there was no sparity implemented here. It was like there were 16 experts
-45:40
-and every top was routed to all 16. Now in spite of deepseek having so less
-45:46
-number of expert parameters you'll see that all of in all of the metrics deepseek com performed relatively at the
-45:53
-same level as these other models. So if you look at this accuracy metric deepsee had 54.8 8 which is equivalent to these
-46:00
-other models also although these other models had a huge number of parameters this dense 16 had six times more
-46:07
-parameters whereas in this metric let's say arc challenge accuracy deepseek mixture of experts actually was higher
-46:15
-than these other models that's incredible right so here this deepsee had fine
-46:21
-grained expert segmentation so they had much more number of experts u then they
-46:27
-also had shared experts But their number of expert activated parameters was way lower. So their computational cost was
-46:34
-way lower and still their accuracies was relatively comparable with the best mixture of experts model out
-46:40
-there. So here what they have mentioned is deepseek mixture of experts achieves comparable performance with a Gshar
-46:48
-model containing 1.5 times the expert parameter and computation. In addition, deepseek nearly approaches the
-46:54
-performance of a dense model with 16 times the number of parameters
-47:00
-um with 16 times the number of parameters which sets the upper bound fore models. So this table clearly
-47:06
-proves the effectiveness of the MOE architecture and its innovativeness such
-47:12
-as the fine grained expert segmentation, the shared experts compared to the traditional mixture of experts
-47:18
-architecture. Another figure here which I believe is very good is this one figure in which
-47:24
-you can see many things. First you can see let's say we don't have shared experts. So if you this blue line there
-47:32
-are different metrics here which have been plotted and the blue line is if we don't have shared experts and all the
-47:39
-other colors we do have shared experts. We have one shared expert for all the other colors. So now if you check the
-47:46
-performance on all of these matrix we see that the blue is much lower compared
-47:51
-to all the other colors right for the first metric blue is lower than all the other colors for the third metric it's
-47:58
-also lower for the fourth and fifth blue is definitely lower than all the other colors. This actually proves that having
-48:04
-a shared expert improves the performance of the mixture of expert model by
-48:10
-reducing the knowledge hybridity problem which we saw on the whiteboard. You remember we saw this knowledge hybridity
-48:17
-problem. This was only in theory up till now but deepseek actually proved this result by showing that if we have shared
-48:24
-experts it actually improves the model performance on a wide range of tasks.
-48:30
-The second thing we can get from this figure is that we can also see the
-48:35
-effect of fine grained expert segmentation. Right? So this yellow for example this yellow line does not have
-48:42
-fine grained expert segmentation. It only has 15 experts. Whereas the green and the the green line and the orange
-48:50
-line have fine grained expert segmentation. They have 31 and 63 routed experts. So you will consistently see
-48:57
-that the orange line performs the best among all. Right? The orange performs best across all metrics. This is because
-49:03
-the orange line has 63 routed experts. This again shows the importance of fine grained expert segmentation in solving
-49:11
-the knowledge redundancy problem. It shows it shows quantitatively that
-49:16
-having more experts uh having more
-49:23
-experts means I can have super specialized experts, right? So actually first I mentioned
-49:30
-that the shared experts solve the knowledge hybridity problem but actually
-49:35
-the shared experts solve the knowledge redundancy problem. Right? Because if you have shared experts, it means that
-49:42
-all the other experts don't need to assemble the same knowledge. The other experts can be specialized. So
-49:49
-this having the shared expert solves the knowledge redundancy problem. Whereas
-49:55
-having more number of experts, having fine grained expert segmentation solves the knowledge hybridity problem. So if
-50:01
-you have a limited number of experts, all experts are forced to learn everything. But if you have more number
-50:06
-of experts, every expert can be super specialized. So this solves the knowledge hybridity problem. Again
-50:12
-remember having shared experts solves the knowledge redundancy problem and having fine grained expert segmentation
-50:19
+
+
+***
+
+
 solves the knowledge hybridity problem. So what they showed here quantitatively is that this orange line has fine
 50:26
 grained expert segmentation. Right? That solves the knowledge hybridity problem.
@@ -221,6 +138,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

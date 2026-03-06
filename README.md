@@ -89,7 +89,7 @@
 
 | Year | Paper|
 |---|---|
-| [ST-MoE paper (2022)](https://arxiv.org/pdf/2202.08906)||
+| 2022 | [ST-MOE: DESIGNING STABLE AND TRANSFERABLE SPARSE EXPERT MODELS](https://arxiv.org/pdf/2202.08906)||
 |---|---|
 | 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)|
 |---|---|

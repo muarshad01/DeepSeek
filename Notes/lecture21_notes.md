@@ -28,202 +28,21 @@ $$b_i = b_i + u \times sign(load ~violation ~error)$$
 
 * 25:00
 
-
-here. The experts to which more number of tokens are routed like expert number
-25:06
-three we decrease the bias term from these values so that it gets less tokens
-25:13
-next time because the router won't select it as its probabilities are reduced.
-25:20
-Whereas experts one and two have less number of tokens routed to it. So they are underloaded. So we increase the bias
-25:27
-or we add the bias that increases the probability of more tokens being routed to expert one and expert two. So that's
-25:34
-how we are maintaining the balance. You see by dynamically adding or subtracting
-25:39
-the bias terms. We are eventually ensuring that all the experts relatively receive equal number of tokens. How are
-25:47
-we ensuring this? Because in an iteration if an expert suddenly receives high number of tokens we'll subtract the
-25:53
-bias term from it like we did from expert number three that will reduce the probability of the router routing
-26:00
-anything to that particular expert. Similarly during any particular iteration if some experts are
-26:05
-underloaded we add the bias term to these experts and that increases the
-26:11
-probability of the tokens being routed to those experts.
-26:16
-So with this dynamic adjustment of the biases, DeepS seek achieved good expert load balance without actually
-26:23
-introducing any noisy gradients to the model. We now have no loss term. You see
-26:28
-the beauty of this approach. We don't have any loss term like we had over here. Right? This load balancing loss
-26:35
-term is now not there at all. And that's why it's called auxiliary lossree load
-26:41
-balancing. Which means that the load balancing which we have implemented is loss free. We have no loss term in this
-26:47
-load balancing at all. We are doing the entire load balancing through dynamic
-26:52
-adding and subtracting of the bias term. Uh and through this what DeepSync
-27:00
-did is they somehow always achieved the best of both worlds like they did with latent attention. Here the best of both
-27:06
-worlds they achieved is they also got a good uh training loss because now the
-27:12
-training loss is not interfered with the second loss. So they maintained the training loss which means next token
-27:18
-prediction was not compromised while at the same time they maintained load balancing. They made sure that all
-27:25
-experts receive relatively equal number of tokens without adding any loss term at all. And that was one main key
-27:32
-innovation where deepseek actually showed that auxiliary loss free load balancing achieves both better
-27:39
-performance and better load balance compared with traditional load balancing. Okay, please keep this result
-27:47
-in mind. Deepseek showed that auxiliary loss free load balancing achieves both
-27:52
-better performance and better load balance compared with traditional load balancing. And the first time um so they
-28:00
-actually proposed auxiliary loss in one of the earlier papers but uh the version
-28:07
-three was I believe the first version to implement this auxiliary loss free load balancing. I'm I don't know whether loss
-28:15
-I don't think lossree load balancing was implemented in version two but version 3 had a
-28:22
-section on loss free load balancing where this BI is the bias term which we introduced if you directly look at this
-28:29
-formula it will be very difficult to understand how it's actually implemented but that's why I broke it down into this
-28:35
-visual explanation so that all of you can understand how this bias term is actually implemented to implement load
-28:42
-balance uh so now when you read this section you will understand it much better by taking
-28:50
-into account this visual explanation in mind so until this stage in this lecture
-28:56
-we have understood the first innovation by deepseek in the mixture of experts and that's auxiliary loss preload
-29:03
-balancing now we move to the second innovation which is called as shared experts and then we'll also look at the
-29:10
-third innovation which is fine grained expert segment mentation. So let's take a look at these now. So we are going to
-29:16
-look at two innovations now and we are going to look at these two innovations in parallel. The first is shared experts
-29:24
-and the second is fine grained expert segmentation. The reason we are going to look at these two experts in par in
-29:31
-these two innovations in parallel or simultaneously is because deepseek first talked about these two innovations in
-29:37
-their mix deepseec paper um which came out in January 2020 2024. Here deepse
-29:46
-outlined two major problems with traditional mixture of experts uh architecture and then they proposed
-29:53
-these innovations as possible solutions to these problems. The first problem which deepseek talked about is something
-30:00
-which is called as knowledge hybridity. So they said that existing mixture of expert practices often employ limited
-30:07
-number of experts. So let's write this down the problems which they actually uh
-30:12
-suggested. The first problem is that of knowledge hybridity.
-30:19
-So what they claimed was the existing mixture of experts model had limited number of experts
-30:28
-um had limited number of experts and thus token assigned to a specific experts will be
-30:34
-likely token assigned to a specific expert will be likely to cover diverse knowledge. Consequently, the designated
-30:41
-expert will intend to assemble vastly different types of knowledge in its parameters which are hard to be utilized
-30:48
-
-
-
 ***
 
 * 30:00
 
+#### Problems with Traditional MoE
+* Knowledge Hybridity
+  * Limited Experted
+  * Specilized Experts
+  * Solution: Have huge number of Experts (DeepSeek)
+* Knowledge Redundancy
+  * Super Specilized Experts
+  * Solution: Have shared Experts (DeepSeek)
 
+***
 
-simultaneously. So what they mentioned was models had limited number of experts. So let's say experts were of
-30:55
-the order of 8 to 16, eight experts, right? So if I only have eight experts
-31:00
-and I have this huge amount of data, it means that every expert will need to have knowledge about probably so many
-31:06
-different things which means that I won't have specialized
-31:12
-experts. It would be like my expert is each expert is trying to do all different things and so every expert
-31:19
-does not become great or specialized in one particular endeavor or in one particular task. my expert tries to have
-31:27
-all the knowledge in various different fields
-31:32
-um and as a result it might be harder to utilize that knowledge. That's the first issue which they mentioned which is
-31:38
-called as knowledge hybridity and the main issue here was limited number of experts. The second
-31:45
-issue which they mentioned is knowledge
-31:50
-redundancy and I believe this was an even bigger problem because
-31:55
-here what they actually said was tokens assigned to different experts may
-32:02
-require common knowledge. As a result multiple experts may converge in acquiring shared knowledge in their
-32:08
-respective parameters leading to redundancy in expert parameters. What this means is
-32:14
-that let's say again I have this limited number of experts and uh let's say this
-32:20
-expert receives a certain set of tokens and that requires this experts to this expert to have general
-32:27
-knowledge and let's say this expert and this expert also receives certain tokens which require both of these experts also
-32:34
-to have general knowledge. It actually means that all of these
-32:41
-three experts these three experts are now specializing in the same type of information or same type of knowledge
-32:47
-which means that the knowledge this expert has it's that same knowledge is also acquired by these two experts and
-32:54
-that is called as knowledge redundancy.
-33:02
-knowledge redundancy. Um what this means is that
-33:10
-this hinders the expert specialization which means that both of these issues which we have now discussed u the first
-33:17
-issue being that of knowledge hybridity where every expert assembles knowledge from different fields and second is
-33:23
-knowledge redundancy where again many experts might have the same knowledge.
-33:28
-Both of these because of both of these it's very
-33:34
-difficult to have specialized experts. By specialized experts we mean
-33:39
-experts which have specialized knowledge about particular task and whenever token comes in it will be routed for that task
-33:46
-only to that expert. So what deep set out to do is that it wanted to create
-33:51
-this super specialized experts. It wanted to create the super specialized
-33:58
-experts which solved both of these problems. They wanted to solve the knowledge hybridity problem. So they
-34:04
-wanted experts to have complete knowledge about a specific field rather than acquiring knowledge from
-34:10
-everywhere from various different fields. And second they wanted to solve the knowledge redundancy problem and
-34:17
-that's why they titled their um paper as towards expert specializ towards
-34:23
-ultimate expert towards ultimate expert specialization in mixture of experts model. So the way they set out to solve
-34:30
-both of these problems is the first problem of knowledge hybridity they claimed that instead of having limited
-34:37
-experts why don't we have a huge number of experts instead of having a few experts
-34:44
-since we have only few experts all of them have to learn many different things but if we have huge number of experts we
-34:51
-might have experts which are specialized in certain knowledge that's the first thing they implemented and that's the
-34:57
-innovation number three which is time ingrained expert segmentation. And the second thing which
-35:02
-they implemented is uh to prevent this knowledge redundancy. What if we have shared
-35:08
 experts? What if we have shared experts and this shared experts would
 35:14
 contain all of the common knowledge which is needed and along with the shared experts we again have the specialized experts. So for specialized
@@ -573,6 +392,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

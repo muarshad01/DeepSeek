@@ -89,6 +89,10 @@
 
 | Year | Paper|
 |---|---|
+| [ST-MoE paper (2022)](https://arxiv.org/pdf/2202.08906)||
+|---|---|
+| 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)|
+|---|---|
 | Jan 2024 | [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)|
 | Jan 2024 | [DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence](https://arxiv.org/abs/2401.14196) |
 | Jan 2024| [DeepSeekMoE: Towards Ultimate Expert Specialization in
@@ -99,8 +103,6 @@ Mixture-of-Experts Language Models](https://arxiv.org/pdf/2401.06066)|
 | Jun 2024 | [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
 | Dec 2024 | [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
 | Jan 2025 | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
-|---|---|
-| 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE) - (2023)](https://arxiv.org/abs/2104.09864)|
 
 ***
 

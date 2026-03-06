@@ -59,106 +59,13 @@ $$b_i = b_i + u \times sign(load ~violation ~error)$$
 #### Fine-grained Expert Segmention
 * In fine-grained expert segmention, each large expert FFN (Feed-Forward Network) is split into $$m$$ smaller experts by reducing the hidden dimension of the FFN by a factor of $$\frac{1}{m}$$.
 
+* __Note__: The number of expert parameters and computation costs remain CONSTANT.
+
+***
+
+* 45:00
 
 
-of neural networks now instead of low number of neural networks and the dimension of each neural network here is
-40:29
-lesser than the let's say the original dimension and this idea of having more
-40:35
-number of experts is called as fine grained expert segmentation. U again why do we do this?
-40:43
-Because if the number of experts is small, each experts is for forced to learn a wide variety of knowledge type
-40:49
-which reduces its specialization. In fine grained expert segmentation,
-40:56
-uh we can have specialized experts because now that there are more experts, each experts can learn something new and
-41:03
-that solves the first issue which we started out with that's the knowledge hybridity. If you have limited experts,
-41:09
-every expert has to have a lot of information, right? But now if you have a huge number of experts maybe every
-41:15
-expert can be specialized in certain amount of or certain specific knowledge
-41:20
-and that leads to this super specialized experts. Um so even if you go to mixture
-41:27
-of experts original paper you'll see that in fine grained expert segmentation. So
-41:33
-see the first figure on the left hand side is conventional top two routing in mixture of experts. That's conventional
-41:39
-mixture of experts. When we go to the right first we add the fine grained expert segmentation where we have a huge
-41:46
-number of experts now and then as we go further to the right then we add a shared expert. So that's the first
-41:52
-innovation which we saw the shared experts and in the second figure we s we see this fine grand expert
-41:59
-segmentation. Uh one thing to note is that among all of these three the number of expert parameters and computational
-42:06
-costs actually remain the same. This this is because although we increase the number of experts the dimensions are
-42:12
-reduced appropriately so that the number of parameters the number of expert parameters actually remain the
-42:19
-same. Uh so if you see the mixture of experts paper and you'll see the main
-42:25
-innovations here have are the fine grain expert segmentation 3.1 and section 3.2
-42:31
-is the shared expert isolation and it contains everything which I've just shown to you right now. I believe in
-42:37
-version two and version three also uh these things were introduced. So if you look at version three for example
-42:45
-uh version three also mentions that they use fine grained experts and uh uh
-42:50
-shared shared experts but along with this they also introduce the loss preload balancing.
-42:57
-So if you directly start reading deepseek version 3 it will be very difficult to understand this whole
-43:03
-section because this entire section on mixture of experts they have compressed it in three paragraphs three or four
-43:08
-paragraphs. The first paragraph uh second third and four paragraph in
-43:14
-four paragraph they explain all of these innovations which we have seen right now. But to understand this innovations,
-43:20
-it was important for you all to understand how mixture of experts actually operates. And that's why we had
-43:25
-the hands-on mixture of experts lecture the first three lectures. Uh all right. So this is the
-43:33
-fine grain expert segmentation. And now now let me show you some results which deepse had in their paper to show how
-43:40
-these innovations actually led to improvement over traditional mixture of
-43:45
-experts. All right. So as I mentioned the last thing which I want to show you is some results which deepseek had in
-43:52
-their original MOE or mixture of experts paper and the first major major result
-43:57
-which I want to show you is over here. So if you look at the right hand side that's the deepseek mixture of experts
-44:05
-and uh here if you see the activated experts the total experts is one one
-44:10
-common expert which is the one shared expert and 63 routed experts and out of
-44:15
-those 63 only seven were activated. So the total number of expert parameters which were activated were only 24
-44:23
-billion and they compared this to another mixture of experts model which is called G-Shard. So if you look at
-44:29
-this Gstar 1.5 you'll see that they did not have group group experts because
-44:34
-that was the main innovation implemented by Deepc. So they just had 16 routed experts out of which two were activated
-44:42
-and the total number of expert parameters which they have is 2.83 83 billion and the activated expert
-44:48
-parameters which they had was around.35 billion right and they also
-44:56
-compared one more dense dense 16 model which did not have which only had 16
-45:01
-experts which did not have the fine grained expert segmentation and which did not also have any grouped um it was
-45:09
-a dense model which means all the tokens were routed to 16 experts all the tokens were routed to 16. So the number of
-45:16
-activated parameters were was 1.89 billion which means that the deepseek
-45:22
-number of activated expert parameters was around 1.5 times smaller than this
-45:28
-G-Shard and it was around six six times smaller than this dense 16. So this
-45:35
 dense there was no sparity implemented here. It was like there were 16 experts
 45:40
 and every top was routed to all 16. Now in spite of deepseek having so less
@@ -314,6 +221,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

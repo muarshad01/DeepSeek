@@ -45,110 +45,20 @@ $$b_i = b_i + u \times sign(load ~violation ~error)$$
 
 * 35:00
 
-experts? What if we have shared experts and this shared experts would
-35:14
-contain all of the common knowledge which is needed and along with the shared experts we again have the specialized experts. So for specialized
-35:22
-knowledge we have this other set of experts but we have the shared experts
-35:27
-who learn all of the redundant information and that's the first innovation or deepseek innovation two
-35:34
-which I have mentioned here that's called as shared experts. So first let me talk a bit about shared experts and
-35:40
-then I'll talk about expert segmentation. So in shared experts what
-35:45
-deepse did is that they divided their experts into two groups. They divided
-35:51
-their experts into routed experts which is commonly used in the traditional mixture of experts architecture and
-35:57
-shared experts. So the main difference is that if you look at the routed experts it's sparse which means that we
-36:03
-implement this top K routing and only certain number of experts are selected for every
-36:10
-token which is how it's done in traditional mixture of experts. But then they had this other group of experts
-36:15
-which is called as shared experts and which are always activated which means that any token all the tokens pass
-36:22
-through all of these experts which means if one token comes in it has to go through all of these experts. If another
-36:28
-token comes in it has to again go to all of these experts. So here there is no sparity which is implemented in this
-36:34
-shared experts which means all of the shared experts are always active whereas the routed experts are
-36:42
-selectively active as always right. So shared experts are experts that process
-36:47
-every token regardless of routing and routed experts are experts that handle token selectively. Why did they do this?
-36:55
-Because they wanted to reduce redundancy among experts. So by having shared experts the common
-37:02
-information and processing tasks can be centralized which means that all the common tasks like general knowledge etc
-37:08
-can be handled by these shared experts u and this allows routed experts to
-37:15
-focus on more specialized task. So if you think about it this shared experts handle the common
-37:23
-tasks and my routed experts then can handle specialized task. I don't need my router routed experts to have knowledge
-37:30
-of this same information and that leads to specialized experts which means an
-37:36
-expert over here might be completely specialized maybe in doing complex complex
-37:43
-arithmetic. So that just makes the architecture a lot more efficient since we have the super specialized experts
-37:51
-and that reduces the knowledge redundancy problem. The second problem of knowledge redundancy which was there
-37:57
-it can be completely reduced with the shared experts idea. So this is the main schematic
-38:04
-which you will also see with the shared experts and that is shown in the mixture of experts paper also. If you see this
-38:10
-is the idea of shared experts where what this this expert let's say is always
-38:16
-activated whereas these experts are sparsely activated. This green expert is always activated over here and this set
-38:22
-of experts are sparsely activated. This is the idea of shared experts and that's deepseek innovation
-38:29
-number two. Uh I think I already showed you. Yeah.
-38:36
-So now after this what is done is that the outputs from the shared experts and the outputs from the routed experts are
-38:42
-added together and that's how we get the resultant output. uh so summation of the output of both of
-38:49
-from both of these experts a weighted summation uh is done to get the final mixture of experts
-38:56
-output. So the outputs of the shared experts and routed experts are simply combined by adding together leading to
-39:03
-the final uh final output. Okay, that's the deepseek
-39:11
-innovation number two. And the deepseek innovation number three is fine grained expert segmentation. And as I've
-39:18
-mentioned here, this is the simplest to explain. The main idea is that if this is the conventional mixture of experts,
-39:24
-right, which has less number of experts in fine grained mixture of experts, we just divide every experts into multiple
-39:30
-smaller experts while maintaining the overall model capacity and computational cost. Which means that instead of having
-39:37
-four we now have maybe four into four where instead of having less number of
-39:43
-experts we have huge number of experts and the dimensionality is
-39:48
-maintained which means that um in fine grained expert segmentation each large
-39:55
-expert feed forward network is split into m smaller experts by reducing the hidden dimension by a factor of 1 by m.
-40:02
-Which means that now that I have more number of experts, the dimension of each expert is effectively reduced, right? Uh
-40:10
-because the ultimate dimension needs to remain the same. So computational cost does not change at all. Computational
-40:16
-cost does not increase because my number of model my model size remains the same. Ultimately I'm just having a huge number
-40:23
+#### Shared Experts
+* This approch divides the Experts into two groups
+1. Experts that process every token, regardless of routing.
+2. Experts that handle the tokens selectively, based on the usual routing strategy.
 
-
-
-
+* The main reason to adopt shared experts is to reduce redundancy among experts.
 
 ***
 
 * 40:00
+
+#### Fine-grained Expert Segmention
+* In fine-grained expert segmention, each large expert FFN (Feed-Forward Network) is split into $$m$$ smaller experts by reducing the hidden dimension of the FFN by a factor of $$\frac{1}{m}$$.
+
 
 
 of neural networks now instead of low number of neural networks and the dimension of each neural network here is
@@ -404,6 +314,7 @@ inspiration why I'm making this series. Thanks a lot everyone. There are lots mo
 uh and advanced concepts to follow. So please stay tuned and make notes so that you'll understand and follow all. Thanks
 53:44
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -1,3 +1,6 @@
+#### Code Mixture of Experts (MoE) from Scratch in Python
+
+
 name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
 I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
@@ -110,6 +113,10 @@ code file with you so that you can run it fully on your own end. Uh a quick note
 5:43
 I'm currently running on the T4 GPU which is free for everyone. But if you
 5:48
+
+
+***
+
 do have access to the A100 GPU, I will highly recommend you to switch to this
 5:53
 because it just leads to faster pre-training. It's not a necessity because you can run the same code on T4
@@ -204,6 +211,11 @@ going to use the same number of experts as in the figure over here. So the numbe
 10:31
 equal to three and top K this is this means that every token will be routed to
 10:37
+
+
+***
+
+
 the top two experts out of these three. We'll see that a bit later. First I'm going to just see the routing and the
 10:43
 embedding dimension which we are going to use is equal to 8. Okay. Uh then the output which is the
@@ -911,3 +923,4 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+

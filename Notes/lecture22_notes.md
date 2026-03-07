@@ -6,90 +6,18 @@
 
 * 5:00
 
-do have access to the A100 GPU, I will highly recommend you to switch to this
-5:53
-because it just leads to faster pre-training. It's not a necessity because you can run the same code on T4
-6:01
-but it will just be much slower on the T4 GPU. All right. So the first thing which
-6:07
-we have to do is to load packages and here we are going to load only PyTorch.
-6:12
-As I mentioned we don't need too many other packages. We are going to code everything from scratch. The second is
-6:18
-the data set. So this is the data set which we have. This is a collection of a
-6:24
-huge number of Shakespearean plays, Shakespeare in literature etc. And here
-6:29
-you can see that it's called input.txt. So that's the data set which
-6:34
-I've loaded over here. You can even click on this arrow and you'll see that the data set is loaded. Now what I'm
-6:39
-going to do is that first I'm going to start defining this uh mixture of experts module directly since that's the
-6:46
-main purpose of u today's lecture. I'm going to directly start coding out the mixture of experts
-6:53
-and let's take a look at the steps which we have seen on the whiteboard. The first thing which we have to do is that
-6:59
-we have to define a module which just creates a neural network for um that
-7:04
-given expert. Right? Ultimately we'll get a weighted combination of these experts through the routing mechanism.
-7:11
-But first we have to make sure that every expert is a feed forward neural network which has a hidden layer with
-7:19
-four times the number of units as the first layer and uh the output layer with
-7:25
-the same number of units as the first layer. So this is going to be our neural
-7:30
-network and the activation function which I'm going to use after this hidden layer is
-7:35
-ru. Please note that in standard LLM architectures the JLU is used. You can
-7:41
-even use this but for the sake of simplicity I'm going to be using RL over here. So the first thing which we have
-7:48
-to do as also shown in the schematic is we have to define each expert as a neural network. So I'm creating a class
-7:54
-called as expert over here. And uh whenever we create an instance of
-8:00
-this class, it initializes a neural network. Uh so this is the expansion layer going from the embedding dimension
-8:07
-to the four times the embedding dimension. Then we have the RLU activation. Then we have the contraction
-8:13
-layer and finally we have dropout. So this is exactly what you saw on the whiteboard. Right? This is the
-8:18
-expansion layer. Then we have the reo activation after this. Then we have the contraction layer and after that there
-8:24
-is a dropout. Right? So whenever you want to create uh or whenever you create
-8:30
-an expert we essentially create a neural network like this with an expansion
-8:35
-contraction architecture. So that's the first step in which we have defined every expert as
-8:41
-a neural network. The second thing which we have to do is implement the router and this is probably the most important
-8:47
-step of the mixture of experts. What the router will do is that the input matrix which we have and by input matrix I mean
-8:55
-the uh input which comes to the mixture of experts module. So if you take a closer
-9:01
-look at this architecture what is the input which comes to the mixture of experts module. The input which comes to
-9:07
-the mixture of experts module is essentially the output after the multi head attention block and after it goes
-9:14
-through dropout layer normalization etc. that is the input which comes to the mixture of experts right and that is the
-9:20
-input matrix which I have represented over here if there are four tokens uh this four represents the number of
-9:27
-tokens and this 8 over here is the embedding dimension that's the input
-9:32
-matrix and this input matrix will then be multiplied with the routing matrix and that gives me the expert
-9:39
-selector matrix all right everything really starts after we get the expert selector
-9:45
-matrix Once you have the expert selector matrix after that we are going to implement the top K load balancing then we are going
-9:53
-to apply softmax etc. We'll see all of this but the first step which we have to do is we have to implement the router
-10:00
-which means we have to multiply whatever is the input to the mixture of experts module uh with the routing matrix and
-10:06
+* T4 GPU
+* A100 GPU
+
+* __Activation Function__: ReLu
+
+* __Step 2__: Implement the Router
+
+***
+
+* 10:00
+
+
 that gives us the expert selector matrix. So the router determines which
 10:12
 um the router determines which expert network receives the output um for each token from the multi head
@@ -812,6 +740,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

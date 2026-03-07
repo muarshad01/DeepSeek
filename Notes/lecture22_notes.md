@@ -4,6 +4,8 @@
 
 ***
 
+* 5:00
+
 do have access to the A100 GPU, I will highly recommend you to switch to this
 5:53
 because it just leads to faster pre-training. It's not a necessity because you can run the same code on T4
@@ -810,6 +812,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

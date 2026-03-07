@@ -136,6 +136,15 @@ code are the input part. Token embedding plus the positional embedding gives me 
 35:40
 code here is the entire transformer block. So we have assembled multiple such transformer blocks together. Within
 35:46
+
+
+***
+
+* 35:00
+
+
+
+
 each transformer block, we have uh so many things which are going on within each transformer block. We have the
 35:53
 mixture of experts module. We have the multi attention module. So it's this line of code where essentially all the
@@ -369,6 +378,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

@@ -47,6 +47,16 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 * 25:00
 
 
+* __Step 8__: Putting together all the building blocks of MoE model
+
+***
+
+* 30:00
+
+* __Step 9__: Code the entire Transformer block: Part 1 (Multi-head attention)
+
+
+
 selector matrix we just add gshian noise that's it and then the rest of the processes remain the same. So now we
 20:20
 have we are going to create a new class which is called as noisy top router and all the steps remain the same. The only
@@ -574,6 +584,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

@@ -27,6 +27,20 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 
 * __Step 4__: Use -inf and apply softmax
 
+***
+
+* 15:00
+
+* __Step 5__: Create a class for Top-K Routing
+
+***
+
+* 20:00
+
+* __Step 6__: Create a class for Noisy Top-K Routing
+
+
+  
 * Implement top-k load Balancing
 that gives us the expert selector matrix. So the router determines which
 10:12
@@ -750,6 +764,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

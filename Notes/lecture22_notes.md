@@ -66,110 +66,19 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 
 * 35:00
 
-
 * __Step 12__: Create training and testing data
 
-***
-
-output layer, it has two things, right? It has a layer normalization part and it has the output layer. This output layer
-35:21
-takes me from my embedding dimension to my vocabulary size for the next token prediction
-35:27
-task. So essentially in these steps we have assembled the input, the processor and the output. These three lines of
-35:34
-code are the input part. Token embedding plus the positional embedding gives me the input embedding. This one line of
-35:40
-code here is the entire transformer block. So we have assembled multiple such transformer blocks together. Within
-35:46
-
+* __Step 13__: Define LLM Loss
 
 ***
 
-* 35:00
+* 40:00
 
 
 
 
-each transformer block, we have uh so many things which are going on within each transformer block. We have the
-35:53
-mixture of experts module. We have the multi attention module. So it's this line of code where essentially all the
-35:59
-magic is happening. All right. Uh and then these two lines of code are for the
-36:05
-output. Right? So here what we are doing is that this here we are doing the layer
-36:11
-normalization and then we are going from the embedding dimension to my vocabulary
-36:16
-uh space so that we can do the next token prediction task. Um and then this
-36:22
-part of the code is just getting us the loss between the next token which we
-36:27
-have predicted and the actual next token. And then this is the generate token which we can use during evaluation
-36:34
-and we can also use this the generate function which we can use during evaluation if needed and also during
-36:40
-inference. So you can run this piece of code and up till now we have finished step number 11 which is defining the
-36:46
-entire language model architecture. So while we have reached step number 11, we
-36:51
-have actually finished this entire thing. We have coded out this entire architecture.
-36:58
-uh but until now I have not shown you the data right uh first we have to so I
-37:04
-told you about the token embeddings and the positional embeddings but I did not show you the part where the data is
-37:09
-tokenized I'll I I'll take you through that and I'll also show you uh how the input and the output batches are created
-37:17
-so I showed you this loss function over here um I showed you this loss function
-37:23
-um over here right between the logics and the targets uh but I have not yet shown you how the
-37:30
-targets are created. So let me show you that also. First let me show you how the
-37:35
-training and testing data is created and how it's tokenized. So we have this input.txt file, right? Which has all of
-37:41
-the Shakespearean data. So we take every we take every single sentence here and it's converted
-37:49
-into a bunch of characters. Those are our individual tokens which which are passed to the language model. So here we
-37:55
-are doing character level tokenization. So uh this what this does
-38:02
-is that this line just takes text and converts it into individual characters. So we have an encoding scheme which
-38:08
-essentially maps u maps a string to integers. This is the
-38:15
-encoding scheme and then this is the decoding scheme which maps the integer back to the uh character. So first you
-38:21
-take the entire data set and you convert it into characters. Right? But computers can't deal with characters. They need
-38:27
-numbers. So to get these numbers, every character is essentially encoded as a number. Uh so we create a mapping from
-38:35
-characters to integers. That's the string to integer and then a reverse mapping which will help us during the decoding stage while doing inference.
-38:42
-uh so essentially imagine this entire paragraph is this entire data uh which I
-38:49
-have highlighted right now let's say this entire data is first broken down into characters every character is
-38:55
-assigned a number so we have a huge set of numbers at this moment uh then we
-39:01
-create convert this data into training data which is 90% of these numbers and validation data then what we do is that
-39:08
-we create batches we create the input batches and we create the output batches is the output batch is just the input
-39:14
-shifted to the right hand side by one. Uh why do we do this? Because that because ultimately we just want to
-39:20
-predict the next occurren. So this x is my input batch or the input data and y is the output data. I'm going
-39:27
-significantly faster through this part here because we have covered this a lot in many of the previous lectures and
-39:34
-here I just want to give you an overall idea for how the input and targets are created. Right? So my input and targets
-39:40
-are created and the estimate loss function is the loss between the input and the target. Uh not the input and the target
-39:47
-the it's the loss between the predicted next token and the actual next token for
-39:53
-each batch. Uh so that's the estimated loss which is the step number 13 define LLM
-40:00
+
+
 loss. And now we move to step number 14 and 15 which is defining the training
 40:06
 parameters, the training loop parameters, the hyperparameters and then initializing the entire model. So here
@@ -281,8 +190,7 @@ aim through these lectures is so that you become good at theory and fundamentals
 
 ***
 
-
-
+* 45:00
 
 
 matrix multiplications very easily when matrix multiplications come in front of you but at the same time all of you
@@ -342,3 +250,4 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+

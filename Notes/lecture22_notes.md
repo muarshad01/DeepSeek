@@ -57,6 +57,14 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 
 ***
 
+* __Step 10__: Code the entire Transformer block: Part 2 (Assemble all layers)
+
+
+* __Step 11__: Define entire language model architecture 
+
+***
+
+* 35:00
 
 
 what's done in this step is that every input vector or every token is eight dimension and the output 
@@ -378,6 +386,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

@@ -67,73 +67,10 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 * 35:00
 
 
-what's done in this step is that every input vector or every token is eight dimension and the output 
-is that first we have a layer normalization layer. So which is the first uh layer
-31:56
-normalization after that we have self attention SA. So this SA is the multi
-32:01
-head attention. So layer normalization is followed with multi head attention and then this X equal to X plus this is
-32:08
-the shortcut connection. So we have layer normalization multihead dropout shortcut connection. This first part is
-32:14
-done. And then we again have layer normalization. Then after this second
-32:20
-layer normalization we have this SM OE. And remember SM OE is the sparse mixture
-32:25
-of experts class which we have defined earlier. So this SM OE is the replacement of the feed forward neural
-32:32
-network. That is the sparse MOE class. Remember the sparse MOE class is something which we have defined over
-32:38
-here. So uh here after the second layer
-32:43
-normalization we have the sparse mixture of experts. Uh so here after the second
-32:48
-layer normalization we have the sparse mixture of experts. Uh and then after that we have the shortcut connection
-32:57
-again. So the dropout which you see here the dropout which you see here and here is already embedded in the sparse class
-33:05
-and the multiad attention class. So that's why we are not defining it again here. So there are two shortcut
-33:10
-connection modules. So this is the first shortcut connection. The second shortcut connection. The second shortcut
-33:16
-connection module involves the sparse uh mixture of experts. So it's this block
-33:22
-which we have coded earlier. That's the sparse mixture of experts. So until now you can see that
-33:27
-we have assembled the entire transformer block. So that that finishes the step number 10. And now what we do is that we
-33:35
-have to now code the entire language model architecture. So let's see how to do that. U all right. So in the next
-33:43
-step what we are going to do is that after assembling the transformer
-33:48
-block we have to assemble the input layer and we have to assemble the output layer also only. Then the entire
-33:54
-language model architecture is assembled. So in the input layer we have to do the tokenization, the token
-34:00
-embeddings, add the positional embeddings and in the output layer we have to add this logits matrix. So let's
-34:06
-see how that is done. First we have the token embedding. So the we have the
-34:11
-token embedding table. We have the position embedding. The token embedding is then added to the position embedding. That's
-34:18
-the uh that's the input block. That's the input block. The token embedding
-34:24
-plus the positional embedding. That's the input embedding which essentially then goes to the transformer block. And
-34:29
-remember we have multiple such transformer blocks. Right? So this class which we have defined is for one
-34:35
-transformer block. In a language model there are multiple transformer blocks which are chained together. So first I
-34:42
-have defined this self.blocks blocks where I've chained these multiple transformer blocks together and uh the
-34:48
-token embedding plus the positional embedding that's the input embedding right that's then passed through through this uh uh that's passed through this
-34:56
-chain of transformer blocks and then the output which I get that is passed through this uh output layer so this
-35:03
-output layer has two things we have a layer normalization and finally I have this logits layer so if you look at this
-35:10
-entire output layer Okay. Um, if you look at this entire
-35:15
+* __Step 12__: Create training and testing data
+
+***
+
 output layer, it has two things, right? It has a layer normalization part and it has the output layer. This output layer
 35:21
 takes me from my embedding dimension to my vocabulary size for the next token prediction
@@ -386,6 +323,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

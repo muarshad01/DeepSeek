@@ -1,6 +1,8 @@
 #### Code Mixture of Experts (MoE) from Scratch in Python
 * [makeMoE: Implement a Sparse Mixture of Experts Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
 * [minGPT](https://github.com/karpathy/minGPT)
+* [nanoGPT](https://github.com/karpathy/nanoGPT)
+* [nanoChat](https://github.com/karpathy/nanochat)
 
 * __Step 0__: Load packages and import data
 
@@ -83,3 +85,4 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 * __Step 17__: Inference
 
 ***
+

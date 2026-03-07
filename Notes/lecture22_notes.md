@@ -2,6 +2,8 @@
 * [makeMoE: Implement a Sparse Mixture of Experts Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
 * [minGPT](https://github.com/karpathy/minGPT)
 
+* __Step 0__: Load packages and import data
+
 ***
 
 * 5:00
@@ -9,13 +11,19 @@
 * T4 GPU
 * A100 GPU
 
+* __Step 2__: Define each expert as a NN network
+* __Step 3__: Implement the Router
+
 * __Activation Function__: ReLu
 
-* __Step 2__: Implement the Router
+$$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
+
 
 ***
 
 * 10:00
+
+
 
 
 that gives us the expert selector matrix. So the router determines which
@@ -740,6 +748,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

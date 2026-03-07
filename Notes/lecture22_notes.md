@@ -2,7 +2,7 @@
 
 * [makeMoE: Implement a Sparse Mixture of Experts Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
 
-
+* [minGPT](https://github.com/karpathy/minGPT)
 
 name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
@@ -926,5 +926,6 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 

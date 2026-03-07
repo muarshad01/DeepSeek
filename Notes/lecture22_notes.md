@@ -1,122 +1,6 @@
 #### Code Mixture of Experts (MoE) from Scratch in Python
-
 * [makeMoE: Implement a Sparse Mixture of Experts Language Model from Scratch](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
-
 * [minGPT](https://github.com/karpathy/minGPT)
-
-name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series, Invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. Nvidia AI follows a very similar
-0:28
-principle and philosophy to that of us. Let me show you how. So here's the
-0:33
-website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music]
-2:02
-below. Hello everyone and welcome to this lecture in the build deepseek from
-2:08
-scratch series. Today we are going to continue our journey towards
-2:14
-understanding the mixture of experts. In the previous four lectures, we have seen
-2:19
-the mixture of experts introduction intuition how mixture of experts works
-2:25
-in a mathematical manner and in the previous lecture we looked at the deepseek innovations in the mixture of
-2:32
-expert architecture. In particular, we looked at the deepseek paper which
-2:38
-introduced several innovations which deepseek made in the mixture of experts architecture. Some of these innovations
-2:45
-being u fine grained expert segmentation and shared expert isolation
-2:53
-and one more innovation was auxiliary lossfree load balancing which they introduced in their V3
-3:00
-architecture. Today we are going to conclude our mixture of experts
-3:06
-module by coding an entire mixture of experts architecture from scratch.
-3:13
-So my goal here will be to take a simple data set and then uh code the mixture of
-3:20
-experts model which we have learned on the whiteboard for the past four lectures fully from scratch. We are only
-3:26
-going to use PyTorch no other library and then uh we are also going to do
-3:32
-pre-training and inference in this lecture. So let's get started. Before we
-3:38
-start, I want to mention a couple of references which I've utilized. First is
-3:43
-this make OE code which is implemented by Ain Suri, one of brilliant articles
-3:52
-and I'll share this link in the description. And the second is of course the
-3:58
-uh nano GPT or the mini GPT architecture which is implemented by Andre Karpathi.
-4:04
-we are going to take the data set from here and we are going to borrow um some code for the transformer
-4:12
-architecture from here. So visually what we are going to build today is that we
-4:17
-are going to build this entire architecture. So let me show it. This
-4:23
-entire architecture is what we are going to build today. And this feed forward neural network this layer here that is
-4:30
-what we are going to replace with a mixture of experts layer. That's the whole idea. We are going to start with
-4:36
-text which is based on Shakespeare uh data
-4:42
-set and then we are going to do this entire pre-training pipeline and after
-4:47
-which we are going to do inference. um most of the time which I'll spend in
-4:53
-this lecture is on the mixture of experts module and uh I will not be spending too much time on the rest of
-5:00
-the code because we have already covered that in the um other lectures. So my
-5:05
-whole goal will be to explain how this mixture of experts is written from scratch and of course we'll build out
-5:11
-the other other architecture also along with mixture of experts but in terms of
-5:17
-explanation I'll spend most of my time explaining the mixture of experts module. So let's get
-5:23
-started. As you can see over here I have divided this code into multiple steps.
-5:28
-Uh there are total 16 steps. Um and I'll be also sharing the
-5:34
-code file with you so that you can run it fully on your own end. Uh a quick note about GPU. So here you can see that
-5:43
-I'm currently running on the T4 GPU which is free for everyone. But if you
-5:48
-
 
 ***
 
@@ -926,6 +810,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

@@ -194,6 +194,15 @@ as 50,000. Okay, if you are an if you are on an A100 GPU or if you actually
 41:09
 want to see good quality results, the maximum iterations need to be very high. I'm just doing a toy demonstration here.
 41:16
+
+
+
+
+
+***
+
+
+
 So I'm setting the maximum iterations to be equal to 20. Uh so here is the weight initialization which we are using
 41:23
 timing. You can use different initializations also and then we we define uh so I've got an error here. WA
@@ -266,6 +275,16 @@ we can do quick inference. This is just 20 iterations. So I don't expect to see 
 45:01
 aim through these lectures is so that you become good at theory and fundamentals. So you should visualize
 45:07
+
+
+
+
+***
+
+
+
+
+
 matrix multiplications very easily when matrix multiplications come in front of you but at the same time all of you
 45:14
 should develop an intuition about the code and you should you should be very good at coding things from scratch and
@@ -323,19 +342,3 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

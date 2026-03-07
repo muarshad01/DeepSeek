@@ -11,21 +11,23 @@
 * T4 GPU
 * A100 GPU
 
-* __Step 2__: Define each expert as a NN network
-* __Step 3__: Implement the Router
+* __Step 1__: Define each expert as a NN network
 
 * __Activation Function__: ReLu
-
-$$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
-
 
 ***
 
 * 10:00
 
+$$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 
+* __Step 2__: Implement the Router
 
+* __Step 3__: Implement top-k load Balancing
 
+* __Step 4__: Use -inf and apply softmax
+
+* Implement top-k load Balancing
 that gives us the expert selector matrix. So the router determines which
 10:12
 um the router determines which expert network receives the output um for each token from the multi head
@@ -748,6 +750,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

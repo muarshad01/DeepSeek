@@ -39,9 +39,12 @@ $$Input ~Matrix \times Routing ~Matrix = Expert ~Selector ~Matrix$$
 
 * __Step 6__: Create a class for Noisy Top-K Routing
 
+* __Step 7__: Create the Sparse Matrix of Experts (MoE) module
+
+
 ***
 
-
+* 25:00
 
 
 selector matrix we just add gshian noise that's it and then the rest of the processes remain the same. So now we
@@ -571,6 +574,7 @@ mixture of experts. We will now move towards more innovations in the deepseek se
 come such as multi-token prediction etc. So we'll see about that in the next lectures. Thanks everyone and I look
 48:01
 forward to seeing you in the next lecture.
+
 
 
 

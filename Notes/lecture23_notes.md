@@ -7,16 +7,7 @@
 
 ***
 
-architecture. Okay. So if you look at the abstract this these authors say that large language models are trained with
-5:20
-next token prediction loss. In this work we suggest that training language models to predict multiple future tokens at
-5:27
-
-
-
-
-
-***
+* 5:00
 
 once results in higher sample efficiency. So that's what multi-token prediction essentially is. We are going
 5:33
@@ -628,6 +619,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

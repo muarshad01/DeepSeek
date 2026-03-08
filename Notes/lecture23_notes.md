@@ -13,71 +13,19 @@
 
 * 10:00
 
-artificial the only future horizon which matters is one token right which is intelligence. But now when I look at
-10:38
-artificial I'm going to take into account the next three tokens which also means that for every input token we are
-10:46
-actually predicting three tokens into the future. Right? So whenever you are doing inference instead of predicting
-10:52
-one token now we are predicting three tokens into the future. So multi-token prediction also has
-10:59
-profound implications on what happens during inference because now we are not just predicting one token but we are
-11:05
-predicting three tokens into the future. Okay. Uh so this is the main uh
-11:12
-conceptual difference between single token prediction and multi-token prediction. And the way I have shown it
-11:18
-in the schematic here is that if you take a look at single token prediction, you have a shared transformer trunk and
-11:24
-only one single token is predicted at a time. Whereas if you look at multi-token prediction, the architecture is somewhat
-11:32
-different and we'll see that in the next lecture. But multiple tokens are predicted for every given input token.
-11:38
-That's something which is very important for all of you to keep in mind. Now you might be thinking why are
-11:44
-we really doing this? Because it seems that single token prediction also gives me one token at a time, right? Why do I
-11:52
-need to predict multiple such tokens at a time like I told you right now? And why do we need to find the loss between
-11:58
-the actual multiple tokens and the predicted multiple tokens? What is the real advantage of multi-token prediction
-12:05
-and why is it really useful? So now we are going to see the intuition behind what makes multi-token prediction use
-12:11
-multi-token prediction useful and for that we are going to refer a lot to the paper better and faster large language
-12:18
-models via multi-token prediction. So let's get started. So actually when you
-12:23
-look at multi-token prediction it seems that we are making a simple change over here. We are just predicting multiple
-12:30
-tokens instead of one. But it has profound implication on several things.
-12:35
-In particular, there are four major reasons why multi-token prediction is useful. The first reason I have bucketed
-12:42
-it into this title called densification of training signals. The second reason I
-12:47
-have bucketed it into a title called improved data efficiency. The third reason is better planning and the fourth
-12:54
-reason is higher inference speed. I'm going to now walk you through all of these reasons step by step.
-13:02
-Um and this paper which Meta and other researchers released in April of 2024,
-13:10
-they actually had a qualitative justifications for each of the reasons which I'm showing you right now. So
-13:17
-whatever I'm explaining to you right now, it's not just something which is my thinking or which is my point of view.
-13:24
-It's something which has been backed quantitatively. And at several points in this discussion right now I'm going to
-13:30
-show you those quantitative results. So the first thing is densification of training signals. So
-13:36
-what does this really mean? It means that multi-token prediction
-13:41
-uh provides richer and denser training signals than single token prediction. So
-13:46
-traditional single token prediction only guides the model to predict a single immediate token. Whereas in multi-token
-13:54
-prediction, we instruct the model to simultaneously predict multiple future tokens, generating more informative
-14:01
-gradient signals per training sample. So when you're looking at a training sample, instead of just predicting one
+#### Why is MTP useful?
+1. Densification of Training Signals
+* MTP provides richer and denser training signals than single token prediction. 
+* Traditional single token prediction only guides the model to predict a single immediate token.
+* MTP, however, instructs the model to simultaneously predict multiple future tokens, generating more informative gradient signals per training example.
+2. Improved Data Efficiency
+3. Better Planning
+4. Higher Inference Speed
+
+
+
+
+* So when you're looking at a training sample, instead of just predicting one
 14:07
 token into the future, you are now predicting multiple tokens into the future. Right? That means the model is
 14:13
@@ -522,6 +470,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -8,96 +8,9 @@
 #### Emergent Properties
 * An ability is emergent if it is not present in smaller models but is present in larger models.
 
-
-
-that's why we are in a race to build larger and larger and larger models companies like open AI anthropic have
-7:02
-even publicly said that they are just chasing size at this moment because there is still some hope that maybe
-7:09
-after 10 trillion or after 100 trillion number of parameters the llm shows some
-7:15
-properties which we are not aware of at all right now so these are the emerging properties
-7:21
-of large language models one thing to note is that llms differ from earlier
-7:26
-NLP models because earlier NLP models were essentially designed for specific
-7:31
-tasks such as language translation whereas due to such emerging properties
-7:37
-which we just saw large language models can do a wide range of
-7:42
-tasks such as translation summarization fact checking grammar checking Etc as
-7:48
-all of you might have explored with chat GPT right um just a key point to note
-7:54
-earlier language models could not even write an email from Custom instructions a task which is Trivial to Modern large
-8:02
-language models so until now we have seen that large language models really become
-8:09
-better and better with size they develop emerging properties and one more thing to note is that at the heart of this
-8:16
-language revolution rather is this architecture which is known as Transformers uh if you don't know what
-8:23
-Transformer architecture is don't worry we'll cover that in this series but essentially there was this paper called
-8:29
-attention is all you need which introduced a Transformer architecture it looks uh a bit complicated as shown in
-8:37
-this diagram to truly unpack the Transformer architecture it takes um a
-8:44
-couple of lectures but essentially this is the secret source which Powers language models and we are going to
-8:50
-learn about this so don't worry um finally one thing which I want to
-8:55
-mention is that when we say creating a large language model it inv involves two stages the first is a pre-training stage
-9:03
-where we don't have a label data set but essentially the model on its own creates
-9:09
-training data and the labels this is called as an auto regressive stage so
-9:14
-models which are pre-trained they are also called as foundational models so to do this pre-training we typically
-9:21
-assemble huge amounts of data from internet textbooks media research articles etc for example gpt2 was B on
-9:30
-data from Reddit books Wikipedia articles open web Corpus Etc and then
-9:36
-this whole this giant large language model is trained on this huge amount of data this training costs upward of
-9:43
-million dollars might even cost tens of hundreds of millions of dollars as the size of the llm
-9:50
-increases keep in mind that after pre-training the model develops basic capabilities and after that we typically
-9:57
-need to fine tune the model so at the second stage we fine team the model with label data set so for example you could
-10:04
-teach the model to translate by giving it some labels of how translation usually proceeds you can teach the model
-10:11
-
 ***
 
-
-to follow instructions by giving some instructions such as hey convert 45
-10:17
-kilom to meters and then the answer is 45,000 M that's a label data which you
-10:22
-give to the model so it learns to follow instructions GPT 3.5 which became the
-10:29
-product Chad GPD it was trained with reinforcement um or rhf which is
-10:35
-reinforcement learning human feedback so essentially there were human annotators which graded the output and that was
-10:43
-passed back as a feedback to the L this this is very important for us because
-10:49
-this finetuning is a stage where deep seek really changed the game completely
-10:55
-
-
-
-
-
-
-
-
-***
-
+* 10:00
 
 and we are going to come to that when we see what makes deep SE s speci but to understand what is to
 11:03
@@ -646,6 +559,7 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 
 
 

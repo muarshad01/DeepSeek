@@ -127,6 +127,12 @@ predicting a appear repeatedly in the loss calculation so as we'll see tomorrow 
 24:48
 function the loss function for every input token consists of all of its predicted tokens so the loss function
 24:54
+
+
+
+
+
+
 now consists a year it consists of a year it consists of a over
 24:59
 here. So the errors related to predicting a appear repeatedly in the loss calculation.
@@ -145,6 +151,14 @@ when five is the input. This token A actually comes up when three is the input, 
 25:46
 it plays a big role in the overall loss calculation and here again the
 25:53
+
+
+***
+
+
+
+
+
 multi-token prediction loss hence assigns higher implicit weights to consequential tokens. So A is a
 25:59
 consequential token now right and when we look at the multi-token prediction loss tomorrow we are going to see that
@@ -229,6 +243,13 @@ speculative decoding possible because in speculative decoding we are considering
 30:10
 And multi-token prediction is exactly built for this. Through multi-token prediction we can predict multiple new
 30:16
+
+
+
+***
+
+
+
 tokens uh at a given time. Right? And that's
 30:22
 why multi-token prediction is often associated with speeding up LLM
@@ -362,6 +383,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

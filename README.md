@@ -101,7 +101,7 @@
 | Jun 2024 || [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) |
 | Jun 2024 || [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
 | Dec 2024 | 671 B | [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
-| Jan 2025 || [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
+| Jan 2025 | Reasoning Model | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
 
 ***
 

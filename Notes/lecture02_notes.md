@@ -108,6 +108,11 @@ of pricing deep SE completely outweighs gp4 because it's literally a fraction of
 19:55
 the pricing which is there and most importantly deep is open sourced whereas gp4 is closed source which means you can
 20:03
+
+
+***
+
+
 literally download deeps host it if you have a GPU or if your machine is big uh
 20:09
 you can host it and run it but remember it's like 6 671 billion parameters so it's not quite easy to do
@@ -218,6 +223,12 @@ second thing was with respect to mixture of experts so if you see the normal
 25:53
 attention mechanism it looks something like this right there is a feed forward
 25:59
+
+
+
+***
+
+
 there is the attention layer and followed by feed forward neural network after the attention layer and the feed
 26:05
 forward neural network looks something like this in a mixture of experts model what you essentially do is that you have
@@ -481,6 +492,7 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 
 
 

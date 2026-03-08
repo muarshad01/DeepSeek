@@ -1,6 +1,8 @@
 #### Multi-Token Prediction Introduction
 
-* [Better & Faster Large Language Models via Multi-token Prediction](https://arxiv.org/abs/2404.19737)
+| Year | Paper |
+|---|---|
+| Apr 2024 | [Better & Faster Large Language Models via Multi-token Prediction](https://arxiv.org/abs/2404.19737) |
 
 veryone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
@@ -721,5 +723,6 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 

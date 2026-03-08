@@ -27,72 +27,12 @@
 * 15:00
 
 * MTP train models achieved better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.
+* [Mostly Basic Python Problems Dataset (MBPP)](https://github.com/google-research/google-research/blob/master/mbpp/README.md)
+* [Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
+* [HumanEval](https://github.com/openai/human-eval)
 
-
-
-*
-* So this is just backed by quantitative evidence right.
-16:52
-So I'm mentioning two frameworks here, human eval and MBPP. First let me show
-16:58
-you what MBPP is. MBPPP is a benchmark which is mostly basic Python problems
-17:03
-data set. Uh and as the name suggests the benchmark consists of around thousand
-17:09
-crowdsourced Python programming problems. And uh the second uh benchmark is called as human
-17:17
-eval which came out of this paper evaluating large language models trained on code. This paper has become very
-17:24
-popular now because this benchmark actually uh if you scroll down below on this
-17:29
-paper here are some questions which are presented in the benchmark. So everything which is marked in the white
-17:36
-in the paper uh everything which is marked in the white is the prompt which is provided to the model and uh yellow
-17:43
-so everything which is marked in the yellow uh is the model output right. So this is
-17:49
-the prompt which is provided to the model everything in the white and yellow is the expected model output. So these
-17:55
-are some sample questions which are in the human eval. What this paper essentially showed is that if you take a
-18:01
-look at this plot this is MBPP and human eval and uh you'll see that on the
-18:09
-y-axis it's essentially the performance and on the x-axis it's essentially the model
-18:15
-size. So you'll see that for smaller model sizes for small model smaller
-18:20
-model sizes we are on the negative side right which means the multi-token prediction actually performs poorly but
-18:27
-as the model size increases so as we go from left to right in every graph here we see that uh the multi-token
-18:34
-prediction actually performs better right so these bars actually show the performance of multi-token prediction as
-18:41
-compared to uh single token prediction and we see that for smaller model sizes
-18:46
-around these model sizes. Uh the bars are negative which means the multi-token prediction performs worse. But as the
-18:53
-model gets uh bigger and bigger multi-token prediction models outperform
-18:58
-the baseline when the models become bigger and they significantly show an improvement in both these matrix MBPP
-19:06
-which is mostly basic uh Python problems and second is the human eval benchmark.
-19:13
-The second uh plot or the second result which they have is they again took
-19:19
-several benchmarks like MPPP, human, eval, a/ intro and then here n is the
-19:25
-number of future tokens which are uh predicted in the multi-token prediction.
-19:31
-So here also we can consistently see that as we increase the number of tokens. So as we go from top to bottom
-19:38
-uh as we increase the number of tokens which are predicted the performance on all the benchmarks actually increases
-19:43
-from top to bottom. So it's 19.3 32.3 42.4 50 etc. So you'll see that uh
-19:52
-uh as the training data so this is shown for different amount of training data also and in all of these we can see that
-19:59
-as the number of u u number of tokens which are predicted
-20:05
+***
+  
 increases the performance increases on that particular benchmark. So here in the NVP benchmark we can see that the
 20:12
 performance increases from 40.7 to 43.1. Here also it increases from 65.4 4
@@ -418,6 +358,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -39,98 +39,9 @@
 
 * 25:00
 
-
-
-
-multi-token prediction loss hence assigns higher implicit weights to consequential tokens. So A is a
-25:59
-consequential token now right and when we look at the multi-token prediction loss tomorrow we are going to see that
-26:06
-the multi-token prediction loss uh implicitly assigns a higher weight to
-26:12
-these consequential tokens and what this means is that now we just get better at planning into the future right
-26:18
-especially for such choice for such choice points the model learns to prioritize crucial decision making
-26:25
-elements which are very important so in this particular case uh going
-26:31
-from uh going from five to A was an important
-26:37
-um choice point and the model assigns a higher loss to A thereby making sure that we get this transition correct and
-26:44
-thereby making sure that we are prioritizing this crucial decision making transition from five to
-26:51
-A. So I'm explaining this at at a bit more intuitive level. No need right now
-26:56
-to understand it mathematically because we are going to cover this tomorrow. I'm just trying to provide an intuition to
-27:02
-all of you regarding why multi-token prediction is actually good at planning also. Uh because you'll often hear that
-27:09
-multi-token prediction tasks are good or multi token prediction models are good at
-27:15
-planning. So here what they have mentioned is these choice points and uh
-27:20
-here they have mentioned that multi-token prediction multi-token prediction implicitly assigns weights to
-27:26
-training tokens depending on how closely they are correlated with their successors. So now this a a is closely
-27:34
-correlated with it comes in when five is the input and it comes in when three and
-27:39
-four both are the input right. So there is a higher weightage which is given to the loss which includes a
-27:48
-um okay so inconsequential transitions following a choice point are hard to
-27:54
-predict in advance. By marking and counting loss terms we find that n token
-28:00
-prediction associates a weight of n into n + 1 by2 to choice points and a smaller
-28:06
-weight to inconsequential points. So don't get confused by this mathematics.
-28:11
-It just shows that points which are in inconsequential are assigned less weight and points which are more consequential
-28:17
-such as this transition from 5 to 8 that's assigned more weight. So this is the third reason why multi-token
-28:25
-prediction is very useful. The first reason is dens densification of training signals. The second reason is improved
-28:32
-data efficiency. The third reason is better planning. And the fourth reason is with respect to inference. Notice
-28:39
-that now we are predicting multiple tokens at once, right? And that helps during inference also. It leads to up to
-28:45
-three times faster inference speed. And this is also mentioned in the
-28:51
-uh this is also mentioned in the paper. Actually the paper talks a lot about training as well as they talk about
-28:57
-inference. So if you see section 3.2, it's called faster inference. and they observe a speed up of three times on
-29:04
-code with an average of 2.5 accepted tokens out of three suggestions on code.
-29:09
-So it just means that inference actually becomes much faster with multi-token prediction. Now
-29:16
-whenever you see about multi-token prediction, right? You'll also hear this term which is called as self speculative
-29:23
-decoding and it comes under the domain of inference, right? So in self-sp
-29:29
-speculative decoding what is actually done is that if you look on the left hand side during inference only one
-29:34
-token is predicted at a time but in self speculative decoding we predict multiple
-29:39
-tokens at a time which means multiple tokens are inferred at a single time through a language model and then
-29:46
-another larger language model is used to verify those responses. If they are
-29:51
-correct it those are retained. If they are wrong those are not retained. So this is called as parallel verification
-29:57
-and this idea is called as speculative decoding which speeds up LLM inference. Now multi-token prediction makes
-30:03
-speculative decoding possible because in speculative decoding we are considering multiple inferred tokens at once. Right?
-30:10
-And multi-token prediction is exactly built for this. Through multi-token prediction we can predict multiple new
-30:16
-
-
-
 ***
 
+* 30:00
 
 
 tokens uh at a given time. Right? And that's
@@ -266,6 +177,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

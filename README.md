@@ -87,21 +87,21 @@
 ***
 
 
-| Year | Paper|
-|---|---|
-| 2022 | [ST-MOE: DESIGNING STABLE AND TRANSFERABLE SPARSE EXPERT MODELS](https://arxiv.org/pdf/2202.08906)||
-|---|---|
+| Year | Parameters| Paper|
+|---|---|---|
+| 2022 || [ST-MOE: DESIGNING STABLE AND TRANSFERABLE SPARSE EXPERT MODELS](https://arxiv.org/pdf/2202.08906)||
+|---|---|---|
 | 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE)](https://arxiv.org/abs/2104.09864)|
-|---|---|
-| Jan 2024 | [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)|
-| Jan 2024 | [DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence](https://arxiv.org/abs/2401.14196) |
-| Jan 2024 | [DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models](https://arxiv.org/pdf/2401.06066) |
-| Mar 2024 | [DeepSeek-VL: Towards Real-World Vision-Language Understanding](https://arxiv.org/abs/2403.05525)|
-| Apr 2024 | [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) |
-| Jun 2024 | [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) |
-| Jun 2024 | [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
-| Dec 2024 | [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
-| Jan 2025 | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
+|---|---|---|
+| Jan 2024 || [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)|
+| Jan 2024 || [DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence](https://arxiv.org/abs/2401.14196) |
+| Jan 2024 || [DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models](https://arxiv.org/pdf/2401.06066) |
+| Mar 2024 || [DeepSeek-VL: Towards Real-World Vision-Language Understanding](https://arxiv.org/abs/2403.05525)|
+| Apr 2024 || [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) |
+| Jun 2024 || [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) |
+| Jun 2024 || [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
+| Dec 2024 || [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
+| Jan 2025 || [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)|
 
 ***
 

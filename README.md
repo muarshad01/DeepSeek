@@ -91,7 +91,7 @@
 |---|---|---|
 | 2022 || [ST-MOE: DESIGNING STABLE AND TRANSFERABLE SPARSE EXPERT MODELS](https://arxiv.org/pdf/2202.08906)||
 |---|---|---|
-| 2023 |[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE)](https://arxiv.org/abs/2104.09864)|
+| 2023 ||[RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE)](https://arxiv.org/abs/2104.09864)|
 |---|---|---|
 | Jan 2024 || [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)|
 | Jan 2024 || [DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence](https://arxiv.org/abs/2401.14196) |

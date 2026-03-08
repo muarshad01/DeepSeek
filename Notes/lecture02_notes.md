@@ -70,6 +70,10 @@ need to fine tune the model so at the second stage we fine team the model with l
 10:04
 teach the model to translate by giving it some labels of how translation usually proceeds you can teach the model
 10:11
+
+***
+
+
 to follow instructions by giving some instructions such as hey convert 45
 10:17
 kilom to meters and then the answer is 45,000 M that's a label data which you
@@ -175,6 +179,10 @@ different llms which which were built by Deep seek now let's start getting into
 15:01
 the uh core content a bit which is first of all let's compare deep seek with
 15:07
+
+***
+
+
 other AI models and let's see um is it better why is it better how low is its
 15:13
 pricing Etc so what I actually did was uh I'm very fascinated with this
@@ -638,6 +646,7 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 
 
 

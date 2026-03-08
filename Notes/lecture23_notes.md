@@ -4,104 +4,9 @@
 |---|---|
 | Apr 2024 | [Better & Faster Large Language Models via Multi-token Prediction](https://arxiv.org/abs/2404.19737) |
 
-veryone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
-0:08
-I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
-0:15
-to our sponsor and our partner for this series, Invido AI. All of you know how
-0:20
-much we value foundational content building AI models from the nuts and bolts. Nvidia AI follows a very similar
-0:28
-principle and philosophy to that of us. Let me show you how. So here's the
-0:33
-website of Invido AI. With a small engineering team, they have built an
-0:38
-incredible product in which you can create highquality AI videos from just
-0:43
-text prompts. So as you can see here, I've mentioned a text prompt. Create a
-0:49
-hyper realistic video commercial of a premium luxury watch and make it cinematic. With that I click on generate
-0:56
-a video. Within some time I'm presented with this incredible video which is
-1:02
-highly realistic. What fascinates me about this video is its attention to detail. Look
-1:08
-at this. The quality and the texture is just incredible. And all of this has been created from a single text
-1:15
-prompt. That's the power of Invido's product. The backbone behind the awesome
-1:21
-video which you just saw is Invido AI's video creation pipeline in which they
-1:26
-are rethinking video generation and editing from the first principles to experiment and tinker with foundational
-1:33
-models. They have one of the largest clusters of H100s and H200s in India and
-1:38
-are also experimenting with B200s. Nvidia AI is the fastest growing
-1:44
-AI startup in India building for the world and that's why I resonate with them. so much. The good news is that
-1:51
-they have multiple job openings at the moment. You can join their amazing team. I'm posting more details in the
-1:57
-description [Music] below. Hello everyone and welcome to
-2:05
-this lecture in the build deepseek from scratch series. Today we are going to
-2:11
-get started with a very important module and that is called as multi-token prediction.
-2:18
-When you look at the deepseek architecture, they had three predominant revolutions in their architecture. The
-2:26
-first one was multi head latent attention. The second was the innovations which they did on top of
-2:32
-their mixture of experts module and the third one was a very smart implementation of something which is
-2:39
-called as multi-token prediction. Today we are going to learn about this third technique. In the
-2:45
-previous lectures we have covered everything which deepseek implemented related to multi head latent attention
-2:51
-and mixture of experts. So if you go to the paper uh which
-2:56
-deepseek released in January 2025 and which led to this whole deepseek
-3:02
-revolution that's deep three deepseek v3 technical report and if you scroll down
-3:08
-below you'll see that first they have this u in their
-3:14
-architecture section first they have the multi head latent attention schematic then after this there's a
-3:21
-whole section on the mixture of experts module which they have with innovations such as auxiliary loss free load
-3:27
-balancing shared experts fine grained expert segmentation etc. And finally the
-3:33
-last thing which they have is this multi-token prediction and this is what we are going to see today. This is the
-3:40
-schematic which deepseek has with respect to their multi-token prediction module. Now this looks simple that okay
-3:48
-we usually do single token prediction in language models. What is this multi-token prediction? Maybe we are
-3:54
-predicting multiple tokens. But there are actually a lot of complexities which which are involved in this process. And
-4:01
-that's why we are going to take about two to three lectures for me to explain this entire concept of multi-toal
-4:09
-prediction to you in a lot of detail. As always, we are going to uh show you
-4:14
-everything on a white code and then I'll also take you through the code of how can we code a multi-token prediction
-4:20
-module from scratch. So that's the plan for the next two to three lectures. So first let me
-4:27
-take you through the history of this multi-token prediction. Actually multi-token prediction was not invented
-4:34
-by deepseek. Deepseek just built on top of it like they have done with so many of their other architectural
-4:40
-innovations. Multi-token prediction was first implemented in this paper called better and faster large language models
-4:48
-via multi-token prediction and this paper was uh a group of researchers
-4:55
-contributed to this paper and one such group came from meta
-5:00
-uh deepse built upon this paper. So this paper was published in April of 2024 and
-5:05
-DeepSync immediately took this they built on top of this and implemented that implemented that in their version 3
-5:13
+
+***
+
 architecture. Okay. So if you look at the abstract this these authors say that large language models are trained with
 5:20
 next token prediction loss. In this work we suggest that training language models to predict multiple future tokens at
@@ -723,6 +628,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

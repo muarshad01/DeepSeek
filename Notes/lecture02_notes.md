@@ -12,89 +12,11 @@
 
 * 10:00
 
-and we are going to come to that when we see what makes deep SE s speci but to understand what is to
-11:03
-follow after um or after this section it is very
-11:09
-important for all of us to be on the same page with respect to what are llms
-11:14
-what are emergent properties what's the secrets s switch poers llms and most
-11:19
-importantly the two stages involved in creating an llm and that is pre-training
-11:25
-plus F tuning with that let's go to the next section which is essentially what are
-11:33
-the llms built by Deep seek and uh how did it get so popular so let's take a
-11:40
-look at the different llms which were built by Deep seek so if you go to their website which is deep seek.com and if
-11:47
-you scroll down to the bottom in the research section you'll see the different versions of the llms which
-11:54
-they built they first started with a simple deeps llm then the significant
-11:59
-Milestones was building of this deep seek version two then they have deep seek version three and then after that
-12:06
-came deep seek R1 they released papers for each of these so for example here
-12:11
-you'll see the paper for deep seek origin 2 it's a 52 page paper here you
-12:17
-will see the report for deeps version 3 again 53 page paper and uh here you'll
-12:23
-see the paper for deeps car1 my goal in this series is that um there are several
-12:31
-amazing things which they have mentioned in these papers related to the architecture related to the
-12:37
-training um Etc I'm going to unpack all of that and I'm going to break it down
-12:43
-into modular lectures so that you don't have to read this report but rather if you just go through these lectures
-12:50
-you'll understand the nuts and bols of what is happening um the main model which caught
-12:57
-everyone's attention though is the Deep sick R1 because as we'll soon see um deeps R1
-13:05
-was a reasoning model which achieved comparable performance to open a STP
-13:10
-model that to at a fraction of the cost and plus it was open source these were
-13:16
-like two amazing things at the same time right deeps R1 which was released in
-13:21
-January of 2025 it was a reasoning model but it had
-13:26
-a comparable performance to open a a remember open AI is closed Source this
-13:32
-model was fully open source which means you could literally download the model and run it locally if you have a big
-13:38
-setup and uh secondly the API cost to this model is a tiny fraction of what
-13:46
-the latest open AI model costs and that's pretty amazing if you put these two things together open source plus low
-13:53
-cost that's pretty awesome right taking a look at the number of parameters as we saw the size scaling law language models
-14:01
-get better with size and deep seek was no exception deep seek version three has
-14:06
-671 billion parameters and then deeps R1 was a reasoning model which was
-14:12
-essentially constructed after deeps version 3 foundational model was built so version
-14:18
-two and version three are different foundational models which they have and R1 is the reasoning model which came
-14:25
-from Deep seek V3 so keep in mind this progression they first had the version one which they call DC KLM and then they
-14:32
-made DCM math DCM coder then they had deeps version two and then deeps version
-14:39
-2 coder then we had deeps version 3 and finally we had deeps R1 which really
-14:45
-broke the internet and because of which we are having this lecture series at this
-14:50
-moment all right so until now we have seen about llms we have seen about the
-14:56
-different llms which which were built by Deep seek now let's start getting into
-15:01
-the uh core content a bit which is first of all let's compare deep seek with
-15:07
-
 ***
 
+* 15:00
+
+#### Comparision with other AI models
 
 other AI models and let's see um is it better why is it better how low is its
 15:13
@@ -559,6 +481,7 @@ and fully open source so they are truly democratizing AI that way so thanks a
 lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
+
 
 
 

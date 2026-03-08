@@ -24,6 +24,8 @@
 * Thus, models learn to prioritize crucial decision-making elements.
 
 4. Higher Inference Speed
+* Up to 3x faster inference speed
+* [Speed Up LLM Inference with Speculative Decoding](https://medium.com/@genai.works/speed-up-llm-inference-with-speculative-decoding-1fc79701e9d6)
 
 ***
 
@@ -264,6 +266,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

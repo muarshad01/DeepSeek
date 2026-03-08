@@ -15,45 +15,27 @@
 * Traditional single token prediction only guides the model to predict a single immediate token.
 * MTP, however, instructs the model to simultaneously predict multiple future tokens, generating more informative gradient signals per training example.
 2. Improved Data Efficiency
+* MTP train models achieved better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.
+* [Mostly Basic Python Problems Dataset (MBPP)](https://github.com/google-research/google-research/blob/master/mbpp/README.md)
+* [Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
+* [HumanEval](https://github.com/openai/human-eval)
 3. Better Planning
+* MTP implicitly assigns greater importance to "choice points" - key tokens that significantly influence future outcomes.
+* Thus, models learn to prioritize crucial decision-making elements.
+
 4. Higher Inference Speed
 
 ***
 
 * 15:00
 
-* MTP train models achieved better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.
-* [Mostly Basic Python Problems Dataset (MBPP)](https://github.com/google-research/google-research/blob/master/mbpp/README.md)
-* [Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
-* [HumanEval](https://github.com/openai/human-eval)
-
 ***
 
 * 20:00
  
-increases the performance increases on that particular benchmark. So here in the NVP benchmark we can see that the
-20:12
-performance increases from 40.7 to 43.1. Here also it increases from 65.4 4
-20:18
-to 65.9. Here it increases from 83 to 86.2 and the number of tokens which are
-20:24
-predicted increase from 1 to 4. Right? So in this second uh factor which
-20:30
-is called as improved data efficiency, the authors actually proved that multi-token prediction train models
-20:37
-achieve better results on standard benchmarks like human eval and MBPP. So
-20:42
-this is something which is quantified now. it just leads to better results especially at coding related problems.
-20:49
-So these are the first two reasons for why multi-token prediction is useful. But one of the most important reasons
-20:56
-for uh building the intuition regarding multi token prediction is that they are
-21:02
-good at planning. So multi-token a multi so this should be mult multi-token
-21:08
-prediction implicitly assigns greater importance to choice points which are key tokens that significantly influence
-21:15
-f future outcomes. Thus the model learns to prioritize crucial decision-m elements. So let me go over this once
+
+*
+* So let me go over this once
 21:23
 more. What this uh what is mentioned here is that multi-tokenal prediction
 21:28
@@ -377,6 +359,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

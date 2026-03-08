@@ -32,105 +32,10 @@
 ***
 
 * 20:00
- 
-
-*
-* So let me go over this once
-21:23
-more. What this uh what is mentioned here is that multi-tokenal prediction
-21:28
-implicitly assigns greater importance to choice points. And what is meant by choice points? It's key tokens that
-21:35
-significantly influence the future outcomes. And as a result, the model learns to prioritize crucial decision-m
-21:42
-elements and thus they are much better at planning. Let me explain this to you further. So in the paper
-21:50
-uh they have a section on why does multi-token prediction work and uh it's called some speculation. In this they
-21:56
-have this figure right and this same figure I have brought here into the whiteboard. So in this figure we have
-22:03
-model predictions and we have ground truth right. So three tokens are predicted for every ground truth. So if
-22:09
-the ground truth is one the next three tokens are 2 3 4. The actual next tokens
-22:14
-is two. When the input is two the next tokens predicted are 3 4 5 but the
-22:19
-actual next token is three. When the input token is three the next tokens which are predicted by the model are
-22:26
-four five and a. And the actual token is four. When the actual token is four, the
-22:32
-next predicted tokens are five, A and B. But the actual next token is five. When
-22:37
-the input is five, the next three tokens predicted are A, B and C. And the actual token is A. Similarly, when A is the
-22:44
-actual token or A is the input token, B is the next token, etc. Now, if you look
-22:49
-at the ground truth, can you identify that point which can be which can be
-22:55
-classified as a choice point? What is that key token which significantly influences future
-23:03
-outcomes? So you can pause the video for a moment here and answer this question. What is the key token here in this
-23:09
-ground truth sequence? In this ground truth sequence which significantly influences or impacts the future
-23:16
-outcomes. So one gives two, two gives three, four gives five that much is fine and A gives B that is also fine. But the
-23:23
-key token here which actually can be called as a choice point is this five
-23:28
-leads to a right because it's at this point where a complete transition happens. We are predicting numbers
-23:35
-initially sequentially and then suddenly we go from predicting numbers to predicting alphabets. So this is a key
-23:42
-point or this is a choice point. Okay. Now what I want to mention
-23:48
-is that uh please keep in mind among all of these predictions there is there are multiple
-23:55
-places in which token A is actually coming. So three right when three is the input token although the correct answer
-24:02
-is four for the next token our model also produces a as one of the future tokens when five is the input token our
-24:10
-model also sorry when four is the input token our model here also produces a and
-24:17
-when five is the input token of course the model produces a right so what I want to point out here is that token A
-24:23
-is actually a part of multiple predictions right it appears in the pred prediction starting
-24:30
-from let me change the color here it appears in the predictions of three four
-24:35
-as well as five so errors which are related to
-24:40
-predicting a appear repeatedly in the loss calculation so as we'll see tomorrow when we define the loss
-24:48
-function the loss function for every input token consists of all of its predicted tokens so the loss function
-24:54
-
-
-
-
-
-
-now consists a year it consists of a year it consists of a over
-24:59
-here. So the errors related to predicting a appear repeatedly in the loss calculation.
-25:05
-Right? Hence the training process implicitly prioritizes improving predictions of such consequential tokens
-25:13
-focusing the model's capacity on more critical decisions rather than inconsequential ones. Uh now in the
-25:21
-overall loss of the language model in the multi-token prediction
-25:27
-uh the prediction of the token A will have a much higher weightage much higher
-25:33
-implicit weightage because it comes up multiple times. It does not just come up
-25:38
-when five is the input. This token A actually comes up when three is the input, when four is the input etc. So it
-25:46
-it plays a big role in the overall loss calculation and here again the
-25:53
-
 
 ***
 
+* 25:00
 
 
 
@@ -359,6 +264,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

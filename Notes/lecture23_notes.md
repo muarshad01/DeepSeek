@@ -22,7 +22,7 @@
 * [HumanEval](https://github.com/openai/human-eval)
 
 3. Better Planning
-* MTP implicitly assigns greater importance to "choice points" - key tokens that significantly influence future outcomes.
+* MTP implicitly assigns greater importance to __"choice points"__ - key tokens that significantly influence future outcomes.
 * Thus, models learn to prioritize crucial decision-making elements.
 
 4. Higher Inference Speed
@@ -30,3 +30,4 @@
 * [Speed Up LLM Inference with Speculative Decoding](https://medium.com/@genai.works/speed-up-llm-inference-with-speculative-decoding-1fc79701e9d6)
 
 ***
+

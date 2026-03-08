@@ -1,3 +1,5 @@
+#### Multi-Token Prediction Introduction
+
 veryone, my name is Dr. Raj Dandkar. I graduated with a PhD in machine learning from MIT in 2022 and
 0:08
 I'm the creator of the build deepseek from scratch series. Before we get started, I want to introduce all of you
@@ -100,6 +102,13 @@ architecture. Okay. So if you look at the abstract this these authors say that l
 5:20
 next token prediction loss. In this work we suggest that training language models to predict multiple future tokens at
 5:27
+
+
+
+
+
+***
+
 once results in higher sample efficiency. So that's what multi-token prediction essentially is. We are going
 5:33
 to predict multiple future tokens at one time. So let us start understanding the
@@ -194,6 +203,13 @@ and S1- S2- S3 dash like you did previously. It's just that the future
 10:26
 horizon which I'm looking at for every token now changes. So earlier when we looked at each token when I looked at
 10:32
+
+
+
+***
+
+
+
 artificial the only future horizon which matters is one token right which is intelligence. But now when I look at
 10:38
 artificial I'm going to take into account the next three tokens which also means that for every input token we are
@@ -282,6 +298,14 @@ sees and learns the relationship across multiple future steps simultaneously.
 15:13
 And this guides the internal representations towards better planning or forecasting of sequences. That's very
 15:20
+
+
+
+
+
+***
+
+
 important. So now as the model is learning, the model is getting a bit better at planning and looking ahead
 15:26
 into the future. Both of which are very important skills for a language model to behave like humans and for a language
@@ -695,3 +719,4 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+

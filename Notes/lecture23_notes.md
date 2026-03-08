@@ -26,33 +26,12 @@
 
 * 15:00
 
-important. So now as the model is learning, the model is getting a bit better at planning and looking ahead
-15:26
-into the future. Both of which are very important skills for a language model to behave like humans and for a language
-15:33
-model to have better performance. And all of these things happen because
-15:38
-now instead of predicting one single token into the future, we are predicting multiple tokens into the future. Right?
-15:45
-Uh so that leads to more richer and more informative gradients also. So when you read literature on
-15:53
-multi-token prediction, you'll often see that multi-token prediction is done so that uh because pre-training is much
-16:00
-more richer. That is because the model sees and learns relationship across multiple future steps simultaneously and
-16:07
-it gets better at planning or forecasting of sequences. So that's the first main reason why multi-token
-16:15
-prediction is useful. It's called densification of training signals or another way to put it is that the model
-16:21
-just becomes more richer in planning for the future. The second thing is improved data
-16:28
-efficiency and this is something which the paper which I showed you meta's paper they actually quantified this. So
-16:34
-they showed that multi-token prediction train models achieved better results on standard benchmarks like human eval and
-16:41
-MBPP with the same amount of training data solving about 15% more code
-16:47
-problems on average. So this is just backed by quantitative evidence right.
+* MTP train models achieved better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.
+
+
+
+*
+* So this is just backed by quantitative evidence right.
 16:52
 So I'm mentioning two frameworks here, human eval and MBPP. First let me show
 16:58
@@ -439,6 +418,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

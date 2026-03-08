@@ -32,6 +32,10 @@
 * [HumanEval](https://github.com/openai/human-eval)
 
 ***
+
+* 20:00
+
+
   
 increases the performance increases on that particular benchmark. So here in the NVP benchmark we can see that the
 20:12
@@ -358,6 +362,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

@@ -7,10 +7,6 @@
 
 ***
 
-* 5:00
-
-***
-
 * 10:00
 
 #### Why is MTP useful?
@@ -34,9 +30,7 @@
 ***
 
 * 20:00
-
-
-  
+ 
 increases the performance increases on that particular benchmark. So here in the NVP benchmark we can see that the
 20:12
 performance increases from 40.7 to 43.1. Here also it increases from 65.4 4
@@ -383,6 +377,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

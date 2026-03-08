@@ -22,40 +22,9 @@
 3. Better Planning
 4. Higher Inference Speed
 
-
-
-
-* So when you're looking at a training sample, instead of just predicting one
-14:07
-token into the future, you are now predicting multiple tokens into the future. Right? That means the model is
-14:13
-becoming a bit more smarter than it was when it was just predicting one single token. And actually I asked GPT 4.5
-14:22
-regarding uh what does this densification actually really mean. So here is some good series
-14:30
-of explanations. Um so now in multi token prediction the model actually
-14:35
-learns about longer range structure grammar and coherence directly from each
-14:41
-training sample. Why? Because for each training example we are predicting a lot into the future. Right? That's why the
-14:48
-model learns about longer range structure and grammar. This is why we say that the model becomes rich during
-14:55
-training when we do a multi-token prediction. So with single token
-15:00
-prediction, the model only learns immediate next steps dependencies. But with multi-token prediction, the model
-15:07
-sees and learns the relationship across multiple future steps simultaneously.
-15:13
-And this guides the internal representations towards better planning or forecasting of sequences. That's very
-15:20
-
-
-
-
-
 ***
 
+* 15:00
 
 important. So now as the model is learning, the model is getting a bit better at planning and looking ahead
 15:26
@@ -470,6 +439,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

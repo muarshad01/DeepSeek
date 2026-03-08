@@ -9,106 +9,9 @@
 
 * 5:00
 
-once results in higher sample efficiency. So that's what multi-token prediction essentially is. We are going
-5:33
-to predict multiple future tokens at one time. So let us start understanding the
-5:40
-difference between single token prediction and multi-token prediction. In this lecture, I'm just going to
-5:45
-motivate the concept of multi-token prediction. I'm going to show you how it differs from single token prediction and
-5:52
-then we are also going to discuss some advantages of multi-token prediction. So I'm going to build your intuition in
-5:58
-this lecture. In the next lecture we are going to see how deepsek exactly implemented the multi-token prediction
-6:05
-architecture and in the lecture after that we'll implement multi-token prediction in
-6:11
-code. So let's get started with today's lecture. If you take a look at single token prediction, the pipeline for
-6:18
-single token prediction looks something like this. Let's say we have a bunch of input tokens which look something like
-6:25
-this. uh and let me actually let me take a batch of eight input tokens. Okay.
-6:34
-Artificial intelligence is changing
-6:41
-the world right now. Let's say I have this batch of
-6:46
-eight input tokens. The way single token prediction works is that this entire batch passes through multiple sequences
-6:54
-of the transformer blocks. So here I have shown three transformer blocks. Ideally there could be 12, 24, even 36
-7:01
-transformer blocks and these are called as the shared transformer trunk. That's
-7:06
-the terminology introduced in this first multi-token prediction paper. So I'm
-7:11
-going to utilize this same terminology. What this essentially means is just a bunch of transformer blocks chained
-7:18
-together, right? And then finally, so let's say I have this bunch of transformer blocks D1, T2, etc. D3,
-7:25
-right? Up till D12 which is chained together and after that I have my logits
-7:31
-matrix which converts from which converts every token from the embedding dimension to a vocabulary size. So now
-7:38
-if you have this uh let me copy paste this these eight tokens when they come out uh of the
-7:45
-transformer blocks the final output is the logit's token where or the logits matrix where every token has now
-7:53
-if the vocabulary size is 50,000 every token has now a 50,000 dimensional
-7:59
-vector corresponding to it. So all of these tokens have the 50,000 dimensional
-8:05
-vector corresponding to it. And then we look at that token index which has the
-8:11
-highest probability associated with it. And then we get the next token which is predicted. Next token which is predicted
-8:18
-for all of my input tokens. And during inference time the only next token which
-8:23
-matters is the last token. That's the new token which is inferred. But during training time all of these tokens which
-8:29
-are predicted they will be used for getting my training loss. So for example for the first token which is predicted
-8:37
-t1 the actual prediction should be intelligence right. If artificial is the
-8:42
-input the actual output should be intelligence over
-8:48
-here. For the second input which is artificial intelligence the actual output should be so this is actual
-8:55
-output. The actual output should be is here the actual output should be changing etc. So we have the actual
-9:02
-output and then we have the predicted output and during training the loss is computed between the actual output and
-9:08
-the predicted output. That's essentially the single token prediction task. In multi-token prediction task
-9:16
-what changes is that for every token which I'm looking at. So let's say if
-9:21
-I'm looking at artificial here in single token prediction only one token is predicted right in multi-token
-9:27
-prediction instead of one token there are three tokens which are predicted let's say let me call it s_ub_1 s_ub_2
-9:33
-and s3 these are the three tokens which are predicted during multi-token prediction for every input token and for
-9:40
-these three I have my actual I have my actual tokens which are s1 dash s2 dash and s3 dash and then I
-9:48
-get the loss between my predicted three tokens and the actual three tokens for every input token. So if you look at
-9:54
-artificial right now, you first define the horizon into the future. And let's
-10:00
-say I want to look at three tokens into the future. So the actual three tokens are intelligence, is and changing. So
-10:07
-S1, S2 dash and S3 dash are intelligence, is and changing. And the predicted three tokens might be
-10:13
-something completely different. S1, S2 and S3. And then you take the loss the same cross entropy loss between S1 S2 S3
-10:20
-and S1- S2- S3 dash like you did previously. It's just that the future
-10:26
-horizon which I'm looking at for every token now changes. So earlier when we looked at each token when I looked at
-10:32
-
-
-
 ***
 
-
+* 10:00
 
 artificial the only future horizon which matters is one token right which is intelligence. But now when I look at
 10:38
@@ -619,6 +522,7 @@ challenging but it's still important that these three fundamental building block
 the only way uh these concepts will get stronger and stronger is if you make detailed notes about it. So thanks
 37:05
 everyone and I look forward to seeing you in the next lecture.
+
 
 
 

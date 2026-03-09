@@ -8,9 +8,6 @@
 
 * 10:00
 
-
-
-
 ***
 
 * 15:00
@@ -400,6 +397,7 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+
 
 
 

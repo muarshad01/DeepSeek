@@ -2,100 +2,12 @@
 
 ***
 
-predicting for k= 1 we are predicting for kal2 and we are predicting for k= 3
-5:25
-for this uh input token. Now remember for every prediction depth so for k= 1
-5:33
-for k=2 as well as for k= 3 we are going to need two inputs. The first input is
-5:39
-something which is called as the hidden state at that prediction depth and the second input is the input embedding at
-5:46
-that depth. So input embedding is much more easier to explain because it just
-5:51
-the input embedding at that position. Right? So if I'm looking at I equal to0, I'm making my predictions for three
-5:57
-future positions. Right? So I'm making my predictions for I = 1 for I= 2 and
-6:05
-for I = 3. So the input embedding for k equal to 1 for my prediction at depth 1
-6:12
-the input embedding will be at position one will be which will be at i equal to 1. For k equal to 2 the input embedding
-6:19
-will be at position 2 which will be at i equal to 2. And for k equal to 3 the input embedding will be at position
-6:25
-number three which will be at i equal to 3. So that's how you get the input embedding for every prediction depth.
-6:31
-But there is a second uh input which you need for getting the prediction at every
-6:37
-depth and that's something which is called as the hidden state for k equal to 1 which is the first depth. The
-6:43
-hidden state is just going to be the uh output after the transformer blocks.
-6:49
-Right? So these input tokens are passed through these multiple transformer blocks and then we get these hidden
-6:55
-states. Right? So we have these hidden states for all of these input tokens and
-7:01
-the hidden state number zero is just the hidden state vector for that token. So
-7:08
-for my since I'm looking at I equal to0 my hidden state 0 will be the input
-7:15
-tokens when it passes through the transformer blocks what's the first row which comes out I equal to0. So that's
-7:20
-my hidden state vector. So for the first prediction depth K equal to 1, I have my
-7:25
-input embedding at this second position I equal to 1 and I have my hidden state which is the output when this first row
-7:32
-passes through all the transformer blocks. So these are the two inputs the h input embedding and the hidden state.
-7:39
-Now there are a bunch of operations which happen within every head. So when I look at head number one right now, let
-7:46
-me uh show this to you with a different color. When I look at head number one
-7:51
-right now, there are multiple operations which happen. First of all, these two vectors are merged. The input embedding
-7:57
-and the hidden state is merged together. I'll show you the details of this calculation later. But first, we have
-8:02
-this merging operation. Then we have a projection operation. Then we have a transformer layer. And after this merge
-8:10
-matrix goes through all of these, we have the first hidden state. Right? And
-8:15
-for the prediction at at depth equal to two you remember I mentioned that we need two inputs. So first input we
-8:22
-already have the input embedding. The second input is this hidden state which comes in the first depth calculation. So
-8:28
-this hidden state number one is the input for depth two. And similarly when you do the calculations for depth two
-8:35
-here you'll get hidden state two. That will be the input for the third token
-8:40
-prediction. Right? So you see the different uh token predictions or the predictions at different depth are
-8:46
-linked to each other in this way. The hidden state one goes as the input for
-8:51
-the prediction of the hidden state two. The hidden state two serves as an input for the next step prediction. And once
-8:57
-you get these different hidden state one, hidden state two and hidden state number three, you pass it through the
-9:02
-logics matrix. The logix's matrix is the same one as here which projects every hidden state into the vocabulary
-9:09
-dimension. And that is how we predict the next token. I'm going to explain all these steps in a lot of detail to you.
-9:16
-So do not worry here. I I just want to give you an overall overflow of what
-9:21
-exactly is multi-token prediction to. So to summarize what I just mentioned, we
-9:26
-have to focus at one input token at a time. So I'm looking at I equal to0 and the depth of my prediction is equal to
-9:33
-3. So I have to make predictions at I= 1, I= 2 and I= 3. So I need three heads.
-9:39
-I have head number one, head number two and head number three. In each head, I need two inputs. I need the input
-9:46
-embedding at that position and I need the hidden state at that position. Getting the input embedding is easy. You
-9:52
-just look at the future depth and you get the input embedding. You get the vector uh of the input embedding at that
-9:58
-position depth. So that much is easy. But getting the hidden state is not that easy to get
-10:04
-the hidden state at different positions. to get the hidden state at K equal to 1, you just pass the input input embedding
-10:12
+* 5:00
+
+***
+
+* 10:00
+
 these input embeddings into the transformer blocks and then you get the final hidden states. Right? So since I'm
 10:19
 looking at I equal to0, the first row over here is going to be the hidden state zero at the head number one. Then
@@ -499,6 +411,7 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+
 
 
 

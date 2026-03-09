@@ -1,87 +1,7 @@
 * __Note__: DeepsSeek used MTP gains only during the pre-training process. During inference, DeepSeek just used STP.
 
+***
 
-
-Now although multi-token prediction looks simple like it just predicting multiple tokens
-1:12
-instead of one token. There are a number of different intricacies which we need to understand. For example, if you take
-1:20
-a look at the Deepseek version 3 paper, you'll see this schematic which they have this schematic for multi-token
-1:27
-prediction. And there are a number of finer details hidden within this schematic such as this linear
-1:32
-projection, this RMS norm concatenation, uh, MTP module 1, MTP module 2,
-1:39
-etc. And when you read this paper, they only have two paragraphs which are
-1:44
-titled MTP modules over here. And it's quickly explained in terms of mathematical formula. It's actually very
-1:51
-difficult to understand what's exactly going on here. You feel that you have understood it. But to truly understand
-1:57
-it, you need to write it down on a piece of paper. So that's what I aim to do today. Today I'm going to show you
-2:03
-exactly how deepsek implemented multi-token prediction. what these equations mean equation 21 22 23 and how
-2:13
-to interpret this diagram which deepseek has so let's get started with today's lecture we start out today's lecture
-2:21
-with what happens in single token prediction right in single token prediction we have a bunch of input
-2:26
-tokens which go through multiple transformer blocks and then we come out of the transformer block and the input
-2:33
-tokens maintain their dimension uh so let's say we have three input tokens
-2:38
-whose dimension is 8. So this is 3x 8. And when we come out of the transformer blocks, we have 3x 8 again that's passed
-2:46
-through an output head. And let's say if the vocabulary
-2:52
-size is 50,000. This 3x8 is converted into a 3x 50,000
-2:58
-matrix. So it might look something like this. Well, this is 50,000. And then
-3:04
-what we are doing is that for each of these tokens token 1, token two and token three, we look at that index which
-3:10
-has the maximum probability and that's how we predict the next token for each of the input tokens. So the key thing to
-3:17
-note here is that for each of these input tokens uh token number one, token number two and token number three, we
-3:24
-are predicting uh one future token in the single token prediction task through this output head.
-3:31
-So one output head essentially helps every input token to predict one token.
-3:36
-So naturally if we want to predict multiple tokens for every input token we
-3:42
-should have multiple output heads right. So in today's lecture I'm going to
-3:47
-assume that we are predicting three tokens into the future in multi-token prediction and that terminology is
-3:53
-called as depth. So the depth which we are looking into the future is going to be equal to three. So we are going to
-4:00
-need three heads. Head head number one, head number two and head number three. For every input token, head one will
-4:07
-predict the first future token. Head two will predict the second future token and head three will predict the third future
-4:14
-token. Now I'm not just going to show you the text with respect to this. I want to show you the mathematical
-4:21
-intuition behind what I just said. Right? So let's say these are my input tokens. Right? I have eight input tokens
-4:27
-which go from I=0 I= 1 2 3 4 5 6 and 7.
-4:32
-So the final input token is I equal to 7 and the dimension of every token is eight. So the number of columns in every
-4:39
-token is equal to 8. What I'm going to illustrate right now is for one such
-4:44
-input token but this entire visual workflow will follow for all of the input tokens. That's one key thing to
-4:51
-understand. For every single input token, we are going to predict three tokens into the
-4:57
-future. So let's say we look at I equal to0. So we look at first input token which has which is an eight dimensional
-5:03
-vector, right? Uh and we are predicting for depth equal
-5:10
-to three. So the depth is given by a variable called k and that is the same
-5:15
-variable which is used in deepsek paper. So k prediction depth. So we are
-5:20
 predicting for k= 1 we are predicting for kal2 and we are predicting for k= 3
 5:25
 for this uh input token. Now remember for every prediction depth so for k= 1
@@ -571,4 +491,5 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+
 

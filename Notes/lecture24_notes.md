@@ -8,23 +8,12 @@
 
 * 10:00
 
-these input embeddings into the transformer blocks and then you get the final hidden states. Right? So since I'm
-10:19
-looking at I equal to0, the first row over here is going to be the hidden state zero at the head number one. Then
-10:26
-you might ask how do we get the hidden states for K=2 and K= 3. The hidden
-10:31
-states for K=2 and K= 3 come from the previous depths. So the hidden state for k=2 comes from the hidden state 1 and
-10:39
-hidden state for k= 3 comes from hidden state 2. And how do we get hidden states
-10:44
-
-
-
 
 
 
 ***
+
+* 15:00
 
 1 2 and three? In every head we do a series of operations. We do a merging operation. We do a projection operation.
 10:51
@@ -411,6 +400,7 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+
 
 
 

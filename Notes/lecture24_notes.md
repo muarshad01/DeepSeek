@@ -2,7 +2,11 @@
 
 ***
 
-* 20:00
+* 20:00 
+
+$$h_i^k=M_k[RMSNorm(h_i^{k-1}),RMSNorm(Emb(t_{i+k}))]$$
+
+* Eauation 21
 
 transformer there is only one transformer block. So, this 1x8 vector which comes into the transformer block
 20:15
@@ -213,6 +217,7 @@ have assembled this code on Google Collab and I'll show that to you in the next 
 attending and I look forward to seeing you in the next lecture.
 
 ***
+
 
 
 

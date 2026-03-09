@@ -98,6 +98,10 @@ We just take the categorical cross entropy loss. Then between the predicted toke
 24:57
 predicted token two, actual token two, predicted token three, actual token three, and we add these losses together
 25:02
+
+
+***
+
 to give us the total loss. So this is how we get the loss from one token.
 25:09
 Similarly, we get the loss function for all of the tokens in one input sequence. So it's very similar to single token
@@ -208,7 +212,7 @@ have assembled this code on Google Collab and I'll show that to you in the next 
 30:40
 attending and I look forward to seeing you in the next lecture.
 
-
+***
 
 
 

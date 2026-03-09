@@ -1,24 +1,8 @@
-[Music]
-0:05
-Hello everyone and welcome to this lecture in the build deepseek from scratch series. Today we are going to
-0:13
-understand exactly how deepseek implemented multi-token prediction. In
-0:18
-the previous lecture we took a look at introduction to multi-token prediction and how it differs from single token
-0:25
-prediction. We saw that in multi-token prediction when we focus on one input token we generate multiple prediction
-0:33
-tokens instead of just one prediction token. And we also saw why is multi-token prediction useful. In
-0:40
-particular, we looked at four major reasons. The first is that multi-token prediction leads to densification of
-0:46
-training signals. Second, it leads to improved data efficiency. It leads to
-0:51
-better planning. And uh finally it leads to a higher inference speed. We also saw that deepseek used
-0:59
-multi-token prediction gains only during the pre-training process and during inference deepseek just used single
-1:06
-token prediction. Now although multi-token prediction looks simple like it just predicting multiple tokens
+* __Note__: DeepsSeek used MTP gains only during the pre-training process. During inference, DeepSeek just used STP.
+
+
+
+Now although multi-token prediction looks simple like it just predicting multiple tokens
 1:12
 instead of one token. There are a number of different intricacies which we need to understand. For example, if you take
 1:20
@@ -587,3 +571,4 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+

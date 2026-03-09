@@ -106,6 +106,14 @@ states for K=2 and K= 3 come from the previous depths. So the hidden state for k
 10:39
 hidden state for k= 3 comes from hidden state 2. And how do we get hidden states
 10:44
+
+
+
+
+
+
+***
+
 1 2 and three? In every head we do a series of operations. We do a merging operation. We do a projection operation.
 10:51
 We pass it through a transformer layer. And that's how we get these different hidden states. These hidden states will
@@ -491,5 +499,6 @@ bolts of assembly code from scratch. I have not found the multi-token prediction
 have assembled this code on Google Collab and I'll show that to you in the next lecture. So thanks everyone for
 30:40
 attending and I look forward to seeing you in the next lecture.
+
 
 

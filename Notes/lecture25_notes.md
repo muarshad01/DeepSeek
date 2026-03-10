@@ -111,6 +111,14 @@ position. So this logit scale for every input position will have 3 comma vocabul
 25:02
 input positions. So it will be 5a 3 comma vocabulary size. And if we also consider batch size then it's b comma 5a
 25:10
+
+
+
+
+***
+
+
+
 3a vocabulary size. That's the output which we get. So the best way to
 25:15
 visualize this output is that for every input sequence I have
@@ -342,6 +350,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

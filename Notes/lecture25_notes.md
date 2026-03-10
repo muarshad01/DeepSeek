@@ -1,114 +1,13 @@
 
-0:05
-Hello everyone and welcome to this lecture in the build deepseek from scratch series. Today we are going to
-0:12
-code the multi-token prediction mechanism from scratch in Google collab.
-0:19
-So we have finished two lectures on multi-token prediction so far. In the
-0:24
-first lecture on multi-token prediction, we looked at what exactly is multi-token prediction, how it differs from single
-0:31
-token prediction and why is multi-token prediction useful. We looked at four
-0:36
-major reasons for why multi-token prediction is useful. First is that it leads to densification of training
-0:42
-signals. It just makes pre-training a lot more efficient and a lot more
-0:49
-smarter. Second, it leads to improved data efficiency. Third, it's it leads to
-0:56
-better planning for the language model. And fourth is that it leads to higher inference speed. We also saw that DeepS
-1:03
-used the multi-token prediction gains only during pre-training. And during inference, Deepseek just used single
-1:10
-token prediction. And in the second lecture on multi-token prediction, we saw the exact mechanism
-1:16
-through which DeepS implemented uh multi-token prediction. So we saw that
-1:22
-we looked at this sequence of input tokens where there were eight input tokens each of a dimension of eight. And
-1:29
-then we saw that for every input token there were multiple tokens which
-1:35
-were predicted. So there is a terminology called as the depth of token prediction. So if depth equal to three
-1:42
-it means three tokens are predicted for every input token. So for example if we
-1:47
-look at this input token in the first row we have head one which predicts the
-1:52
-first token. We have head two which predicts the second token and we have head number three which predicts the
-1:58
-third token. And within each head there are multiple different computations which
-2:04
-happen. So if you zoom into one head, you have a hidden state coming into that
-2:10
-head and the input token embedding at that position which are merged which are then passed through a linear projection
-2:17
-matrix which is then passed through the transformer block and then finally
-2:22
-that's passed through the logits matrix which gives us the next token at that head. So we have the merge matrix,
-2:29
-projection matrix, transformer layer. Then we have the output of the transformer which is the hidden state
-2:35
-that's then passed through my unmbedding matrix or the logits matrix and I get my prediction token for the for this
-2:42
-head. Now I mentioned two inputs coming into each head right first is the input embedding and second is the hidden
-2:48
-state. The input embedding is for that prediction for that depth at which we
-2:54
-are predicting. So for every given input we are looking into the future right. So
-2:59
-for the first head we look at the next position. For the second head we look at
-3:04
-the position after that. For the third head we look at the position after that and we take the input embedding vector
-3:10
-corresponding to each of those positions. That is the first input to every head. The second input is the
-3:15
-hidden state to each head. And for head number one, this hidden state is just the output of the first input token.
-3:23
-When it passes through the different transformer blocks in the LLM architecture, we get the output
-3:30
-corresponding to that particular token. And that's the hidden state for head number one. But for the subsequent
-3:37
-heads, the hidden state is given from the previous calculation. So for example
-3:42
-for head number two the hidden state one which is computed in head number one that's passed as an input to head number
-3:49
-two. For head number three the hidden state which is computed in the previous computation is passed as the second
-3:55
-input along with its input embedding. So that's how information of the previous hidden state is carried forward. This is
-4:03
-different than how multi-token prediction is uh was implemented traditionally where every token
-4:09
-calculation was independent but here it's not independent right there is causality which means that we are taking
-4:16
-information of the past and transferring it into the future that's one main innovation made by DC. So we saw this
-4:24
-entire mechanism in the previous lecture and we saw the mathematical implementation. So finally after we have
-4:30
-the predicted tokens for every input token we take the loss function between the predicted token and the actual token
-4:37
-we add all of these loss functions and that gives us our total loss. If you want to revise this entire
-4:44
-mechanism which I just revised you can take a look at the previous lecture because now we are going to code this
-4:50
-entire mechanism which I described right now in Google Collab. So let us head to Google Collab
-4:57
-right now. So when we start to code this multi-token mechanism or multi-token
-5:02
-prediction mechanism from scratch uh the code is not very long actually and we just have four steps. Step number one,
-5:10
-step number two, step number three and step number four. Okay. In step number
-5:16
-zero actually we are just going to load the packages. In step number one we are going to define the RMS norm class. In
-5:23
-step number two, which is the longest and the most important step, we are going to just define a simple
-5:28
-multi-token prediction class. In step number three, we are going to generate
-5:33
-
-
-
 ***
 
+* 5:00
+
+* __Step-0__: Load Packages
+* __Step-1__: Define RMSNorm class
+* __Step-2__: Define the Multi-token Prediction (MTP) class
+* __Step-3__: Pass input tokens through the model and generate multiple next tokens
+* __Step-4__: Calculate loss between target tokens and predicted tokens
 
 next tokens. And in step number four, I'm just going to demonstrate the loss function calculation between the target
 5:39
@@ -703,4 +602,5 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 

@@ -13,105 +13,9 @@
 
 * 10:00
 
-this. The second future position is this. But the third future position is not in the input sequence at all. Right?
-10:12
-So in this entire input sequence I can only consider I=0, I= 1, I= 2, I= 3 and
-10:19
-I 4 as my input because when I= 4 is my input, my next three tokens which are
-10:25
-predicted are I= 5, 6 and 7. And I reach the end of my input sequence.
-10:31
-So the key thing to note here is that we have two indexes which are changing. The input index index index is changing from
-10:38
-i= to 0 1 2 3 4 and 5. So the input index I goes from 0 1 2 3 4 and 5. And
-10:46
-then for each of these the depth k will go from if k is indexed at zero then it
-10:52
-goes from 0 1 and 2. So since Python has zero indexing, K will go from 0 1 and 2
-10:58
-which means depth of 1 2 and three for this I. Then for this I we have again K
-11:05
-going from the the next three which are which is the depth of 2 3 and four etc.
-11:11
-So there are two loops. There is an outer loop of my index and there is an inner loop of the uh depth at which we
-11:19
-are predicting for that index. And that's why you'll see that in the code there are two
-11:24
-loops. There is first loop which is I uh and then there is the second loop for
-11:30
-K. Okay. And I goes from range of 0 comma max I + 1. Now what is this max
-11:37
-I? Max I is T minus number of heads minus one. What does this mean? So
-11:44
-essentially T is the input sequence length. Number of heads is how many how much depth you are predicting into the
-11:50
-future. Why we are doing this is because in this case in this case t is equal to 8 right because I have eight input eight
-11:57
-input tokens in this sequence. Then the number of heads number of heads
-12:03
-is equal to three correct because I have head one head two and head three I'm
-12:08
-predicting three future tokens. So t minus number of heads t minus number of heads is equal
-12:16
-to five and I can only vary i from 0 1 2 3 and
-12:23
-four. As you have seen I can only take five of these rows. I cannot take the sixth row because the ne the third token
-12:30
-will be out of reach. That's why you have I going from max I + 1 which is t
-12:36
-minus uh number of heads and Python has the zero indexing system right so this
-12:41
-will go from 0 1 2 3 and four in our particular case okay so that's where
-12:46
-this outer loop comes from and the inner loop k is in the range of number of
-12:52
-heads which means 0 1 and two because I'm predicting three future depths okay now what I'm going to do is that
-13:00
-uh for every input. So let's say if I =0. So if I =0, let's say I = 1. First
-13:09
-let me show you for I equal to0. You'll see in the code that the future position is I + K + 1. The future position is I +
-13:18
-K + 1. And remember Python has zero indexing system, right? So K goes from 0
-13:23
-1 and 2. So if I =0 this will be so k=0
-13:29
-k= 1 and k = 2. So for i=0 and k=0 i + k
-13:35
-+ 1 will be 1 then here will be two and here this will be three. This is correct
-13:40
-right because we are looking at position number one position number two and position number three for this i. Now if
-13:47
-I is equal to 1, I = 1, then this will be I + K + 1
-13:55
-will be position number 2, 3 and 4. That's why this I + K + 1 makes sense
-14:01
-over here for every input um token position index. We are looking at three
-14:07
-positions into the future and Python has the zero indexing system. So that's why we have to do K + one over here. If you
-14:14
-look at the deep se I + K they don't have I + K + 1 and we have to do I + K +
-14:21
-1 in the code because Python has zero indexing system. So that's why the future position for every input index I
-14:29
-is I + K + 1 and we are looping this. So if you focus on the first if I equal to0
-14:35
-so let's now restrict our attention to I equal to0 okay then K will go from 0 1
-14:41
-and 2. So the future positions are position number one, position two and position three. So for I equal to0
-14:50
-uh let me rub this. So for I =0 the future positions are
-14:56
-position number one, position two and position number three. That's what we have written over here. For I
-15:02
-=0 uh the we we are looking at position number one, position number one,
-15:08
-position two and position number three. Okay. Now what we have to do is that we have to the first step in every head is
-15:16
-
-
-
-
 ***
+
+* 15:00
 
   
 we have to take the input embedding at that future position and we have to take the hidden state. Now initially before
@@ -527,6 +431,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

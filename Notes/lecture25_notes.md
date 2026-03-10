@@ -93,6 +93,15 @@ size. You'll just take the index which corresponds to the maximum probability in
 30:01
 which is predicted for this head. For the second head among this you'll take the index with the maximum probability
 30:08
+
+
+
+
+
+
+***
+
+
 for the third head in this vector you'll take the index with the maximum probability. So basically that will give
 30:14
 you for I equal to0 what are the next tokens predicted at different heads head 1 head 2 and head three. So to plot this
@@ -193,6 +202,17 @@ yesterday's hands-on or the previous hands-on lecture which we had on deep se an
 35:22
 that lecture with coding that gives you a much detailed understanding of multi token prediction. The reason I'm sharing
 35:28
+
+
+
+
+
+
+
+***
+
+
+
 this code file with you is so that you can experiment with this further and that can lead to further avenues of
 35:34
 research. So until this point now we have covered multi-token prediction in detail which is the one of the three
@@ -230,6 +250,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

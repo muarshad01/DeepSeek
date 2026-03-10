@@ -9,92 +9,10 @@
 * __Step-3__: Pass input tokens through the model and generate multiple next tokens
 * __Step-4__: Calculate loss between target tokens and predicted tokens
 
-next tokens. And in step number four, I'm just going to demonstrate the loss function calculation between the target
-5:39
-token and the predicted token. So let's get started. First, we have to load the
-5:44
-packages. And in this simple demonstration, the only package which we are going to need is PyTorch. So you
-5:50
-you'll just need to import PyTorch and you'll need to load it. So this step will not take too much time. Let me also
-5:57
-run this along with you. So let me run this live so that I can demonstrate to you that this entire code actually does
-6:03
-not take too much time to run. Even if you are on a normal CPU um or if you
-6:09
-have T4 GPU that much is fine uh for you to run this code. The second or the step
-6:15
-number one rather is to define the RMS norm class. Why do we need RMS norm? If
-6:20
-you remember for every head before we concatenate the hidden state and the input token embedding, we have to take
-6:27
-the RMS norm of that vector. And this is also mentioned in the deep C paper.
-6:33
-Before we concatenate the hidden state and the input embedding for a given head, we have to take the RMS
-6:38
-normalization of that vector. Now, how is RMS normalization calculated? It's
-6:43
-pretty simple. Let's say if you have a vector uh let's say if you have a vector
-6:48
-with a bunch of entries right let's say if you have a vector with 6 7 8 values
-6:54
-what you do is that you first take the square of each of them. So you um you
-7:01
-take each of these entries and you square them. You take each of these entries and you square them. The next
-7:07
-step what you do is that you you add add all of these squared values and then you
-7:12
-take the uh mean which means if there are eight entries you sum all of these
-7:18
-values and you take the mean and then what you are going to do is that you are going to divide every
-7:25
-entry with the square root of this. So the root mean square is you calculate the root of this mean of the summation
-7:32
-of the squares and then you are going to divide every entry of this vector by this quantity. Okay, that is the root
-7:39
-mean square calculation and if you are unsure about this you can just check RMS RMS calculation. So this is root
-7:47
-mean square. uh true so to get the RMS value you just sum the squares you divide by n you take the square root and
-7:54
-then you normalize every entry in the vector by this quantity that's exactly what's done in this RMS norm class we
-8:02
-first sum the entries we take their mean we take the square root and then we
-8:08
-divide every entry in my vector with this RMS value there is a small epsilon value which I've added here so that we
-8:15
-prevent the division by zero okay so that's the RMS normalization class. The
-8:20
-step number two is where we define the multi-token prediction task, multi-token prediction class. And this is probably
-8:27
-the most important part of this code. So here you'll see that there is the init module where we have to initialize a
-8:34
-number of different matrices and then we have the forward method. Okay. Uh so the best way to
-8:42
-start understanding this code is right over here where we have these loops. we have the first loop and the second loop.
-8:48
-So let me exactly explain to you what is going on here. What we are basically doing is that for every input token, so
-8:57
-let me take you back here. Yeah, for every input token, let's say for i=0, we
-9:04
-have a variable which is called as k and that's my prediction depth. Right? So for i
-9:10
-=0 um for i =0 I'm predicting
-9:17
-at i + k. So I'm predicting at depth k depth
-9:22
-equal to 1, depth equal to 2 and depth equal to 3. Similarly, if I is equal to
-9:28
-1, I I'm going to predict at depth 2, 3 and four. uh if I'm predicting three
-9:34
-future tokens if I equal to two I'm predicting at depth three four and five
-9:39
-okay so the key thing to note here is that for every token position I we are
-9:45
-predicting the next three tokens I + 1 I + 2 and I + 3 so in the code you will see K right so this K is this value the
-9:53
-depth and I is the position of the token right and how many such I you need to
-9:59
-consider I'm looking at three future tokens Right? So I cannot have this I because the first future position is
-10:06
+***
+
+* 10:00
+
 this. The second future position is this. But the third future position is not in the input sequence at all. Right?
 10:12
 So in this entire input sequence I can only consider I=0, I= 1, I= 2, I= 3 and
@@ -602,5 +520,6 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 

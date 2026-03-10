@@ -110,6 +110,17 @@ unmbedding matrix u which gives me my logics matrix
 20:03
 um and This gives me my logits which means that it will help me in prediction of the
 20:10
+
+
+
+
+
+
+
+
+***
+
+
 next token. So for the first head for the first head the dimensions of this
 20:16
 the this output is actually 1 comma the vocabulary size. So if you see over here this b is
@@ -431,6 +442,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

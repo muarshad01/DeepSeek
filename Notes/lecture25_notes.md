@@ -11,128 +11,8 @@
 
 ***
 
-* 10:00
+* 25:00
 
-***
-
-* 15:00
-
-***
-
-* 20:00
-
-next token. So for the first head for the first head the dimensions of this
-20:16
-the this output is actually 1 comma the vocabulary size. So if you see over here this b is
-20:24
-the batch size. So for all practical purposes you can assume the batch size to be equal to one. Uh so we get the
-20:30
-output which is equal to 1 comma the vocabulary size uh for the first
-20:36
-prediction depth. Then what you are going to do as you are going to loop for different prediction depths you are
-20:42
-going to merge these logics together. So finally the logits which is accumulated
-20:49
-for one input index. So if you look at this I =0. If you look at I equal to0 we
-20:56
-have three logits vectors which are predicted right 1 comma vocabulary size then 1 comma vocabulary
-21:03
-size and 1 comma vocabulary size. So if you aggregate these three
-21:10
-together for one index uh for i equal to0 you get a logit vector which is 3
-21:16
-comma vocabulary size. And similarly you are going to make these predictions for i= 1, i= 2, i
-21:25
-= 3 and i = 4. Correct? Because we are going to predict the next token until
-21:30
-this point until this i i equal to0 1 2 3 and four. So for each of these we'll have
-21:38
-the uh final logits as 3 comma the
-21:44
-vocabulary size which are the next three tokens which are predicted. So we get
-21:49
-these logit vector for the first input token we have the three comma vocabulary
-21:56
-size for the second input token we have the same size etc. So in the code this logit k which I have shown over here is
-22:05
-from we are first doing one input token we are then predicting the logits vector
-22:11
-for all the prediction depths and we are stacking it together. So for one input token there are three prediction depths.
-22:17
-So when you stack it together for one input token you will get three comma vocabulary size and then this output now
-22:24
-this output is the 3 comma vocabulary size done for
-22:29
-five such types. So this output now when you stack all of this together this will
-22:35
-be 5a 3 comma vocabulary size and here I'm assuming the batch
-22:42
-size equal to 1. So if you also take the batch size this will be of the size B comma 5a 3 comma the vocabulary
-22:52
-size this is the output which comes out and the way to read this output is that
-22:57
-for every index uh for every input token index we are
-23:03
-predicting three tokens into the future so that's three comma vocabulary size and how many such input indexes are
-23:08
-there there are five such input indexes and how many batches are there there are batches So the output dimension is BA 5A 3A
-23:17
-vocabulary size. What is this five? This five is equal to the input sequence T minus the prediction depth T. So it's 8
-23:25
-minus 3 which is equal to 5. This three is the number of heads which I have or my prediction depth. B is the batch size
-23:31
-and vocabulary size is whatever vocabulary size which we have in our language model. So here you see the
-23:37
-output sequence is B comma T minus B comma D comma V. So B is the batch size.
-23:45
-T minus D as I mentioned is the sequence length 8 minus the number of heads which is three. So this is five. D is equal to
-23:52
-three which is the number of heads or the depth and V is equal to the vocabulary size. Okay. So this entire
-23:59
-code right now which is the simple MTP class is the main module
-24:05
-which we have implemented. In this what we did is that first I mentioned to you
-24:11
-that there are two loops. There is a loop for sliding over my token index and
-24:16
-there is a loop for sliding over the prediction depth. So for each token index we are actually predicting for
-24:22
-three tokens into the future. If K is equal to three, uh then we are first aggregating the RMS norm of the previous
-24:29
-hidden state and the token embedding. We are merging it together. We are passing it through the projections matrix so
-24:35
-that we we are brought back to the model dimension. Then we pass it through the transformer layer to get the current
-24:41
-hidden state. This current hidden state is passed through the unmbeding matrix or the logics matrix and then we get one
-24:49
-or the vocabulary size vector for that prediction depth. And we have three such prediction depths for every input
-24:55
-position. So this logit scale for every input position will have 3 comma vocabulary size. And we have five such
-25:02
-input positions. So it will be 5a 3 comma vocabulary size. And if we also consider batch size then it's b comma 5a
-25:10
-
-
-
-
-***
-
-
-
-3a vocabulary size. That's the output which we get. So the best way to
-25:15
-visualize this output is that for every input sequence I have
-25:21
-three prediction tokens which are the output. Now for i=0 if you consider
-25:27
-uh for i=0 I have my prediction at i = 1 2 and 3. If you consider for i= 1 I have
-25:35
-my predictions for i= 2 3 and 4 etc. Right? So we have actually this this a
-25:42
-fourdimensional tensor consists of three prediction tokens as output for five
-25:48
-input sequences. That's the main thing or that's the main way to visualize it. This fourdimensional tensor consists of
-25:56
 three prediction tokens as the output for five uh input
 26:01
 tokens. And once you have understood this, it will be very easy for you to understand the loss function calculation
@@ -350,6 +230,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

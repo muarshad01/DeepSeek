@@ -104,6 +104,12 @@ step number two, which is the longest and the most important step, we are going 
 5:28
 multi-token prediction class. In step number three, we are going to generate
 5:33
+
+
+
+***
+
+
 next tokens. And in step number four, I'm just going to demonstrate the loss function calculation between the target
 5:39
 token and the predicted token. So let's get started. First, we have to load the
@@ -697,3 +703,4 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+

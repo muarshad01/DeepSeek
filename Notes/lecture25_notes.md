@@ -17,109 +17,9 @@
 
 * 15:00
 
-  
-we have to take the input embedding at that future position and we have to take the hidden state. Now initially before
-15:23
-we enter the head we have to first define my edge previous which is my initial hidden state and this initial
-15:29
-hidden state will be the uh output of my transformer block. So here I'm just
-15:36
-defining H0 sequence if you see yeah H0 sequence equal to embeds right. So here
-15:43
-I'm just defining the initial H0 sequence as from the input embedding.
-15:50
-But actually in a deepse architecture what they did was the initial hidden state was when you take
-15:57
-the input embedding for i equal to0 when you pass it through the transformer block and when you first get this output
-16:04
-that's the initial hidden state which we which you have to initialize over here that's my h previous okay and then when
-16:11
-you go into each head now for k in range number of heads which means I am at head number zero or head number one 2 and
-16:18
-three in each head I have to take two inputs right? I have to take my token embedding and I have to take the
-16:25
-previous hidden state. As you see over here in each in each head you have two
-16:31
-inputs. The input number one is the input embedding at that position and the hidden state. So what you are going to
-16:39
-do is that first you get the token embedding which is the input embedding at that position. So that's why we have
-16:44
-future position I + K + 1. So you get the input embedding at that position and
-16:50
-then what you do is that you take the RMS norm. You take the RMS norm of the hidden state and you take the RMS norm
-16:56
-of the token embedding at that position. And this I have also shown over here. You take the RMS norm of the hidden
-17:03
-state. You take the RMS norm of the input embedding at that position and
-17:08
-then you merge them together. That's what's shown over here. you take. So this H norm is the RMS norm of the
-17:14
-hidden state to that head. E norm is the RMS norm of the token embedding at that
-17:20
-future position. And then we merge these two together. So that gives us the merged vector. And the merged vector
-17:27
-will now be 1x 16. So if this is 1x 8 and this is 1x 8, the merge vector will be 1x 16. So you have this merged
-17:34
-vector. Then what you do is that once you get the merged vector, you have to project it. Uh so my merge vector is 1x
-17:41
-16 right I need to project it back to 1x8 vector so I need to multiply it with a linear projection layer whose
-17:48
-dimensions are 16 comma 8 so if you see here selfp projections that would have
-17:54
-been defined in my init so this is the selfprojection and you'll see it's 2D
-17:59
-comma D so the selfp projections is a linear neural network layer which is two
-18:06
-times the dimension model uh comma the D model, right? Uh so this is the
-18:14
-dimension of the projection layer which we have and the when you uh pass the
-18:20
-merge matrix through the projection layer, the output is of the same as the uh dimension. So it we get a 1x8 vector
-18:27
-over here. So this 1x8 vector which we obtain after the projection layer is
-18:32
-then passed through the transformer block. So to simulate the transformer block
-18:37
-what we have done here is that uh we have we are just uh using this
-18:42
-transformer encoder layer. So if you scroll up you'll see that transformers
-18:48
-is just transformer encoder layer and this is a functionality which is given by pytorch which automatically input
-18:55
-which automatically does all the calculations as in the forward pass of a transformer. So the transformer encoder
-19:02
-layer involves multi head self attention layer normalization feed forward neural network and another layer
-19:09
-normalization. So by default you can use this uh package from the from PyTorch.
-19:15
-So this is n.t transformer encoder layer. So this projection is eventually
-19:22
-passed through the transformer block and then what I get is I get the hidden
-19:28
-state for the current head. This I'm calling H C U R which is H current and
-19:33
-uh this is H previous. So if you take a look at the schematic now um for the
-19:39
-first head for this first head what I'm doing is that this hidden state I'm calling as
-19:45
-edge previous in the code and this hidden state which is the output of the transformer block is called as the edge
-19:51
-current in my code and this current hidden state is then passed through the
-19:57
-unmbedding matrix u which gives me my logics matrix
-20:03
-um and This gives me my logits which means that it will help me in prediction of the
-20:10
-
-
-
-
-
-
-
-
 ***
 
+* 20:00
 
 next token. So for the first head for the first head the dimensions of this
 20:16
@@ -442,6 +342,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

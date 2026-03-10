@@ -107,6 +107,13 @@ position number one, position two and position number three. That's what we have
 15:08
 position two and position number three. Okay. Now what we have to do is that we have to the first step in every head is
 15:16
+
+
+
+
+***
+
+  
 we have to take the input embedding at that future position and we have to take the hidden state. Now initially before
 15:23
 we enter the head we have to first define my edge previous which is my initial hidden state and this initial
@@ -520,6 +527,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

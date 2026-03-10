@@ -95,11 +95,9 @@ which is predicted for this head. For the second head among this you'll take the
 30:08
 
 
-
-
-
-
 ***
+
+* 30:00
 
 
 for the third head in this vector you'll take the index with the maximum probability. So basically that will give
@@ -250,6 +248,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

@@ -252,6 +252,8 @@ activations then serve as an input to
 
 ***
 
+* 5:00
+
 
 the future blocks etc. Essentially what
 5:04
@@ -501,6 +503,13 @@ bits and we have a large language model
 10:04
 with 70 billion parameters, the amount
 10:07
+
+
+***
+
+* 10:00
+
+  
 of memory the all the parameters take is
 10:10
 70 billion multiplied by 64 divided by
@@ -763,6 +772,19 @@ called as integer 8. So here every value
 15:24
 is essentially an integer. We don't have
 15:26
+
+
+
+
+
+
+
+***
+
+* 15:00
+
+
+
 decimal places.
 15:29
 So if you see the three types or the
@@ -1007,4 +1029,8 @@ look forward to seeing you in the next
 20:23
 lecture.
 Shorts
+
+
+***
+
 

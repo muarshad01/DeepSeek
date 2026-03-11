@@ -126,12 +126,9 @@ that lecture with coding that gives you a much detailed understanding of multi t
 
 
 
-
-
-
 ***
 
-
+* 35:00
 
 this code file with you is so that you can experiment with this further and that can lead to further avenues of
 35:34
@@ -170,6 +167,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

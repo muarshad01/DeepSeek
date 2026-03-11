@@ -13,6 +13,8 @@
 
 * 25:00
 
+* __Step-3__: Pass input tokens through the model and generate multiple next tokens
+
 three prediction tokens as the output for five uh input
 26:01
 tokens. And once you have understood this, it will be very easy for you to understand the loss function calculation
@@ -248,6 +250,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

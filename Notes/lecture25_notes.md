@@ -15,91 +15,11 @@
 
 * __Step-3__: Pass input tokens through the model and generate multiple next tokens
 
-three prediction tokens as the output for five uh input
-26:01
-tokens. And once you have understood this, it will be very easy for you to understand the loss function calculation
-26:07
-which we'll see later also. Now let's come to the next part where we'll actually pass these input tokens through
-26:12
-the model and generate multiple tokens. So once we have received these output tokens, what we can do or once we have
-26:20
-received this output tensor, what we can do is we can test our uh MTP class
-26:26
-implementation to see whether it's working correctly or not. So what I'm going to do is that I'm going to define
-26:32
-multiple things. So I'm going to define a batch size which is equal to one. I'm going to define the sequence length
-26:38
-which is equal to 8. So I'm currently matching exactly the input sequence which we have over here. I'm going to
-26:44
-define my sequence length t is equal to 8 which means the number of tokens here. Then I'm going to define d is equal to 8
-26:52
-which is the dimension. So I've defined t is equal to 8. d model is equal to 8
-26:57
-and the vocabulary size I'm defining to be equal to 5,000. Okay. So the first
-27:03
-thing I'm going to do is I'm going to create an instance of this model using all of these variables which I've just
-27:08
-defined and then I'm going to create a batch of input tokens which I'm going to pass through this
-27:15
-model. So tokens dot randt which means I'm going to randomly sample tokens from
-27:22
-my vocabulary and they will be batch size, the sequence length. So if my sequence length is equal to 8, I'm just
-27:29
-going to s and if my batch size is equal to one, I'm just going to sample eight tokens. So in this example or in this
-27:35
-step, what we are doing is we are sampling eight tokens and we are passing these eight tokens through the model or
-27:41
-through the yeah through the simple MTP model and let's check the logits.shape.
-27:47
-So first if you run this, okay, simple MTP not defined. It seems that I have
-27:52
-not defined this class. So let me run this first. And now if I run this again, the first thing I want you to inspect is
-27:59
-this logits.shape. And logits do.shape is one which is the batch size, 5a 3a 5,000.
-28:06
-And now you should be able to understand what this 5 3 and 5,000 mean. What is five? Five is basically t minus b which
-28:14
-means I'm only doing the predictions for this, this, this, this, and this. So there are five input sequences. I cannot
-28:20
-do the prediction here because at prediction depth three nothing will exist. Okay. So, I'm doing the
-28:26
-prediction for only five input tokens. That's why we have the five here. And what is this three? Three is because I'm
-28:32
-predicting three future tokens for each input index. That's why we have the three over here. And 5,000 is because
-28:39
-that's the vocabulary size. So, that will help me in prediction of my next token. I'm going to look at
-28:45
-the index which has the maximum probability out of the 5,000 tokens. So,
-28:50
-that's my logic shape. And I'm just going to print out some other things to inspect. So here, what if I want to
-28:56
-inspect head uh k=0 at i=0, which means that I want to predict
-29:04
-the logits which are predicted for i=0, which means i equal to0 and for this
-29:11
-head for the first head. So that means I should just get a 1a 5,000 vector because I'm now looking at the first
-29:17
-input token and I'm looking at the first head right now. So similarly you can just do logits
-29:24
-comma 0 comma 0 because that's k=0 at i=0 and that will give you a logits of
-29:31
-1a 5,000 shape. Okay. Um you can do several other
-29:36
-things. So for example if you want to predict the tokens for i equal to0 but for all the different heads if you want
-29:43
-to predict the maximum token index what you will do is that the logits. So each of these heads have logits right which
-29:50
-are 1 comma vocabulary size 1 comma vocabulary size and 1 comma vocabulary
-29:55
-size. You'll just take the index which corresponds to the maximum probability in this that will be the next token
-30:01
-which is predicted for this head. For the second head among this you'll take the index with the maximum probability
-30:08
-
-
 ***
 
 * 30:00
+
+* __Step-4__: Calculate loss between target tokens and predicted tokens
 
 
 for the third head in this vector you'll take the index with the maximum probability. So basically that will give
@@ -250,6 +170,7 @@ prediction and it made Deepseek both faster and more capable and one of and was 
 um was one of the key innovations implemented in their architecture. Thank you so much everyone. I look forward to
 37:26
 seeing you in the next lecture.
+
 
 
 

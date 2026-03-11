@@ -244,6 +244,15 @@ inputs and the weights and these
 4:59
 activations then serve as an input to
 5:01
+
+
+
+
+
+
+***
+
+
 the future blocks etc. Essentially what
 5:04
 I'm trying to say is that there are
@@ -998,3 +1007,4 @@ look forward to seeing you in the next
 20:23
 lecture.
 Shorts
+

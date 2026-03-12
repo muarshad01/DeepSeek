@@ -271,6 +271,15 @@ FP16. And the third is integer 8. So
 15:12
 that's the lowest form of representation
 15:14
+
+
+
+***
+
+
+
+
+
 where the minimum and maximum go from
 15:16
 minus 127 to 127 and only eight bits are
@@ -541,6 +550,7 @@ Shorts
 
 
 ***
+
 
 
 

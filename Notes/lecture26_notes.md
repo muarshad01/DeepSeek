@@ -1,112 +1,16 @@
 
-0:05
-Hello everyone and welcome to this
-0:08
-lecture in the build deepseek from
-0:10
-scratch
-0:11
-series. Today we are going to start an
-0:15
-important topic and that is with respect
-0:17
-to quantization. So until now with
-0:20
-respect to building the entire deepseek
-0:22
-architecture we have covered multi head
-0:25
-latent attention we have covered mixture
-0:27
-of experts and in the previous
-0:30
-um set of lectures we also covered uh
-0:35
-um the third major architectural
-0:39
-uh pillar of deep seed and that's
-0:41
-multi-token prediction. So after
-0:44
-covering these three major pillars, we
-0:46
-now move towards quantization and that's
-0:49
-the final pillar with respect to the
-0:52
-deepseek architecture. So when I say
-0:54
-quantization, if you take a look at the
-0:56
-deepseek version 3 technical report and
-0:59
-if you scroll down below, you'll see
-1:01
-that uh we have covered until now the
-1:03
-latent attention mixture of experts and
-1:05
-multi-token prediction. So the
-1:07
-architecture part of this paper is
-1:09
-finished. Now if you come to the
-1:11
-infrastructures portion they have this
-1:13
-FP8 training and uh these major aspects
-1:17
-of the FBA training are what we are
-1:19
-going to cover in these sequence of
-1:21
-lectures. So if you scroll down below
-1:24
-you'll see that
-1:26
-uh they have a section which is called
-1:29
-as FP8 or floating.8 training section
-1:33
-number 3.3 and that comes up on page
-1:36
-number 14.
-1:38
-This section is about the quantization
-1:40
-which deepseek has implemented and like
-1:42
-several other sections of this paper if
-1:44
-you directly start reading this it will
-1:47
-be a bit difficult to really understand
-1:49
-what's going
-1:51
-on. So what I'm going to do is that in
-1:53
-this series of two to three lectures I'm
-1:56
-going to explain the five arch the five
-2:00
-innovations which deepseek implemented
-2:02
-in their quantization routine. First is
-2:04
-called as mixed precision framework.
-2:07
-Second is called as fine grained
-2:09
-quantization. Third is increasing
-2:11
-accumulation precision. Fourth is
-2:14
-mantisa over exponents and fifth is
-2:16
-online
-2:18
-quantization. Okay. So when deepsee
+
+### 3.3 FP8 Training
+
+* Mixed precision framework.
+* Fine-grained quantization.
+* Increasing accumulation precision.
+* Mmantisa over Exponents
+* Online quantization.
+
+
+
+Okay. So when deepsee
 2:21
 released their paper they had figures on
 2:24
@@ -1032,5 +936,6 @@ Shorts
 
 
 ***
+
 
 

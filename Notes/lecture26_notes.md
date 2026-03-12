@@ -1,4 +1,4 @@
-
+### MLA, MoE, MTP
 
 ### 3.3 FP8 Training
 
@@ -8,153 +8,7 @@
 * Mmantisa over Exponents
 * Online quantization.
 
-
 * [A Visual Guide to Quantization](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
-
-
-Okay. So when deepsee
-2:21
-released their paper they had figures on
-2:24
-each of these sections. So for example,
-2:26
-if you look at figure number six, that
-2:29
-is the figure which illustrates the
-2:30
-mixed precision framework which we are
-2:33
-going to
-2:34
-uh which we are going to see in detail.
-2:37
-This is the mixed precision framework.
-2:39
-Then if you look at these figures which
-2:41
-is figure number seven, they have part A
-2:44
-and part B. So part A is with respect to
-2:47
-fine grain quantization and part B is
-2:50
-with respect to increasing accumulation
-2:52
-precision. If you directly look at these
-2:54
-figures, it may seem that there are so
-2:56
-many building blocks over here. And what
-2:58
-do these different colors actually
-3:00
-represent? I plan to break it down for
-3:02
-you so that you'll understand it. The
-3:04
-third or the fourth part is mantisa over
-3:07
-exponents and the fifth is online
-3:10
-quantization. So if you see they have a
-3:12
-part called mantisa over exponents and
-3:15
-they have a part called or a section
-3:16
-which is called as online quantization.
-3:20
-So the way I'm going to break down these
-3:22
-lectures is that before understanding
-3:24
-any of these we'll first need to have a
-3:26
-brief understanding of what exactly is
-3:28
-meant by
-3:29
-quantization. So in this lecture I'm
-3:32
-going to very simply explain to you what
-3:34
-quantization means and starting from
-3:38
-next lectures I'll take you through all
-3:40
-of these frameworks. So the next lecture
-3:43
-may be based on these three mixed
-3:45
-precision framework fine grain
-3:46
-quantization increasing accumulation and
-3:49
-then I'll have another lecture on
-3:50
-mantisa or exponents online quantization
-3:53
-and then we'll wrap up the quantization
-3:55
-part. So let's get started with today's
-3:58
-lecture. U first let me show you the
-4:01
-main reference which I'm going to use
-4:02
-today. So quantization I'm going to use
-4:05
-a blog
-4:07
-um which is written by Martin Gautam
-4:10
-Dors. This is probably the best
-4:12
-reference which I' I've come across to
-4:14
-understand quantization and uh I'll be
-4:17
-referring to this blog in today's
-4:19
-lecture where I explain to you
-4:21
-quantization and what it exactly means.
-4:23
-So let's get started with that. Okay. So
-4:27
-deepse is a large language model right?
-4:30
-So why does quantization come up in
-4:33
-large language models and what exactly
-4:35
-is
-4:36
-quantization? So if you look at the
-4:39
-basic building blocks of a large
-4:40
-language models, we have inputs, we have
-4:43
-weights, inputs are multiplied by
-4:46
-weights and pass through activations,
-4:48
-right? So these activations which we are
-4:51
-referring to, they are calculated after
-4:54
-let's say you get the product of the
-4:56
-inputs and the weights and these
-4:59
-activations then serve as an input to
-5:01
-
-
-
-
-
 
 ***
 
@@ -938,6 +792,7 @@ Shorts
 
 
 ***
+
 
 
 

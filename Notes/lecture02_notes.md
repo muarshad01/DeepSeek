@@ -493,9 +493,4 @@ lot everyone and uh I look forward to seeing you during the next lecture thank
 39:55
 you
 
-
-
-
-
-
-
+***

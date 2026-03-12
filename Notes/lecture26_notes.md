@@ -9,6 +9,8 @@
 * Online quantization.
 
 
+* [A Visual Guide to Quantization](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
+
 
 Okay. So when deepsee
 2:21
@@ -936,6 +938,7 @@ Shorts
 
 
 ***
+
 
 
 

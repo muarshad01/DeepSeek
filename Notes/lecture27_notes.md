@@ -100,6 +100,12 @@ lost lost its precision. um this is the main issue with having
 20:09
 outliers. So in the current approach which we are doing we take all of the values and then we divide it by the
 20:14
+
+
+
+***
+
+
 largest possible value right that leads to this major issue that smaller values
 20:21
 can significantly lose precision. So 2 3 and 4 are much smaller compared to 500.
@@ -327,5 +333,6 @@ series. So we have until now we have covered latent attention mixture of experts
 we are almost at the end of covering quantization. Thanks everyone and I look forward to seeing you in the next
 31:55
 lecture.
+
 
 

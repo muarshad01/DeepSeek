@@ -3,88 +3,11 @@
 
 * 10:00
 
-converted into floating point 8 when needed. So these weights when they are utilized for calculations they are
-10:58
-converted on the fly to floating point 8. But remember that the master weights are computed as floating point 32 and
-11:04
-the partial gradient with respect to the weights is computed as floating point 32. So this portion is shown in this
-11:11
-part of the schematic over here. We get the weight gradient in floating point 32 and we get the master weights as
-11:17
-floating point 32 and they are on the fly converted to floating point 8 to get
-11:22
-my u forward pass to get my degrad etc. Okay. So this is how
-11:29
-the different parameters are stored in different quantized formats when we are
-11:35
-doing the forward pass and when we are doing the backward pass. Okay. So now I
-11:40
-hope that when you look at this figure you'll actually completely understand what's going on. Figure six. If you
-11:46
-directly look at this figure it's very difficult to understand what's going on. But now when you look at it you'll
-11:52
-understand what the mixed precision framework actually means. Uh and so now if you compare the
-12:00
-advantages of what exactly we are doing here. Why do we do this mixed precision? Right? So you see we are converting
-12:08
-several variables into floating point 8 on the go. This significantly reduces the computational and memory cost and it
-12:15
-provides us a big speed improvement uh especially compared to using BF16. So if
-12:21
-you look at the schematic now there are several variables which are converted to floating point 8 on the fly for
-12:27
-calculations during the forward pass as well as during the backward pass.
-12:33
-This speeds up the computations by a lot. And GM means matrix multiplication
-12:38
-operations. General matrix multiplication operations. They involve a lot of multiplications like this. So
-12:46
-using a floating point significantly speeds up my computations and it reduces my memory cost. But you see we are
-12:54
-smartly uh also retaining some states in higher precision, right? master weights
-13:00
-and the optimizer states are stored in floating point 32 to ensure training stability. That's why this is called as
-13:06
-mixed precision. During computations, some variables which are not as important are converted to floating
-13:13
-point on the fly. But variable states which are important so for example these master weights for example then partial
-13:20
-derivative of loss with respect to w those are maintained as floating point 32. That's why it's called as mixed
-13:26
-precision. uh now in the paper deepse mentioned that embedding modules output heads
-13:33
-gating modules normalization and attention operators are sensitive and hence these are retained in higher
-13:39
-precision that's an important thing to understand so if you take a look at this section which they have mentioned they
-13:46
-mention here clearly that which operations are retained in higher precision uh for this reason after careful
-13:53
-investigation we maintain the original precision for the following components the embedding module Token and
-13:59
-positional embedding. The output head where the final output head converts from a embedding dimension to the
-14:05
-dimension of vocabulary size. Mixture of experts gating modules, normalization operators and attention operators. The
-14:13
-floating points or the precisions are higher for these operations either their BF16 or floating point 32. Whereas let's
-14:20
-say all the other areas where we have weight products, we have weight multiplications, those are calculated
-14:26
-using the floating point.8 format. So you see we are using low precision but at the same time for some calculations
-14:33
-we are using high precision. So we get memory reduction, computational efficiency and numerical stability at
-14:39
-the same time. It's a very smart way for doing operations. Operations which are not important uh or we can we can do
-14:47
-fine with reduced precision in those operations we convert those into floating point 8. Whereas operations
-14:52
-which are important uh those are retained in floating point 32 especially in mixture of expert gating modules and
-14:59
-attention operators embedding modules etc. All of those are retained in higher precision.
-15:06
-So this is the main concept behind understanding mixed precision framework and that's the first quantization
-15:12
-technique which deepseek implemented. U along with this the second quantization
-15:17
+***
+
+* 15:00
+
+
 technique which is also shown in their second figure which they implemented is something which is called as fine grain
 15:23
 quantization. So let's come to understanding this right now. Okay. So if you look at the fine grained
@@ -404,4 +327,5 @@ series. So we have until now we have covered latent attention mixture of experts
 we are almost at the end of covering quantization. Thanks everyone and I look forward to seeing you in the next
 31:55
 lecture.
+
 

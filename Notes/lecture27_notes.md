@@ -7,104 +7,9 @@
 
 * 15:00
 
-
-technique which is also shown in their second figure which they implemented is something which is called as fine grain
-15:23
-quantization. So let's come to understanding this right now. Okay. So if you look at the fine grained
-15:29
-quantization section in deepseek you'll see that they have these figure 7 and
-15:35
-figure figure 7 a and figure 7b just looking at these figures it's really
-15:40
-very difficult to understand what's going on there there are usage of so many colors here um there is something
-15:46
-called tensor core cuda course gam wgmma scaling factors so many things are going
-15:53
-on the first thing to understand is that this figure actually consists of two figures. There is fine grain
-15:59
-quantization and there is increasing accumulation precision. First we'll understand fine
-16:05
-grain quantization which is the figure on the left hand side. So to understand this the most important uh thing to
-16:12
-understand is this uh conversion which we saw. So if you want to go from let's say floating point 32 to integer 8. What
-16:19
-we do is that if you you take the sequence of numbers you divide with the highest number and then what you do is
-16:26
-that you multiply it with 127 because we're converting it to integer 8. So the important thing to remember is that we
-16:33
-divide the original number or the original sequence of numbers with the highest absolute
-16:39
-value and that's where we start fine grain quantization. So for example if you see fine grain
-16:47
-quantization starts with the scaling solution. So you have the initial sequence of numbers. What you do is that
-16:53
-you take the maximum value of these numbers and then you multiply it with the uh if you're converting it to
-17:00
-floating point 8 you multiply it by 127 over here. So if you have the sequence of numbers 2 3 and four and if you want
-17:07
-to convert it into floating point 8 what you do is that you first uh divide these
-17:12
-by four because that's the highest number and then you multiply it by 127 and that's how you get the conversion
-17:19
-into floating.8. The reason this is done is that u when we move to lower precision
-17:27
-formats like floating point 8 we have fewer exponent bits. Thus the numerical range which we can represent is
-17:35
-small and that can lead to overflow problems or underflow. So overflow is when the numbers become too large.
-17:42
-Underflow is when the numbers become too small and we lose the precision. Uh so that's why the scaling solution is
-17:48
-employed because we can scale the entire tensor based on its largest absolute value and scaling just like
-17:54
-normalization in deep learning it reduces this underflow or underflow or overflow issues. So this method is very
-18:02
-frequently used to convert a sequence of numbers into floating
-18:07
-point 8, floating point 16 etc. Essentially to quantize a sequence of numbers but this approach has a big
-18:13
-weakness. The major weakness of this approach is that even a single outlier can drastically reduce the represent
-18:20
-representation accuracy of a whole tensor. And let me explain to you what I mean by this. First if you take the look
-18:28
-without outlier 2 3 and 4 we divide all these elements with four and then we
-18:33
-multiply it with 127. So this is my uh this is my
-18:38
-quantized tensor now 63.5 95.25 25 127 and de quantization becomes much easier
-18:45
-right then I just multiply it with 4 by 127 for quantization I multiply it with
-18:51
-127x 4 for deontization I multiply with 4 / 127 and I recover back the same
-18:57
-tensor which I had before which means I do not lose any precision but now consider the case when we have an
-19:04
-outlier over here if we have an outlier which is way larger than the other numbers then what do we do We divide
-19:11
-these numbers with 500 and then we multiply with 127. So the scale tensor
-19:16
-actually now looks like this. But remember we are quantizing to floating.8 right? So there is limited
-19:23
-precision. I cannot represent 0508 as a floating point 8. I cannot represent 762
-19:29
-as a floating.8 1.016 I cannot represent as a floating point 8. So these numbers when
-19:36
-you actually quantize them they become like this. So 050 it loses its precision and it becomes 0.5 762 loses its
-19:44
-precision and it becomes 75. 1.016 loses its precision and becomes one. So the
-19:51
-quantise tensor loses its precision. And when you dequantize back you get numbers which
-19:56
-are which are different from the original set of numbers. Right? And this is because the quantized version has
-20:03
-lost lost its precision. um this is the main issue with having
-20:09
-outliers. So in the current approach which we are doing we take all of the values and then we divide it by the
-20:14
-
-
-
 ***
 
+* 20:00
 
 largest possible value right that leads to this major issue that smaller values
 20:21
@@ -333,6 +238,7 @@ series. So we have until now we have covered latent attention mixture of experts
 we are almost at the end of covering quantization. Thanks everyone and I look forward to seeing you in the next
 31:55
 lecture.
+
 
 
 

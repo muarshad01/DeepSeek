@@ -119,6 +119,10 @@ vector which is shown by the green color right now. Uh actually let me take a
 25:52
 screenshot of this and bring it to the whiteboard so that I can explain it to you clearly. So this is my um input
 25:59
+
+
+***
+
 vector right now which is exactly what I showed over here and what they have
 26:04
 shown with this different shades of green is the different chunks. So NC I think is 128. We break it down into
@@ -217,6 +221,10 @@ mantisa over exponents and then finally we have online quantization and then the
 30:50
 uh whole FP8 quantization part of deepseek will be finished. So thanks everyone. We are now
 30:57
+
+***
+
+
 going deeper and deeper and deeper into deepseek. I don't believe or I believe these
 31:02
 this thing which I'm teaching right now is not covered anywhere else because we are going into the very basics of
@@ -238,7 +246,4 @@ series. So we have until now we have covered latent attention mixture of experts
 we are almost at the end of covering quantization. Thanks everyone and I look forward to seeing you in the next
 31:55
 lecture.
-
-
-
 

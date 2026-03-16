@@ -10,10 +10,6 @@
 
 ***
 
-* 10:00
-
-***
-
 * 15:00
 
 | Model | Parameters |
@@ -106,6 +102,9 @@ distillation a bulk of the lectures will be on phase number number one and phase
 35:30
 lectures on phase three and phase four so this is the main plan which we'll be following for the
 35:36
+
+***
+
 series let me quickly summarize what we learned today first we looked at large
 35:41
 language models and the fact that they are engines of probabilistic next token

@@ -16,7 +16,15 @@
 
 * 15:00
 
+| Model | Parameters |
+|---|---|
+| DeepSeek V3 (Foundational Model)| 671 B |
+| DeepSeek R1 (Reasoning Model) | |
+| LLama (Meta) | 70B |
 #### Comparision with other AI models
+
+* DeepSeek versus GPT-4
+* DeepSeek versus [LLama](https://www.llama.com/)
 
 other AI models and let's see um is it better why is it better how low is its
 15:13

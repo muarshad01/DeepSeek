@@ -43,6 +43,9 @@
 #### GPU Training
 * NVIDIA Paralle Thread Execution (PTX)
 
+* [DeepSeek's AI breakthrough bypasses industry-standard CUDA for some functions, uses Nvidia's assembly-like PTX programming instead News](https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseeks-ai-breakthrough-bypasses-industry-standard-cuda-uses-assembly-like-ptx-programming-instead)
+
+
 which is the next section of this lecture what makes so special or what is so special about deeps how is it able to
 23:15
 literally charge people so less um how does it achieve so much cost efficiency

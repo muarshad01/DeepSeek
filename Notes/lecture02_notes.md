@@ -14,9 +14,11 @@
 
 | Model | Parameters |
 |---|---|
+|---| 175 B|
 | DeepSeek V3 (Foundational Model)| 671 B |
 | DeepSeek R1 (Reasoning Model) | |
 | LLama (Meta) | 70B |
+
 #### Comparision with other AI models
 
 * DeepSeek versus GPT-4
@@ -24,19 +26,19 @@
 
 ***
 
-#### Innovative Architecture
+#### Phase-1: Innovative Architecture
 1. MLA
 2. MoE
 3. MTP
 4. RoPE
 5. Quantization
 
-#### Training Methodology
+#### Phase-2: Training Methodology
 * RL to teach complex reasoning to the model
 * Rule based reward system
 * Group Relative Policy Optimization (GRPO)
 
-#### GPU Training
+#### Phase-3: GPU Training
 * NVIDIA Paralle Thread Execution (PTX)
 
 * [DeepSeek's AI breakthrough bypasses industry-standard CUDA for some functions, uses Nvidia's assembly-like PTX programming instead News](https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseeks-ai-breakthrough-bypasses-industry-standard-cuda-uses-assembly-like-ptx-programming-instead)

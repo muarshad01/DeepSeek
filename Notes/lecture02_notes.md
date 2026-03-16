@@ -26,159 +26,23 @@
 * DeepSeek versus GPT-4
 * DeepSeek versus [LLama](https://www.llama.com/)
 
-other AI models and let's see um is it better why is it better how low is its
-15:13
-pricing Etc so what I actually did was uh I'm very fascinated with this
-15:19
-mathematical question because it's an amazing problem here is an integral from 0 to 1 x 4 * 1 - x 4/ by 1 +
-15:30
-x² the cool thing about this problem which completely blew my mind when I solved this for the first time is that
-15:37
-the answer to this problem is 22x 7 minus Pi pretty awesome right first of
-15:42
-all many of us are already confused that oh I thought Pi is equal to 22 by 7 but
-15:47
-that's not the case 22 by 7 is actually greater than Pi by a tiny amount and
-15:53
-this integral captures that amount it's a beautiful mathematical puzzle which
-15:58
-was was by the way also um introduced in the 1968 Putnam
-16:05
-competition which is known to have very hard problems the proof was first deviced in U somewhere in
-16:13
-1944 and again this is a beautiful relationship right so what I did is I
-16:18
-went to deep seek and chat GPT and I asked them to solve this I went to GPT
-16:24
-40 I gave it this integral and I asked to choose the correct answer remember
-16:31
-option A is the correct answer right let's see what GPT did as you scroll down below it says that the correct
-16:38
-answer is 2x 105 which is option b so it spectacularly failed now I went to deeps
-16:45
-and I as the same thing solve this deep seek did this step by step and I got to the correct answer which is 22 by 7
-16:52
-minus Pi although this is just one example and by no means from one example
-16:57
-we can compare and contrast the two but this just shows that deep seat is pretty
-17:03
-awesome at difficult problems it got to the correct answer and by the way did it in like 10 to 15
-17:11
-seconds um all right so now let us do a bit of formal comparison of deep seek
-17:17
-with other AI models first of all let's compare deep seek with gp4 right in
-17:24
-terms of performance this is still debatable and it's hotly debated on several credit forums but generally the
-17:31
-consensus is that deep seek is similar or Superior to gp4 on several
-17:38
-tasks um but still performance- wise let's say you consider them to be at the same level but the huge difference is
-17:44
-with respect to cost right so let's say if I'm invoking a deep seek versus a GPT
-17:51
-model if you look at the pricing per a million tokens gp4 is around $30 and
-17:57
-deeps car1 is is like 055 it's literally a fraction of the cost in fact you can
-18:04
-even see the pricing here on the x-axis it's uh evaluation score or an
-18:11
-equivalent of evaluation score rather and on the y- axis I have pricing what
-18:16
-you see clearly is that if you compare GPT 40 mini and if you compare deeps version 3 deeps version 3 is has
-18:25
-much uh better performance and it's reasonably
-18:31
-priced um with respect to gp4 om mini but now if you compare deeps version 3
-18:37
-with GPT 40 you'll see that deeps version 3 has much higher performance on the y- axis it's higher and it has
-18:43
-significantly lower cost if you compare deeps version 3 and GPT 4 in fact deeps
-18:49
-version 3 seems to be vertically at the top right which means its performance is at is really very good and it's also at
-18:57
-the leftmost side compared to all of these other models which indicates that it's also relatively cheap and that's
-19:04
-what the community was extremely excited about here we have a highly performant model which is very cheap and you know
-19:10
-what's the awesome thing this is fully open source there is always a tension between open source and closed Source
-19:17
-models but here is an example of a model which has finally bridged the Gap we
-19:22
-have an open source model which is equally performant or even better than GPT 40 which
-19:29
-you can invoke or you can make an API call at a fraction of the cost in fact if you go to deeps website
-19:37
-and if you look at the different parameters you'll see that deeps version 3 outperform GPT 4 on almost all of
-19:44
-these parameters which have been considered over here so the main thing is that in terms
-19:50
-of pricing deep SE completely outweighs gp4 because it's literally a fraction of
-19:55
-the pricing which is there and most importantly deep is open sourced whereas gp4 is closed source which means you can
-20:03
-
-
 ***
 
+#### Innovative Architecture
+1. MLA
+2. MoE
+3. MTP
+4. RoPE
+5. Quantization
 
-literally download deeps host it if you have a GPU or if your machine is big uh
-20:09
-you can host it and run it but remember it's like 6 671 billion parameters so it's not quite easy to do
-20:16
-this secondly if you compare deeps with llama for example remember llama is a
-20:22
-host of Open Source model which have been released by meta amazing models but they are not not
-20:28
-quite as performant as deep seek deep seek has great scale and performance its
-20:34
-foundational model has hundreds of billions of parameters and it has strong results which really exceed what Lama 70
-20:42
-billion parameter can do so if you look at this plot again there is also Lama
-20:47
-here right and if you see in terms of performance deeps really outweighs if you see on the y axis deeps outweighs
-20:53
-all of the Llama models it outweighs the 70 billion instruct the 405 billion instruct because it has 6 671 billion
-21:01
-parameters not just that it has a lot of other Innovations in the architecture which we are going to see in a moment
-21:08
-mixture of experts reinforcement learning training multi-head latent attention multi- toal prediction
-21:15
-quantization in the input Etc all of this really give deep seek and Edge or
-21:21
-llama um all right so this is with respect to comparison of deep seek with
-21:28
-uh GP 4 and with respect to llama so in terms of strength and weaknesses deep
-21:34
-sick is pretty awesome with respect to cost efficiency its performance is also quite good and it's open source these
-21:41
-are the three biggest strength but the biggest weakness is that it might not be as polished or as safe as
-21:47
-gp4 in my opinion with further versions this might get tweaked so deep seek
-21:52
-might actually become safer or more polished but right now that is a bit of a concern for big corporations to really
-21:58
-implement this secondly it's 6771 billion parameters right so let's
-22:05
-say if you are an organization who does not want to use open AI because you have to make an API call so you're not
-22:10
-comfortable with your data going somewhere else so you decide to download and Host this model
-22:16
-locally that might take computational resources because it's a pretty large model 671 B billion parameter is not
-22:23
-tiny not easy to deal with so you need to figure out the Computing infrastructure for this but it will give
-22:30
-you data privacy if you host it on your own server let's say as an organization you must weigh
-22:36
-these factors right if you really care about safety guard rails maybe stick
-22:41
-with gp4 for now and soon change to DSE if you are a lean fast growing startup
-22:47
-go with deeps because it will tremendously cut down costs um it is highly performant and of course it's
-22:53
-open source if you want privacy which means if you don't want your data to be going to close Source companies again
-23:00
-then that would give the open source nature of deep seek and Advantage for you now let's come to the main point
-23:08
+#### Training Methodology
+* RL to teach complex reasoning to the model
+* Rule based reward system
+* Group Relative Policy Optimization (GRPO)
+
+#### GPU Training
+* NVIDIA Paralle Thread Execution (PTX)
+
 which is the next section of this lecture what makes so special or what is so special about deeps how is it able to
 23:15
 literally charge people so less um how does it achieve so much cost efficiency

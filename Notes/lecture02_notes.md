@@ -14,7 +14,7 @@
 
 | Model | Parameters |
 |---|---|
-|---| 175 B|
+| GPT-3 (2020) | 175 B|
 | DeepSeek V3 (Foundational Model)| 671 B |
 | DeepSeek R1 (Reasoning Model) | |
 | LLama (Meta) | 70B |

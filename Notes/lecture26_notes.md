@@ -17,3 +17,6 @@
 * Quantization aims to reduce the precision of a model's parameter from higher bit-widths to lower bit-widths.
 
 ***
+
+
+* [TurboQuant: Redefining AI efficiency with extreme compression](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/)

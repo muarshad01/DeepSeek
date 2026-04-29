@@ -1,10 +1,10 @@
 #### Example
 * __Step-1__: Start with 1 input batch
 * $X: (1, 3, 6)$
-* $(b, num_tokens, d_{in})$ = (1, 3, 6)
+* $(b, s, h) = (b, , d_{in})$ = (1, 3, 6)
   * batch = 1
-  * num_tokens = 3
-  * d_in = 6
+  * s = num_tokens = 3
+  * h = hidden dim = $d_{in} = 6$
 
 ```python
 b, num_tokens, d_in = x.shape

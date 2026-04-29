@@ -39,7 +39,10 @@ $$d_{head} = \frac{d_{out}}{n_{heads}} = \frac{4}{2} = 2$$
 * 35:00
 
 6. Computing attentin weights for each head
-* Scaling - softmax - causal attantion - Dropout
+* Scaling - causal attantion - softmax  - Dropout
+
+$$Z = \text{softmax}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}\bigg)$$
+
 7. Merge the contex matrix for two heads
 
 ***

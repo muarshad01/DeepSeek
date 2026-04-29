@@ -1,7 +1,7 @@
 #### Example
 * __Step-1__: Start with 1 input batch
 * $X: (1, 3, 6)$
-* $(b, s, h) = (b, , d_{in})$ = (1, 3, 6)
+* $(b, s, h) = (b, s, d_{in})$ = (1, 3, 6)
   * batch = 1
   * s = num_tokens = 3
   * h = hidden dim = $d_{in} = 6$

@@ -7,7 +7,7 @@
   * h = hidden dim = $d_{in} = 6$
 
 ```python
-b, num_tokens, d_in = x.shape
+b, s, s = x.shape
 ```
 
 ***

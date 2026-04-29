@@ -39,11 +39,11 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 
 ***
 
-* 25:00
+* 25:00 (????)
 
 * __Step-6__: Group matrices by "number of heads"
-* $(b, s, n_{head}, d_{head}) \rightarrow (b, s, num_tokens, head_dim)$
-* (1, 3, 2, 3) -> (1, 2, 3, 3)
+* $(b, s, n_{head}, d_{head}) \rightarrow (b, s, num_{tokens}, d_{head})$
+* $(1, 3, 2, 3) \rightarrow (1, 2, 3, 3)$
 
 ***
 

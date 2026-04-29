@@ -3,7 +3,7 @@
 * $X: (1, 3, 6)$
 * $(b, s, h) = (b, s, d_{in})$ = (1, 3, 6)
   * batch = 1
-  * s = num_tokens = 3
+  * s = num of tokens = 3
   * h = hidden dim = $d_{in} = 6$
 
 ```python

@@ -24,9 +24,9 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 4$$
   * $W_V (d_{in}, d_{out}) = (6, 6)$ 
 
 * __Step-4__: Calculate Keys, Queries, Value Matrix (Input X W_k, Input X W_q, Input X W_v)
-  * Keyes (b, num_tokens, d_out) = (1 X 3 X 6) 
-  * Queries (b, num_tokens, d_out) = (1 X 3 X 6) 
-  * Values (b, num_tokens, d_out) = (1 X 3 X 6) 
+  * $K (b, s, d_{out}) = (1, 3, 6)$
+  * $Q (b, s, d_{out}) = (1, 3, 6)$
+  * $V (b, s, d_{out}) = (1, 3, 6)$ 
 
 ***
 

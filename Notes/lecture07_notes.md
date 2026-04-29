@@ -26,11 +26,11 @@
 
 1. Input Embedding
 * Example: (11 X 8), where d_in=8
-2. Start with a single W_q, W_k, W_v
+2. Start with a single $(W_Q, W_K, W_V)$
 * Example: (8 X 4), where d_out=t
 * Output is (11x4) for query vectors, key vectors, value vectors
-3. Split W_q, W_k, W_v into multiple heads
-* Example: (8 X 2) (W_q1,W_q2), (W_k1,W_k2), (W_v1,W_v2)
+3. Split $(W_Q, W_K, W_V)$ into multiple heads
+* Example: (8 X 2) $(W_{Q_1}, W_{Q_2}), (W_{k_1}, W_{k_2}), (W_{V_1}, W_{V_2})$
 
 $$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
 

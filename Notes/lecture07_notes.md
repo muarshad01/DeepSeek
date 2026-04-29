@@ -1,7 +1,10 @@
 #### problem with the self attention mechanism is and
-* The artist painted the portrait of a woman with a brush.
+```
+The artist painted the portrait of a woman with a brush.
+```
 1. painting a woman with a "brush"
 2. painting of a "woman with a brush"
+
 
 ***
 

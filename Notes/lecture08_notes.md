@@ -16,7 +16,7 @@ b, num_tokens, d_in = x.shape
   
 * __Step-2__: Decide (d_out, num_heads) = (6, 2)
 
-$$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
+$$d_{head} = \frac{d}{n_{head}} = \frac{8}{2} = 4$$
 
 * __Step-3__: Initialize trainable weight matrices for Key, query, value (W_k, W_q, W_v) 
   * W_k (d_in, d_out) = (6, 6)

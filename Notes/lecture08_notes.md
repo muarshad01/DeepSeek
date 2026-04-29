@@ -16,7 +16,7 @@ b, s, s = x.shape
   
 * __Step-2__: Decide $(d_{out}, n_{heads}) = (6, 2)$
 
-$$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 4$$
+$$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 
 * __Step-3__: Initialize trainable weight matrices for Key, query, value $(W_K, W_Q, W_V)$ 
   * $W_K (d_{in}, d_{out}) = (6, 6)$

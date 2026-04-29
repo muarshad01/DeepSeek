@@ -25,11 +25,12 @@
 #### Implementing a 2-head attention (step-by-step)
 
 1. Input Embedding
-* Example: (11 X 8), where $d_{in}=8$
+* Example: (11, 8), where $d_{in}=8$
 
 2. Start with a single $(W_Q, W_K, W_V)$
-* Example: (8 X 4), where d_out=t
-* Output is (11x4) for query vectors, key vectors, value vectors
+* Example: (8, 4), where $d_{out}=t$???
+* Output is (11, 4) for query vectors, key vectors, value vectors
+
 3. Split $(W_Q, W_K, W_V)$ into multiple heads
 * Example: (8 X 2) $(W_{Q_1}, W_{Q_2}), (W_{k_1}, W_{k_2}), (W_{V_1}, W_{V_2})$
 

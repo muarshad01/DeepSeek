@@ -33,7 +33,7 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 4$$
 * 15:00
 
 * __Step-5__: Unroll last dimension of Keys, Queries, and Values to include num_heads and head_dim
-* Unroll last dim: (b, num_tokesn, d_out) -> (b, num_tokesn, num_heads, head_dim) = (1, 3, 2, 3)
+* Unroll last dim: $(b, s, d_{out}) \rightarrow (b, s, n_{heads}, n_{head}) = (1, 3, 2, 3)$
 
 $$\text{head-dim} = \frac{d_{out}}{\text{num-heads}} = \frac{6}{2} = 3$$
 

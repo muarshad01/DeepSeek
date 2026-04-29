@@ -42,7 +42,7 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 * 25:00
 
 * __Step-6__: Group matrices by "number of heads"
-* (b, num_tokens, num_heads, head_dim) - > (b, num_heads, num_tokens, head_dim)
+* $(b, s, n_{head}, d_{head}) \rightarrow (b, s, num_tokens, head_dim)$
 * (1, 3, 2, 3) -> (1, 2, 3, 3)
 
 ***

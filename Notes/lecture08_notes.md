@@ -51,7 +51,7 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 
 * __Step-8__: Find attention weights
   * Mask the scores to implement casual attention
-  * Dive by $$d_{head} = \sqrt{\frac{d_{out}}{n_{heads}}} = \sqrt{\frac{6}{2}}=\sqrt{3}$$
+  * Dive by $$\sqrt{d_{head}} = \sqrt{\frac{d_{out}}{n_{heads}}} = \sqrt{\frac{6}{2}}=\sqrt{3}$$
 
 
 

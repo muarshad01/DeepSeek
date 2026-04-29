@@ -16,8 +16,8 @@
   
 * l.n.h.s.b.2.2
   * l : number of transformer blocks
-  * n : number of attention heads
-  * h : attention head size
+  * $n_{heads}$ : number of attention heads
+  * h : $d_{head}$ : attention head size
   * s : context length
   * b : batch size
   * 2 : Two caches one each for (k,v)

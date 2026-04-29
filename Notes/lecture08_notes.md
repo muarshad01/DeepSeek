@@ -61,12 +61,10 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 * 40:00
 
 * __Step-9__:
-*
-*
 
 $$
 \begin{align}
-\text{Context Vector} &= \text{softmax}(\frac{Q \times K^T}{\sqrt{d}})  \times V \\
+\text{Context Vector} &= \text{softmax}\bigg(\frac{Q \times K^T}{\sqrt{d}}\bigg)  \times V \\
                       &= $(b, n_{heads}, s, s) \times (b, n_{heads}, s, d_{head}) \\
 \end{align}
 $$

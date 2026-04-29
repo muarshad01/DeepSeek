@@ -32,7 +32,7 @@
 3. Split $(W_Q, W_K, W_V)$ into multiple heads
 * Example: (8 X 2) $(W_{Q_1}, W_{Q_2}), (W_{k_1}, W_{k_2}), (W_{V_1}, W_{V_2})$
 
-$$\text{head-dim} = \frac{d_{out}}{num ~of ~heads} = \frac{4}{2} = 2$$
+$$\text{d_{head}} = \frac{d_{out}}{n_{heads}} = \frac{4}{2} = 2$$
 
 ***
 

@@ -25,7 +25,8 @@
 #### Implementing a 2-head attention (step-by-step)
 
 1. Input Embedding
-* Example: (11 X 8), where d_in=8
+* Example: (11 X 8), where $d_{in}=8$
+
 2. Start with a single $(W_Q, W_K, W_V)$
 * Example: (8 X 4), where d_out=t
 * Output is (11x4) for query vectors, key vectors, value vectors
@@ -38,12 +39,12 @@ $$d_{head} = \frac{d_{out}}{n_{heads}} = \frac{4}{2} = 2$$
 
 * 35:00
 
-6. Computing attentin weights for each head
-* Scaling - causal attantion - softmax  - Dropout
+6. Computing Attentin Weights for each head
+* Scaling - causal attantion - softmax - Dropout
 
 $$\text{Attention Weight} = \text{softmax}\bigg(casual\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\bigg)$$
 
-7. Merge the contex matrix for two heads
+7. Merge the Contex Matrix for two heads
 
 $$Z= \text{softmax}\bigg(casual\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\bigg) \times V$$
 

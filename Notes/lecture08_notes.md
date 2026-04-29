@@ -61,6 +61,6 @@ $$d_{head} = \frac{d_{out}}{n_{head}} = \frac{6}{2} = 3$$
 * 40:00
 
 * __Step-9__: Context Vector = Attention Weights X Values
- * $(b, n_{heads}, s, s) X (b, n_{heads}, s, d_{head})$
+ * $(b, n_{heads}, s, s) \times (b, n_{heads}, s, d_{head})$
 
 ***

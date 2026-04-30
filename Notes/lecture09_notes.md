@@ -25,7 +25,6 @@
 
 $$\text{Bytes ~taken ~up ~by ~KV cache} = l \times b \times s \times h \times n_{heads} \times 2 \times 2$$
 
-
 ***
 
 * [TurboQuant](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/): Can we store KV-cache in low precisin. 

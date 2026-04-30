@@ -15,13 +15,16 @@
 * 45:00
   
 * l.n.h.s.b.2.2
-  * l : number of transformer blocks
+  * l : number of transformer blocks layers
   * $n_{heads}$ : number of attention heads
-  * h : $d_{head}$ : attention head size
-  * s : context length
+  * h : attention head dimension ($d_{head}$)
+  * s : sequence length (context length)
   * b : batch size
+  * 2 : number of byptes per PF (Assume each parameter takes 2 bytes)
+
   * 2 : Two caches one each for (k,v)
-  * 2 : number of byptes per floating point
 
 ***
 
+#### Size of KV_Cache
+$\text{Bytes ~taken ~up ~by ~KV cache!} = l \times b \times s \times h \times n \times 2 \times 2$

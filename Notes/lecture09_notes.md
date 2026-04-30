@@ -23,7 +23,7 @@
 * 2 : number of byptes per PF (Assume each parameter takes 2 bytes)
 * 2 : Two caches one each for (k,v)
 
-$$\text{Bytes ~taken ~up ~by ~KV cache} = l \times b \times s \times h \times n \times 2 \times 2$$
+$$\text{Bytes ~taken ~up ~by ~KV cache} = l \times b \times s \times h \times n_{heads} \times 2 \times 2$$
 
 
 ***

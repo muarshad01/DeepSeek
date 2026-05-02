@@ -23,7 +23,10 @@
   * $A_1(Q_1 \times K^T) \neq A_2(Q_2 \times K^T) \neq A_3(Q_3 \times K^T) \neq A_4(Q_4 \times K^T)$ (Attention Matrices)
   * $C_1(A_1 \times V) \neq C_2(A_2 \times V) \neq C_3(A_3 \times V) \neq C_4(A_4 \times V)$ (Context Matrices)
   * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Perspectives)
+* We still capture multiple perspective, however, the ablity to capture multiple perspectives has reduced.
 * We are still capturing multiple perspecive, but since the number of parameters have reduced the nuances that we are capturing have reduced.
+* We'll reduce accuracy.
+
 ***
 
 #### DeepSeek has 128 attention heads!

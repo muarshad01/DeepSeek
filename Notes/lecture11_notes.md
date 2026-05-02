@@ -40,8 +40,8 @@
 #### Diversity
 * MHA >> GQA >> MQA
 
-#### Memory
-* MHA << GQA << MQA
+#### Memory Size
+* MHA >> GQA >> MQA
 
 ***
 

@@ -83,7 +83,9 @@ V(4,4)      &= C_{KV} \times W_{uV} = \underbrace{X(4,8) \times W_{dKV}(8,4)}_{C
 \end{aligned}
 $$
 
-* __Note__: $W_Q(8,4)$ remains the same but $W_K$ and $W_V$ and projected to $W_{uK}$ and $W_{uV}$.
+* __Note__: $W_Q(8,4)$ remains the same.
+* Instead of caching two large matrices, $K \& V$, we only cache one smaller, lower dimensional matrix $C_{KV}$. This single matrix becomes our highly efficient cache.
+* When we need the full Keys ($K$) and Values($V$), we can resonstruct them on-the-fly from the compressed latent representation ($C_{KV}$).
 
 ***
 

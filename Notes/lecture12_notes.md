@@ -126,7 +126,7 @@ $$
 
 #### Example
 
-#### Letent KC-cache
+#### Letent KV-Cache
 
 * $$X(4,8) \times W_{DKV}(8,4) \to C_{KV}(4,4)$$
 

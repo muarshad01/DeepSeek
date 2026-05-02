@@ -16,7 +16,9 @@
 
 #### Example
 * If, for MHA ($n_{heads}=4$) and for MQA($n_{heads}=1$) then:
-  * $W_{k_1}=W_{k_2}=W_{k_3}=W_{k_4}$ (Weight Matrices)
+  * $W_{K_1}=W_{K_2}=W_{K_3}=W_{K_4}$ ($W_K$ Matrices)
+  * $W_{Q_1}=W_{Q_2}=W_{Q_3}=W_{Q_4}$ ($W_Q$ Matrices)
+  * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4}$ ($W_V$ Matrices)
   * $A_1=A_2=A_3=A_4$ (Attention Matrices)
   * $V_1=V_2=V_3=V_4$ (Value Matrices)
   * $C_1=C_2=C_3=C_4$ (Context Matrices)

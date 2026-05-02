@@ -76,10 +76,10 @@ $$(W_{Q}(8,4), W_{UK}(4,4), W_{UV}(4,4)) \to (Q(4,4), K(4,4), V(4,4))$$
 #### How does adding this latent matrix help?
 $$
 \begin{aligned}
-Q      &= X \times W_Q \\
-C_{KV} &= X \times W_{DKV} ~~~\text{Latent Matrix.}\\
-K      &= C_{KV} \times W_{UK} = X \times W_{DKV} \times W_{UK}\\
-V      &= C_{KV} \times W_{UV} = X \times W_{DKV} \times W_{UV}
+Q(4,4)      &=X(4,8) \times W_Q(8,4)\\
+C_{KV}(4,4) &= X(4,8) \times W_{dKV}(8,4) ~~~~\text{Latent Matrix. Down Projection!}\\
+K(4,4)      &= C_{KV} \times W_{uK} = X(4,8) \times W_{dKV}(8,4) \times W_{uK}(4,4) ~~~\text{Up projection to recover K!}\\
+V(4,4)      &= C_{KV} \times W_{uV} = X(4,8) \times W_{dKV}(8,4) \times W_{uV}(4,4) ~~~\text{Up projection to recover V!}\\
 \end{aligned}
 $$
 * __Note__: W_Q(8,4) remains the same but $$W_K$$ and $$W_V$$ and projected to $$W_{UK}$$ and $$W_{UV}$$.

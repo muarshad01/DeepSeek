@@ -109,8 +109,8 @@ $$
 $$
 \begin{aligned}
 \text{Context Matrix} &=  \text{A} \times V \\
-                             &= (QK^{T})(XW_{DKV}W_{UV}) \\
-                             &= (QK^{T})(XW_{DKV}W_{UV})W_{0}: \text{Logits Matix}\\
+                             &= (QK^{T})(XW_{dKV}W_{uV}) \\
+                             &= (QK^{T})(XW_{dKV}W_{uV}) \times W_{0}: \text{Logits Matix}\\
                              &= (QK^{T})(XW_{DKV})(W_{UV}W_{0})\\
                              &= (\text{Attention Scores})(\text{Cached})(\text{Fixed at traing - Only commputed Once})\\
 \end{aligned}

@@ -42,12 +42,9 @@
 #### DeepSeek has 128 attention heads!
 * L : 61
 * b : 1
-* n : 128
+* $n_{heads}$ : 128
 * h : 128
 * s : context-length : 100,000 (Number of tokens?)
-
-* __Each query still has its own projection (like in MHA).__
-* __All queries share the same key and value vectors.__
 
 ***
 

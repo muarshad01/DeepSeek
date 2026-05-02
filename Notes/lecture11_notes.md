@@ -1,6 +1,7 @@
 #### Group Query Attention (GQA)
 * GQA: Instead of ALL attention heads kaving same KV-Cache matrices (MQA), what if we create groups of attention heads.
 * I still want my model to retain multiple perspectives, but I also want to to reduce KV-Cache size!
+
 ***
 
 * Consider $n_{heads}=4$ divided in two groups $G_1$ and $G_2$:
@@ -17,6 +18,8 @@
   * $P_1 = P_2$
   * $P_3 \neq P_4$
   * Each group has a different perspective!
+
+* NOTE: We're not reducing the number of heads. We're justh sharing the parameters across heads.
 
 ***
 

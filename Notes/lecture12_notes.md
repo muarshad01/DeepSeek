@@ -108,7 +108,7 @@ $$
 
 $$
 \begin{aligned}
-\text{Context Vector Matrix} &=  \text{Attention Weights} \times V \\
+\text{Context Matrix} &=  \text{A} \times V \\
                              &= (QK^{T})(XW_{DKV}W_{UV}) \\
                              &= (QK^{T})(XW_{DKV}W_{UV})W_{0}: \text{Logits Matix}\\
                              &= (QK^{T})(XW_{DKV})(W_{UV}W_{0})\\

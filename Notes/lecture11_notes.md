@@ -21,11 +21,11 @@
 * 20:00
 
 
-| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
-|---|---|---|---|
-| MHA                    | $l \times b \times n \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
-| MQA ($n_{heads}=1$)    | $l \times b \times 1 \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
-| GQA ($n \rightarrow g$)| $l \times b \times g \times h \times s \times 2 \times 2$ | 384 MB (g=8) | |
+|| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
+|---|---|---|---|---|
+|| MHA                    | $l \times b \times n \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
+|$\frac{1}{n}$| MQA ($n_{heads}=1$)    | $l \times b \times 1 \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
+|$\frac{g}{n}$| GQA ($n \rightarrow g$)| $l \times b \times g \times h \times s \times 2 \times 2$ | 384 MB (g=8) | |
 
 
 #### Diversity

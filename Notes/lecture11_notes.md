@@ -7,7 +7,8 @@
   * $(W_{V_1}=W_{V_2}) \longrightarrow (V_1=V_2=V_A)$
   * $(W_{V_3}=W_{V_4}) \longrightarrow (V_3=V_4=V_B)$ 
 
-  * $A_1(Q_1 \times K_A^T) \neq A_2(Q_2 \times K_A^T) \neq A_3(Q_3 \times K_B^T) \neq A_4(Q_4 \times K_B^T)$ (Attention Matrices)
+  * $A_1(Q_1 \times K_A^T) \neq A_2(Q_2 \times K_A^T)$
+  * $A_3(Q_3 \times K_B^T) \neq A_4(Q_4 \times K_B^T)$
   * $C_1(A_1 \times V) \neq C_2(A_2 \times V) \neq C_3(A_3 \times V) \neq C_4(A_4 \times V)$ (Context Matrices)
   * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Multiple Perspectives, but reduced accuracy!)
 

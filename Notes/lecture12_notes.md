@@ -102,8 +102,9 @@ $$
 \end{aligned}
 $$
 
-* $\text{Absorted Query} = X(W_QW_{uK}^{T})$ 
-  * Fixed at training time (only compute once).
+#### Absorted Query
+* $X(W_QW_{uK}^{T})$ 
+* Fixed at training time (Only compute once!).
 
 $$
 \begin{aligned}

@@ -5,7 +5,8 @@
 ***
 
 * Consider $n_{heads}=4$ divided in two groups $G_1$ and $G_2$:
-  * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4} \longrightarrow  Q_1 \neq Q_2 \neq Q_3 \neq Q_4$
+  * $W_{Q_1} \neq W_{Q_2} \longrightarrow Q_1 \neq Q_2$
+  * $W_{Q_3} \neq W_{Q_4} \longrightarrow Q_3 \neq Q_4$
   * $(W_{K_1}=W_{K_2}) \longrightarrow (K_1=K_2=K_A)$
   * $(W_{K_3}=W_{K_4}) \longrightarrow (K_3=K_4=K_B)$ 
   * $(W_{V_1}=W_{V_2}) \longrightarrow (V_1=V_2=V_A)$

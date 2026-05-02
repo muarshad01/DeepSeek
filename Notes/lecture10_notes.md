@@ -16,10 +16,10 @@
 
 #### Example
 * If there are 4 heads then:
-* $A_1=A_2=A_3=A_4$
-* $V_1=V_2=V_3=V_4$
-* $C_1=C_2=C_3=C_4$
-* $P_1=P_2=P_3=P_4$
+* $A_1=A_2=A_3=A_4$ (Attention Matrices)
+* $V_1=V_2=V_3=V_4$ (Value Matrices)
+* $C_1=C_2=C_3=C_4$ (Context Matrices)
+* $P_1=P_2=P_3=P_4$ (Perspectives)
 
 ***
 

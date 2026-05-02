@@ -45,17 +45,7 @@
 
 ***
 
-
 #### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)
 * Llama 3 adopts grouped query attention (GQA) across both the 8B and 70B sizes.
 
 ***
-
-* 30:00
-
-* __Golden question__:  Can we reduce KV cache size and still obtain good performance?
-
-***
-
-
-

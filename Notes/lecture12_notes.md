@@ -98,7 +98,7 @@ $$
                      A(4,4) &= Q \times K^{T} \\
                             &= XW_Q \times (W_{uK} \times C_{KV})^{T}\\
                             &= XW_Q \times (W_{uK}^{T} \times W_{dKV}^{T} \times X^{T} )\\
-                            &=\underbrace{X(W_QW_{UK}^{T})}_{Fixed ~at ~training  ~time}~\underbrace{(XW_{DKV})^{T}}_{This ~needs ~to ~be ~cached.}
+                            &=\underbrace{X(W_QW_{uK}^{T})}_{\text{Fixed ~at ~training  ~time}}~\underbrace{(XW_{dKV})^{T}}_{This ~needs ~to ~be ~cached.}
 \end{aligned}
 $$
 

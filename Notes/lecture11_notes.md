@@ -35,17 +35,17 @@
 
 | Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
 |---|---|---|---|
-| Multi-Head Attention (MHA)  | l.b.n.h.s.2.2           | 4.5 GB            | 400 GB |
-| Multi-Query Attention (MQA) | l.b.1.h.s.2.2 (n=1)     |  48 MB            |   3 GB |
-| Grouped-Query Attention (GQA) | l.b.g.s.2.2  (n -> g)   | 384 MB (8 groups) |        |
+| MHA | $l \times b \times n \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
+| MQA ($n_{heads}=1$) | $l \times b \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
+| GQA ($n \rightarrow g$)| $l \times b \times g \times s \times 2 \times 2$ | 384 MB (8 groups) | |
 
 ***
 
 | Attention Mechanism Type | Number of unique key-value (KV) pairs | KV cache size | Performance (Context Understanding)|
 |---|---|---|---|
-| Multi-Head Attention (MHA)    | H (Each head has its own K and V)                              | Largest  | __BEST__ |
-| Grouped-Query Attention (GQA) | 1 (ALL heads share the same K and V)                           | Medium   | Medium |
-| Multi-Query Attention (MQA)   | G (Heads are divided into G groups, each group shared K and V) | __SMALLEST__ | Worst |
+| MHA | H (Each head has its own K and V)                              | Largest  | __BEST__ |
+| GQA | 1 (ALL heads share the same K and V)                           | Medium   | Medium |
+| MQA | G (Heads are divided into G groups, each group shared K and V) | __SMALLEST__ | Worst |
 
 
 #### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)

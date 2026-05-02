@@ -56,8 +56,14 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 
 * __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
 
-$$X: (4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which we'll cache.}$$
 
+```
+The next day is
+```
+
+$$X(4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which we'll cache.}$$
+
+* $Q(4,4)=X(4,8) \times W_Q(8,4)$
 
 ***
 

@@ -34,6 +34,7 @@
 || MHA | H - Each head has its own K and V                              | Largest  | __BEST__ |
 | $\frac{g}{n}$ | GQA | 1 - ALL heads share the same K and V                           | Medium   | Medium |
 | $\frac{1}{n}$ | MQA | G - Heads are divided into G groups, each group shares K and V | __SMALLEST__ | Worst |
+|               | DeepSeek |           | Low Memory | Best Performance|
 
 ***
 

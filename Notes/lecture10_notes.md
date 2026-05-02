@@ -19,8 +19,10 @@
   * $W_{K_1}=W_{K_2}=W_{K_3}=W_{K_4}$ ($W_K$ Matrices)
   * $W_{Q_1}=W_{Q_2}=W_{Q_3}=W_{Q_4}$ ($W_Q$ Matrices)
   * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4}$ ($W_V$ Matrices)
-  * $A_1=A_2=A_3=A_4$ (Attention Matrices)
+  * $K_1=K_2=K_3=K_4$ (Value Matrices)
+  * $Q_1=Q_2=Q_3=Q_4$ (Value Matrices)
   * $V_1=V_2=V_3=V_4$ (Value Matrices)
+  * $A_1=A_2=A_3=A_4$ (Attention Matrices)
   * $C_1=C_2=C_3=C_4$ (Context Matrices)
   * $P_1=P_2=P_3=P_4$ (Perspectives)
 

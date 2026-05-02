@@ -13,7 +13,16 @@
 |---|---|---|---|---|
 | MHA | $l \times b \times n_{heads} \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB | Multiple Perspectives |
 | MQA ($n_{heads}=1$) | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB | Single Perspective |
- 
+
+#### Example
+* If there are 4 heads then:
+* $A_1=A_2=A_3=A_4$
+* $V_1=V_2=V_3=V_4$
+* $C_1=C_2=C_3=C_4$
+* $P_1=P_2=P_3=P_4$
+
+***
+
 #### DeepSeek has 128 attention heads!
 * L : 61
 * b : 1

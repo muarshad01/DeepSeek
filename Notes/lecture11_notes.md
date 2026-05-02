@@ -1,4 +1,7 @@
 #### Group Query Attention (GQA)
+* GQA: Instead of all attention heads kaving same K-V matrices (MQA), what if we create groups of attention heads.
+
+***
 
 * Consider $n_{heads}=4$ divided in two groups $G_1$ and $G_2$:
   * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4} \longrightarrow  Q_1 \neq Q_2 \neq Q_3 \neq Q_4$
@@ -15,23 +18,15 @@
 
 ***
 
-
-***
-
-* 10:00
-
-1. MHA (ALL heads are different) - Complete diversity!
-2. GQA
-3. MQA (ALL heads are same) - Least diversity - performance degradation!
-
-* GQA: Instead of all attention heads kaving same K-V matrices, what if we create groups of attention heads.
-
-***
+* 20:00
 
 
+| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
+|---|---|---|---|
+| MHA                    | $l \times b \times n \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
+| MQA ($n_{heads}=1$)    | $l \times b \times 1 \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
+| GQA ($n \rightarrow g$)| $l \times b \times g \times h \times s \times 2 \times 2$ | 384 MB (g=8) | |
 
-
-* 15:00
 
 #### Diversity
 * MHA >> GQA >> MQA
@@ -41,14 +36,6 @@
 
 ***
 
-* 20:00
-
-
-| Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed|
-|---|---|---|---|
-| MHA                    | $l \times b \times n \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
-| MQA ($n_{heads}=1$)    | $l \times b \times 1 \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
-| GQA ($n \rightarrow g$)| $l \times b \times g \times h \times s \times 2 \times 2$ | 384 MB (g=8) | |
 
 ***
 

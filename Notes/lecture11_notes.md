@@ -41,12 +41,13 @@
 
 ***
 
-| Attention Mechanism Type | Number of unique key-value (KV) pairs | KV cache size | Performance (Context Understanding)|
+| Attention Mechanism Type | Number of unique (K,V)-pairs | KV-cache size | Performance (Context Understanding)|
 |---|---|---|---|
-| MHA | H (Each head has its own K and V)                              | Largest  | __BEST__ |
-| GQA | 1 (ALL heads share the same K and V)                           | Medium   | Medium |
-| MQA | G (Heads are divided into G groups, each group shared K and V) | __SMALLEST__ | Worst |
+| MHA | H - Each head has its own K and V                              | Largest  | __BEST__ |
+| GQA | 1 - ALL heads share the same K and V                           | Medium   | Medium |
+| MQA | G - Heads are divided into G groups, each group shares K and V | __SMALLEST__ | Worst |
 
+***
 
 #### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)
 * Llama 3 adopts grouped query attention (GQA) across both the 8B and 70B sizes.

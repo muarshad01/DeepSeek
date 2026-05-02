@@ -17,7 +17,7 @@
 #### Example
 * If, for MHA ($n_{heads}=4$) and for MQA($n_{heads}=1$) then:
   * $W_{K_1}=W_{K_2}=W_{K_3}=W_{K_4}$ ($W_K$ Matrices)
-  * $W_{Q_1}=W_{Q_2}=W_{Q_3}=W_{Q_4}$ ($W_Q$ Matrices)
+  * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4}$ ($W_Q$ Matrices)
   * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4}$ ($W_V$ Matrices)
   * $K_1=K_2=K_3=K_4$ (Value Matrices)
   * $Q_1=Q_2=Q_3=Q_4$ (Value Matrices)

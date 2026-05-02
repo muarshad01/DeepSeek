@@ -95,7 +95,7 @@ $$
 
 $$
 \begin{aligned}
-\text{Attention ~Score (A)} &= Q \times K^{T} \\
+                     A(4,4) &= Q \times K^{T} \\
                             &= XW_Q \times (W_{UK} \times C_{KV})^{T}\\
                             &= XW_Q \times (W_{UK}^{T} \times W_{DKV}^{T} \times X^{T} )\\
                             &=\underbrace{X(W_QW_{UK}^{T})}_{Fixed ~at ~training  ~time}~\underbrace{(XW_{DKV})^{T}}_{This ~needs ~to ~be ~cached.}

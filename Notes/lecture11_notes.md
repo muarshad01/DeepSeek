@@ -42,8 +42,8 @@
 |Reduction Factor| Attention Mechanism Type | Number of unique (K,V)-pairs | KV-cache size | Performance (Context Understanding)|
 |---|---|---|---|---|
 || MHA | H - Each head has its own K and V                              | Largest  | __BEST__ |
-| $\frac{1}{n}$ | GQA | 1 - ALL heads share the same K and V                           | Medium   | Medium |
-| $\frac{g}{n}$ | MQA | G - Heads are divided into G groups, each group shares K and V | __SMALLEST__ | Worst |
+| $\frac{g}{n}$ | GQA | 1 - ALL heads share the same K and V                           | Medium   | Medium |
+| $\frac{1}{n}$ | MQA | G - Heads are divided into G groups, each group shares K and V | __SMALLEST__ | Worst |
 
 ***
 

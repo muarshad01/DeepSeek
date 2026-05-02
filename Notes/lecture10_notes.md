@@ -15,11 +15,11 @@
 | MQA ($n_{heads}=1$) | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB | Single Perspective |
 
 #### Example
-* If there are 4 heads then:
-* $A_1=A_2=A_3=A_4$ (Attention Matrices)
-* $V_1=V_2=V_3=V_4$ (Value Matrices)
-* $C_1=C_2=C_3=C_4$ (Context Matrices)
-* $P_1=P_2=P_3=P_4$ (Perspectives)
+* If $n_{heads}=4$:
+  * $A_1=A_2=A_3=A_4$ (Attention Matrices)
+  * $V_1=V_2=V_3=V_4$ (Value Matrices)
+  * $C_1=C_2=C_3=C_4$ (Context Matrices)
+  * $P_1=P_2=P_3=P_4$ (Perspectives)
 
 ***
 

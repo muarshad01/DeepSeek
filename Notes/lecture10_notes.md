@@ -20,7 +20,7 @@
   * $W_{K_1}=W_{K_2}=W_{K_3}=W_{K_4} \longrightarrow  K_1=K_2=K_3=K_4=K$
   * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4} \longrightarrow  V_1=V_2=V_3=V_4=V$
 
-  * $A_1(Q_1 \times K^T)=A_2(Q_2 \times K^T)=A_3(Q_3 \times K^T)=A_4(Q_4 \times K^T)$ (Attention Matrices)
+  * $A_1(Q_1 \times K^T) \neq A_2(Q_2 \times K^T) \neq A_3(Q_3 \times K^T) \neq A_4(Q_4 \times K^T)$ (Attention Matrices)
   * $C_1(A_1 \times V) \neq C_2(A_2 \times V) \neq C_3(A_3 \times V) \neq C_4(A_4 \times V)$ (Context Matrices)
   * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Perspectives)
 * We are still capturing multiple perspecive, but since the number of parameters have reduced the nuances that we are capturing have reduced.

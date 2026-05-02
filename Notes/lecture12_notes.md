@@ -62,7 +62,7 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
 The next day is
 ```
 
-$$C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$$
+$$\text{Latent Matrix} = C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$$
 * We cache this Latent Matrix.
 
 

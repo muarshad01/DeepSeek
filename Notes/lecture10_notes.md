@@ -24,8 +24,8 @@
   * $V_1=V_2=V_3=V_4$ (Shared Matrix $V$)
   * $A_1(Q_1 \times K^T)=A_2(Q_2 \times K^T)=A_3(Q_3 \times K^T)=A_4(Q_4 \times K^T)$ (Attention Matrices)
   * $C_1(A_1 \times V) \neq C_2(A_2 \times V) \neq C_3(A_3 \times V) \neq C_4(A_4 \times V)$ (Context Matrices)
-  * $P_1=P_2=P_3=P_4$ (Perspectives)
-
+  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Perspectives)
+* We are still capturing multiple perspecive, but since the number of parameters have reduced the nuances that we are capturing have reduced.
 ***
 
 #### DeepSeek has 128 attention heads!
@@ -53,13 +53,3 @@
 * [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
 ***
-
-
-
-
-
-
-
-
-
-

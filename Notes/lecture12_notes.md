@@ -84,7 +84,7 @@ V(4,4)      &= C_{KV} \times W_{uV} = \underbrace{X(4,8) \times W_{dKV}(8,4)}_{C
 $$
 
 * __Note__: $W_Q(8,4)$ remains the same.
-* Instead of caching two large matrices, $K \& V$, we only cache one smaller, lower dimensional matrix $C_{KV}$. This single matrix becomes our highly efficient cache.
+* Instead of caching two large matrices, $K$ and $V$, we only cache one smaller, lower dimensional matrix $C_{KV}$. This single matrix becomes our highly-efficient cache.
 * When we need the full Keys ($K$) and Values($V$), we can resonstruct them on-the-fly from the compressed latent representation ($C_{KV}$).
 
 ***
@@ -117,7 +117,7 @@ $$
 $$
 
 * $$XW_{DKV}$$: We only cache this and share across all attention heads.
-* Unlike MQA, the shared latent matrix is projected back into Keys and Values matrices -> $$W_{UK}$$ and $$W_{UV}$$ have weights different for each attention head. Thus, all heads have different K,V values. This solves the performance proboem of MQA.
+* Unlike MQA, the shared latent matrix is projected back into Keys and Values matrices -> $$W_{UK}$$ and $W_{UV}$ have weights different for each attention head. Thus, all heads have different K,V values. This solves the performance proboem of MQA.
 
 
 ***

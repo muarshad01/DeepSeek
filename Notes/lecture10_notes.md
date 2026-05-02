@@ -9,10 +9,10 @@
 
 * How? All attention heads can have the same K,V matrics.
 
-| Attention Mechanism Type | Size of KV Cache | GPT-3 ($175B, l=96, n_h=96$) Memory Needed | DeepSeek ($n_{h}=128$)  memory needed||
-|---|---|---|---|---|
-| MHA | $l \times b \times n_{heads} \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB | Multiple Perspectives |
-| MQA ($n_{heads}=1$) | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB | Multiple Perspectives (Reduced Accuracy) |
+| Attention Mechanism Type | Size of KV Cache | GPT-3 ($175B, l=96, n_h=96$) Memory Needed | DeepSeek ($n_{h}=128$)  Memory Needed |
+|---|---|---|---|
+| MHA | $l \times b \times n_{heads} \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
+| MQA ($n_{heads}=1$) | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB |
 
 #### MHA
 * Consider $n_{heads}=4$:
@@ -22,7 +22,7 @@
 
   * $A_1(Q_1 \times K_1^T) \neq A_2(Q_2 \times K_2^T) \neq A_3(Q_3 \times K_3^T) \neq A_4(Q_4 \times K_4^T)$ (Attention Matrices)
   * $C_1(A_1 \times V_1) \neq C_2(A_2 \times V_2) \neq C_3(A_3 \times V_3) \neq C_4(A_4 \times V_4)$ (Context Matrices)
-  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Perspectives)
+  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Multiple Perspectives)
 
 #### MQA
 * Consider $n_{heads}=4 \rightarrow 1$:
@@ -32,7 +32,7 @@
 
   * $A_1(Q_1 \times K^T) \neq A_2(Q_2 \times K^T) \neq A_3(Q_3 \times K^T) \neq A_4(Q_4 \times K^T)$ (Attention Matrices)
   * $C_1(A_1 \times V) \neq C_2(A_2 \times V) \neq C_3(A_3 \times V) \neq C_4(A_4 \times V)$ (Context Matrices)
-  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Perspectives)
+  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Multiple Perspectives, but reduced accuracy!)
 
 ***
 

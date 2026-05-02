@@ -117,9 +117,9 @@ $$
 \end{aligned}
 $$
 
-* $$XW_{DKV}$$: We only cache this and share across all attention heads.
-* Unlike MQA, the shared latent matrix is projected back into Keys and Values matrices -> $$W_{UK}$$ and $W_{UV}$ have weights different for each attention head. Thus, all heads have different K,V values. This solves the performance proboem of MQA.
-
+* $C_{KV}=XW_{DKV}$: We only cache this and share across ALL attention heads.
+* Unlike MQA, the shared latent matrix is projected back into Keys ($C_{KV} \times W_{uK}$) and Values ($C_{KV} \times W_{uV}$) matrices, which are different for each attentionhead.
+* Thus, all heads have different K,V values. This solves the performance proboem of MQA.
 
 ***
 

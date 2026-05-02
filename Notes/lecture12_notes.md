@@ -82,7 +82,10 @@ K(4,4)      &= C_{KV} \times W_{uK} = X(4,8) \times W_{dKV}(8,4) \times W_{uK}(4
 V(4,4)      &= C_{KV} \times W_{uV} = X(4,8) \times W_{dKV}(8,4) \times W_{uV}(4,4) ~~~\text{Up projection to recover V!}\\
 \end{aligned}
 $$
-* __Note__: W_Q(8,4) remains the same but $$W_K$$ and $$W_V$$ and projected to $$W_{UK}$$ and $$W_{UV}$$.
+
+* __Note__: $W_Q(8,4)$ remains the same but $W_K$ and $W_V$ and projected to $W_{uK}$ and $W_{uV}$.
+
+***
 
 * __14__: How does adding this Latent matrix help?
 

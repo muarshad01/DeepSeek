@@ -16,7 +16,7 @@
   * $A_3(Q_3 \times K_B^T) \neq A_4(Q_4 \times K_B^T)$
   * $C_1(A_1 \times V_A) \neq C_2(A_2 \times V_B)$
   * $C_3(A_3 \times V_A) \neq C_4(A_4 \times V_B)$ 
-  * $P_1 = P_2$
+  * $P_1 \neq P_2$
   * $P_3 \neq P_4$
   * Each group has a different perspective!
 

@@ -12,7 +12,7 @@
 | Attention Mechanism Type | Size of KV Cache | GPT-3 (175B, l=96, n=96) memory needed | DeepSeek (n=128)  memory needed||
 |---|---|---|---|---|
 | MHA | $l \times b \times n_{heads} \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB ||
-| MQA | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB | $n_{heads}=1$ |
+| MQA (Single HA) | $l \times b                  \times h \times s \times 2 \times 2$ | 48 MB | 3GB | $n_{heads}=1$ |
  
 #### DeepSeek has 128 attention heads!
 * L : 61

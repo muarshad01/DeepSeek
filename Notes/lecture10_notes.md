@@ -16,10 +16,10 @@
 
 #### Example
 * If, for MHA ($n_{heads}=4$) and for MQA($n_{heads}=1$) then:
-  * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4}$ ($W_Q$ Matrices)
+  * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4} \rightarrow Q_1 \neq Q_2 \neq Q_3 \neq Q_4$
   * $W_{K_1}=W_{K_2}=W_{K_3}=W_{K_4}$ ($W_K$ Matrices)
   * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4}$ ($W_V$ Matrices)
-  * $Q_1 \neq Q_2 \neq Q_3 \neq Q_4$ (Value Matrices)
+
   * $K_1=K_2=K_3=K_4$ (Shared Matrix $K$)
   * $V_1=V_2=V_3=V_4$ (Shared Matrix $V$)
   * $A_1(Q_1 \times K^T)=A_2(Q_2 \times K^T)=A_3(Q_3 \times K^T)=A_4(Q_4 \times K^T)$ (Attention Matrices)

@@ -1,8 +1,7 @@
 ## Group Query Attention (GQA)
-
-* Normal Multi-Head Attention (MHA) - 400 GB
-* Multi Query Attentino (MQA) - 3 GB
-* MQA reduces the KV size by a factor of 128 for DeepSeek
+* Multi-Head Attention (MHA) - 400 GB
+* Multi-Query Attentino (MQA) - 3 GB
+* MQA reduces the KV-cache size by a factor of 128 for DeepSeek
 
 #### Disadvantages of MQA
 * Significant performance degradation

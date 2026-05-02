@@ -21,24 +21,11 @@
 
 ***
 
-* 20:00
-
-
 |Reduction Factor| Attention Mechanism Type | Size of KV Cache | GPT-3 $(175B, l=96, n_{h}=96)$ Memory Needed | DeepSeek $(n_{h}=128)$ Memory Needed|
 |---|---|---|---|---|
 || MHA                    | $l \times b \times n_{heads} \times h \times s \times 2 \times 2$ | 4.5 GB | 400 GB |
 |$\frac{1}{n}$| MQA ($n_{h}=1$)    | $l \times b \times 1 \times h \times s \times 2 \times 2$ |  48 MB | 3 GB |
 |$\frac{g}{n}$| GQA ($n \rightarrow g$)| $l \times b \times g \times h \times s \times 2 \times 2$ | 384 MB (g=8) | |
-
-
-#### Diversity
-* MHA >> GQA >> MQA
-
-#### Memory
-* MHA << GQA << MQA
-
-***
-
 
 ***
 
@@ -49,6 +36,15 @@
 | $\frac{1}{n}$ | MQA | G - Heads are divided into G groups, each group shares K and V | __SMALLEST__ | Worst |
 
 ***
+
+#### Diversity
+* MHA >> GQA >> MQA
+
+#### Memory
+* MHA << GQA << MQA
+
+***
+
 
 #### [Introducing Meta Llama 3: The most capable openly available LLM to date](https://ai.meta.com/blog/meta-llama-3/)
 * Llama 3 adopts grouped query attention (GQA) across both the 8B and 70B sizes.

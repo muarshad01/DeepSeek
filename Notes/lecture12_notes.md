@@ -78,7 +78,7 @@ $$
 \begin{aligned}
 Q(4,4)      &=X(4,8) \times W_Q(8,4)\\
 C_{KV}(4,4) &= X(4,8) \times W_{dKV}(8,4) ~~~~\text{Down Projection!}\\
-K(4,4)      &= C_{KV} \times W_{uK} = X(4,8) \times W_{dKV}(8,4) \times W_{uK}(4,4) ~~~\text{Up projection to recover K!}\\
+K(4,4)      &= C_{KV} \times W_{uK} = \underbrace{X(4,8) \times W_{dKV}(8,4)}_{C_{KV}} \times W_{uK}(4,4) ~~~\text{Up projection to recover K!}\\
 V(4,4)      &= C_{KV} \times W_{uV} = X(4,8) \times W_{dKV}(8,4) \times W_{uV}(4,4) ~~~\text{Up projection to recover V!}\\
 \end{aligned}
 $$

@@ -20,7 +20,7 @@
   * $W_{Q_1} \neq W_{Q_2} \neq  W_{Q_3} \neq W_{Q_4}$ ($W_Q$ Matrices)
   * $W_{V_1}=W_{V_2}=W_{V_3}=W_{V_4}$ ($W_V$ Matrices)
   * $K_1=K_2=K_3=K_4$ (Value Matrices)
-  * $Q_1=Q_2=Q_3=Q_4$ (Value Matrices)
+  * $Q_1 \neq Q_2 \neq Q_3 \neq Q_4$ (Value Matrices)
   * $V_1=V_2=V_3=V_4$ (Value Matrices)
   * $A_1=A_2=A_3=A_4$ (Attention Matrices)
   * $C_1=C_2=C_3=C_4$ (Context Matrices)

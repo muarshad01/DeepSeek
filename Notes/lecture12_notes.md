@@ -102,9 +102,9 @@ $$
 \end{aligned}
 $$
 
-* $$X(W_QW_{UK}^{T})$$: Absorted Query
+* $\text{Absorted Query} = X(W_QW_{uK}^{T})$ 
   * Fixed at training time (only compute once).
-* $$(XW_{DKV})^{T}$$: This needs to be cached.
+* $(XW_{dKV})^{T}$ This needs to be cached.
 
 $$
 \begin{aligned}

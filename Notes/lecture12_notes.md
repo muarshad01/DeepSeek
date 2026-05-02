@@ -54,16 +54,17 @@ Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
  
  $$2 \times n \times h \to n_l$$
 
+
 * __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
 
-
+#### Latent Matirx
 ```
 The next day is
 ```
 
-* $C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)~~~\text{: Latent Matrix, which we'll cache.}$
+$$C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$$
+* We cache this Latent Matrix.
 
-* $Q(4,4)=X(4,8) \times W_Q(8,4)$
 
 ***
 

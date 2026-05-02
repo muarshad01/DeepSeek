@@ -22,7 +22,7 @@
   * $Q_1 \neq Q_2 \neq Q_3 \neq Q_4$ (Value Matrices)
   * $K_1=K_2=K_3=K_4$ (Value Matrices)
   * $V_1=V_2=V_3=V_4$ (Value Matrices)
-  * $A_1(Q_1 \times K_1^T)=A_2=A_3=A_4$ (Attention Matrices)
+  * $A_1(Q_1 \times K_1^T)=A_2(Q_2 \times K_1^T)=A_3(Q_3 \times K_1^T)=A_4(Q_4 \times K_1^T)$ (Attention Matrices)
   * $C_1=C_2=C_3=C_4$ (Context Matrices)
   * $P_1=P_2=P_3=P_4$ (Perspectives)
 

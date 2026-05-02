@@ -1,6 +1,6 @@
 #### Group Query Attention (GQA)
-* GQA: Instead of all attention heads kaving same K-V matrices (MQA), what if we create groups of attention heads.
-
+* GQA: Instead of ALL attention heads kaving same KV-Cache matrices (MQA), what if we create groups of attention heads.
+* I still want my model to retain multiple perspectives, but I also want to to reduce KV-Cache size!
 ***
 
 * Consider $n_{heads}=4$ divided in two groups $G_1$ and $G_2$:
@@ -14,7 +14,9 @@
   * $A_3(Q_3 \times K_B^T) \neq A_4(Q_4 \times K_B^T)$
   * $C_1(A_1 \times V_A) \neq C_2(A_2 \times V_B)$
   * $C_3(A_3 \times V_A) \neq C_4(A_4 \times V_B)$ 
-  * $P_1 \neq P_2 \neq P_3 \neq P_4$ (Multiple Perspectives, but reduced accuracy!)
+  * $P_1 = P_2$
+  * $P_3 \neq P_4$
+  * Each group has a different perspective!
 
 ***
 

@@ -43,5 +43,3 @@ $$\text{Bytes ~taken ~up ~by ~KV cache} = l \times b \times s \times h \times n_
 
 
 ***
-
-* Compression across heads (MHA versus MLA)

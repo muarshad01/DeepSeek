@@ -69,11 +69,10 @@ $$X(4,8) \times W_{DKV} (8,4) \to C_{KV}(4,4) ~~~\text{: Latent Matrix, which we
 
 * 40:00
 
+#### How does adding this latent matrix help?
+
 * __13__: What we do next?
 
-$$(W_{Q}(8,4), W_{UK}(4,4), W_{UV}(4,4)) \to (Q(4,4), K(4,4), V(4,4))$$
-
-#### How does adding this latent matrix help?
 $$
 \begin{aligned}
 Q(4,4)      &=X(4,8) \times W_Q(8,4)\\

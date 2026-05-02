@@ -1,7 +1,6 @@
-#### How to solve KC cache memory problem?
+#### How to solve KV-cache memory problem?
 1. Multi-Query Attention (MQA)
-* What if all the attention heads share same Key & Value matrics?
-3. Group-Query Attention (GQA)
+* What if ALL the attention heads share the same K & V matrics?
 
 ***
 

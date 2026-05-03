@@ -85,7 +85,7 @@ The next day is
  $$2 \times n \times h \rightarrow n_{latent}$$
 
 
-* __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
+* __11__: To get this matrix, we start by projecting the input embedding matrix (X) into latent space!
 
 #### Latent Matirx
 ```

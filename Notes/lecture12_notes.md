@@ -142,7 +142,7 @@ $$
 \end{aligned}
 $$
 
-* __2__: Compute KV Vector
+* __2__: Compute $C_{KV}^{bright}$ Vector
 
 $$
 \begin{aligned}
@@ -150,10 +150,10 @@ $$
 \end{aligned}
 $$
 
-* Updated $$C_{KV}(5,4)$$
+* __3__: Update $C_{KV}$-Cache
+* Updated $C_{KV}(5,4)$
 
-
-* __3__: Compute K and V
+* __4__: Compute $K$ and $V$
 
 $$
 \begin{aligned}

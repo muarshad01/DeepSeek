@@ -62,9 +62,11 @@ The next day is
 * 20:00
 
 * __7__: K-V cache disadvantages.
-  * Size of K-V cache
+  * Size of KV-cache
 
-* __8__: Solving the K-V cache memory problem
+***
+
+* __8__: Solving the KV-cache memory problem
 
 * 30:00
 
@@ -76,11 +78,11 @@ The next day is
 
 * 35:00
 
-* __10__: What if we don't have to cache the Keys & Values seperately?
-  * What if we cache only one matrix?
-  * What if this matrix has less dimention than $$n \times h$$?
+* __10__: What if we don't have to cache the Keys ($K$) & Values ($V$) seperately?
+  * What if we cache only one matrix ($C_{KV}$)?
+  * What if this matrix has less dimention than $n \times h$?
  
- $$2 \times n \times h \to n_l$$
+ $$2 \times n \times h \rightarrow n_{latent}$$
 
 
 * __11__: To get this matrix, we start by projecting the input embedding matrix into __latent space!__
@@ -237,3 +239,13 @@ $$
 
 
 ***
+
+
+#### DeepSeek R1/V3 model
+l : 61
+b : 1
+n : 128 
+h : 128
+s : 100,000
+
+* KV-Cache size = 400 GB

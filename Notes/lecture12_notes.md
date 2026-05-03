@@ -2,9 +2,6 @@
 
 * How DeepSeek Changed Attention?
 
-* [DeepSeek-V2: A Strong, Economical, and Efficient
-Mixture-of-Experts Language Model - 2024](https://arxiv.org/pdf/2405.04434)
-
 1. Key-Value (KV) cache
 2. Multi-Head Attention (MHA)
 3. Multi-Query Attention (MQA)

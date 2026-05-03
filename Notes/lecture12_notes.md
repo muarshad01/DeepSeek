@@ -186,8 +186,7 @@ $$
 \end{aligned}
 $$
 
-* __3__: Update Latent Cache: $C_{KV}$
-  * Updated $C_{KV}(5,4)$
+* __3__: Update Latent Cache: $C_{KV}(5,4)$
 
 * __4__: Compute $K$ and $V$
 

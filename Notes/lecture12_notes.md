@@ -201,7 +201,7 @@ $$
 ***
 
 
-* DeepSeek embedding dimention (7168)
+* DeepSeek embedding dimention = 7,168
 * Latent Space dimention = 512
 * Insted of two K and V matrices, we only have on C_{KV}. That is a reduction by factor of 2
 * Reduction along dimention = $\frac{7168}{512}$

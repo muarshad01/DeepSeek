@@ -92,7 +92,13 @@ The next day is
 The next day is
 ```
 
-$$\text{Latent Matrix} = C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$$
+$$
+\begin{align}
+ \text{Latent Matrix} &= C_{KV}(4,4) = X(4,hidden-dim) \times W_{dKV}(8,latent-dim)\\
+                      &= C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)
+\end{align}
+$$
+
 * We cache this Latent Matrix.
 
 

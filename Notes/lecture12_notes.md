@@ -25,11 +25,11 @@
   * Computation Cost = O(number of tokens)
 
 
-* X(4,8)
+
 ```
 The next day is
 ```
-
+* X(4,8)
 * $Q(4,4) = X(4,8) \times W_Q(8,4)$
 * $K(4,4) = X(4,8) \times W_K(8,4)$
 * $V(4,4) = X(4,8) \times W_V(8,4)$
@@ -38,7 +38,14 @@ The next day is
 
 ***
 
-* New token arrrives: $X_{bright}(1,8)$
+#### New token $X_{bright}(1,8)$
+* X(5,8)
+* $Q(5,4) = X(5,8) \times W_Q(8,4)$
+* $K(5,4) = X(5,8) \times W_K(8,4)$
+* $V(5,4) = X(5,8) \times W_V(8,4)$
+* $A(5,5) = Q \times K^T$
+* $Z(5,4) = A \times V$
+
 
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$

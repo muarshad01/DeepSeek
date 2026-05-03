@@ -196,9 +196,7 @@ $$
 \end{aligned}
 $$
 
-
-
-* Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
+* For DeeSeek, memory reduction from 400 GB to $\frac{400}{64} = 6.25 GB$
 
 ***
 

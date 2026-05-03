@@ -169,7 +169,7 @@ $$
 * $C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$
 
 * __15__: So, what happens when a new token comes in?
-* First, we compute the queries project into latent space.
+ * First, we compute the queries project into latent space.
 
 * __1__: New arriving vector $X^{bright}(1,8)$
 

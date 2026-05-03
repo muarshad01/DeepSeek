@@ -46,6 +46,7 @@ The next day is
 * $A(5,5) = Q \times K^T$
 * $Z(5,4) = A \times V$
 
+***
 
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$

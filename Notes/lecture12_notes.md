@@ -174,7 +174,7 @@ $$
 
 $$
 \begin{aligned}
-   Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\times W_{uK}^T(4,4)\\
+   Q_{bright}(1,4) &= X_{bright}(1,8) \times (W_Q(8,4)\times W_{uK}^T(4,4))\\
 \end{aligned}
 $$
 

@@ -53,9 +53,10 @@ The next day is
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$
 * $V_{bright}(1,4) = X_{bright}(1,8) \times W_V(8,4)$
-* $A_{bright}^{score}(5,5) = Q(5,4) \times K^T(4,5)$
-* $A_{bright}^{weight}(5,5)$
-* $Z_{bright}(5,4) = A(5,5) \times V(5,4)$
+* We just need to make the above three ($uparrow$) computations for every new inference!
+* $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K_{bright}^T(4,5)$
+* $A_{bright}^{weight}(1,5)$
+* $Z_{bright}(1,4) = A_{bright}^{weight}(1,5) \times V(5,4)$
 ***
 
 * 20:00

@@ -138,8 +138,8 @@ $$
 $$
 \begin{aligned}
 Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\\
-&= (W_Q.W_{UK}^{T})\\
-&=X_{bright}(1,8)(8,4)(4,4) \to \text{Absorbed Query vector for bright}(1,4)\\
+                &= (W_Q.W_{UK}^{T})\\
+                &=X_{bright}(1,8)(8,4)(4,4) \to \text{Absorbed Query vector for bright}(1,4)\\
 \end{aligned}
 $$
 
@@ -147,8 +147,7 @@ $$
 
 $$
 \begin{aligned}
-    Q &= X_{bright}.W_{DKV}\\
-      &= X_{bright}(1,8).(8,4) \to (1,4) \to \text{Append to latent K-V Cache}\\
+   C_{KV}^{bright}(1,4) &= X_{bright}(1,8) \times W_{dKV}(8,4)\\
 \end{aligned}
 $$
 

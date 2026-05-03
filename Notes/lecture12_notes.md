@@ -30,10 +30,10 @@
 The next day is
 ```
 
-* $W_Q(4,8)=W_K(4,8)=W_V(4,8)$
-* $Q(4,4) = X \times W_Q$
-* $K(4,4) = X \times W_K$
-* $V(4,4) = X \times W_V$
+* $W_Q(8,4)=W_K(8,4)=W_V(8,4)$
+* $Q(4,4) = X(4,8) \times W_Q(8,4)$
+* $K(4,4) = X(4,8) \times W_K(8,4)$
+* $V(4,4) = X(4,8) \times W_V(8,4)$
 
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$

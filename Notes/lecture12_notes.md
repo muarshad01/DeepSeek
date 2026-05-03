@@ -129,14 +129,16 @@ $$
 
 #### Letent KV-Cache
 
-* $$X(4,8) \times W_{DKV}(8,4) \to C_{KV}(4,4)$$
+* $$\to C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4) $$
 
 * __15__: So, what happens when a new token comes in?
 * First, we compute the queries project into latent space.
+* $X_{bright}(1,8)$
 
 $$
 \begin{aligned}
-Q &= X_{bright}(W_Q.W_{UK}^{T})\\
+Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\\
+&= (W_Q.W_{UK}^{T})\\
 &=X_{bright}(1,8)(8,4)(4,4) \to \text{Absorbed Query vector for bright}(1,4)\\
 \end{aligned}
 $$

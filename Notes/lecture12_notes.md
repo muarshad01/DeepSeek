@@ -33,8 +33,8 @@ The next day is
 * $Q(4,4) = X(4,8) \times W_Q(8,4)$
 * $K(4,4) = X(4,8) \times W_K(8,4)$
 * $V(4,4) = X(4,8) \times W_V(8,4)$
-* $A(4,4)^{score} = Q(4,4) \times K^T(4,4)$
-* $A(4,4)^{weight} = Q(4,4) \times K^T(4,4)$
+* $A^{score}(4,4) = Q(4,4) \times K^T(4,4)$
+* $A^{weight}(4,4) = Q(4,4) \times K^T(4,4)$
 * $Z(4,4) = A(4,4) \times V(4,4)$
 
 ***
@@ -44,8 +44,8 @@ The next day is
 * $Q(5,4) = X(5,8) \times W_Q(8,4)$
 * $K(5,4) = X(5,8) \times W_K(8,4)$
 * $V(5,4) = X(5,8) \times W_V(8,4)$
-* $A(5,5)^{score} = Q(5,4) \times K^T(4,5)$
-* $A(5,5)^{weight} = Q(5,4) \times K^T(4,5)$
+* $A^{score}(5,5) = Q(5,4) \times K^T(4,5)$
+* $A^{weight}(5,5) = Q(5,4) \times K^T(4,5)$
 * $Z(5,4) = A(5,5) \times V(5,4)$
 
 ***

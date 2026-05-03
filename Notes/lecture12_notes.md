@@ -33,6 +33,8 @@ The next day is
 * $Q(4,4) = X(4,8) \times W_Q(8,4)$
 * $K(4,4) = X(4,8) \times W_K(8,4)$
 * $V(4,4) = X(4,8) \times W_V(8,4)$
+* $A(4,4) = Q \times K^T$
+* $Z(4,4) = A \times V$
 
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$

@@ -129,7 +129,7 @@ $$
 
 #### Letent KV-Cache
 
-* $$ C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4) $$
+* $C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)$
 
 * __15__: So, what happens when a new token comes in?
 * First, we compute the queries project into latent space.

@@ -191,7 +191,7 @@ $$
 
 $$
 \begin{aligned}
-  \text{Reduction } &= (\frac{d_{latent}}{n_{heads} \times h}) \times \frac{1}{2}\\
+  \text{Reduction } &= \frac{1}{2} \times \bigg(\frac{d_{latent}}{n_{heads} \times h}\bigg) \\
 \end{aligned}
 $$
 

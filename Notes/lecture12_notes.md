@@ -79,8 +79,8 @@ The next day is
 * 35:00
 
 * __10__: What if we don't have to cache the Keys ($K$) & Values ($V$) seperately?
-  * What if we cache only one matrix ($C_{KV}$)?
-  * What if this matrix has less dimention than $n \times h$?
+ * What if we cache only one matrix ($C_{KV}$)?
+ * What if this matrix has less dimention than $n \times h$?
  
  $$2 \times n \times h \rightarrow n_{latent}$$
 

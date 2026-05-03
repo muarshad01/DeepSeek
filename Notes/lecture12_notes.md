@@ -179,6 +179,7 @@ $$
 
 * h : $d_{head}$ : hidden dim or head dimension
 * n_{heads} :  number of heads
+
 $$
 \begin{aligned}
    MHA &:  l \times b \times s \times \underbrace{n_{heads} \times h}_{\text{embedding dim}} \times 2 \times 2\\

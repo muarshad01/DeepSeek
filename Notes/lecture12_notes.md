@@ -137,9 +137,7 @@ $$
 
 $$
 \begin{aligned}
-Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\\
-                &= (W_Q.W_{UK}^{T})\\
-                &=X_{bright}(1,8)(8,4)(4,4) \to \text{Absorbed Query vector for bright}(1,4)\\
+   Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\\
 \end{aligned}
 $$
 
@@ -152,6 +150,18 @@ $$
 $$
 
 * Updated $$C_{KV}(5,4)$$
+
+
+* __3__: Compute K and V
+$$
+\begin{aligned}
+   K(5,4) = C_{KV}(5,4) \times W_{uK}(4,4)\\
+   V(5,4) = C_{KV}(5,4) \times W_{uV}(4,4)\\
+\end{aligned}
+$$
+
+X_{bright}
+
 
 ***
 

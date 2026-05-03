@@ -207,8 +207,12 @@ $$
 
 * 50:00
 
-* h : dimension of head
-* $n_{heads}$ :  number of heads
+#### DeepSeek R1/V3 model
+* l : 61
+* b : 1
+* n : 128 
+* h : 128
+* s : 100,000
 
 $$
 \begin{aligned}
@@ -226,7 +230,7 @@ $$
 \end{aligned}
 $$
 
-* For DeeSeek, memory reduction from 400 GB to $\frac{400}{64} = 6.25 GB$
+* Memory reduces from 400 GB to $\frac{400}{64} = 6.25 GB$ for DeepSeek.
 
 ***
 
@@ -239,13 +243,3 @@ $$
 
 
 ***
-
-
-#### DeepSeek R1/V3 model
-l : 61
-b : 1
-n : 128 
-h : 128
-s : 100,000
-
-* KV-Cache size = 400 GB

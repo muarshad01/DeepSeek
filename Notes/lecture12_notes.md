@@ -177,8 +177,8 @@ $$
 1. Low cache size
 2. Good language model performance
 
-* h : $d_{head}$ : hidden dim or head dimension
-* n_{heads} :  number of heads
+* $h : d_{head}$ : hidden dim or head dimension
+* $n_{heads}$ :  number of heads
 
 $$
 \begin{aligned}

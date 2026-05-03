@@ -99,8 +99,7 @@ $$
 \end{align}
 $$
 
-* Note, we tranfrom to a lower dimention latent-dim = 4 from embedding-dim = 8.
-
+* Note, we move to a lower dimension.
 
 ***
 

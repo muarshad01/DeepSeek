@@ -192,8 +192,7 @@ $$
 $$
 \begin{aligned}
   \text{Reduction }        &= \bigg(\frac{d_{latent}}{2 \times n_{heads} \times h}\bigg) \\
-  \text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576}\\
-                           &\approx 64
+  \text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576} \approx 64\\
 \end{aligned}
 $$
 

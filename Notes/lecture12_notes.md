@@ -183,7 +183,7 @@ $$
 
 h : hidden dim : d_{head}
 \begin{aligned}
-   MHA &: 2 \times 2 \times l \times b \times s \times \underbrace{n_{heads} \times h}_{\text{embedding dim}} \\
+   MHA &: 2 \times 2 \times l \times b \times s \times \underbrace{n_{heads} \times h}_{embedding dim} \\
    MQA &: 2 \times 2 \times l \times b \times s \times 1 \times h \\
    GQA &: 2 \times 2 \times l \times b \times s \times g \times h \\
    MLA &: 1 \times 2 \times l \times b \times s \times d_{l} \\

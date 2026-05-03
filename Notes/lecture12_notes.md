@@ -2,25 +2,23 @@
 
 * How DeepSeek Changed Attention?
 
-1. Key-Value (KV) cache
-2. Multi-Head Attention (MHA)
-3. Multi-Query Attention (MQA)
-4. Grouped-Query Attention (GQA)
-5. Multi-Head Latent Attention (MLA)
+1. Multi-Head Attention (MHA)
+2. Multi-Query Attention (MQA)
+3. Grouped-Query Attention (GQA)
+4. Multi-Head Latent Attention (MLA) - Compressed Latent KV-Cache
 
 ***
 
 * 5:00
 
-#### Key-Value Cache
 * __Takeaway-1__: We seem to be doing a lot of repeated calculations.
 
 ***
 
 * 15:00
 
-* __To get the logits vector for "bright," we only need the context vector for "bright".__
-
+* __Main Observation__: To get the logits vector for `bright`, we only need the context vector for `bright`.
+* __3__: What do we really need to predict the next token?
 * __4__: What if we store/cache the keys and valus matrices during inference?
 * __5__: We need to cache Kay and Value matrices. This is called a K-V cache. We don't need to store Queries (Q) matrix.
 * __6__: K-V cache advantages.

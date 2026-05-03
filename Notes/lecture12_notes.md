@@ -207,7 +207,7 @@ $$
 
 * 50:00
 
-* $h : d_{head}$ : hidden dim or head dimension
+* h : dimension of head
 * $n_{heads}$ :  number of heads
 
 $$

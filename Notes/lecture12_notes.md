@@ -94,12 +94,12 @@ The next day is
 
 $$
 \begin{align}
- \text{Latent Matrix} &= C_{KV}(4,4) = X(4,hidden-dim) \times W_{dKV}(8,latent-dim)\\
+ \text{Latent Matrix} &= C_{KV}(4,4) = X(4,embedding-dim) \times W_{dKV}(8,latent-dim)\\
                       &= C_{KV}(4,4) = X(4,8) \times W_{dKV}(8,4)
 \end{align}
 $$
 
-* We cache this Latent Matrix.
+* Note, we tranfrom to a lower dimention latent-dim = 4 from embedding-dim = 8.
 
 
 ***

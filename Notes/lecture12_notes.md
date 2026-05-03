@@ -191,12 +191,13 @@ $$
 
 $$
 \begin{aligned}
-\text{Reduction of size} &= \frac{2 \times n_{heads} \times h}{d_l}\\
-\text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576}\\
-                         &\approx 57
+  \text{Reduction } &= (\frac{d_{latent}}{n_{heads} \times h}) \times \frac{1}{2}\\
 \end{aligned}
 $$
 
+
+\text{For DeepSeek}      &= \frac{2 \times 128 \times 128}{576}\\
+                         &\approx 57
 * Memory reduction from 400 GB to $$\frac{400}{60}=6.6GB$$ for DeepSeek.
 
 ***

@@ -153,15 +153,13 @@ $$
 
 
 * __3__: Compute K and V
+
 $$
 \begin{aligned}
-   K(5,4) = C_{KV}(5,4) \times W_{uK}(4,4)\\
-   V(5,4) = C_{KV}(5,4) \times W_{uV}(4,4)\\
+   K(5,4) &= C_{KV}(5,4) \times W_{uK}(4,4)\\
+   V(5,4) &= C_{KV}(5,4) \times W_{uV}(4,4)\\
 \end{aligned}
 $$
-
-X_{bright}
-
 
 ***
 

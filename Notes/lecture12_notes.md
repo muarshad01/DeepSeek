@@ -133,11 +133,12 @@ $$
 
 * __15__: So, what happens when a new token comes in?
 * First, we compute the queries project into latent space.
-* $X_{bright}(1,8)$
+
+* __1__: New arriving vector $X^{bright}(1,8)$
 
 $$
 \begin{aligned}
-   Q_{bright}(1,4) &= X_{bright}(1,8) \times W_Q(8,4)\\
+   Q^{bright}(1,4) &= X^{bright}(1,8) \times W_Q(8,4)\\
 \end{aligned}
 $$
 

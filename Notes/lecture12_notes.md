@@ -162,6 +162,12 @@ $$
 \end{aligned}
 $$
 
+* __5__: Attention Score (A)
+* $A^{bright}(1,5) = Q^{bright}(1,4) \times K^T(4,5)$
+
+* __5__: Attention Weight (A)
+* $Z^{bright}(1,4) = A^{bright}(1,5) \times V(5,4)$
+
 ***
 
 * 50:00

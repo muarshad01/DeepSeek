@@ -213,6 +213,7 @@ $$
 * n : 128 
 * h : 128
 * s : 100,000
+* latent dimension : 576
 
 $$
 \begin{aligned}

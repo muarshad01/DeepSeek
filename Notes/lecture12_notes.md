@@ -151,7 +151,7 @@ $$
 $$
 
 * __3__: Update $C_{KV}$-Cache
-* Updated $C_{KV}(5,4)$
+  * Updated $C_{KV}(5,4)$
 
 * __4__: Compute $K$ and $V$
 

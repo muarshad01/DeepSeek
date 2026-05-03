@@ -201,10 +201,10 @@ $$
 ***
 
 * $W_{dKV}(embedding-dim, letent-dim)$
-* DeepSeek embedding dimention = 7,168
-* Latent Space dimention = 512
+* DeepSeek embedding dimention = $n_{heads} \times d_{head} = 128 \times 128$
+* Latent Space dimension = 512
 * Insted of two K and V matrices, we only have on $C_{KV}$. That is a reduction by factor of 2
-* Reduction along dimention = $\frac{128 \times 128}{512}$
+* Reduction along dimension = $\frac{128 \times 128}{512}$
 * Total reduction = $\frac{2 \times 128 \ times 128}{512} = 64$
 
 

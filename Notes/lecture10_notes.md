@@ -40,11 +40,12 @@
 #### DeepSeek R1/V3
 * l : 61
 * b : 1
-* $n_{heads}$ : 128
-* $h : 128$
-* $s : 100,000$ (tokens)
+* n_{heads} : 128
+* h : 128
+* s : 100,000 (tokens)
 
 ***
+
 * [FALCON](https://huggingface.co/docs/transformers/en/model_doc/falcon)
 
 ***

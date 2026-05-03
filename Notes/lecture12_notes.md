@@ -150,7 +150,7 @@ $$
 \end{aligned}
 $$
 
-* __3__: Update $C_{KV}$-Cache
+* __3__: Update Latent Cache: $C_{KV}$
   * Updated $C_{KV}(5,4)$
 
 * __4__: Compute $K$ and $V$
@@ -163,10 +163,10 @@ $$
 $$
 
 * __5__: Attention Score (A)
-* $A^{bright}(1,5) = Q^{bright}(1,4) \times K^T(4,5)$
+  * $A^{bright}(1,5) = Q^{bright}(1,4) \times K^T(4,5)$
 
-* __5__: Attention Weight (A)
-* $Z^{bright}(1,4) = A^{bright}(1,5) \times V(5,4)$
+* __5__: Attention Weight (Z)
+  * $Z^{bright}(1,4) = A^{bright}(1,5) \times V(5,4)$
 
 ***
 
@@ -176,6 +176,8 @@ $$
 * Can we get the best of both worlds?
 1. Low cache size
 2. Good language model performance
+
+
 
 $$
 \begin{aligned}
@@ -199,7 +201,11 @@ $$
 ***
 
 
-
+* DeepSeek embedding dimention (7168)
+* Latent Space dimention = 512
+* Insted of two K and V matrices, we only have on C_{KV}. That is a reduction by factor of 2
+* Reduction along dimention = $\frac{7168}{512}$
+* Total reduction = $2 \times \frac{7168}{512}$
 
 
 

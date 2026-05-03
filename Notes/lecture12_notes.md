@@ -36,6 +36,10 @@ The next day is
 * $A(4,4) = Q \times K^T$
 * $Z(4,4) = A \times V$
 
+***
+
+* New token arrrives: $X_{bright}(1,8)$
+
 * $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
 * $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$
 * $V_{bright}(1,4) = X_{bright}(1,8) \times W_V(8,4)$

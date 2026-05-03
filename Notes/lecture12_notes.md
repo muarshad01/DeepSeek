@@ -141,6 +141,8 @@ $$
 * $X(W_QW_{uK}^{T})$ 
 * Fixed at training time (Only compute once!).
 
+***
+
 $$
 \begin{aligned}
 \text{Context Matrix} &=  \text{A} \times V \\

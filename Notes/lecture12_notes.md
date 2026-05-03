@@ -61,7 +61,7 @@ The next day is
 
 * 20:00
 
-* __7__: K-V cache disadvantages.
+* __7__: KV-cache disadvantages.
   * Size of KV-cache
 
 ***

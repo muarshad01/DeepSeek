@@ -33,8 +33,8 @@ The next day is
 * $Q(4,4) = X(4,8) \times W_Q(8,4)$
 * $K(4,4) = X(4,8) \times W_K(8,4)$
 * $V(4,4) = X(4,8) \times W_V(8,4)$
-* $A(4,4) = Q \times K^T$
-* $Z(4,4) = A \times V$
+* $A(4,4) = Q(4,4) \times K^T(4,4)$
+* $Z(4,4) = A(4,4) \times V(4,4)$
 
 ***
 
@@ -43,8 +43,8 @@ The next day is
 * $Q(5,4) = X(5,8) \times W_Q(8,4)$
 * $K(5,4) = X(5,8) \times W_K(8,4)$
 * $V(5,4) = X(5,8) \times W_V(8,4)$
-* $A(5,5) = Q \times K^T$
-* $Z(5,4) = A \times V$
+* $A(5,5) = Q(5,4) \times K^T(4,5)$
+* $Z(5,4) = A(5,5) \times V(5,4)$
 
 ***
 

@@ -57,6 +57,7 @@ The next day is
 * $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K_{bright}^T(4,5)$
 * $A_{bright}^{weight}(1,5)$
 * $Z_{bright}(1,4) = A_{bright}^{weight}(1,5) \times V(5,4)$
+
 ***
 
 * 20:00
@@ -121,6 +122,14 @@ $$
 * __Note__: $W_Q(8,4)$ remains the same.
 * Instead of caching two large matrices, $K$ and $V$, we only cache one smaller, lower dimensional matrix $C_{KV}$. This single matrix becomes our highly-efficient cache.
 * When we need the full Keys ($K$) and Values($V$), we can resonstruct them on-the-fly from the compressed latent representation ($C_{KV}$).
+
+***
+
+#### Preserving performance: Why head diversity maintained?
+* Up projection matrices: $W_{uK}$ and $W_{uV}$
+* These up projection matrices are multi-head. This means for each head, the content in these matrices is different - fundamentally different from GQA and MQA.
+* We have not shared anything across heads.
+* We have preseved the full diversity and expressive power of multi-head design.
 
 ***
 

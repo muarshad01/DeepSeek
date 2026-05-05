@@ -27,7 +27,7 @@
 #### Disadvantage of MQA
 * Significant performance degradation (We'll have reduced accuracy).
 * Diversity across multiple heads is very low!!!
-* We still capture multiple perspective, however, the ablity to capture multiple perspectives has reduced.
+* We still capture multiple perspective, however, the ablity to capture multiple perspectives has reduced. The only tunable parameter is Queries ($Q$) and K and V are same for ALL heads.
 * We are still capturing multiple perspecive, but since the number of parameters have reduced the nuances that we are capturing have reduced.
 
 ***

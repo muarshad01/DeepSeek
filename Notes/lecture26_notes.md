@@ -1,4 +1,9 @@
 ## DeepSeek Quantization
+1. Mixed Precision Framework
+2. Fine-grained Quantization
+3. Increasing Accumulation Precision
+4. Mantissa over Exponents
+5. Online Quantization
 
 * FP8 Training (Section 3.3; page 14)
 <p align="center">
@@ -10,7 +15,10 @@
 |---|
 | [DeepSeek-V3 - Jan 2025](https://arxiv.org/pdf/2412.19437)||
 | [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
-* Outliers
+  * Outliers
+
+
+
 
 ***
 

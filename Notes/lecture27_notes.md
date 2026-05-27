@@ -15,14 +15,17 @@ $$
    y_{FP32 \rightarrow BF16} &= x_{BF16 \rightarrow FP8} \times W_{FP32 \rightarrow FP8}
 \end{align}
 $$
+
 ***
 
 #### Dprop
 
+$$
 \begin{align}
    z &= x \times W \\
    \frac{\partial L}{\partial x} &= \frac{\partial L}{\partial z} \times W^{T}
 \end{align}
+$$
 
 $$
 \begin{align}

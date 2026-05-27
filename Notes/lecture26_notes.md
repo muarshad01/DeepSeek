@@ -27,4 +27,17 @@
 ***
 
 
+#### FP32 to INT8
+
+|   | Symmetric Quantization |
+|---|---|
+| scale            | $\frac{\text{max}(|x|)}{127}$ |
+| Quantiztion (q)  | $round \bigg( \frac{x}{scale} \bigg)$ | 
+| Dequantizqation | $q \times scale$ |
+
+***
+
+
+***
+
 * [TurboQuant: Redefining AI efficiency with extreme compression](https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/)

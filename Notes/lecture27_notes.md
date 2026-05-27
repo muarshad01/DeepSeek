@@ -20,11 +20,11 @@
 |$z = x \times W$|
 |$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
 | $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}_{FP8}$ |
-| $\bigg(\frac{\partial L}{\partial x}\bigg)_{BF16} = \bigg(\frac{\partial L}{\partial z}\bigg)_{FP8} \times W^{T}_{FP8}$ |
+|$$\bigg(\frac{\partial L}{\partial x}\bigg)_{BF16} = \bigg(\frac{\partial L}{\partial z}\bigg)_{FP8} \times W^{T}_{FP8}$$|
 
 | $\bigg(\frac{\partial L}{\partial x}\bigg)_{FP32 \rightarrow BF16} = \bigg(\frac{\partial L}{\partial z}\bigg)_{ BF16 \rightarrow FP8} \times W^{T}_{ \rightarrow FP8}$ |
 
-$$\bigg(\frac{\partial L}{\partial x}\bigg)_{BF16} = \bigg(\frac{\partial L}{\partial z}\bigg)_{FP8} \times W^{T}_{FP8}$$
+
 
 ***
 

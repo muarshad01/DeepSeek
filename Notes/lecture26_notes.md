@@ -1,18 +1,15 @@
 ## DeepSeek Quantization
 
-* FP8 Training (Section 3.3)
-
 <p align="center">
   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/deepseek-quantization.png" width="500" height="300" />
 </p>
 
-
-
+* FP8 Training (Section 3.3)
 
 | Research Paper |
 |---|
-| [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
 | [DeepSeek-V3 - Jan 2025](https://arxiv.org/pdf/2412.19437)||
+| [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
 * Outliers
 
 ***

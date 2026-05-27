@@ -31,6 +31,7 @@
 
 |   | Symmetric Quantization |
 |---|---|
+|| 0 in FP32 = 0 in INT8|
 | scale            | $\frac{\text{max}(\lvert x \rvert)}{127}$ |
 | Quantiztion (q)  | $round \bigg( \frac{x}{scale} \bigg)$ | 
 | Dequantizqation | $q \times scale$ |

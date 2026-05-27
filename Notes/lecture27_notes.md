@@ -29,6 +29,16 @@ $$
 
 ***
 
+#### Xprop
+
+$$
+\begin{align}
+   \bigg(\frac{\partial L}{\partial W}\bigg)_{FP32} &= x^{T} \times \bigg(\frac{\partial L}{\partial z}\bigg)_{FP8} \\
+   \bigg(\frac{\partial L}{\partial x}\bigg)_{FP32 \rightarrow BF16} &= \bigg(\frac{\partial L}{\partial z}\bigg)_{ BF16 \rightarrow FP8} \times W^{T}_{ FP32 \rightarrow FP8}
+\end{align}
+$$
+
+***
 
 2. Fine-grained quantization
 

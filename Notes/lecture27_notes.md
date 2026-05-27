@@ -17,7 +17,7 @@
 
 |$z = x \times W \rightarrow \frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
 |---|
-| $\frac{\partial L}{\partial x}_{FP32} = \frac{\partial L}{\partial z}_{FP8} \times W^{T}_{FP8}$ |
+| $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}_{FP8}$ |
 
 ***
 

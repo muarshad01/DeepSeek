@@ -31,7 +31,7 @@
 
 |   | Symmetric Quantization |
 |---|---|
-| scale            | $\frac{\text{max}(\lvertx\rvert)}{127}$ |
+| scale            | $\frac{\text{max}(\lvert x \rvert)}{127}$ |
 | Quantiztion (q)  | $round \bigg( \frac{x}{scale} \bigg)$ | 
 | Dequantizqation | $q \times scale$ |
 

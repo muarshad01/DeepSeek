@@ -20,7 +20,16 @@
 
 ***
 
+* 11:00
+
 #### Mantissa over Exponents
+* In FP8, the number of bits assigned to Exponent (dynamic range) and Mantissa (precision) heavily influence numerical precision and representable range.
+
+| Format | Exponent bits (Dynamic Range) | Mantissa bits (Precision) |
+|---|---|---|
+| E4M3 | 4-bits (smaller range) | 3-bits (higher precision) |
+| E5M2 | 5-bits (larger range)  | 2-bits (lower precision)  |
+
 
 ***
 

@@ -5,6 +5,8 @@
   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/deepseek-quantization.png" width="600" height="300" />
 </p>
 
+***
+
 #### Fprop
 
 |$y=x \times W$|

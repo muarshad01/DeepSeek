@@ -1,7 +1,9 @@
 ### MLA, MoE, MTP
 
 * [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale](https://arxiv.org/abs/2208.07339)
+  * Outliers
 
+***
 
 ### 3.3 FP8 Training
 

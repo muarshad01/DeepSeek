@@ -15,8 +15,10 @@
 
 #### Dprop
 
-|$z = x \times W \rightarrow \frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
+||
 |---|
+|$z = x \times W \rightarrow \frac{\partial L}{\partial x}$|
+|$z = x \times W \rightarrow \frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
 | $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}_{FP8}$ |
 
 ***

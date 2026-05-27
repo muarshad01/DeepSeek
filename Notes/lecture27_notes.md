@@ -29,7 +29,7 @@ $$
 
 ***
 
-#### Xprop
+#### Wprop
 
 $$
 \begin{align}
@@ -37,6 +37,8 @@ $$
    \bigg(\frac{\partial L}{\partial W}\bigg)_{FP32} &= x^{T}_{FP8} \times \bigg(\frac{\partial L}{\partial z}\bigg)_{ BF16 \rightarrow FP8} 
 \end{align}
 $$
+
+* After updating, master weights are converted to BF16 for next iteration forward pass or FP8 conversions when required.
 
 ***
 

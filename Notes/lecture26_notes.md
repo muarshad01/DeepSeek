@@ -2,8 +2,8 @@
 
 | Research Paper |
 |---|
-| [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale](https://arxiv.org/abs/2208.07339) |
-  * Outliers
+| [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
+* Outliers
 
 ***
 

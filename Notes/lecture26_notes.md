@@ -22,11 +22,7 @@
 #### Quantization
 * [Blog: A Visual Guide to Quantization by Maarten Grootendorst](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
   
-***
-
-* 10:00
-
-* Quantization aims to reduce the precision of a model's parameter from higher bit-widths to lower bit-widths.
+* Quantization aims to reduce the precision of a model's parameter from higher bit-widths (like 32-bit floating point) to lower bit-widths (like 8-bit integers).
 
 ***
 

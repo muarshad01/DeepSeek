@@ -44,10 +44,7 @@ $$
 
 ***
 
-2. Fine-grained quantization
-
-***
-
+* 15:00
 
 #### Fine-Grained Quantization
 * Seperate scaling

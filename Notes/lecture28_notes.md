@@ -16,6 +16,7 @@
 
 * **Step-2**: Promotion to higher-precision (CUDA core)
   * After a certain interval (denoted NC, typically 128 elements), the partial low-precision accumulations are promoted (copied) to high-precision (FP32) registers in CUDA cores.
+  * Scaling factors from fine-grained quantization are multiplied during dequantization.
 
 ***
 

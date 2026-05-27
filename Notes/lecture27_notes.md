@@ -9,11 +9,12 @@
 
 #### Fprop
 
+$$
 \begin{align}
    y_{BF16}                  &= x_{FP8} \times W_{FP8}\\
    y_{FP32 \rightarrow BF16} &= x_{FP8} \times W_{FP32 \rightarrow FP8}
 \end{align}
-
+$$
 ***
 
 #### Dprop

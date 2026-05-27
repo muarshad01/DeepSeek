@@ -1,10 +1,9 @@
 ## DeepSeek Quantization
 1. Mixed Precision Framework
-2. Fine-grained quantization
 
-***
-
-
+<p align="center">
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/deepseek-quantization.png" width="600" height="300" />
+</p>
 
 |$y=x \times W$|
 |---|
@@ -12,6 +11,9 @@
 
 ***
 
+2. Fine-grained quantization
+
+***
 
 
 #### Fine-Grained Quantization

@@ -32,11 +32,13 @@
 
 |   |  |
 |---|---|
-| scale            | $\frac{\text{max}(\lvert x \rvert)}{127}$ |
+| scale            | $\frac{\text{max}(\lvert x \rvert)}{127} = \frac{\text{max}(\lvert x \rvert)}{2^{b-1}-1}$ | 
 | Quantiztion (q)  | $\text{round} \bigg( \frac{x}{scale} \bigg)$ | 
 | Dequantizqation | $q \times scale$ |
 
 ***
+
+$\frac{\text{max}(\lvert x \rvert)}{2^{b-1}-1}$
 
 
 ***

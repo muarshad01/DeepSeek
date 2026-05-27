@@ -12,6 +12,10 @@
 * **Step-1**: Low-precision MMA (Tensor core)
   * Initially, MMA operations are performed using FP8 precision on Tensor cores.
   * The intermediate results (Low Prec Acc) accumulate internally with limited precision (~14 bits).
+  * Warp Group Level Matrix Multiply Accumulate (WGMMA)
+
+* **Step-2**: Promotion to higher-precision (CUDA core)
+  * After a certain interval (denoted NC, typically 128 elements), the partial low-precision accumulations are promoted (copied) to high-precision (FP32) registers in CUDA cores.
 
 ***
 

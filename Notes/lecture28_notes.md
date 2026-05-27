@@ -5,5 +5,10 @@
 
 ***
 
-4. Mantissa over Exponents
-5. Online Quantization
+#### Mantissa over Exponents
+
+***
+
+#### Online Quantization
+
+***

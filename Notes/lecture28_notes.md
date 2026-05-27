@@ -34,5 +34,6 @@
 ***
 
 #### 3 - Online Quantization
-
+* Delayed Quantization (Previous method)
+* DeepSeek: On the fly scale computation...
 ***

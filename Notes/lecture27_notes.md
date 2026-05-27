@@ -51,8 +51,11 @@ $$
 
 * 15:00
 
-#### Fine-Grained Quantization
-* Seperate scaling
+#### Fine-Grained Quantization (Section 3.3.2)
+* Outlier problem
+* Use seperate scaling for both:
+  * Activations: Tiled
+  * Weights:  Boxed
 * GEMM (General Matrix Multiply)
 
 ***

@@ -4,7 +4,9 @@
 
 ***
 
-||
+
+
+|$y=x \times W$|
 |---|
 | $x_{BF16 \rightarrow FP8}$ |
 | $W_{FP32~\text{or}~BF16 \rightarrow FP8}$ |

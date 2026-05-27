@@ -19,10 +19,10 @@ $$
 
 #### Dprop
 
-||
-|---|
-| $z = x \times W$ |
-| $\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$ |
+\begin{align}
+   z &= x \times W \\
+   \frac{\partial L}{\partial x} &= \frac{\partial L}{\partial z} \times W^{T}
+\end{align}
 
 $$
 \begin{align}

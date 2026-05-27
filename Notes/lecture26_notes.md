@@ -1,10 +1,10 @@
 ## DeepSeek Quantization
 
+* FP8 Training (Section 3.3; page 14)
 <p align="center">
   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/deepseek-quantization.png" width="600" height="300" />
 </p>
 
-* FP8 Training (Section 3.3; page 14)
 
 | Research Paper |
 |---|

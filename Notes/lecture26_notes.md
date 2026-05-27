@@ -1,8 +1,11 @@
-### MLA, MoE, MTP
+## DeepSeek Quantization
+
+* FP8 Training (Section 3.3)
 
 | Research Paper |
 |---|
 | [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
+| [DeepSeek-V3 - Jan 2025](https://arxiv.org/pdf/2412.19437)||
 * Outliers
 
 ***

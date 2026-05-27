@@ -15,7 +15,7 @@
 
 #### Dprop
 
-|$z = x \times W \right arrow \frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
+|$z = x \times W \rightarrow \frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} \times W^{T}$|
 |---|
 | $y_{FP32 \rightarrow BF16} = x_{BF16 \rightarrow FP8} \times W_{FP32 \rightarrow FP8}$ |
 

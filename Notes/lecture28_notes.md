@@ -9,6 +9,10 @@
 #### DeepSeek Solution: Promotion to CUDA cores
 * The authors propose temporatily moving intermediate accumulation results from low-precision Tensor-cores to high-precision CUDA-cores (FP32) periodically during computation. This technique is called "promotion to CUDA cores"
 
+* **Step-1**: Low-precision MMA (Tensor core)
+  * Initially, MMA operations are performed using FP8 precision on Tensor cores.
+  * The intermediate results (Low Prec Acc) accumulate internally with limited precision (~14 bits).
+
 ***
 
 #### Mantissa over Exponents

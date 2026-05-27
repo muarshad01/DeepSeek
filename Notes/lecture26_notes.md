@@ -17,21 +17,11 @@
 | [LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale - Nov 2022](https://arxiv.org/abs/2208.07339) |
   * Outliers
 
-
-
-
 ***
 
-### 3.3 FP8 Training
-
-* Mixed precision framework.
-* Fine-grained quantization.
-* Increasing accumulation precision.
-* Mmantisa over Exponents
-* Online quantization.
-
-* [A Visual Guide to Quantization](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
-
+#### Quantization
+* [Blog: A Visual Guide to Quantization by Maarten Grootendorst](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization)
+  
 ***
 
 * 10:00

@@ -9,9 +9,10 @@
 
 #### Fprop
 
-|$y=x \times W$|
-|---|
-| $y_{FP32 \rightarrow BF16} = x_{BF16 \rightarrow FP8} \times W_{FP32 \rightarrow FP8}$ |
+\begin{align}
+   y_{BF16}                  &= x_{FP8} \times W_{FP8}\\
+   y_{FP32 \rightarrow BF16} &= x_{FP8} \times W_{FP32 \rightarrow FP8}
+\end{align}
 
 ***
 

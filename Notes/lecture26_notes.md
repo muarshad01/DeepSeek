@@ -26,12 +26,12 @@
 
 ***
 
+#### Symmetric Quantization
+* FP32 to INT8
+* 0 in FP32 = 0 in INT8
 
-#### FP32 to INT8
-
-|   | Symmetric Quantization |
+|   |  |
 |---|---|
-|| 0 in FP32 = 0 in INT8|
 | scale            | $\frac{\text{max}(\lvert x \rvert)}{127}$ |
 | Quantiztion (q)  | $round \bigg( \frac{x}{scale} \bigg)$ | 
 | Dequantizqation | $q \times scale$ |

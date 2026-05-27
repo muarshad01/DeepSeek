@@ -1,7 +1,7 @@
 ## DeepSeek Quantization
 1. Mixed Precision Framework
-2. Fine-grained Quantization
-3. Increasing Accumulation Precision
+2. Fine-grained quantization
+3. Increasing accumulation precision
 4. Mantissa over Exponents
 5. Online Quantization
 

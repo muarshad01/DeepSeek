@@ -40,7 +40,7 @@
 
 $$h_i^{'k}=M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~-~~~Equation(21)$$
 
-$$h_{1:T-k}^{k}=TRM[\text{RMSNorm}(h_{1:T-k}^{'k})]~~~-~~~Equation(22)$$
+$$h_{1:T-k}^{k}=TRM_{k}[h_{1:T-k}^{'k}]~~~-~~~Equation(22)$$
 
 * [(1,8);(1,8)] = [1,16]
 

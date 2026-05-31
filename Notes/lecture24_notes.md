@@ -13,7 +13,6 @@
 * To enable MTP, some changes need to be made in the LLM architecture.
 * These changes start after we come out of the transformer block
 
-
 <p align="center">
   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/hidden_state_0.png" width="600" height="200" />
 </p>
@@ -29,6 +28,11 @@
 ***
 
 * 15:00 
+
+<p align="center">
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/mtp-heads.png" width="600" height="300" />
+</p>
+
 
 #### Merged Embedding
 * Token pos: $i$

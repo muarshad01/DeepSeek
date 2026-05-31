@@ -1,4 +1,4 @@
-#### Multi-Token Prediction Introduction
+## Multi-Token Prediction (MTP) Introduction
 
 | Year | Paper |
 |---|---|

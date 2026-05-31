@@ -17,8 +17,12 @@
 </p>
 
 * Once the input emdedding matrix passes through the shared transformer trunk, the resulting vector we obtain is called as the **Hidden state $0(z)$.**
-* If the input matrix dimension is (3,8) as in the figure above, the dimension of the hidden state is also (3,8).
+* If the input matrix dimension is $(3,8)$ as in the figure above, the dimension of the hidden state is also $(3,8)$.
 * Since we need to predict 3 tokens at the same time, we assemble 3 theads:
+  * Head 1 will predict the first token
+  * Head 2 will predict the second token
+  * Head 1 will predict the third token
+* MTP sequentially predict additional tokens and keep the complete casual chain at each prediction depth.
 
 ***
 

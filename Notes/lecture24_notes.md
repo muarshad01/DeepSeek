@@ -37,6 +37,9 @@
 $$h_i^k=M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~-~~~Equation(21)$$
 * [(1,8);(1,8)] = [1,16]
 
+#### Linear Projecion Layer
+* $(16,8) \rightarrow (1,16) \times (16,8) \rightarrow (1,8)$
+
 ***
 
 * 25:00

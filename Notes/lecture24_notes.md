@@ -1,7 +1,7 @@
 * __Note__: DeepsSeek used MTP gains only during the pre-training process. During inference, DeepSeek just used STP.
 
 <p align="center">
-  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/MTP.png" width="300" height="300" />
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/MTP.png" width="400" height="300" />
 </p>
 
 ***

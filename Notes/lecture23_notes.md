@@ -1,5 +1,6 @@
 ## Multi-Token Prediction (MTP) Introduction
 * MTP was a technique already introducted by Meta in their 2024 paper titled:
+
 | Paper |
 |---|
 |[Better & Faster Large Language Models via Multi-token Prediction (Apr 2024)](https://arxiv.org/abs/2404.19737) |

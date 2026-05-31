@@ -38,7 +38,10 @@
 ***
 
 #### Note
-* DeepSeek used MTP gains only during pre-training
-* During inference, DeepSeek just used single token
+* DeepsSeek used MTP gains only during the pre-training process.
+* During inference, DeepSeek just used STP.
 
 ***
+
+
+

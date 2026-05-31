@@ -4,8 +4,9 @@
 
 |Paper|
 |---|
-| [DeepSeek-V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)|
-  * Section 2.2 MTP
+| [DeepSeek-V3 (Jan 2025): Section 2.2 MTP](https://arxiv.org/pdf/2412.19437)|
+
+***
 
 * To enable MTP, some changes need to be made in the LLM architecture.
 * These changes start after we come out of the transformer block

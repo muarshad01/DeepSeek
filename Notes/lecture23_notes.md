@@ -17,9 +17,9 @@
 
 #### Why is MTP useful?
 1. Densification of Training Signals
-* MTP provides richer and denser training signals than single token prediction. 
-* Traditional single token prediction only guides the model to predict a single immediate token.
-* MTP, however, instructs the model to simultaneously predict multiple future tokens, generating more informative gradient signals per training example.
+* MTP provides richer and denser training signals than single-token prediction (STP). 
+* Traditional single-token prediction (STP) only guides the model to predict a single immediate token.
+* MTP, however, instructs the model to simultaneously predict multiple future tokens, **generating more informative gradient signals per training example**.
 
 2. Improved Data Efficiency
 * MTP train models achieved better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.

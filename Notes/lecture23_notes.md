@@ -10,7 +10,6 @@
 
 #### Single-Token Prediction (STP)
 
-
 ***
 
 * 10:00
@@ -27,13 +26,19 @@
   * [HumanEval: Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
   * [HumanEval](https://github.com/openai/human-eval)
 
-3. Better Planning
+3. **Better Planning**
 * MTP implicitly assigns greater importance to __"choice points"__ - key tokens that significantly influence future outcomes.
 * Thus, models learn to prioritize crucial decision-making elements.
 
-4. Higher Inference Speed
+4. **Higher Inference Speed**
 * Up to 3x faster inference speed
+* **Self-speculative decoding** (Multiple tokens are predicted through a SLM and then another LLM is used to verify those responses. If they are correct they're retained. If they're wrong those are not retained. This is also called parallel verification.)
 * [Speed Up LLM Inference with Speculative Decoding](https://medium.com/@genai.works/speed-up-llm-inference-with-speculative-decoding-1fc79701e9d6)
 
 ***
 
+#### Note
+* DeepSeek used MTP gains only during pre-training
+* During inference, DeepSeek just used single token
+
+***

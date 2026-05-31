@@ -12,8 +12,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/hidden_state_0.png
-" width="600" height="200" />
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/hidden_state_0.png" width="600" height="200" />
 </p>
 
 * Once the input emdedding matrix passes through the shared transformer trunk, the resulting vector we obtain is called as the hidden state O (z).

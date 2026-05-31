@@ -40,9 +40,9 @@
 
 $$
 \begin{align}
-   h_i^{'k}      &= M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]\\
-   h_{1:T-k}^{k} &= TRM_{k}[h_{1:T-k}^{'k}]\\
-   P_{i+k+1}^{k} &= OutHead(h_i^k)\\
+   h_i^{'k}      &= \text{M_k}[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]\\
+   h_{1:T-k}^{k} &= \text{TRM_{k}}[h_{1:T-k}^{'k}]\\
+   P_{i+k+1}^{k} &= \text{OutHead}(h_i^k)\\
 \end{align}
 $$
 

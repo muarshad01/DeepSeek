@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/MTP.png" width="500" height="300" />
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/MTP.png" width="600" height="300" />
 </p>
 
 |Paper|

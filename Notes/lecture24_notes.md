@@ -39,7 +39,7 @@ $$h_i^k=M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~-~
 
 #### Linear Projecion Layer (LPL)
 * $(16,8)$
-* (1,16) \times (16,8) \rightarrow \text{Transformer Input:} (1,8)$
+* $(1,16) \times (16,8) \rightarrow \text{Transformer Input:} (1,8)$
 
 ***
 

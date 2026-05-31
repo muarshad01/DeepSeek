@@ -10,6 +10,12 @@
 * To enable MTP, some changes need to be made in the LLM architecture.
 * These changes start after we come out of the transformer block
 
+
+<p align="center">
+  <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec26/hidden_state_0.png
+" width="600" height="200" />
+</p>
+
 * Once the input emdedding matrix passes through the shared transformer trunk, the resulting vector we obtain is called as the hidden state O (z).
 * If the input matrix dimension is (3,8) as in the figure above, the dimension of the hidden state is also (3,8).
 * Since we need to predict 3 tokens at the same time, we assemble 3 theads:

@@ -23,9 +23,9 @@
 
 2. **Improved Data Efficiency**
 * MTP-trained models achieve better results on standard benchmarks like HumanEval and MBPP with the same amount of training data, solving about 15% more code problems on average.
-* [MBPP: Mostly Basic Python Problems Dataset](https://github.com/google-research/google-research/blob/master/mbpp/README.md)
-* [HumanEval: Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
-* [HumanEval](https://github.com/openai/human-eval)
+  * [MBPP: Mostly Basic Python Problems Dataset](https://github.com/google-research/google-research/blob/master/mbpp/README.md)
+  * [HumanEval: Evaluating Large Language Models Trained on Code (Jul 2021)](https://arxiv.org/abs/2107.03374)
+  * [HumanEval](https://github.com/openai/human-eval)
 
 3. Better Planning
 * MTP implicitly assigns greater importance to __"choice points"__ - key tokens that significantly influence future outcomes.

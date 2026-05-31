@@ -38,9 +38,12 @@
 * Token pos: $i$
 * Depth pos: $k$
 
-$$h_i^{'k}=M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~-~~~Equation(21)$$
-
-$$h_{1:T-k}^{k}=TRM_{k}[h_{1:T-k}^{'k}]~~~-~~~Equation(22)$$
+$$
+\begin{align}
+   h_i^{'k}      &= M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]\\
+   h_{1:T-k}^{k} &= TRM_{k}[h_{1:T-k}^{'k}]~~~-~~~Equation(22)
+\end{align}
+$$
 
 * [(1,8);(1,8)] = [1,16]
 

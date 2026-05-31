@@ -30,7 +30,7 @@
 
 * 15:00 
 
-#### Merged Matrix (MM)
+#### Merged Embedding
 * Token pos: $i$
 * Depth pos: $k$
 

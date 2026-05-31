@@ -35,6 +35,7 @@
 * Depth pos: $k$
 
 $$h_i^k=M_k[\text{RMSNorm}(h_i^{k-1}); \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~-~~~Equation(21)$$
+* [(1,8);(1,8)] = [1,16]
 
 ***
 

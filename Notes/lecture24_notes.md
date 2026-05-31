@@ -11,7 +11,7 @@
 
 * 20:00 
 
-$$h_i^k=M_k[RMSNorm(h_i^{k-1}),RMSNorm(Emb(t_{i+k}))]$$
+$$h_i^k=M_k[\text{RMSNorm}(h_i^{k-1}), \text{RMSNorm}(\text{Emb}(t_{i+k}))]$$
 
 * Eauation 21
 

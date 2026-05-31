@@ -26,11 +26,9 @@
 
 ***
 
-* 20:00 
+* 15:00 
 
 $$h_i^k=M_k[\text{RMSNorm}(h_i^{k-1}), \text{RMSNorm}(\text{Emb}(t_{i+k}))]~~~~~~Equation(21)$$
-
-* Eauation 21
 
 ***
 

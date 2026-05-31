@@ -8,6 +8,11 @@
 
 ***
 
+#### Single-Token Prediction (STP)
+
+
+***
+
 * 10:00
 
 #### Why is MTP useful?

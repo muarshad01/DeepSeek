@@ -2,6 +2,8 @@
   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec24/MTP.png" width="600" height="300" />
 </p>
 
+***
+
 |Paper|
 |---|
 | [DeepSeek-V3 (Jan 2025): Section 2.2 MTP](https://arxiv.org/pdf/2412.19437)|

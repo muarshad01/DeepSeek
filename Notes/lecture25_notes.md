@@ -7,7 +7,7 @@
 ***
 
 
-$(B, S, 3, vocab_size)$
+$(B, S, 3, \text{vocab size})$
 
 * 25:00
 

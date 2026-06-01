@@ -6,6 +6,9 @@
 
 ***
 
+
+$(B, S, 3, vocab_size)$
+
 * 25:00
 
 * __Step-3__: Pass input tokens through the model and generate multiple next tokens

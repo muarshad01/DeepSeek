@@ -15,6 +15,7 @@ $$(B, S, 3, V) = (B, T-D, 3, V)$$
 #### Cross Entropy Loss
 * L=5
 * D=3
+
 $$
 \begin{align}
 i&=1 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_1\\

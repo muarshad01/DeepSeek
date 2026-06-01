@@ -13,6 +13,8 @@ $$(B, S, 3, V) = (B, T-D, 3, V)$$
 * __Step-4__: Calculate loss between target tokens and predicted tokens
 
 #### Cross Entropy Loss
+* L=5
+* D=3
 $$
 \begin{align}
 i&=1 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_1\\
@@ -24,7 +26,7 @@ i&=5 \rightarrow [PT5 \leftrightarrow TT5, PT6 \leftrightarrow TT6,PT7 \leftrigh
 $$
 
 $$
-Loss = \frac{1}{5}(L_1+L_2+L_3+L_4+L_5)
+Loss = \frac{1}{15}(L_1+L_2+L_3+L_4+L_5)
 $$
 
 ***

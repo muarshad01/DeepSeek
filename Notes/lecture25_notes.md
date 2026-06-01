@@ -16,10 +16,10 @@ $$(B, S, 3, V) = (B, T-D, 3, V)$$
 $$
 \begin{align}
 i&=1 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_1\\
-i&=2 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_2\\
-i&=3 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_3\\
-i&=4 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_4\\
-i&=5 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_5\\
+i&=2 \rightarrow [PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3,PT4 \leftrightarrow TT4] \rightarrow L_2\\
+i&=3 \rightarrow [PT3 \leftrightarrow TT3, PT4 \leftrightarrow TT4,PT5 \leftrightarrow TT5] \rightarrow L_3\\
+i&=4 \rightarrow [PT4 \leftrightarrow TT4, PT5 \leftrightarrow TT5,PT6 \leftrightarrow TT6] \rightarrow L_4\\
+i&=5 \rightarrow [PT5 \leftrightarrow TT5, PT6 \leftrightarrow TT6,PT7 \leftrightarrow TT7] \rightarrow L_5\\
 \end{align}
 $$
 

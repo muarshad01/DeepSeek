@@ -1,16 +1,10 @@
 #### Multi-Token Prediction (MTP) Coded from Scratch
-* __Step-0__: Load Packages
-* __Step-1__: Define class RMSNorm
-* __Step-2__: Define the Multi-token Prediction (MTP) class
-* __Step-3__: Pass input tokens through the model and generate multiple next tokens
+* **Step-0**: Load Packages
+* **Step-1**: Define class RMSNorm
+* **Step-2**: Define the Multi-token Prediction (MTP) class
+* **Step-3**: Pass input tokens through the model and generate multiple next tokens
 
-***
-
-$(B, S, 3, V) = (B, T-D, 3, V)$
-
-* 25:00
-
-* __Step-3__: Pass input tokens through the model and generate multiple next tokens
+$$(B, S, 3, V) = (B, T-D, 3, V)$$
 
 ***
 

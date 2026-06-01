@@ -14,11 +14,13 @@ $$(B, S, 3, V) = (B, T-D, 3, V)$$
 
 #### Cross Entropy Loss
 $$
-i=1 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_1\\
-i=2 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_2\\
-i=3 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_3\\
-i=4 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_4\\
-i=5 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_5\\
+\begin{align}
+i&=1 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_1\\
+i&=2 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_2\\
+i&=3 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_3\\
+i&=4 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_4\\
+i&=5 \rightarrow [PT1 \leftrightarrow TT1, PT2 \leftrightarrow TT2,PT3 \leftrightarrow TT3] \rightarrow L_5\\
+\end{align}
 $$
 
 ***

@@ -23,4 +23,8 @@ i&=5 \rightarrow [PT5 \leftrightarrow TT5, PT6 \leftrightarrow TT6,PT7 \leftrigh
 \end{align}
 $$
 
+$$
+Loss = \frac{1}{5}(L_1+L_2+L_3+L_4+L_5)
+$$
+
 ***

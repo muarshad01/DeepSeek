@@ -36,4 +36,10 @@
 #### 3 - Online Quantization
 * Delayed Quantization (Previous method)
 * DeepSeek: On the fly scale computation...
+
 ***
+
+#### Post-training Quantization
+1. AWQ (Activation-aware Weight Quantization) is a state-of-the-art technique that compresses Large Language Models (LLMs) by reducing the precision of weights to 4 bits while preserving high accuracy
+2. GPTQ (Generalized Post-Training Quantization)  is a highly efficient algorithm that compresses large language model (LLM) weights into 3-bit or 4-bit precision
+

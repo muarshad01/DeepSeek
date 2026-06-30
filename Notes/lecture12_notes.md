@@ -222,7 +222,7 @@ $$
 * n : 128 
 * h : 128
 * s : 100,000
-* latent dimension : 576
+* latent dimension : $512 = 2^{9}$
 
 $$
 \begin{aligned}
@@ -236,7 +236,7 @@ $$
 $$
 \begin{aligned}
   \text{Reduction of size}   &= \bigg(\frac{2 \times n_{heads} \times h}{d_{latent}}\bigg) \\
-  \text{For DeepSeek}        &= \frac{2 \times 128 \times 128}{576} \approx 64\\
+  \text{For DeepSeek}        &= \frac{2 \times 128 \times 128}{512} \approx 64\\
 \end{aligned}
 $$
 

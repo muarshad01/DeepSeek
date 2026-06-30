@@ -114,6 +114,7 @@
 | [(3) DeepSeek MoE (Jan 2024)](https://arxiv.org/pdf/2401.06066)||
 | [(3) DeepSeek-V2 (June 2024)](https://arxiv.org/pdf/2405.04434)||
 | [(4) DeepSeek-V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
+| [(5) DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models (Dec 2025)](https://arxiv.org/abs/2512.02556) |
 
 ***
 

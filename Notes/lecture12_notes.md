@@ -216,6 +216,10 @@ $$
 
 * 50:00
 
+<p align="center">
+ <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec12/deepseek-latent-512.png" width="300" height="300" />
+</p>
+
 #### DeepSeek R1/V3 model
 * l : 61
 * b : 1

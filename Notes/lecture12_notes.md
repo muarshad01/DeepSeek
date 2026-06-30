@@ -223,9 +223,9 @@ $$
 #### DeepSeek R1/V3 model
 * l : 61
 * b : 1
-* n_{heads} : 128 
-* h : 128
-* s : 128,000 (128k) tokens
+* Attention Heads: n_{heads} : 128 
+* Per-head Dimension (d_{h}): h : 128
+* s : 128,000 tokens (Context Length: 128,000 tokens)
 * Latent/Compressed KV dimension: $512 = 2^{9}$
 * **Note**: The embedding dimension (Hidden dimension ($d_{h}$)) for major DeepSeek models like DeepSeek-V3, DeepSeek-R1, and DeepSeek-V4 is $7,168$
 

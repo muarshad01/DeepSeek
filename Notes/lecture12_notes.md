@@ -127,7 +127,7 @@ $$
 
 #### Preserving performance: Why head diversity maintained?
 * Up projection matrices: $W_{uK}$ and $W_{uV}$
-* These up projection matrices are multi-head. This means for each head, the content in these matrices is different - fundamentally different from GQA and MQA.
+* **These up projection matrices are multi-head**. This means for each head, the content in these matrices is different - fundamentally different from GQA and MQA.
 * We have not shared anything across heads.
 * We have preseved the full diversity and expressive power of multi-head design.
 

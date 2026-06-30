@@ -225,7 +225,7 @@ $$
 * b : 1
 * n_{heads} : 128 
 * h : 128
-* s : 100,000
+* s : 128,000 (128k) tokens
 * Latent/Compressed KV dimension: $512 = 2^{9}$
 * **Note**: The embedding dimension (Hidden dimension ($d_{h}$)) for major DeepSeek models like DeepSeek-V3, DeepSeek-R1, and DeepSeek-V4 is $7,168$
 

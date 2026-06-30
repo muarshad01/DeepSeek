@@ -102,7 +102,6 @@
 | Jun 2024 || [DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence](https://arxiv.org/abs/2406.11931)|
 | Dec 2024 | 671 B (MoE: 37B ~5.5%) | [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)|
 | Jan 2025 | Reasoning Model | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) |
-| Apr 2026 |                 | [DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf) |
 
 
 ***
@@ -111,10 +110,11 @@
 |---|---|
 | [(1) 1991 paper on Mixture of Experts](https://www.cs.toronto.edu/~fritz/absps/jjnh91.pdf)||
 | [(2) ST-MoE paper (2022)](https://arxiv.org/pdf/2202.08906)||
-| [(3) DeepSeek MoE (Jan 2024)](https://arxiv.org/pdf/2401.06066)||
-| [(3) DeepSeek-V2 (June 2024)](https://arxiv.org/pdf/2405.04434)||
-| [(4) DeepSeek-V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
-| [(5) DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models (Dec 2025)](https://arxiv.org/abs/2512.02556) |
+| [DeepSeek MoE (Jan 2024)](https://arxiv.org/pdf/2401.06066)||
+| [DeepSeek-V2 (June 2024)](https://arxiv.org/pdf/2405.04434)||
+| [DeepSeek-V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
+| [DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models (Dec 2025)](https://arxiv.org/abs/2512.02556) |
+| [DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence (Apr 2026)](https://arxiv.org/html/2606.19348v1) ||
 
 ***
 

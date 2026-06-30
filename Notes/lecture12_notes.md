@@ -236,7 +236,7 @@ $$
 
 $$
 \begin{aligned}
-  \text{Reduction of size (MHA -> MLA)}   &= \bigg(\frac{2 \times n_{heads} \times h}{d_{latent}}\bigg) \\
+  \text{Reduction of size (MHA to MLA)}   &= \bigg(\frac{2 \times n_{heads} \times h}{d_{latent}}\bigg) \\
   \text{For DeepSeek}        &= \frac{2 \times 128 \times 128}{512} \approx 64\\
 \end{aligned}
 $$

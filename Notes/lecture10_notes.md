@@ -33,7 +33,7 @@
 ***
 
 #### Advantage
-* KV Cache size is reduced
+* MQA reduces KV Cache size by a factor of $n$
 * Number of trainable parameters are reduced
 
 ***

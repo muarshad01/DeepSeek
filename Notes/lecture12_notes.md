@@ -66,6 +66,7 @@ The next day is
 
 * __7__: KV-cache disadvantages.
   * Size of KV-cache
+  * $l \times s \times h \times d_{heads} \times h \times 2 \times 2$
 
 ***
 

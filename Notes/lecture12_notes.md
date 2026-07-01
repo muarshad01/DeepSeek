@@ -34,8 +34,8 @@ The next day is
 * $K(4,4) = X(4,8) \times W_K(8,4)$
 * $V(4,4) = X(4,8) \times W_V(8,4)$
 * $A^{score}(4,4) = Q(4,4) \times K^T(4,4)$
-* $A^{weight}(4,4) = Q(4,4) \times K^T(4,4)$
-* $Z(4,4) = A(4,4) \times V(4,4)$
+* $A^{weight}(4,4) = softmax(A^{score}(4,4))$
+* $Z(4,4) = A(4,4)^{weight} \times V(4,4)$
 
 ***
 

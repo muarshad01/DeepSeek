@@ -221,8 +221,8 @@ $$
 $$
 
 * __5__: Attention Score (A)
-  * $A_{bright}(1,5) = Q_{bright}(1,4) \times K^T(4,5)$
-
+  * $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K^T(4,5)$
+  * $A_{bright}^{weight}(1,5) = Q_{bright}(1,4) \times K^T(4,5)$
 * __6__: Attention Weight (Z)
   * $Z_{bright}(1,4) = A_{bright}(1,5) \times V(5,4)$
 

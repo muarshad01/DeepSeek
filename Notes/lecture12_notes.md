@@ -40,10 +40,15 @@ The next day is
 ***
 
 #### New token $X_{bright}(1,8)$
-1. $X_{bright}(1,8) \times W_Q(8,4)$
-2. $X_{bright}(1,8) \times W_K(8,4)$
-3. $X_{bright}(1,8) \times W_V(8,4)$
-* We just need to make these three computations for every new inference. 
+1. $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
+2. $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$
+3. $V_{bright}(1,4) = X_{bright}(1,8) \times W_V(8,4)$
+* We just need to make the above three ($\uparrow$) computations for every new inference!
+* $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K_{bright}^T(4,5)$
+* $A_{bright}^{weight}(1,5)$
+* $Z_{bright}(1,4) = A_{bright}^{weight}(1,5) \times V(5,4)$
+
+***
 
 ***
 
@@ -54,16 +59,6 @@ The next day is
 * $A^{score}(5,5) = Q(5,4) \times K^T(4,5)$
 * $A^{weight}(5,5) = \text{softmax}(A^{score}(5,5))$
 * $Z(5,4) = A(5,5) \times V(5,4)$
-
-***
-
-* $Q_{bright}(1,4) = X_{bright}(1,8) \times W_Q(8,4)$
-* $K_{bright}(1,4) = X_{bright}(1,8) \times W_K(8,4)$
-* $V_{bright}(1,4) = X_{bright}(1,8) \times W_V(8,4)$
-* We just need to make the above three ($\uparrow$) computations for every new inference!
-* $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K_{bright}^T(4,5)$
-* $A_{bright}^{weight}(1,5)$
-* $Z_{bright}(1,4) = A_{bright}^{weight}(1,5) \times V(5,4)$
 
 ***
 

@@ -193,7 +193,7 @@ $$
 
 * __15__: So, what happens when a new token comes in?
  
-* First, we compute the queries project into latent space. New arriving vector $X^{bright}(1,8)$
+* First, we compute the queries project into latent space. New arriving vector $X_{bright}(1,8)$
 
 $$
 \begin{aligned}

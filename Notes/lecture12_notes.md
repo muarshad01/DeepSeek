@@ -45,10 +45,8 @@ The next day is
 3. $V_{bright}(1,4) = X_{bright}(1,8) \times W_V(8,4)$
 * We just need to make the above three ($\uparrow$) computations for every new inference!
 * $A_{bright}^{score}(1,5) = Q_{bright}(1,4) \times K_{bright}^T(4,5)$
-* $A_{bright}^{weight}(1,5)$
+* $A_{bright}^{weight}(1,5) = \text{softmax}(A_{bright}^{score}(1,5))$
 * $Z_{bright}(1,4) = A_{bright}^{weight}(1,5) \times V(5,4)$
-
-***
 
 ***
 

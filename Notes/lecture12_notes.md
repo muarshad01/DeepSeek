@@ -52,7 +52,7 @@ The next day is
 * $K(5,4) = X(5,8) \times W_K(8,4)$
 * $V(5,4) = X(5,8) \times W_V(8,4)$
 * $A^{score}(5,5) = Q(5,4) \times K^T(4,5)$
-* $A^{weight}(5,5) = Q(5,4) \times K^T(4,5)$
+* $A^{weight}(5,5) = \text{softmax}(A^{score}(5,5))$
 * $Z(5,4) = A(5,5) \times V(5,4)$
 
 ***

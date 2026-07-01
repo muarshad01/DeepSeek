@@ -39,15 +39,14 @@ The next day is
 
 ***
 
+#### New token $X_{bright}(1,8)$
 1. $X_{bright}(1,8) \times W_Q(8,4)$
 2. $X_{bright}(1,8) \times W_K(8,4)$
 3. $X_{bright}(1,8) \times W_V(8,4)$
-
 * We just need to make these three computations for every new inference. 
 
 ***
 
-#### New token $X_{bright}(1,8)$
 * X(5,8)
 * $Q(5,4) = X(5,8) \times W_Q(8,4)$
 * $K(5,4) = X(5,8) \times W_K(8,4)$

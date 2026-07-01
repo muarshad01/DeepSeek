@@ -82,7 +82,7 @@ $$
 
 * __9__: Can we get best of both worlds?
   * Low cache size
-  * Good language model performance
+  * Good language model performance (Context understanding)
 
 ***
 

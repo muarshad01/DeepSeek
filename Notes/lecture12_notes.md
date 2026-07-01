@@ -66,7 +66,13 @@ The next day is
 
 * __7__: KV-cache disadvantages.
   * Size of KV-cache
-  * $l \times s \times h \times d_{heads} \times h \times 2 \times 2$
+
+$$
+\begin{align}
+   &l \times b \times s \times \text{embed-dim} \times 2 \times 2\\
+   &l \times b \times s \times (n_{heads} \times d_{heads}) \times 2 \times 2\\
+\end{align}
+$$
 
 ***
 

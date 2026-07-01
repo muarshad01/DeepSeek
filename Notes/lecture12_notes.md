@@ -115,6 +115,11 @@ $$
 
 * 40:00
 
+<p align="center">
+   <img src="https://github.com/muarshad01/DeepSeek/blob/main/images/lec12/MLA.png" width="500" height="400" />
+</p>
+
+
 #### How does adding this latent matrix help?
 
 * __13__: What we do next?

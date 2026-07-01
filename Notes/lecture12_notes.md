@@ -209,7 +209,7 @@ $$
 \end{aligned}
 $$
 
-* __3__: Update Latent Cache: $C_{KV}(5,4)$
+* __3__: Update Latent Cache: $C_{KV}(5,4)=C_{KV}(4,4)+C_{KV}^{bright}(1,4)$
 
 * __4__: Compute $K$ and $V$
 

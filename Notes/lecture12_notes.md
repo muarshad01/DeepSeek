@@ -21,6 +21,8 @@
 * __3__: What do we really need to predict the next token?
 * __4__: What if we store/cache the keys and valus matrices during inference?
 * __5__: We need to cache Kay ($K$) and Value ($V$) matrices. This is called a KV-cache. We don't need to store Queries ($Q$) matrix.
+  * Withough KV-cache (Quadratic)
+  * With KV-cache (Linear)
 * __6__: KV-cache advantages.
   * $\text{Computation Cost} = \mathcal{O}(\text{num tokens})$
 

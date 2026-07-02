@@ -7,7 +7,7 @@
 |$d_{model}$|model dimension|
 |$n_{heads}$|Number of heads|
 |$d_{head}$|Dimension of each head|
-|$d_{embed}$|$n_{heads} \times d_{head}$|
+|$n_{heads} \times d_{head}$|Embeddign dimension|
 
 ***
 

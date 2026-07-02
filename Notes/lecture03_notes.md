@@ -2,6 +2,14 @@
 
 ***
 
+|||
+|---|---|
+|$d_{model}$|model dimension|
+|$n_{heads}$|Number of heads|
+|$d_{head}$|Dimension of each head|
+
+***
+
 #### Part-1: Innovative Architecture
 * Multi-head Latent Attention (MLA)
 * Mixture of Experts (MoE)

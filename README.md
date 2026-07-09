@@ -116,7 +116,7 @@ Course](https://www.youtube.com/playlist?list=PLdUcsPPD8lGzctkUXlvcmSBL1GeoErrd5
 | [DeepSeek-V2 (June 2024)](https://arxiv.org/pdf/2405.04434)||
 | [DeepSeek-V3 (Jan 2025)](https://arxiv.org/pdf/2412.19437)||
 | [DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models (Dec 2025)](https://arxiv.org/abs/2512.02556) |
-| [DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence (Apr 2026)](https://arxiv.org/html/2606.19348v1) <bf> DeepSeek V4 utilizes a hybrid attention mechanism—combining C4 (Compressed Sparse Attention) and C128 (Heavily Compressed Attention)—to achieve a 1-million-token context window while radically shrinking the memory footprint of its KV (Key-Value) cache||
+| [DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence (Apr 2026)](https://arxiv.org/html/2606.19348v1) <br> DeepSeek V4 utilizes a hybrid attention mechanism—combining C4 (Compressed Sparse Attention) and C128 (Heavily Compressed Attention)—to achieve a 1-million-token context window while radically shrinking the memory footprint of its KV (Key-Value) cache||
 
 ***
 

@@ -1,4 +1,5 @@
 #### Mixture of Experts
+* [Latent MoE](https://sebastianraschka.com/llm-architecture-gallery/latent-moe/)
 
 ***
 

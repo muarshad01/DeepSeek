@@ -79,12 +79,12 @@ Course](https://www.youtube.com/playlist?list=PLdUcsPPD8lGzctkUXlvcmSBL1GeoErrd5
 
 #### Architecture of LLM
 
-| Model | Parameters |
-|---|---|
-| GPT-2   | 1.5 Billion |
-| GPT-3   | 175 Billion |
-| GPT-4   | 1 Trillion |
-| GPT-4.5 | 5-10 Trillion |
+| Model | Parameters | Context-window Size|
+|---|---|---|
+| GPT-2   | 1.5 Billion | 1,024|
+| GPT-3   | 175 Billion ||
+| GPT-4   | 1 Trillion ||
+| GPT-4.5 | 5-10 Trillion ||
 
 ***
 

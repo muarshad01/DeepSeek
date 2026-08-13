@@ -44,7 +44,7 @@ bright |                 |
 
 
 
-* We want to tranform input embeddings into different space, so that, our expressivity increses and we can capture underline complexities which can't be done through a simple dot product. 
+* We want to tranform input embeddings X(5,8) into different space X(5,4), so that, our expressivity increses and we can capture underline complexities, which can't be done through a simple dot product. 
 
 ***
 

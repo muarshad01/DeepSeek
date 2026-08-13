@@ -23,13 +23,19 @@ The next day is bright
 * (5 X 8)
 
 #### Trainable Weight Metrices
-* Query  = W_q = (8,4) = (d_input, d_output)
-* Keys   = W_k = (8,4)
-* Values = W_v = (8,4)
+* $W_q = (8,4)$ = (d_input, d_output)
+* $W_k = (8,4)$
+* $W_v = (8,4)$
 
-* For W_q, W_k, and W_v usually d_input = d_output
+* For $W_q$, $W_k$, and $W_v$ usually d_input = d_output
 
-* We want to tranform input embeddings into different space, so that, our expressivity increses and we can capture undering complexitites which cann't be done through a simple dot product. 
+* $Q = x \times W_q$
+* $K = x \times W_k$
+* $V = x \times W_v$
+
+
+
+* We want to tranform input embeddings into different space, so that, our expressivity increses and we can capture underline complexities which can't be done through a simple dot product. 
 
 ***
 

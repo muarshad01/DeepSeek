@@ -17,7 +17,7 @@ The next day is bright
 
 
 ####  Example
-* X is (5 X 8)
+* X (5,8)
 * Number of words = 5
 * Embedding dimension = 8
 * Input Embedding = Token Embedding + Positional Embedding
@@ -32,17 +32,15 @@ is     |                 |
 bright |                 |
 ```
 
-
-#### Trainable Weight Metrices
-* $W_q = (8,4)$ = (d_input, d_output)
+#### Query, Key, and Value Weight Matrices
+* $W_q = (8,4)$ 
 * $W_k = (8,4)$
 * $W_v = (8,4)$
 
-* For $W_q$, $W_k$, and $W_v$ usually d_input = d_output
-
-* $Q = x \times W_q$
-* $K = x \times W_k$
-* $V = x \times W_v$
+#### Query, Key, and Value Vectors
+* $Q(5,4) = x \times W_q$
+* $K(5,4) = x \times W_k$
+* $V(5,4) = x \times W_v$
 
 
 

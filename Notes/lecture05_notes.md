@@ -45,9 +45,9 @@ bright |                 |
 
 ***
 
-* 20:00
+* 1:20:00
 
-* $$\text{Attention ~Score} = Q \times K^{T}$$
+* $\text{Attention ~Score}(5,5) = Q \times K^{T}$
 
 ***
 

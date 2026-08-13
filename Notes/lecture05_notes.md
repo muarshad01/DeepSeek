@@ -43,9 +43,13 @@ bright |                 |
 
 * 1:20:00
 
-* $\text{Attention ~Score}(5,5) = Q \times K^{T}$
-* $\text{Attention Weight}(5,5) =\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)$
-* $\text{Context Vector Matrix}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
+$$
+\begin{align}
+       \text{Attention ~Score}(5,5)      &= Q \times K^{T} \\
+       \text{Attention Weight}(5,5)      &=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg) \\
+       \text{Context Vector Matrix}()    &=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V \\
+\end{align}
+$$
 
 ***
 

@@ -5,10 +5,6 @@
 
 ***
 
-$$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
-
-***
-
 #### Self Attention with Trainable Weights
 
 ```
@@ -50,6 +46,11 @@ bright |                 |
 * $\text{Attention ~Score}(5,5) = Q \times K^{T}$
 
 ***
+
+$$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
+
+***
+
 
 * 25:00
 

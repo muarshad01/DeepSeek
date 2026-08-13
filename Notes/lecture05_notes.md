@@ -15,12 +15,23 @@ $$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 The next day is bright
 ```
 
-* Input Embedding = Token Embedding + Positional Embedding
 
 ####  Example
-* Words = 5
-* d_input = Input Emdebbing dimenesion = 8
-* (5 X 8)
+* X is (5 X 8)
+* Number of words = 5
+* Embedding dimension = 8
+* Input Embedding = Token Embedding + Positional Embedding
+
+```
+       
+       | 1 2 3 4 5 6 7 8 |
+The    |                 |
+next   |                 |
+day    |                 |
+is     |                 |
+bright |                 |
+```
+
 
 #### Trainable Weight Metrices
 * $W_q = (8,4)$ = (d_input, d_output)

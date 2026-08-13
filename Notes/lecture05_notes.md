@@ -23,7 +23,6 @@ The next day is bright
 * Input Embedding = Token Embedding + Positional Embedding
 
 ```
-       
        | 1 2 3 4 5 6 7 8 |
 The    |                 |
 next   |                 |
@@ -37,12 +36,10 @@ bright |                 |
 * $W_k = (8,4)$
 * $W_v = (8,4)$
 
-#### Query, Key, and Value Vectors
+#### Query, Key, and Value Matrices
 * $Q(5,4) = x \times W_q$
 * $K(5,4) = x \times W_k$
 * $V(5,4) = x \times W_v$
-
-
 
 * We want to tranform input embeddings X(5,8) into different space X(5,4), so that, our expressivity increses and we can capture underline complexities, which can't be done through a simple dot product. 
 

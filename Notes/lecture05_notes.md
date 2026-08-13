@@ -61,12 +61,3 @@ $$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 * [Softmax](https://github.com/muarshad01/DeepSeek/blob/main/softmax.md)
 
 ***
-
-* 35:00
-
-* Attention Score
-* Attentin Weight (are normalized)
-
-***
-
-

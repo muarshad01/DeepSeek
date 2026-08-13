@@ -44,6 +44,8 @@ bright |                 |
 * 1:20:00
 
 * $\text{Attention ~Score}(5,5) = Q \times K^{T}$
+* $\text{Attention Weight}=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)$
+* $\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
 
 ***
 

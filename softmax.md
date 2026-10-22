@@ -1,6 +1,6 @@
 ## Softmax
 
-$$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{k}}}\bigg)V$$
+$$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{keys}}}\bigg)V$$
 
 #### Example
 $$\\{x_1, x_2, x_3, x_4, x_5, x_6\\}$$

@@ -14,7 +14,7 @@ $$
 #### Example: Normal Softmax
 $$
 \begin{align}
-      &= \\{q_1k_1^T+q_1k_2^T+q_1k_3^T+q_1k_4^T+q_1k_5^T+q_1k_6^T\\} \rightarrow \\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
+      \\{q_1k_1^T+q_1k_2^T+q_1k_3^T+q_1k_4^T+q_1k_5^T+q_1k_6^T\\} &= \\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
       &= \bigg\\{\frac{e^{s_1}}{\text{sum}},\frac{e^{s_2}}{\text{sum}},\frac{e^{s_3}}{\text{sum}},\frac{e^{s_4}}{\text{sum}},\frac{e^{s_5}}{\text{sum}},\frac{e^{s_6}}{\text{sum}},\bigg\\} \\ 
    \text{sum} &= e^{s_1} + e^{s_2} + e^{s_3} + e^{s_4} + e^{s_5} + e^{s_6} \\
 \end{align}

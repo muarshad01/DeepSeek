@@ -2,6 +2,7 @@
 $$
 \begin{align}
    S &= \text{casual mask}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\\
+   P &= \text{softmax}\bigg(\text{casual mask}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\bigg)\\
 \end{align}
 $$
 

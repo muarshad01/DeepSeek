@@ -9,6 +9,15 @@ $$\text{sum} = e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6}$$
 
 $$\bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\bigg\\}$$
 
+#### Example: Safe Softmax
+$$\\{x_1, x_2, x_3, x_4, x_5, x_6\\}$$
+
+$$\text{sum} = e^{x_1-\text{max}} + e^{x_2-\text{max}} + e^{x_3-\text{max}} + e^{x_4-\text{max}} + e^{x_5-\text{max}} + e^{x_6-\text{max}}$$
+
+$$\bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\bigg\\}$$
+
+
+
 * __Peaky Output__: Softmax gives more attention to higher values and less attention to lower values.
 * Probabilities of a row b/w 0-1
 * Sum of row values sum = 1

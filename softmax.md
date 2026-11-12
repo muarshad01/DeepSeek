@@ -9,6 +9,8 @@ $$
 
 ***
 
+## softmax
+
 #### Example: Normal Softmax
 $$
 \begin{align}

@@ -24,7 +24,8 @@ $$
 \begin{align}
  &= \\{x_1, x_2, x_3, x_4, x_5, x_6\\} \\
   &= \bigg\\{\frac{e^{x_1-\text{max}}}{\text{sum}},\frac{e^{x_2-\text{max}}}{\text{sum}},\frac{e^{x_3-\text{max}}}{\text{sum}},\frac{e^{x_4-\text{max}}}{\text{sum}},\frac{e^{x_5-\text{max}}}{\text{sum}},\frac{e^{x_6-\text{max}}}{\text{sum}},\bigg\\} \\
- \text{sum} &= e^{x_1-\text{max}} + e^{x_2-\text{max}} + e^{x_3-\text{max}} + e^{x_4-\text{max}} + e^{x_5-\text{max}} + e^{x_6-\text{max}} \\
+m  &= \max\\{x_1, x_2, x_3, x_4, x_5, x_6\\} 
+ \text{sum} &= e^{x_1-\text{m}} + e^{x_2-\text{m}} + e^{x_3-\text{m}} + e^{x_4-\text{m}} + e^{x_5-\text{m}} + e^{x_6-\text{m}} \\
 \end{align}
 $$
 

@@ -32,11 +32,12 @@ m  &= \max\\{x_1, x_2, x_3, x_4, x_5, x_6\\} \\
 $$
 
 
-* __Peaky Output__: Softmax gives more attention to higher values and less attention to lower values.
-* Probabilities of a row b/w 0-1
-* Sum of row values sum = 1
+* __Peaky Output__:
+   * Softmax gives more attention to higher values and less attention to lower values.
+   * Probabilities of a row b/w 0-1
+   * Sum of row values sum = 1
 
-#### Scaling
+#### Variance Issue with increasing dimension
 * $Q \times K^T$ variance can become vary large
 * Variance scales as $\sqrt{d_{keys}}$
 * We want variance to stay as close to one

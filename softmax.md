@@ -1,6 +1,12 @@
 ## Softmax
 
-$$\text{Attention}(Q,K,V)=\text{softmax}\bigg(\frac{QK^T}{\sqrt{d_{keys}}}\bigg)V$$
+$$
+\begin{align}
+   S &= \text{casual mask}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\\
+   P &= \text{softmax}\bigg(\text{casual mask}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\bigg)\\
+   \text{Attention}(Q,K,V) = O &= \text{softmax}\bigg(\text{casual mask}\bigg(\frac{Q \times K^T}{\sqrt{d_{keys}}}\bigg)\bigg) \times V\\
+\end{align}
+$$
 
 #### Example: Normal Softmax
 $$\\{x_1, x_2, x_3, x_4, x_5, x_6\\}$$

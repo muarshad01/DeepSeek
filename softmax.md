@@ -14,9 +14,9 @@ $$
 #### Example: Normal Softmax
 $$
 \begin{align}
-      &= \\{x_1, x_2, x_3, x_4, x_5, x_6\\} \\
-      &= \bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\text{sum}},\frac{e^{x_4}}{\text{sum}},\frac{e^{x_5}}{\text{sum}},\frac{e^{x_6}}{\text{sum}},\bigg\\} \\ 
-   \text{sum} &= e^{x_1} + e^{x_2} + e^{x_3} + e^{x_4} + e^{x_5} + e^{x_6} \\
+      &= \\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
+      &= \bigg\\{\frac{e^{s_1}}{\text{sum}},\frac{e^{s_2}}{\text{sum}},\frac{e^{s_3}}{\text{sum}},\frac{e^{s_4}}{\text{sum}},\frac{e^{s_5}}{\text{sum}},\frac{e^{s_6}}{\text{sum}},\bigg\\} \\ 
+   \text{sum} &= e^{s_1} + e^{s_2} + e^{s_3} + e^{s_4} + e^{s_5} + e^{s_6} \\
 \end{align}
 $$
 

@@ -21,4 +21,8 @@ $$\bigg\\{\frac{e^{x_1}}{\text{sum}},\frac{e^{x_2}}{\text{sum}},\frac{e^{x_3}}{\
 
 ***
 
+1. Normal softmax
+2. Safe softmx
+
+*** 
 

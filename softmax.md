@@ -26,7 +26,7 @@ $$
 \begin{align}
  \\{q_1k_1^T, q_1k_2^T, q_1k_3^T, q_1k_4^T, q_1k_5^T,q_1k_6^T\\} &= \\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
   &= \bigg\\{\frac{e^{s_1-\text{m}}}{\text{sum}},\frac{e^{s_2-\text{m}}}{\text{sum}},\frac{e^{s_3-\text{m}}}{\text{sum}},\frac{e^{s_4-\text{m}}}{\text{sum}},\frac{e^{s_5-\text{m}}}{\text{sum}},\frac{e^{s_6-\text{m}}}{\text{sum}},\bigg\\} \\
-m  &= \sum_{i}^{n}s_i = \max\\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
+m  = \sum_{i}^{n}s_i &= \max\\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
  \text{sum} &= e^{s_1-\text{m}} + e^{s_2-\text{m}} + e^{s_3-\text{m}} + e^{s_4-\text{m}} + e^{s_5-\text{m}} + e^{s_6-\text{m}} \\
 \end{align}
 $$

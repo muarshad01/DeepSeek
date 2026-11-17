@@ -31,6 +31,7 @@ m  = \sum_{i}^{n}s_i &= \max\\{s_1, s_2, s_3, s_4, s_5, s_6\\} \\
 \end{align}
 $$
 
+* For numerical stability we subtract $m$, it confines the exp values in the range of -inf to 0.
 
 * __Peaky Output__:
    * Softmax gives more attention to higher values and less attention to lower values.

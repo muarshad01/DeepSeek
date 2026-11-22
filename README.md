@@ -4,6 +4,12 @@
 * [Modern Transformer Architecture Explained by Jia-Bin Huang · 
 Course](https://www.youtube.com/playlist?list=PLdUcsPPD8lGzctkUXlvcmSBL1GeoErrd5)
 
+***
+
+#### TODO
+* [DeepSeek Sparse Attention Explained: How It Makes Long Context Cheaper](https://www.youtube.com/watch?v=9s79zX71gu0)
+
+
 *** 
 
 | Lecture | Notes | Date Updated |

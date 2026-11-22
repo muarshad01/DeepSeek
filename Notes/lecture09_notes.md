@@ -1,3 +1,6 @@
+#### [Why LLMs Waste 99% of Compute — And How KV Cache Fixes It](https://www.youtube.com/watch?v=HmWQhBjbtLE)
+
+***
 
 | Model | Context Size|
 |---|---|

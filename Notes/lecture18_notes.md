@@ -1,3 +1,7 @@
+#### [Mixture of Experts Explained Visually: How Trillion-Parameter Models Actually Work](https://www.youtube.com/watch?v=9pbyKc8SI6w)
+
+***
+
 #### Mixture of Experts
 * [Latent MoE](https://sebastianraschka.com/llm-architecture-gallery/latent-moe/)
 

@@ -1,3 +1,7 @@
+#### [Why Transformers Need Positional Encoding | Sin & Cos Explained Visually](https://www.youtube.com/watch?v=42y3XeOnH78)
+
+***
+
 #### Integer and Binary Positional Encodings (PE)
 
 1. Integer Positional Encoding (IPE)
